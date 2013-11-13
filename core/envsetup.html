@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;定义了一系列编译变量，主要是编译用的存储编译结果的目录，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;详细的请参考文档<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_PRODUCT">■ &nbsp;&nbsp;TARGET_PRODUCT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例：cm_i9100<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="UNAME">■ &nbsp;&nbsp;UNAME</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;操作系统+体系结构<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;例：Linux&nbsp;x86_64<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OS">■ &nbsp;&nbsp;HOST_OS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;主机操作系统<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;linux&nbsp;darwin&nbsp;windows&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILD_OS">■ &nbsp;&nbsp;BUILD_OS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;编译所在主机的操作系统<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;BUILD_OS&nbsp;:=&nbsp;$(HOST_OS)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_ARCH">■ &nbsp;&nbsp;HOST_ARCH</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主机体系结构<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x86&nbsp;ppc<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILD_ARCH">■ &nbsp;&nbsp;BUILD_ARCH</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;编译系统所在主机的操作系统<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(BUILD_OS)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;x86&nbsp;ppc<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_BUILD_TYPE">■ &nbsp;&nbsp;HOST_BUILD_TYPE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主机编译类型&nbsp;release&nbsp;或者debug<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_PREBUILT_TAG">■ &nbsp;&nbsp;HOST_PREBUILT_TAG</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;standard&nbsp;way&nbsp;to&nbsp;name&nbsp;a&nbsp;directory&nbsp;containing&nbsp;prebuilt&nbsp;host<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects.&nbsp;E.g.,&nbsp;prebuilt/$(HOST_PREBUILT_TAG)/cc<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(HOST_OS),windows)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOST_PREBUILT_TAG&nbsp;:=&nbsp;windows<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOST_PREBUILT_TAG&nbsp;:=&nbsp;$(HOST_OS)-$(HOST_ARCH)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linux-x86&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_COPY_OUT_SYSTEM">■ &nbsp;&nbsp;TARGET_COPY_OUT_SYSTEM</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_COPY_OUT_SYSTEM&nbsp;:=&nbsp;system<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_COPY_OUT_DATA">■ &nbsp;&nbsp;TARGET_COPY_OUT_DATA</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_COPY_OUT_DATA&nbsp;:=&nbsp;data<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_COPY_OUT_VENDOR">■ &nbsp;&nbsp;TARGET_COPY_OUT_VENDOR</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_COPY_OUT_VENDOR&nbsp;:=&nbsp;system/vendor<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_COPY_OUT_ROOT">■ &nbsp;&nbsp;TARGET_COPY_OUT_ROOT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_COPY_OUT_ROOT&nbsp;:=&nbsp;root<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_COPY_OUT_RECOVERY">■ &nbsp;&nbsp;TARGET_COPY_OUT_RECOVERY</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_COPY_OUT_RECOVERY&nbsp;:=&nbsp;recovery<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OS">■ &nbsp;&nbsp;TARGET_OS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OS&nbsp;:=&nbsp;linux&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_BUILD_TYPE">■ &nbsp;&nbsp;TARGET_BUILD_TYPE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifneq&nbsp;($(TARGET_BUILD_TYPE),debug)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TARGET_BUILD_TYPE&nbsp;:=&nbsp;release<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="OUT_DIR">■ &nbsp;&nbsp;OUT_DIR</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;(,$(strip&nbsp;$(OUT_DIR)))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;(,$(strip&nbsp;$(OUT_DIR_COMMON_BASE)))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifneq&nbsp;($(TOPDIR),)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OUT_DIR&nbsp;:=&nbsp;$(TOPDIR)out<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OUT_DIR&nbsp;:=&nbsp;$(CURDIR)/out<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OUT_DIR&nbsp;:=&nbsp;$(OUT_DIR_COMMON_BASE)/$(notdir&nbsp;$(PWD))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="DEBUG_OUT_DIR">■ &nbsp;&nbsp;DEBUG_OUT_DIR</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEBUG_OUT_DIR&nbsp;:=&nbsp;$(OUT_DIR)/debug<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例：out/debug<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_ROOT_release">■ &nbsp;&nbsp;TARGET_OUT_ROOT_release</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_ROOT_release&nbsp;:=&nbsp;$(OUT_DIR)/target<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_ROOT_debug">■ &nbsp;&nbsp;TARGET_OUT_ROOT_debug</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_ROOT_debug&nbsp;:=&nbsp;$(DEBUG_OUT_DIR)/target<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/debug/target<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_ROOT">■ &nbsp;&nbsp;TARGET_OUT_ROOT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_ROOT&nbsp;:=&nbsp;$(TARGET_OUT_ROOT_$(TARGET_BUILD_TYPE))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target&nbsp;或者out/debug/target<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_ROOT_release">■ &nbsp;&nbsp;HOST_OUT_ROOT_release</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_ROOT_release&nbsp;:=&nbsp;$(OUT_DIR)/host<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_ROOT_debug">■ &nbsp;&nbsp;HOST_OUT_ROOT_debug</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_ROOT_debug&nbsp;:=&nbsp;$(DEBUG_OUT_DIR)/host<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/debug/host<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_ROOT">■ &nbsp;&nbsp;HOST_OUT_ROOT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_ROOT&nbsp;:=&nbsp;$(HOST_OUT_ROOT_$(HOST_BUILD_TYPE))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host或者out/debug/host<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_release">■ &nbsp;&nbsp;HOST_OUT_release</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_release&nbsp;:=&nbsp;$(HOST_OUT_ROOT_release)/$(HOST_OS)-$(HOST_ARCH)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:oust/host/linux-x86<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_debug">■ &nbsp;&nbsp;HOST_OUT_debug</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_debug&nbsp;:=&nbsp;$(HOST_OUT_ROOT_debug)/$(HOST_OS)-$(HOST_ARCH)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/debug/host/linux-x86<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT">■ &nbsp;&nbsp;HOST_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT&nbsp;:=&nbsp;$(HOST_OUT_$(HOST_BUILD_TYPE))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:oust/host/linux-x86<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILD_OUT">■ &nbsp;&nbsp;BUILD_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;BUILD_OUT&nbsp;:=&nbsp;$(OUT_DIR)/host/$(BUILD_OS)-$(BUILD_ARCH)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_PRODUCT_OUT_ROOT">■ &nbsp;&nbsp;TARGET_PRODUCT_OUT_ROOT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_PRODUCT_OUT_ROOT&nbsp;:=&nbsp;$(TARGET_OUT_ROOT)/product<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_COMMON_OUT_ROOT">■ &nbsp;&nbsp;TARGET_COMMON_OUT_ROOT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_COMMON_OUT_ROOT&nbsp;:=&nbsp;$(TARGET_OUT_ROOT)/common<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/common&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_COMMON_OUT_ROOT">■ &nbsp;&nbsp;HOST_COMMON_OUT_ROOT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_COMMON_OUT_ROOT&nbsp;:=&nbsp;$(HOST_OUT_ROOT)/common<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/common<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_OUT">■ &nbsp;&nbsp;PRODUCT_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT_OUT&nbsp;:=&nbsp;$(TARGET_PRODUCT_OUT_ROOT)/$(TARGET_DEVICE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="OUT_DOCS">■ &nbsp;&nbsp;OUT_DOCS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;OUT_DOCS&nbsp;:=&nbsp;$(TARGET_COMMON_OUT_ROOT)/docs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/common/docs<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILD_OUT">■ &nbsp;&nbsp;BUILD_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例：out/host/linux-x86<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILD_OUT_EXECUTABLES">■ &nbsp;&nbsp;BUILD_OUT_EXECUTABLES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;BUILD_OUT_EXECUTABLES:=&nbsp;$(BUILD_OUT)/bin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_EXECUTABLES">■ &nbsp;&nbsp;HOST_OUT_EXECUTABLES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_EXECUTABLES:=&nbsp;$(HOST_OUT)/bin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_SHARED_LIBRARIES">■ &nbsp;&nbsp;HOST_OUT_SHARED_LIBRARIES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_SHARED_LIBRARIES:=&nbsp;$(HOST_OUT)/lib<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/lib<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_JAVA_LIBRARIES">■ &nbsp;&nbsp;HOST_OUT_JAVA_LIBRARIES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_JAVA_LIBRARIES:=&nbsp;$(HOST_OUT)/framework<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/framework<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_SDK_ADDON">■ &nbsp;&nbsp;HOST_OUT_SDK_ADDON</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_SDK_ADDON&nbsp;:=&nbsp;$(HOST_OUT)/sdk_addon<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/sdk_addon<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_INTERMEDIATES">■ &nbsp;&nbsp;HOST_OUT_INTERMEDIATES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_INTERMEDIATES&nbsp;:=&nbsp;$(HOST_OUT)/obj<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/obj<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_HEADERS">■ &nbsp;&nbsp;HOST_OUT_HEADERS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_HEADERS:=&nbsp;$(HOST_OUT_INTERMEDIATES)/include<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/obj/include<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_INTERMEDIATE_LIBRARIES">■ &nbsp;&nbsp;HOST_OUT_INTERMEDIATE_LIBRARIES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_INTERMEDIATE_LIBRARIES&nbsp;:=&nbsp;$(HOST_OUT_INTERMEDIATES)/lib<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/obj/lib<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_NOTICE_FILES">■ &nbsp;&nbsp;HOST_OUT_NOTICE_FILES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_NOTICE_FILES:=$(HOST_OUT_INTERMEDIATES)/NOTICE_FILES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例：out/host/linux-x86/obj/NOTICE_FILES<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HOST_OUT_COMMON_INTERMEDIATES">■ &nbsp;&nbsp;HOST_OUT_COMMON_INTERMEDIATES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;HOST_OUT_COMMON_INTERMEDIATES&nbsp;:=&nbsp;$(HOST_COMMON_OUT_ROOT)/obj<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/host/linux-x86/obj<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_INTERMEDIATES">■ &nbsp;&nbsp;TARGET_OUT_INTERMEDIATES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_INTERMEDIATES&nbsp;:=&nbsp;$(PRODUCT_OUT)/obj<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/obj<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_HEADERS:=">■ &nbsp;&nbsp;TARGET_OUT_HEADERS:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_HEADERS:=&nbsp;$(TARGET_OUT_INTERMEDIATES)/include<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/obj/include<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_INTERMEDIATE_LIBRARIES">■ &nbsp;&nbsp;TARGET_OUT_INTERMEDIATE_LIBRARIES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_INTERMEDIATE_LIBRARIES&nbsp;:=&nbsp;$(TARGET_OUT_INTERMEDIATES)/lib<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/obj/lib<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_COMMON_INTERMEDIATES">■ &nbsp;&nbsp;TARGET_OUT_COMMON_INTERMEDIATES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_COMMON_INTERMEDIATES&nbsp;:=&nbsp;$(TARGET_COMMON_OUT_ROOT)/obj<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/common/obj<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT">■ &nbsp;&nbsp;TARGET_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT&nbsp;:=&nbsp;$(PRODUCT_OUT)/$(TARGET_COPY_OUT_SYSTEM)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_EXECUTABLES">■ &nbsp;&nbsp;TARGET_OUT_EXECUTABLES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_EXECUTABLES:=&nbsp;$(TARGET_OUT)/bin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_OPTIONAL_EXECUTABLES:=">■ &nbsp;&nbsp;TARGET_OUT_OPTIONAL_EXECUTABLES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_OPTIONAL_EXECUTABLES:=&nbsp;$(TARGET_OUT)/xbin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/xbin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_SHARED_LIBRARIES:=">■ &nbsp;&nbsp;TARGET_OUT_SHARED_LIBRARIES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_SHARED_LIBRARIES:=&nbsp;$(TARGET_OUT)/lib<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/lib<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_JAVA_LIBRARIES:=">■ &nbsp;&nbsp;TARGET_OUT_JAVA_LIBRARIES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_JAVA_LIBRARIES:=&nbsp;$(TARGET_OUT)/framework<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/framework<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_APPS:=">■ &nbsp;&nbsp;TARGET_OUT_APPS:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_APPS:=&nbsp;$(TARGET_OUT)/app<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/app<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_KEYLAYOUT">■ &nbsp;&nbsp;TARGET_OUT_KEYLAYOUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_KEYLAYOUT&nbsp;:=&nbsp;$(TARGET_OUT)/usr/keylayout<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/usr/keylayout<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_KEYCHARS">■ &nbsp;&nbsp;TARGET_OUT_KEYCHARS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_KEYCHARS&nbsp;:=&nbsp;$(TARGET_OUT)/usr/keychars<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/usr/keychars<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_ETC">■ &nbsp;&nbsp;TARGET_OUT_ETC</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_ETC&nbsp;:=&nbsp;$(TARGET_OUT)/etc<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/etc<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_NOTICE_FILES">■ &nbsp;&nbsp;TARGET_OUT_NOTICE_FILES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_NOTICE_FILES:=$(TARGET_OUT_INTERMEDIATES)/NOTICE_FILES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/obj/NOTICE_FILES<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_FAKE">■ &nbsp;&nbsp;TARGET_OUT_FAKE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_FAKE&nbsp;:=&nbsp;$(PRODUCT_OUT)/fake_packages<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/fake_packages<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA">■ &nbsp;&nbsp;TARGET_OUT_DATA</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA&nbsp;:=&nbsp;$(PRODUCT_OUT)/$(TARGET_COPY_OUT_DATA)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/data<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA_EXECUTABLES:=">■ &nbsp;&nbsp;TARGET_OUT_DATA_EXECUTABLES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA_EXECUTABLES:=&nbsp;$(TARGET_OUT_EXECUTABLES)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA_SHARED_LIBRARIES:=">■ &nbsp;&nbsp;TARGET_OUT_DATA_SHARED_LIBRARIES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA_SHARED_LIBRARIES:=&nbsp;$(TARGET_OUT_SHARED_LIBRARIES)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/lib<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA_JAVA_LIBRARIES:=">■ &nbsp;&nbsp;TARGET_OUT_DATA_JAVA_LIBRARIES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA_JAVA_LIBRARIES:=&nbsp;$(TARGET_OUT_JAVA_LIBRARIES)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/framework<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA_APPS:=">■ &nbsp;&nbsp;TARGET_OUT_DATA_APPS:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA_APPS:=&nbsp;$(TARGET_OUT_DATA)/app<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/data/app<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA_KEYLAYOUT">■ &nbsp;&nbsp;TARGET_OUT_DATA_KEYLAYOUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA_KEYLAYOUT&nbsp;:=&nbsp;$(TARGET_OUT_KEYLAYOUT)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/usr/keylayout<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA_KEYCHARS">■ &nbsp;&nbsp;TARGET_OUT_DATA_KEYCHARS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA_KEYCHARS&nbsp;:=&nbsp;$(TARGET_OUT_KEYCHARS)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/usr/keychars<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA_ETC">■ &nbsp;&nbsp;TARGET_OUT_DATA_ETC</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA_ETC&nbsp;:=&nbsp;$(TARGET_OUT_ETC)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/etc<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_DATA_NATIVE_TESTS">■ &nbsp;&nbsp;TARGET_OUT_DATA_NATIVE_TESTS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_DATA_NATIVE_TESTS&nbsp;:=&nbsp;$(TARGET_OUT_DATA)/nativetest<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/data/nativetest<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_CACHE">■ &nbsp;&nbsp;TARGET_OUT_CACHE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_CACHE&nbsp;:=&nbsp;$(PRODUCT_OUT)/cache<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/cache<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_VENDOR">■ &nbsp;&nbsp;TARGET_OUT_VENDOR</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_VENDOR&nbsp;:=&nbsp;$(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/vendor<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_VENDOR_EXECUTABLES:=">■ &nbsp;&nbsp;TARGET_OUT_VENDOR_EXECUTABLES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_VENDOR_EXECUTABLES:=&nbsp;$(TARGET_OUT_VENDOR)/bin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/vendor/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_VENDOR_OPTIONAL_EXECUTABLES:=">■ &nbsp;&nbsp;TARGET_OUT_VENDOR_OPTIONAL_EXECUTABLES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_VENDOR_OPTIONAL_EXECUTABLES:=&nbsp;$(TARGET_OUT_VENDOR)/xbin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/vendor/xbin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_VENDOR_SHARED_LIBRARIES:=">■ &nbsp;&nbsp;TARGET_OUT_VENDOR_SHARED_LIBRARIES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_VENDOR_SHARED_LIBRARIES:=&nbsp;$(TARGET_OUT_VENDOR)/lib<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/vendor/lib<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_VENDOR_JAVA_LIBRARIES:=">■ &nbsp;&nbsp;TARGET_OUT_VENDOR_JAVA_LIBRARIES:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_VENDOR_JAVA_LIBRARIES:=&nbsp;$(TARGET_OUT_VENDOR)/framework<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/vendor/framework<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_VENDOR_APPS:=">■ &nbsp;&nbsp;TARGET_OUT_VENDOR_APPS:=</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_VENDOR_APPS:=&nbsp;$(TARGET_OUT_VENDOR)/app<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/vendor/app<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_VENDOR_ETC">■ &nbsp;&nbsp;TARGET_OUT_VENDOR_ETC</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_VENDOR_ETC&nbsp;:=&nbsp;$(TARGET_OUT_VENDOR)/etc<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/vendor/etc<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_UNSTRIPPED">■ &nbsp;&nbsp;TARGET_OUT_UNSTRIPPED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_UNSTRIPPED&nbsp;:=&nbsp;$(PRODUCT_OUT)/symbols<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/system/symbols<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_EXECUTABLES_UNSTRIPPED">■ &nbsp;&nbsp;TARGET_OUT_EXECUTABLES_UNSTRIPPED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_EXECUTABLES_UNSTRIPPED&nbsp;:=&nbsp;$(TARGET_OUT_UNSTRIPPED)/system/bin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/sysmbols/system/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OUT_SHARED_LIBRARIES_UNSTRIPPED">■ &nbsp;&nbsp;TARGET_OUT_SHARED_LIBRARIES_UNSTRIPPED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_OUT_SHARED_LIBRARIES_UNSTRIPPED&nbsp;:=&nbsp;$(TARGET_OUT_UNSTRIPPED)/system/lib<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/sysmbols/system/lib<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ROOT_OUT_UNSTRIPPED">■ &nbsp;&nbsp;TARGET_ROOT_OUT_UNSTRIPPED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ROOT_OUT_UNSTRIPPED&nbsp;:=&nbsp;$(TARGET_OUT_UNSTRIPPED)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/sysmbols<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ROOT_OUT_SBIN_UNSTRIPPED">■ &nbsp;&nbsp;TARGET_ROOT_OUT_SBIN_UNSTRIPPED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ROOT_OUT_SBIN_UNSTRIPPED&nbsp;:=&nbsp;$(TARGET_OUT_UNSTRIPPED)/sbin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/sysmbols/sbin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ROOT_OUT_BIN_UNSTRIPPED">■ &nbsp;&nbsp;TARGET_ROOT_OUT_BIN_UNSTRIPPED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ROOT_OUT_BIN_UNSTRIPPED&nbsp;:=&nbsp;$(TARGET_OUT_UNSTRIPPED)/bin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/sysmbols/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ROOT_OUT">■ &nbsp;&nbsp;TARGET_ROOT_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ROOT_OUT&nbsp;:=&nbsp;$(PRODUCT_OUT)/$(TARGET_COPY_OUT_ROOT)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/root<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ROOT_OUT_BIN">■ &nbsp;&nbsp;TARGET_ROOT_OUT_BIN</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ROOT_OUT_BIN&nbsp;:=&nbsp;$(TARGET_ROOT_OUT)/bin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/root/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ROOT_OUT_SBIN">■ &nbsp;&nbsp;TARGET_ROOT_OUT_SBIN</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ROOT_OUT_SBIN&nbsp;:=&nbsp;$(TARGET_ROOT_OUT)/sbin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/root/sbin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ROOT_OUT_ETC">■ &nbsp;&nbsp;TARGET_ROOT_OUT_ETC</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ROOT_OUT_ETC&nbsp;:=&nbsp;$(TARGET_ROOT_OUT)/etc<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/root/etc<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ROOT_OUT_USR">■ &nbsp;&nbsp;TARGET_ROOT_OUT_USR</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ROOT_OUT_USR&nbsp;:=&nbsp;$(TARGET_ROOT_OUT)/usr<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/root/usr<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_RECOVERY_OUT">■ &nbsp;&nbsp;TARGET_RECOVERY_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_RECOVERY_OUT&nbsp;:=&nbsp;$(PRODUCT_OUT)/$(TARGET_COPY_OUT_RECOVERY)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/recovery<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_RECOVERY_ROOT_OUT">■ &nbsp;&nbsp;TARGET_RECOVERY_ROOT_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_RECOVERY_ROOT_OUT&nbsp;:=&nbsp;$(TARGET_RECOVERY_OUT)/root<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/recovery/root<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_SYSLOADER_OUT">■ &nbsp;&nbsp;TARGET_SYSLOADER_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_SYSLOADER_OUT&nbsp;:=&nbsp;$(PRODUCT_OUT)/sysloader<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/sysloader<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_SYSLOADER_ROOT_OUT">■ &nbsp;&nbsp;TARGET_SYSLOADER_ROOT_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_SYSLOADER_ROOT_OUT&nbsp;:=&nbsp;$(TARGET_SYSLOADER_OUT)/root<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/sysloader/root<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_SYSLOADER_SYSTEM_OUT">■ &nbsp;&nbsp;TARGET_SYSLOADER_SYSTEM_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_SYSLOADER_SYSTEM_OUT&nbsp;:=&nbsp;$(TARGET_SYSLOADER_OUT)/root/system<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/sysloader/root/system<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_INSTALLER_OUT">■ &nbsp;&nbsp;TARGET_INSTALLER_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_INSTALLER_OUT&nbsp;:=&nbsp;$(PRODUCT_OUT)/installer<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/installer<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_INSTALLER_DATA_OUT">■ &nbsp;&nbsp;TARGET_INSTALLER_DATA_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_INSTALLER_DATA_OUT&nbsp;:=&nbsp;$(TARGET_INSTALLER_OUT)/data<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/installer/data<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_INSTALLER_ROOT_OUT">■ &nbsp;&nbsp;TARGET_INSTALLER_ROOT_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_INSTALLER_ROOT_OUT&nbsp;:=&nbsp;$(TARGET_INSTALLER_OUT)/root<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/installer/root<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_INSTALLER_SYSTEM_OUT">■ &nbsp;&nbsp;TARGET_INSTALLER_SYSTEM_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_INSTALLER_SYSTEM_OUT&nbsp;:=&nbsp;$(TARGET_INSTALLER_OUT)/root/system<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/installer/root/system<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_FACTORY_RAMDISK_OUT">■ &nbsp;&nbsp;TARGET_FACTORY_RAMDISK_OUT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_FACTORY_RAMDISK_OUT&nbsp;:=&nbsp;$(PRODUCT_OUT)/factory_ramdisk<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例:out/target/product/i9100/factory_ramdisk<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="COMMON_MODULE_CLASSES">■ &nbsp;&nbsp;COMMON_MODULE_CLASSES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMMON_MODULE_CLASSES&nbsp;:=&nbsp;TARGET-NOTICE_FILES&nbsp;HOST-NOTICE_FILES&nbsp;HOST-JAVA_LIBRARIES<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="DIST_DIR">■ &nbsp;&nbsp;DIST_DIR</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;(,$(strip&nbsp;$(DIST_DIR)))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DIST_DIR&nbsp;:=&nbsp;$(OUT_DIR)/dist<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;　　out/dist<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRINT_BUILD_CONFIG">■ &nbsp;&nbsp;PRINT_BUILD_CONFIG</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(PRINT_BUILD_CONFIG),)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT_BUILD_CONFIG&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

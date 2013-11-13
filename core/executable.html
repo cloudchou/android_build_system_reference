@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standard&nbsp;rules&nbsp;for&nbsp;building&nbsp;an&nbsp;executable&nbsp;file.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Additional&nbsp;inputs&nbsp;from&nbsp;base_rules.make:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None.编译为手机上的可执行文件<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE_CLASS">■ &nbsp;&nbsp;LOCAL_MODULE_CLASS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果模块没有设置，默认为EXECUTABLES，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE_SUFFIX">■ &nbsp;&nbsp;LOCAL_MODULE_SUFFIX</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果模块没有设置，&nbsp;&nbsp;&nbsp;&nbsp;默认为$(TARGET_EXECUTABLE_SUFFIX)，即为空<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_ENABLE_APROF">■ &nbsp;&nbsp;LOCAL_ENABLE_APROF</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add&nbsp;profiling&nbsp;libraries&nbsp;if&nbsp;aprof&nbsp;is&nbsp;turned<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aprof&nbsp;is&nbsp;a&nbsp;Valgrind&nbsp;tool&nbsp;for&nbsp;performance&nbsp;profiling&nbsp;designed&nbsp;to&nbsp;help&nbsp;developers&nbsp;discover&nbsp;hidden&nbsp;asymptotic&nbsp;inefficiencies&nbsp;in&nbsp;the&nbsp;code.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From&nbsp;a&nbsp;single&nbsp;run&nbsp;of&nbsp;a&nbsp;program,&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aprof&nbsp;measures&nbsp;how&nbsp;the&nbsp;performance&nbsp;of&nbsp;individual&nbsp;routines&nbsp;scales&nbsp;as&nbsp;a&nbsp;function&nbsp;of&nbsp;the&nbsp;input&nbsp;size,&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yielding&nbsp;clues&nbsp;to&nbsp;its&nbsp;growth&nbsp;rate&nbsp;and&nbsp;to&nbsp;the&nbsp;"big-O"&nbsp;of&nbsp;the&nbsp;program.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果定义LOCAL_ENABLE_APROF为true，那么将引入prof相关的库&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="[[linked_module]]">■ &nbsp;&nbsp;[[linked_module]]</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;linked_module&nbsp;:=&nbsp;$(guessed_intermediates)/LINKED/$(LOCAL_BUILT_MODULE_STEM)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;编译链接后可执行文件存放目录&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;和LOCAL_BUILT_MODULE等价<br/>
+<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

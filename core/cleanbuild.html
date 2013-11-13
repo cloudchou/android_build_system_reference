@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主要定义一些目标用于清除编译结果<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_CLEAN_STEPS">■ &nbsp;&nbsp;INTERNAL_CLEAN_STEPS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;清除步骤&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="add-clean-step">■ &nbsp;&nbsp;add-clean-step</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;Builds&nbsp;up&nbsp;a&nbsp;list&nbsp;of&nbsp;clean&nbsp;steps.&nbsp;&nbsp;Creates&nbsp;a&nbsp;unique<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;for&nbsp;each&nbsp;step&nbsp;by&nbsp;taking&nbsp;makefile&nbsp;path,&nbsp;INTERNAL_CLEAN_BUILD_VERSION<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;appending&nbsp;an&nbsp;increasing&nbsp;number&nbsp;of&nbsp;'@'&nbsp;characters<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(1):&nbsp;shell&nbsp;command&nbsp;to&nbsp;run<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_CLEAN_BUILD_VERSION">■ &nbsp;&nbsp;INTERNAL_CLEAN_BUILD_VERSION</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;Defines&nbsp;INTERNAL_CLEAN_BUILD_VERSION&nbsp;and&nbsp;the&nbsp;individual&nbsp;clean&nbsp;steps.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;cleanspec.mk&nbsp;is&nbsp;outside&nbsp;of&nbsp;the&nbsp;core&nbsp;directory&nbsp;so&nbsp;that&nbsp;more&nbsp;people<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;have&nbsp;permission&nbsp;to&nbsp;touch&nbsp;it.<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="CURRENT_CLEAN_BUILD_VERSION">■ &nbsp;&nbsp;CURRENT_CLEAN_BUILD_VERSION</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;clean_steps.mk&nbsp;file&nbsp;is&nbsp;missing&nbsp;(usually&nbsp;after&nbsp;a&nbsp;clean&nbsp;build)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;we&nbsp;won't&nbsp;do&nbsp;anything.<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="installclean_files">■ &nbsp;&nbsp;installclean_files</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;需要清除的安装目录文件<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="dataclean_files">■ &nbsp;&nbsp;dataclean_files</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;需要清除的data文件<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="[[dataclean]]">■ &nbsp;&nbsp;[[dataclean]]</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;清除data/*&nbsp;/data-qemu/*&nbsp;userdata-qemu.img文件<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="[[installclean]]">■ &nbsp;&nbsp;[[installclean]]</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;清除安装文件及data文件&nbsp;&nbsp;&nbsp;<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

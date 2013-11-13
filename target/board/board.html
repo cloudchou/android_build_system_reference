@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set&nbsp;up&nbsp;product-global&nbsp;definitions&nbsp;and&nbsp;include&nbsp;product-specific&nbsp;rules<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定义了INSTALLED_BOOTLOADER_MODULE,INSTALLED_2NDBOOTLOADER_TARGET等变量<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_BOOTLOADER_MODULE">■ &nbsp;&nbsp;INSTALLED_BOOTLOADER_MODULE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifneq&nbsp;($(strip&nbsp;$(TARGET_NO_BOOTLOADER)),true)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_BOOTLOADER_MODULE&nbsp;:=&nbsp;$(PRODUCT_OUT)/bootloader<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(strip&nbsp;$(TARGET_BOOTLOADER_IS_2ND)),true)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_2NDBOOTLOADER_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/2ndbootloader<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_2NDBOOTLOADER_TARGET&nbsp;:=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_BOOTLOADER_MODULE&nbsp;:=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_2NDBOOTLOADER_TARGET&nbsp;:=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;TARGET_NO_BOOTLOADER<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_KERNEL_TARGET">■ &nbsp;&nbsp;INSTALLED_KERNEL_TARGET</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifneq&nbsp;($(strip&nbsp;$(TARGET_NO_KERNEL)),true)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_KERNEL_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/kernel<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_KERNEL_TARGET&nbsp;:=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_ANDROID_INFO_TXT_TARGET">■ &nbsp;&nbsp;INSTALLED_ANDROID_INFO_TXT_TARGET</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_ANDROID_INFO_TXT_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/android-info.txt<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="board_info_txt">■ &nbsp;&nbsp;board_info_txt</a></h3>
+<p>
+board_info_txt&nbsp;:=&nbsp;$(TARGET_BOARD_INFO_FILE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifndef&nbsp;board_info_txt<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;board_info_txt&nbsp;:=&nbsp;$(wildcard&nbsp;$(TARGET_DEVICE_DIR)/board-info.txt)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(INSTALLED_ANDROID_INFO_TXT_TARGET):&nbsp;$(board_info_txt)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;build/tools/check_radio_versions.py&nbsp;$<&nbsp;$(BOARD_INFO_CHECK)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;pretty,"Generated:&nbsp;($@)")<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifdef&nbsp;board_info_txt<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;grep&nbsp;-v&nbsp;'#'&nbsp;$<&nbsp;>&nbsp;$@<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;echo&nbsp;"board=$(TARGET_BOOTLOADER_BOARD_NAME)"&nbsp;>&nbsp;$@<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

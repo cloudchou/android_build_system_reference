@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../../../../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;armv6j&nbsp;相关配置<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configuration&nbsp;for&nbsp;Linux&nbsp;on&nbsp;ARM.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generating&nbsp;binaries&nbsp;for&nbsp;the&nbsp;ARMv6J&nbsp;architecture&nbsp;and&nbsp;higher<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ARCH_ARM_HAVE_THUMB_SUPPORT">■ &nbsp;&nbsp;ARCH_ARM_HAVE_THUMB_SUPPORT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_THUMB_SUPPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ARCH_ARM_HAVE_FAST_INTERWORKING">■ &nbsp;&nbsp;ARCH_ARM_HAVE_FAST_INTERWORKING</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_FAST_INTERWORKING&nbsp;:=&nbsp;true<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ARCH_ARM_HAVE_64BIT_DATA">■ &nbsp;&nbsp;ARCH_ARM_HAVE_64BIT_DATA</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_64BIT_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ARCH_ARM_HAVE_HALFWORD_MULTIPLY">■ &nbsp;&nbsp;ARCH_ARM_HAVE_HALFWORD_MULTIPLY</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_HALFWORD_MULTIPLY&nbsp;:=&nbsp;true<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ARCH_ARM_HAVE_CLZ">■ &nbsp;&nbsp;ARCH_ARM_HAVE_CLZ</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_CLZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ARCH_ARM_HAVE_FFS">■ &nbsp;&nbsp;ARCH_ARM_HAVE_FFS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_FFS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="arch_variant_cflags">■ &nbsp;&nbsp;arch_variant_cflags</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;Hard&nbsp;coding&nbsp;the&nbsp;'tune'&nbsp;value&nbsp;here&nbsp;is&nbsp;probably&nbsp;not&nbsp;ideal,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;a&nbsp;better&nbsp;solution&nbsp;should&nbsp;be&nbsp;found&nbsp;in&nbsp;the&nbsp;future.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;arch_variant_cflags&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-march=armv6j&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-mtune=arm1136jf-s&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-pipe&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-fomit-frame-pointer&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D__ARM_ARCH_5__&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D__ARM_ARCH_5T__&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D__ARM_ARCH_5E__&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D__ARM_ARCH_5TE__<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

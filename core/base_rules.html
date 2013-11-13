@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;base_rules.mk里定义了编译编译为某个类型目标的方法<br/>
+&nbsp;&nbsp;编译系统的模块能编译成各种类型的目标，可能是主机上的可执行文件，也可能是手机上的可执行文件，还可能是<br/>
+&nbsp;&nbsp;jar，动态链接库，在Android编译系统里每一种类型目标的编译方式对应一个makefile，<br/>
+&nbsp;&nbsp;如果某个模块需要编译成手机上的可执行程序，它需要include&nbsp;$(BUILD_EXECUTABLE)&nbsp;<br/>
+&nbsp;&nbsp;而BUILD_EXECUTABLE指向的是$(BUILD_SYSTEM)/executable.mk<br/>
+&nbsp;&nbsp;所有这些编译方式对应的makefile都将包含base_rules.mk<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE">■ &nbsp;&nbsp;LOCAL_MODULE</a></h3>
+<p>
+&nbsp;&nbsp;LOCAL_MODULE表示模块的名称<br/>
+&nbsp;&nbsp;LOCAL_MODULE将在每个模块的makefile里定义，如果未定义，编译系统会报错<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_IS_HOST_MODULE">■ &nbsp;&nbsp;LOCAL_IS_HOST_MODULE</a></h3>
+<p>
+&nbsp;&nbsp;表示该模块是否是将在主机上运行的模块<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="my_prefix">■ &nbsp;&nbsp;my_prefix</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;若定义了&nbsp;LOCAL_IS_HOST_MODULE&nbsp;为true，那么&nbsp;&nbsp;&nbsp;my_prefix:=HOST_，否则&nbsp;my_prefix:=TARGET_<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="my_host">■ &nbsp;&nbsp;my_host</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;若定义了&nbsp;LOCAL_IS_HOST_MODULE&nbsp;为true，那么&nbsp;my_host:=host-，否则&nbsp;my_host:=&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_UNINSTALLABLE_MODULE">■ &nbsp;&nbsp;LOCAL_UNINSTALLABLE_MODULE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;表示该模块是否安装至手机，像sdk文档模块不会被安装至手机，因此LOCAL_UNINSTALLABLE_MODULE为true<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE_TAGS">■ &nbsp;&nbsp;LOCAL_MODULE_TAGS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;模块的tag，为debug&nbsp;eng&nbsp;tests&nbsp;optional&nbsp;samples&nbsp;shell_ash&nbsp;shell_mksh等tag的组合，一个模块可有多个Tag,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意现在模块现在不能使用user&nbsp;tag作为模块的Tag,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果使用user做为tag,那么这个模块将被自动安装，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果想定义自动安装的模块，需要在PRODUCT_PACKAGES变量里添加该模块<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该变量在build/target/product/base.mk里有赋值，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在每个设备的配置文件device.mk里也可以为PRODUCT_PACKAGES添加产品模块<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果当前目录或者父目录有*_GPL*的文件，那么将gnu的tag<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE_CLASS">■ &nbsp;&nbsp;LOCAL_MODULE_CLASS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将用于决定编译的中间文件存放的位置<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_CLASS在决定编译目标类型的文件里定义，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;比如executable.mk里定义LOCAL_MODULE_CLASS&nbsp;:=&nbsp;EXECUTABLES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在recovery模块的Android.mk里定义的LOCAL_MODULE_CLASS有：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;RECOVERY_EXECUTABLES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;UTILITY_EXECUTABLES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其它的LOCAL_MODULE_CLASS有<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;ETC<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;STATIC_LIBRARIES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;EXECUTABLES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对应&nbsp;Cyanogenmod/target/product/m7ul/obj&nbsp;的目录&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;比如说若&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;ETC&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那么该模块编译的中间文件将存放于<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cyanogenmod/target/product/m7ul/obj/ETC<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="partition_tag">■ &nbsp;&nbsp;partition_tag</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;如果是主机模块，partition_tag将为空，否则如果是设备专有模块，partition_tag:=_VENDOR<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;否则如果是安装到系统的模块，那么partition_tag将为空(只有test模块不安装到目录，而安装至data目录)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;否则partition_tag:=_DATA<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;在编译系统里没发现LOCAL_PROPRIETARY_MODULE的赋值<br/>
+&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_PROPRIETARY_MODULE">■ &nbsp;&nbsp;LOCAL_PROPRIETARY_MODULE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否是设备专有模块<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE_PATH">■ &nbsp;&nbsp;LOCAL_MODULE_PATH</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;表示模块编译结果将要存放的目录<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;recovery模块的Android.mk里有<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE&nbsp;:=&nbsp;nandroid-md5.sh&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_PATH&nbsp;:=&nbsp;$(TARGET_RECOVERY_ROOT_OUT)/sbin&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;说明：nandroid-md5.sh&nbsp;将存放于out/Cyanogenmod/target/product/m7ul/recovery/root/sbin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;如果模块的Android.mk里未定义LOCAL_MODULE_PATH<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;那么LOCAL_MODULE_PATH&nbsp;:=&nbsp;$($(my_prefix)OUT$(partition_tag)_$(LOCAL_MODULE_CLASS))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;在recovery模块里recovery可执行文件相关变量如下：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;比如my_prefix为TARGET_，partition_tag为空,LOCAL_MODULE_CLASS为EXECUTABLES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;那么LOCAL_MODULE_PATH为$(TARGET_OUT_EXECUTABLES)，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;值应该为<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;out/Cyanogenmod/target/product/m7ul/system/bin<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="module_id">■ &nbsp;&nbsp;module_id</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;用于确保每个模块都是唯一的<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;module_id&nbsp;:=&nbsp;MODULE.$(if&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(LOCAL_IS_HOST_MODULE),HOST,TARGET).$(LOCAL_MODULE_CLASS).$(LOCAL_MODULE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果$(module_id)已经定义过，那会提示用户出错<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;recovery模块的Android.mk里针对recovery可执行文件：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;module_id&nbsp;:=&nbsp;MODULE.TARGET.EXECUTABLES.RECOVERY<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(MODULE.TARGET.EXECUTABLES.RECOVERY)=$(LOCAL_PATH)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;即当前模块路径<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="intermediates">■ &nbsp;&nbsp;intermediates</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;intermediates&nbsp;:=&nbsp;$(call&nbsp;local-intermediates-dir)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;例：&nbsp;recovery模块Android.mk里编译Recovery可执行文件：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/find5/obj/EXECUTABLES/recovery_intermediates<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="intermediates.COMMON">■ &nbsp;&nbsp;intermediates.COMMON</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;intermediates.COMMON&nbsp;:=&nbsp;$(call&nbsp;local-intermediates-dir,COMMON)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：&nbsp;recovery模块Android.mk里编译Recovery可执行文件：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/target/common/obj/EXECUTABLES/recovery_intermediates<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE_STEM">■ &nbsp;&nbsp;LOCAL_MODULE_STEM</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示编译链接后的目标文件的文件名，不带后缀<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_STEM&nbsp;:=&nbsp;$(strip&nbsp;$(LOCAL_MODULE_STEM))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(LOCAL_MODULE_STEM),)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_STEM&nbsp;:=&nbsp;$(LOCAL_MODULE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recovery模块编译recovery可执行文件：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_STEM:=recovery<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE_SUFFIX">■ &nbsp;&nbsp;LOCAL_MODULE_SUFFIX</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;表示编译链接后的目标文件的后缀<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_INSTALLED_MODULE_STEM">■ &nbsp;&nbsp;LOCAL_INSTALLED_MODULE_STEM</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示要安装的目标文件的文件名，带后缀<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_INSTALLED_MODULE_STEM&nbsp;:=&nbsp;$(LOCAL_MODULE_STEM)$(LOCAL_MODULE_SUFFIX)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recovery模块编译recovery可执行文件：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_INSTALLED_MODULE_STEM:=recovery<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_BUILT_MODULE_STEM">■ &nbsp;&nbsp;LOCAL_BUILT_MODULE_STEM</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;表示编译链接后的目标文件的文件名，带后缀<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_BUILT_MODULE_STEM&nbsp;:=&nbsp;$(strip&nbsp;$(LOCAL_BUILT_MODULE_STEM))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(LOCAL_BUILT_MODULE_STEM),)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_BUILT_MODULE_STEM&nbsp;:=&nbsp;$(LOCAL_INSTALLED_MODULE_STEM)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recovery模块编译recovery可执行文件：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_INSTALLED_MODULE_STEM:=recovery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="OVERRIDE_BUILT_MODULE_PATH">■ &nbsp;&nbsp;OVERRIDE_BUILT_MODULE_PATH</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;OVERRIDE_BUILT_MODULE_PATH&nbsp;is&nbsp;only&nbsp;allowed&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;the&nbsp;internal&nbsp;SHARED_LIBRARIES&nbsp;build&nbsp;files.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;OVERRIDE_BUILT_MODULE_PATH&nbsp;:=&nbsp;$(strip&nbsp;$(OVERRIDE_BUILT_MODULE_PATH))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifdef&nbsp;OVERRIDE_BUILT_MODULE_PATH<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifneq&nbsp;($(LOCAL_MODULE_CLASS),SHARED_LIBRARIES)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(error&nbsp;$(LOCAL_PATH):&nbsp;Illegal&nbsp;use&nbsp;of&nbsp;OVERRIDE_BUILT_MODULE_PATH)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;built_module_path&nbsp;:=&nbsp;$(OVERRIDE_BUILT_MODULE_PATH)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;built_module_path&nbsp;:=&nbsp;$(intermediates)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="built_module_path">■ &nbsp;&nbsp;built_module_path</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;参见OVERRIDE_BUILT_MODULE_PATH<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_BUILT_MODULE">■ &nbsp;&nbsp;LOCAL_BUILT_MODULE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示编译链接后的目标文件(文件路径+文件名)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_BUILT_MODULE&nbsp;:=&nbsp;$(built_module_path)/$(LOCAL_BUILT_MODULE_STEM)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;比如recovery:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_BUILT_MODULE&nbsp;路径；<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/Cyanogenmod/target/product/m7ul/obj/EXECUTABLES/recovery_intermediates/recovery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_INSTALLED_MODULE">■ &nbsp;&nbsp;LOCAL_INSTALLED_MODULE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示模块的安装路径+文件名<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifneq&nbsp;(true,$(LOCAL_UNINSTALLABLE_MODULE))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_INSTALLED_MODULE&nbsp;:=&nbsp;$(LOCAL_MODULE_PATH)/$(LOCAL_INSTALLED_MODULE_STEM)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/Cyanogenmod/target/product/m7ul/system/bin/recovery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_INTERMEDIATE_TARGETS">■ &nbsp;&nbsp;LOCAL_INTERMEDIATE_TARGETS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;Assemble&nbsp;the&nbsp;list&nbsp;of&nbsp;targets&nbsp;to&nbsp;create&nbsp;PRIVATE_&nbsp;variables&nbsp;for.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_INTERMEDIATE_TARGETS&nbsp;+=&nbsp;$(LOCAL_BUILT_MODULE)<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="aidl_sources">■ &nbsp;&nbsp;aidl_sources</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;表示所有源代码中的aidl文件<br/>
+&nbsp;&nbsp;&nbsp;aidl_sources&nbsp;:=&nbsp;$(filter&nbsp;%.aidl,$(LOCAL_SRC_FILES))<br/>
+&nbsp;&nbsp;&nbsp;如果想编译aidl，只需将aidl加入LOCAL_SRC_FILES即可，<br/>
+&nbsp;&nbsp;&nbsp;frameworks/base/Android.mk里有将aidl文件加入LOCAL_SRC_FILES变量<br/>
+&nbsp;&nbsp;&nbsp;LOCAL_SRC_FILES&nbsp;+=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;core/java/android/accessibilityservice/IAccessibilityServiceConnection.aidl&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;core/java/android/accessibilityservice/IAccessibilityServiceClient.aidl&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;core/java/android/accounts/IAccountManager.aidl&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;core/java/android/accounts/IAccountManagerResponse.aidl&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;core/java/android/accounts/IAccountAuthenticator.aidl&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;如果没有定义&nbsp;TARGET_BUILD_APPS&nbsp;变量，说明要编译framework.jar，那么将<br/>
+&nbsp;&nbsp;&nbsp;LOCAL_AIDL_INCLUDES&nbsp;+=&nbsp;$(FRAMEWORKS_BASE_JAVA_SRC_DIRS)<br/>
+&nbsp;&nbsp;&nbsp;在base_rules里定义了如何将aidl文件编译成java文件的方式，包括文件依赖<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="logtags_sources">■ &nbsp;&nbsp;logtags_sources</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;表示源代码中的logtags文件<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;frameworks/base/Android.mk里有将logtas文件加入LOCAL_SRC_FILES变量<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_SRC_FILES&nbsp;+=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;core/java/android/content/EventLogTags.logtags&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;core/java/android/speech/tts/EventLogTags.logtags&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;core/java/android/webkit/EventLogTags.logtags&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;在base_rules里定义了如何将logtag文件编译成java文件的方式，包括文件依赖<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="proto_sources">■ &nbsp;&nbsp;proto_sources</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;表示源代码中的proto文件<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;在definitions里定义了all-proto-files-under方法添加所有proto文件&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;在./hardware/ril/mock-ril/Android.mk里有调用该方法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;在base_rules里定义了如何将.proto文件编译成java文件的方式，包括文件依赖&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_INTERMEDIATE_SOURCE_DIR">■ &nbsp;&nbsp;LOCAL_INTERMEDIATE_SOURCE_DIR</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;表示编译生成的源文件存放目录<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;$(intermediates.COMMON)/src<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;例：out/target/common/obj/EXECUTABLES/recovery_intermediates/src<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="all_java_sources">■ &nbsp;&nbsp;all_java_sources</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;所有Java源代码<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Compile&nbsp;.java&nbsp;files&nbsp;to&nbsp;.class<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="full_static_java_libs">■ &nbsp;&nbsp;full_static_java_libs</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;编译为java静态库<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="cleantarget">■ &nbsp;&nbsp;cleantarget</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;定义一个模块的清除目标，如：recovery模块，有对应的clean-recovery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;如果在编译时用mka&nbsp;clean-recovery，将清除编译recovery时产生的文件，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;包括编译中间文件和编译目标文件<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES">■ &nbsp;&nbsp;ALL_MODULES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;将一些本地变量加入到ALL_MODULES变量里<br/>
+&nbsp;&nbsp;&nbsp;ALL_MODULES&nbsp;+=&nbsp;$(LOCAL_MODULE)<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).CLASS">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).CLASS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).CLASS)&nbsp;$(LOCAL_MODULE_CLASS)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.recovery.CLASS&nbsp;=&nbsp;EXECECUTABLE&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;一个模块可能既编译为手机上的可执行程序，又编译为电脑上的可执行程序<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;故此ALL_MODULES.recovery.CLASS&nbsp;可能由多个CLASS组合<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).PATH">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).PATH</a></h3>
+<p>
+ALL_MODULES.$(LOCAL_MODULE).PATH&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).PATH)&nbsp;$(LOCAL_PATH)<br/>
+&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.recovery.PATH&nbsp;bootable/recovery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).TAGS">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).TAGS</a></h3>
+<p>
+&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).TAGS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).TAGS)&nbsp;$(LOCAL_MODULE_TAGS)<br/>
+&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.recovery.TAGS&nbsp;eng<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).CHECKED">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).CHECKED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).CHECKED&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).CHECKED)&nbsp;$(LOCAL_CHECKED_MODULE)<br/>
+&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.recovery.CHECKED&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/Cyanogenmod/target/product/m7ul/obj/EXECUTABLES/recovery_intermediates/recovery<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).BUILT">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).BUILT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).BUILT&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).BUILT)&nbsp;$(LOCAL_BUILT_MODULE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/Cyanogenmod/target/product/m7ul/obj/EXECUTABLES/recovery_intermediates/recovery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).INSTALLED">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).INSTALLED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).INSTALLED&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(strip&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).INSTALLED)&nbsp;$(LOCAL_INSTALLED_MODULE))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/Cyanogenmod/target/product/m7ul/system/bin/recovery<br/>
+<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).REQUIRED">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).REQUIRED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).REQUIRED&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).REQUIRED)&nbsp;$(LOCAL_REQUIRED_MODULES)<br/>
+&nbsp;&nbsp;binary.mk:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_REQUIRED_MODULES&nbsp;+=&nbsp;$(installed_shared_library_module_names)&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS)&nbsp;$(event_log_tags)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;event_log_tags&nbsp;:=&nbsp;$(addprefix&nbsp;$(LOCAL_PATH)/,$(logtags_sources))<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR</a></h3>
+<p>
+&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR)&nbsp;$(LOCAL_INTERMEDIATE_SOURCE_DIR)<br/>
+&nbsp;&nbsp;LOCAL_INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;$(intermediates.COMMON)/src<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).MAKEFILE">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).MAKEFILE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).MAKEFILE&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).MAKEFILE)&nbsp;$(LOCAL_MODULE_MAKEFILE)<br/>
+&nbsp;&nbsp;&nbsp;举例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bootable/recovery/Android.mk&nbsp;<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).OWNER">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).OWNER</a></h3>
+<p>
+&nbsp;&nbsp;ifdef&nbsp;LOCAL_MODULE_OWNER<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).OWNER&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(sort&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).OWNER)&nbsp;$(LOCAL_MODULE_OWNER))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;endif&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;三星glaxsy2有定义LOCAL_MODULE_OWNER变量<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;./vendor/samsung/galaxys2-common/proprietary/Android.mk:21:LOCAL_MODULE_OWNER&nbsp;:=&nbsp;samsung<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLABLE_FILES.$(LOCAL_INSTALLED_MODULE).MODULE">■ &nbsp;&nbsp;INSTALLABLE_FILES.$(LOCAL_INSTALLED_MODULE).MODULE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;INSTALLABLE_FILES.$(LOCAL_INSTALLED_MODULE).MODULE&nbsp;:=&nbsp;$(LOCAL_MODULE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;例子：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTALLABLE_FILES.out/Cyanogenmod/target/product/m7ul/system/bin/recovery.MODULE:=recovery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULE_TAGS">■ &nbsp;&nbsp;ALL_MODULE_TAGS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;ALL_MODULE_TAGS&nbsp;:=&nbsp;$(sort&nbsp;$(ALL_MODULE_TAGS)&nbsp;$(LOCAL_MODULE_TAGS))<br/>
+&nbsp;&nbsp;&nbsp;例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULE_TAGS&nbsp;debug&nbsp;eng&nbsp;tests&nbsp;optional&nbsp;samples&nbsp;shell_ash&nbsp;shell_mksh</p>
+</div>
+</body></html>

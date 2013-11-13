@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;产品配置相关变量定义<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="[is-c-identifier]">■ &nbsp;&nbsp;[is-c-identifier]</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;判断是否是C标识符<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(1):要判断的单词<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="SED_EXTENDED">■ &nbsp;&nbsp;SED_EXTENDED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加了扩展的sed命令&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="[find-copy-subdir-files]">■ &nbsp;&nbsp;[find-copy-subdir-files]</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;all&nbsp;of&nbsp;the&nbsp;files&nbsp;in&nbsp;a&nbsp;subdirectory&nbsp;in&nbsp;a&nbsp;format<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;suitable&nbsp;for&nbsp;PRODUCT_COPY_FILES&nbsp;and<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT_SDK_ADDON_COPY_FILES.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(1):&nbsp;Glob&nbsp;to&nbsp;match&nbsp;file&nbsp;name<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(2):&nbsp;Source&nbsp;directory<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(3):&nbsp;Target&nbsp;base&nbsp;directory<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_VALID_VARIANTS">■ &nbsp;&nbsp;INTERNAL_VALID_VARIANTS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTERNAL_VALID_VARIANTS&nbsp;:=&nbsp;user&nbsp;userdebug&nbsp;eng&nbsp;tests<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These&nbsp;are&nbsp;the&nbsp;valid&nbsp;values&nbsp;of&nbsp;TARGET_BUILD_VARIANT.&nbsp;&nbsp;Also,&nbsp;if&nbsp;anything&nbsp;else&nbsp;is&nbsp;passed<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;the&nbsp;variant&nbsp;in&nbsp;the&nbsp;PRODUCT-$TARGET_BUILD_PRODUCT-$TARGET_BUILD_VARIANT&nbsp;form,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;will&nbsp;be&nbsp;treated&nbsp;as&nbsp;a&nbsp;goal,&nbsp;and&nbsp;the&nbsp;eng&nbsp;variant&nbsp;will&nbsp;be&nbsp;used.<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_LOCALES">■ &nbsp;&nbsp;PRODUCT_LOCALES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;Figure&nbsp;out&nbsp;which&nbsp;resoure&nbsp;configuration&nbsp;options&nbsp;to&nbsp;use&nbsp;for&nbsp;this<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;product.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_AAPT_CONFIG">■ &nbsp;&nbsp;PRODUCT_AAPT_CONFIG</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;用AAPT编译资源时的配置<br/>
+&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_AAPT_PREF_CONFIG">■ &nbsp;&nbsp;PRODUCT_AAPT_PREF_CONFIG</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;用AAPT编译资源时的配置<br/>
+&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;产品品牌<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_MODEL">■ &nbsp;&nbsp;PRODUCT_MODEL</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;产品型号<br/>
+<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_MANUFACTURER">■ &nbsp;&nbsp;PRODUCT_MANUFACTURER</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;产品制造商<br/>
+<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_AAPT_CHARACTERISTICS">■ &nbsp;&nbsp;TARGET_AAPT_CHARACTERISTICS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;AAPT编译用的配置<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_DEFAULT_WIFI_CHANNELS">■ &nbsp;&nbsp;PRODUCT_DEFAULT_WIFI_CHANNELS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;wifi频道<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_DEFAULT_DEV_CERTIFICATE">■ &nbsp;&nbsp;PRODUCT_DEFAULT_DEV_CERTIFICATE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;产品开发用的密钥<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_COPY_FILES">■ &nbsp;&nbsp;PRODUCT_COPY_FILES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;words&nbsp;like&nbsp;<source&nbsp;path>:<destination&nbsp;path>[:<owner>].<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;file&nbsp;at&nbsp;the&nbsp;source&nbsp;path&nbsp;should&nbsp;be&nbsp;copied&nbsp;to&nbsp;the&nbsp;destination&nbsp;path<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;building&nbsp;&nbsp;this&nbsp;product.&nbsp;&nbsp;<destination&nbsp;path>&nbsp;is&nbsp;relative&nbsp;to<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(PRODUCT_OUT),&nbsp;so&nbsp;it&nbsp;should&nbsp;look&nbsp;like,&nbsp;e.g.,&nbsp;"system/etc/file.xml".<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;rules&nbsp;for&nbsp;these&nbsp;copy&nbsp;steps&nbsp;are&nbsp;defined&nbsp;in&nbsp;build/core/Makefile.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;optional&nbsp;:<owner>&nbsp;is&nbsp;used&nbsp;to&nbsp;indicate&nbsp;the&nbsp;owner&nbsp;of&nbsp;a&nbsp;vendor&nbsp;file.<br/>
+&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_PROPERTY_OVERRIDES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;property&nbsp;assignments,&nbsp;like&nbsp;"key&nbsp;=&nbsp;value",&nbsp;with&nbsp;zero&nbsp;or&nbsp;more<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whitespace&nbsp;characters&nbsp;on&nbsp;either&nbsp;side&nbsp;of&nbsp;the&nbsp;'='.&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+<br/>
+<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_DEFAULT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_DEFAULT_PROPERTY_OVERRIDES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;property&nbsp;assignments,&nbsp;like&nbsp;"key&nbsp;=&nbsp;value",&nbsp;with&nbsp;zero&nbsp;or&nbsp;more<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whitespace&nbsp;characters&nbsp;on&nbsp;either&nbsp;side&nbsp;of&nbsp;the&nbsp;'='.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;for&nbsp;adding&nbsp;properties&nbsp;to&nbsp;default.prop<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_BUILD_PROP_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_BUILD_PROP_OVERRIDES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一些覆盖的属性&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_PACKAGE_OVERLAYS">■ &nbsp;&nbsp;PRODUCT_PACKAGE_OVERLAYS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT_PACKAGE_OVERLAYS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(strip&nbsp;$(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_PACKAGE_OVERLAYS))&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="DEVICE_PACKAGE_OVERLAYS">■ &nbsp;&nbsp;DEVICE_PACKAGE_OVERLAYS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEVICE_PACKAGE_OVERLAYS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(strip&nbsp;$(PRODUCTS.$(INTERNAL_PRODUCT).DEVICE_PACKAGE_OVERLAYS))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_TAGS">■ &nbsp;&nbsp;PRODUCT_TAGS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;list&nbsp;of&nbsp;whitespace-separated&nbsp;words.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_VENDOR_KERNEL_HEADERS">■ &nbsp;&nbsp;PRODUCT_VENDOR_KERNEL_HEADERS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;list&nbsp;of&nbsp;product-specific&nbsp;kernel&nbsp;header&nbsp;dirs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ADDITIONAL_BUILD_PROPERTIES">■ &nbsp;&nbsp;ADDITIONAL_BUILD_PROPERTIES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add&nbsp;the&nbsp;product-defined&nbsp;properties&nbsp;to&nbsp;the&nbsp;build&nbsp;properties.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_OTA_PUBLIC_KEYS">■ &nbsp;&nbsp;PRODUCT_OTA_PUBLIC_KEYS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;OTA&nbsp;key(s)&nbsp;specified&nbsp;by&nbsp;the&nbsp;product&nbsp;config,&nbsp;if&nbsp;any.&nbsp;&nbsp;The&nbsp;names<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;these&nbsp;keys&nbsp;are&nbsp;stored&nbsp;in&nbsp;the&nbsp;target-files&nbsp;zip&nbsp;so&nbsp;that&nbsp;post-build<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signing&nbsp;tools&nbsp;can&nbsp;substitute&nbsp;them&nbsp;for&nbsp;the&nbsp;test&nbsp;key&nbsp;embedded&nbsp;by<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default.<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_EXTRA_RECOVERY_KEYS">■ &nbsp;&nbsp;PRODUCT_EXTRA_RECOVERY_KEYS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;recovery&nbsp;key<br/>
+<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

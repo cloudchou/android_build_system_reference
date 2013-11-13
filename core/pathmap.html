@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;A&nbsp;central&nbsp;place&nbsp;to&nbsp;define&nbsp;mappings&nbsp;to&nbsp;paths,&nbsp;to&nbsp;avoid&nbsp;hard-coding&nbsp;them&nbsp;in&nbsp;Android.mk&nbsp;files.<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="pathmap_INCL">■ &nbsp;&nbsp;pathmap_INCL</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;mapping&nbsp;from&nbsp;shorthand&nbsp;names&nbsp;to&nbsp;include&nbsp;directories.<br/>
+&nbsp;&nbsp;&nbsp;pathmap_INCL&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;bootloader:bootable/bootloader/legacy/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;camera:system/media/camera/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;corecg:external/skia/include/core&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;dbus:external/dbus&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;frameworks-base:frameworks/base/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;frameworks-native:frameworks/native/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;graphics:external/skia/include/core&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libc:bionic/libc/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libdrm1:frameworks/base/media/libdrm/mobile1/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libhardware:hardware/libhardware/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libhardware_legacy:hardware/libhardware_legacy/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libhost:build/libs/host/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libm:bionic/libm/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libnativehelper:libnativehelper/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libpagemap:system/extras/libpagemap/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libril:hardware/ril/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libstdc++:bionic/libstdc++/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;libthread_db:bionic/libthread_db/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;mkbootimg:system/core/mkbootimg&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;opengl-tests-includes:frameworks/native/opengl/tests/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;recovery:bootable/recovery&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;system-core:system/core/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;audio-effects:system/media/audio_effects/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;audio-utils:system/media/audio_utils/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;wilhelm:frameworks/wilhelm/include&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;wilhelm-ut:frameworks/wilhelm/src/ut&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;speex:external/speex/include<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="[include-path-for]">■ &nbsp;&nbsp;[include-path-for]</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;requested&nbsp;module's&nbsp;include&nbsp;directory,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relative&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;source&nbsp;tree.&nbsp;&nbsp;Does&nbsp;not&nbsp;handle&nbsp;external<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modules.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(1):&nbsp;a&nbsp;list&nbsp;of&nbsp;modules&nbsp;(or&nbsp;other&nbsp;named&nbsp;entities)&nbsp;to&nbsp;find&nbsp;the&nbsp;includes&nbsp;for<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="JNI_H_INCLUDE">■ &nbsp;&nbsp;JNI_H_INCLUDE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;Many&nbsp;modules&nbsp;expect&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;say&nbsp;"#include&nbsp;<jni.h>",&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;so&nbsp;make&nbsp;it&nbsp;easy&nbsp;for&nbsp;them&nbsp;to&nbsp;find&nbsp;the&nbsp;correct&nbsp;path.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JNI_H_INCLUDE&nbsp;:=&nbsp;$(call&nbsp;include-path-for,libnativehelper)/nativehelper<br/>
+<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="FRAMEWORKS_BASE_SUBDIRS">■ &nbsp;&nbsp;FRAMEWORKS_BASE_SUBDIRS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;all&nbsp;source&nbsp;roots&nbsp;under&nbsp;frameworks/base,&nbsp;which&nbsp;will&nbsp;be<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;built&nbsp;into&nbsp;the&nbsp;android.jar.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note&nbsp;-&nbsp;"common"&nbsp;is&nbsp;included&nbsp;here,&nbsp;even&nbsp;though&nbsp;it&nbsp;is&nbsp;also&nbsp;built<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;into&nbsp;a&nbsp;static&nbsp;library&nbsp;(android-common)&nbsp;for&nbsp;unbundled&nbsp;use.&nbsp;&nbsp;This<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;so&nbsp;common&nbsp;and&nbsp;the&nbsp;other&nbsp;framework&nbsp;libraries&nbsp;can&nbsp;have&nbsp;mutual&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interdependencies.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRAMEWORKS_BASE_SUBDIRS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(addsuffix&nbsp;/java,&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;core&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graphics&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;media&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;media/mca/effect&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;media/mca/filterfw&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;media/mca/filterpacks&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drm&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opengl&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sax&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;telephony&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wifi&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keystore&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;icu4j&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;voip&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmradio&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="FRAMEWORKS_BASE_JAVA_SRC_DIRS">■ &nbsp;&nbsp;FRAMEWORKS_BASE_JAVA_SRC_DIRS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;version&nbsp;of&nbsp;FRAMEWORKS_BASE_SUBDIRS&nbsp;that&nbsp;is&nbsp;expanded&nbsp;to&nbsp;full&nbsp;paths&nbsp;from<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;tree.&nbsp;&nbsp;This&nbsp;currently&nbsp;needs&nbsp;to&nbsp;be&nbsp;here&nbsp;so&nbsp;that&nbsp;other&nbsp;libraries<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;apps&nbsp;can&nbsp;find&nbsp;the&nbsp;.aidl&nbsp;files&nbsp;in&nbsp;the&nbsp;framework,&nbsp;though&nbsp;we&nbsp;should&nbsp;really<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;figure&nbsp;out&nbsp;a&nbsp;better&nbsp;way&nbsp;to&nbsp;do&nbsp;this.&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRAMEWORKS_BASE_JAVA_SRC_DIRS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(addprefix&nbsp;frameworks/base/,$(FRAMEWORKS_BASE_SUBDIRS))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="FRAMEWORKS_SUPPORT_SUBDIRS">■ &nbsp;&nbsp;FRAMEWORKS_SUPPORT_SUBDIRS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;all&nbsp;source&nbsp;roots&nbsp;under&nbsp;frameworks/support<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRAMEWORKS_SUPPORT_SUBDIRS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;v4&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v13&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS">■ &nbsp;&nbsp;FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;version&nbsp;of&nbsp;FRAMEWORKS_SUPPORT_SUBDIRS&nbsp;that&nbsp;is&nbsp;expanded&nbsp;to&nbsp;full&nbsp;paths&nbsp;from<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;tree.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(addprefix&nbsp;frameworks/support/,$(FRAMEWORKS_SUPPORT_SUBDIRS))&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

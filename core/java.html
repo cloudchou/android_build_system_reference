@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被$(BUILD_PACKAGE)，$(BUILD_STATIC_JAVA_LIBRARY)，$(BUILD_JAVA_LIBRARY)等编译方式包含，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主要用于编译java代码<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_SDK_VERSION">■ &nbsp;&nbsp;LOCAL_SDK_VERSION</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;用于设置当前工程用的android&nbsp;sdk的版本<br/>
+&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_SDK_VERSION&nbsp;:=&nbsp;9<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:LOCAL_SDK_VERSION&nbsp;:=&nbsp;current<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PDK_BUILD_SDK_VERSION">■ &nbsp;&nbsp;PDK_BUILD_SDK_VERSION</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;./build/core/pdk_config.mk:148:PDK_BUILD_SDK_VERSION&nbsp;:=&nbsp;$(lastword&nbsp;$(TARGET_AVAILABLE_SDK_VERSIONS))&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_NO_STANDARD_LIBRARIES">■ &nbsp;&nbsp;LOCAL_NO_STANDARD_LIBRARIES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示不使用标准库<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./frameworks/base/Android.mk:254:LOCAL_NO_STANDARD_LIBRARIES&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./libcore/JavaLibrary.mk:79:LOCAL_NO_STANDARD_LIBRARIES&nbsp;:=&nbsp;true<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_BUILD_APPS">■ &nbsp;&nbsp;TARGET_BUILD_APPS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;build/core/product_config.mk&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TARGET_BUILD_APPS&nbsp;:=&nbsp;$(strip&nbsp;$(subst&nbsp;-,&nbsp;,$(patsubst&nbsp;APP-%,%,$(unbundled_goals))))<br/>
+&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_JAVA_LIBRARIES">■ &nbsp;&nbsp;LOCAL_JAVA_LIBRARIES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;ifneq&nbsp;($(LOCAL_SDK_VERSION),)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.......<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(LOCAL_SDK_VERSION)$(TARGET_BUILD_APPS),current)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Use&nbsp;android_stubs_current&nbsp;if&nbsp;LOCAL_SDK_VERSION&nbsp;is&nbsp;current&nbsp;and&nbsp;no&nbsp;TARGET_BUILD_APPS.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_JAVA_LIBRARIES&nbsp;:=&nbsp;android_stubs_current&nbsp;$(LOCAL_JAVA_LIBRARIES)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_JAVA_LIBRARIES&nbsp;:=&nbsp;sdk_v$(LOCAL_SDK_VERSION)&nbsp;$(LOCAL_JAVA_LIBRARIES)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.............<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifneq&nbsp;($(LOCAL_NO_STANDARD_LIBRARIES),true)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_JAVA_LIBRARIES&nbsp;:=&nbsp;core&nbsp;core-junit&nbsp;ext&nbsp;framework&nbsp;$(LOCAL_JAVA_LIBRARIES)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_PROGUARD_ENABLED">■ &nbsp;&nbsp;LOCAL_PROGUARD_ENABLED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否启用混淆<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_INTERMEDIATE_TARGETS">■ &nbsp;&nbsp;LOCAL_INTERMEDIATE_TARGETS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;编译的中间结果集合<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_INTERMEDIATE_SOURCE_DIR">■ &nbsp;&nbsp;LOCAL_INTERMEDIATE_SOURCE_DIR</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;编译生成的源代码存放的目录<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;$(intermediates.COMMON)/src<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_RENDERSCRIPT_CC">■ &nbsp;&nbsp;LOCAL_RENDERSCRIPT_CC</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;编译rs,fs用的编译器<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_RENDERSCRIPT_INCLUDES">■ &nbsp;&nbsp;LOCAL_RENDERSCRIPT_INCLUDES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RenderScript&nbsp;system&nbsp;include&nbsp;path<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).CHECKED">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).CHECKED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).CHECKED&nbsp;:=&nbsp;$(full_classes_compiled_jar)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_EMMA_INSTRUMENT">■ &nbsp;&nbsp;LOCAL_EMMA_INSTRUMENT</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;是否使用emmma进行代码覆盖测试<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_EMMA_COVERAGE_FILTER">■ &nbsp;&nbsp;LOCAL_EMMA_COVERAGE_FILTER</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_EMMA_COVERAGE_FILTER&nbsp;:=&nbsp;+com.android.emailcommon.*,+com.android.email.*,&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).PROGUARD_ENABLED">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).PROGUARD_ENABLED</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).PROGUARD_ENABLED:=$(LOCAL_PROGUARD_ENABLED)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_FINDBUGS_FILES">■ &nbsp;&nbsp;ALL_FINDBUGS_FILES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_FINDBUGS_FILES&nbsp;+=&nbsp;$(findbugs_xml)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

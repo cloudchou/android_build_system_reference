@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standard&nbsp;rules&nbsp;for&nbsp;building&nbsp;any&nbsp;target-side&nbsp;binaries<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;dynamic&nbsp;linkage&nbsp;(dynamic&nbsp;libraries&nbsp;or&nbsp;executables<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;link&nbsp;with&nbsp;dynamic&nbsp;libraries)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Files&nbsp;including&nbsp;this&nbsp;file&nbsp;must&nbsp;define&nbsp;a&nbsp;rule&nbsp;to&nbsp;build<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;target&nbsp;$(linked_module).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编译为手机上的可执行文件和动态链接库的规则，它不会被任何模块的Android.mk直接包含，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只有executable.mk，prebuilt.mk，shared_library.mk直接包含dynamic_binary.mk，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故此没有对应的BUILD_*之类的变量会该makefile对应<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_UNSTRIPPED_PATH">■ &nbsp;&nbsp;LOCAL_UNSTRIPPED_PATH</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;没有优化的模块编译结果存放路径<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_UNSTRIPPED_PATH&nbsp;:=&nbsp;$(strip&nbsp;$(LOCAL_UNSTRIPPED_PATH))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(LOCAL_UNSTRIPPED_PATH),)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(LOCAL_MODULE_PATH),)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_UNSTRIPPED_PATH&nbsp;:=&nbsp;$(TARGET_OUT_$(LOCAL_MODULE_CLASS)_UNSTRIPPED)&nbsp;//可能是TARGET_OUT_UNSTRIPPED，TARGET_OUT_EXECUTABLES_UNSTRIPPED，TARGET_OUT_SHARED_LIBRARIES_UNSTRIPPED<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;We&nbsp;have&nbsp;to&nbsp;figure&nbsp;out&nbsp;the&nbsp;corresponding&nbsp;unstripped&nbsp;path&nbsp;if&nbsp;LOCAL_MODULE_PATH&nbsp;is&nbsp;customized.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_UNSTRIPPED_PATH&nbsp;:=&nbsp;$(TARGET_OUT_UNSTRIPPED)/$(patsubst&nbsp;$(PRODUCT_OUT)/%,%,$(LOCAL_MODULE_PATH))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/find5/symbols/system/bin<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_MODULE_STEM">■ &nbsp;&nbsp;LOCAL_MODULE_STEM</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;目标文件的名字，不包含后缀<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;target&nbsp;file,&nbsp;without&nbsp;any&nbsp;path&nbsp;prepended.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;duplicates&nbsp;logic&nbsp;from&nbsp;base_rules.mk&nbsp;because&nbsp;we&nbsp;need&nbsp;to<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;know&nbsp;its&nbsp;results&nbsp;before&nbsp;base_rules.mk&nbsp;is&nbsp;included.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Consolidate&nbsp;the&nbsp;duplicates.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_INSTALLED_MODULE_STEM">■ &nbsp;&nbsp;LOCAL_INSTALLED_MODULE_STEM</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;目标文件的名字(最终安装在系统的名字)，包含后缀<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_BUILT_MODULE_STEM">■ &nbsp;&nbsp;LOCAL_BUILT_MODULE_STEM</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标文件的名字(编译结果存放的名字)，包含后缀&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="guessed_intermediates">■ &nbsp;&nbsp;guessed_intermediates</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;base_rules.make&nbsp;defines&nbsp;$(intermediates),&nbsp;but&nbsp;we&nbsp;need&nbsp;its&nbsp;value<br/>
+&nbsp;&nbsp;&nbsp;before&nbsp;we&nbsp;include&nbsp;base_rules.&nbsp;&nbsp;Make&nbsp;a&nbsp;guess,&nbsp;and&nbsp;verify&nbsp;that<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;it's&nbsp;correct&nbsp;once&nbsp;the&nbsp;real&nbsp;value&nbsp;is&nbsp;defined.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;guessed_intermediates&nbsp;:=&nbsp;$(call&nbsp;local-intermediates-dir)<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="linked_module">■ &nbsp;&nbsp;linked_module</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;Define&nbsp;the&nbsp;target&nbsp;that&nbsp;is&nbsp;the&nbsp;unmodified&nbsp;output&nbsp;of&nbsp;the&nbsp;linker.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;basename&nbsp;of&nbsp;this&nbsp;target&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;final&nbsp;output<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;binary&nbsp;name,&nbsp;because&nbsp;it's&nbsp;used&nbsp;to&nbsp;set&nbsp;the&nbsp;"soname"&nbsp;in&nbsp;the&nbsp;binary.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;includer&nbsp;of&nbsp;this&nbsp;file&nbsp;will&nbsp;define&nbsp;a&nbsp;rule&nbsp;to&nbsp;build&nbsp;this&nbsp;target.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_module&nbsp;:=&nbsp;$(guessed_intermediates)/LINKED/$(LOCAL_BUILT_MODULE_STEM)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_ORIGINAL_DYNAMIC_BINARIES">■ &nbsp;&nbsp;ALL_ORIGINAL_DYNAMIC_BINARIES</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示所有动态链接后的可执行文件&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_ORIGINAL_DYNAMIC_BINARIES&nbsp;+=&nbsp;$(linked_module)<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_INTERMEDIATE_TARGETS">■ &nbsp;&nbsp;LOCAL_INTERMEDIATE_TARGETS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;Because&nbsp;TARGET_SYMBOL_FILTER_FILE&nbsp;depends&nbsp;on&nbsp;ALL_ORIGINAL_DYNAMIC_BINARIES,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;linked_module&nbsp;rules&nbsp;won't&nbsp;necessarily&nbsp;inherit&nbsp;the&nbsp;PRIVATE_<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;variables&nbsp;from&nbsp;LOCAL_BUILT_MODULE.&nbsp;&nbsp;This&nbsp;tells&nbsp;binary.make&nbsp;to&nbsp;explicitly<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;define&nbsp;the&nbsp;PRIVATE_&nbsp;variables&nbsp;for&nbsp;linked_module&nbsp;as&nbsp;well&nbsp;as&nbsp;for<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_BUILT_MODULE.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_COMPRESS_MODULE_SYMBOLS">■ &nbsp;&nbsp;LOCAL_COMPRESS_MODULE_SYMBOLS</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将可执行文件压缩后的结果<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(strip&nbsp;$(LOCAL_COMPRESS_MODULE_SYMBOLS)),)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_COMPRESS_MODULE_SYMBOLS&nbsp;:=&nbsp;$(strip&nbsp;$(TARGET_COMPRESS_MODULE_SYMBOLS))<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_STRIP_MODULE">■ &nbsp;&nbsp;LOCAL_STRIP_MODULE</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将编译压缩可执行文件进行Strip后的结果<br/>
+<br/>
+<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+</body></html>

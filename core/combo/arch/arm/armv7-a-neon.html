@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Android编译系统变量</title>
+<meta name="description" content="Android编译系统变量分析" />
+<meta name="keywords" content="Android 底层开发,Android 编译系统,Cyanogenmod 编译系统,Android 架构" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="../../../../style_android_build.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="http://www.cloudchou.com/wp-content/themes/tangstyle/images/favicon.ico" type="image/x-icon" />
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="file">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;armv7-a-neon&nbsp;相关配置<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configuration&nbsp;for&nbsp;Linux&nbsp;on&nbsp;ARM.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generating&nbsp;binaries&nbsp;for&nbsp;the&nbsp;ARMv7-a&nbsp;architecture&nbsp;and&nbsp;higher&nbsp;with&nbsp;NEON<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ARCH_VARIANT_FPU">■ &nbsp;&nbsp;TARGET_ARCH_VARIANT_FPU</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TARGET_ARCH_VARIANT_FPU&nbsp;:=&nbsp;neon<br/>
+<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_ARCH_VARIANT_CPU">■ &nbsp;&nbsp;TARGET_ARCH_VARIANT_CPU</a></h3>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(TARGET_ARCH_VARIANT_CPU),&nbsp;cortex-a15)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_NEON_UNALIGNED_ACCESS&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_NEON_MEMSET_DIVIDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;132<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#ARCH_ARM_NEON_MEMCPY_ALIGNMENT_DIVIDER&nbsp;:=&nbsp;224<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(TARGET_ARCH_VARIANT_CPU),&nbsp;cortex-a9)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_NEON_UNALIGNED_ACCESS&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_NEON_MEMSET_DIVIDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;132<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_NEON_MEMCPY_ALIGNMENT_DIVIDER&nbsp;:=&nbsp;224<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(TARGET_ARCH_VARIANT_CPU),&nbsp;cortex-a8)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_NEON_UNALIGNED_ACCESS&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_NEON_MEMSET_DIVIDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;132<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_NEON_MEMCPY_ALIGNMENT_DIVIDER&nbsp;:=&nbsp;224<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifeq&nbsp;($(TARGET_ARCH_VARIANT_CPU),&nbsp;cortex-a5)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_HAVE_NEON_UNALIGNED_ACCESS&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_NEON_MEMSET_DIVIDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;132<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARCH_ARM_NEON_MEMCPY_ALIGNMENT_DIVIDER&nbsp;:=&nbsp;224<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+<br/>
+<br/>
+</p>
+</div>
+</body></html>
