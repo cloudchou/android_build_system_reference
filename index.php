@@ -62,34 +62,61 @@ body {
 
 #search {
 	margin: 10px 10px;
+	border-bottom: 1px solid #CCCCCC;
+	left: 0;
+	position: relative;
+	right: 0;
+	padding-bottom: 5px;
+}
+
+#search p {
+	display: inline;
+	font-size: 16px;
 }
 
 #s {
 	font-size: 16px;
-	padding: 0 5px; background : none repeat scroll 0 0 rgba( 0, 0, 0, 0);
+	padding: 0 5px;
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
 	border: 0 none;
 	border-bottom: 1px solid #CCCCCC;
 	height: 20px;
 	display: inline;
-	width: 200px;
+	width: 150px;
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+#s:focus {
+	outline: none;
 }
 
 .s_left,.s_right {
 	display: inline;
+	background-color: #CCCCCC;
 	height: 5px;
+	position: absolute;
 	width: 1px;
-	padding-bottom: 6px;
-	font-size: 0px;
+	top: 17px;
 }
 
 .s_left {
-	border-right: 1px solid #CCCCCC;
+	
 }
 
 .s_right {
-	border-left: 1px solid #CCCCCC;
-	margin-right: -2px;
+	left: 243px;
+}
+
+#variable ul{ 
+	list-style-type: none; 
+	padding-left: 10px;
+	overflow:scroll;
+	height:420px;
+	
+}
+
+#variable ul li{ 
+	 
 }
 
 .widget h3 {
@@ -129,8 +156,9 @@ body {
 			<div id="variable" class="widget">
 				<h3>编译变量列表</h3>
 				<div id="search">
+					<p>检索变量：</p>
 					<div class="s_left"></div>
-					<input id="s" type="text" size="30" value="检索一下">
+					<input id="s" type="text" size="30">
 					<div class="s_right"></div>
 				</div>
 				<ul>
@@ -140,6 +168,21 @@ body {
 					<li>BUILD_JAVA</li>
 					<li>BUILD_STATIC_LIB</li>
 					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li> 
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>
+					<li>BUILD_EXECTUABLE</li>  
 				</ul>
 			</div>
 
