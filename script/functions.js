@@ -13,5 +13,7 @@ $(document).ready(function() {
 		$("#s").css("color", "#CCCCCC");
 	})
 	$("#s").focus();
-	
+	$("#variable #list").jScrollPane({ 
+		arrowScrollOnHover : true
+	});
 });

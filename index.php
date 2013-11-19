@@ -3,137 +3,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Android编译系统参考手册</title>
-<script
-	src="http://www.cloudchou.com/wp-content/themes/tangstyle/jquery.min.js"
-	type="text/javascript">
+
+<!-- styles needed by jScrollPane -->
+<link type="text/css" href="style/jquery.jscrollpane.css"
+	rel="stylesheet" media="all" />
+
+<link type="text/css" href="style/index.css" rel="stylesheet"
+	media="all" />
+
+<!-- latest jQuery direct from google's CDN -->
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
-<script src="./functions.js">
+
+<!-- the mousewheel plugin - optional to provide mousewheel support -->
+<script type="text/javascript" src="script/jquery.mousewheel.js"></script>
+
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/functions.js" type="text/javascript">
 </script>
-<style type="text/css">
-body {
-	font: 14px/21px Microsoft YaHei, Tahoma, Arial;
-	background-color: #eceef0;
-}
 
-#container {
-	width: 980px;
-	margin: 0 auto;
-}
-
-#header,#footer {
-	clear: both;
-}
-
-#header {
-	border-bottom: 2px dashed #CCCCCC;
-	line-height: 200%;
-	padding: 0 1em;
-}
-
-#header h1 {
-	color: #666666;
-	font-size: 32px;
-	text-shadow: 2px 2px 1px #CCCCCC;
-	font-weight: normal;
-}
-
-#content {
-	float: left;
-	width: 68%;
-	padding: 1em;
-}
-
-#content h2 {
-	font-weight: 500;
-}
-
-#sidebar {
-	float: right;
-	width: 29%;
-	background-color: #FFFFFF;
-	border-bottom: 2px solid #CCCCCC;
-	box-shadow: 0 1px 2px #CCCCCC;
-	margin-top: 30px;
-}
-
-#variable {
-	height: 500px;
-}
-
-#search {
-	margin: 10px 10px;
-	border-bottom: 1px solid #CCCCCC;
-	left: 0;
-	position: relative;
-	right: 0;
-	padding-bottom: 5px;
-}
-
-#search p {
-	display: inline;
-	font-size: 16px;
-}
-
-#s {
-	font-size: 16px;
-	padding: 0 5px;
-	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-	border: 0 none;
-	border-bottom: 1px solid #CCCCCC;
-	height: 20px;
-	display: inline;
-	width: 150px;
-	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-}
-
-#s:focus {
-	outline: none;
-}
-
-.s_left,.s_right {
-	display: inline;
-	background-color: #CCCCCC;
-	height: 5px;
-	position: absolute;
-	width: 1px;
-	top: 17px;
-}
-
-.s_left {
-	
-}
-
-.s_right {
-	left: 243px;
-}
-
-#variable ul{ 
-	list-style-type: none; 
-	padding-left: 10px;
-	overflow:scroll;
-	height:420px;
-	
-}
-
-#variable ul li{ 
-	 
-}
-
-.widget h3 {
-	border-bottom: 1px solid #E5E5E5;
-	color: #333333;
-	font-size: 18px;
-	margin: 0 -10px;
-	padding: 5px 0 5px 20px;
-	text-shadow: 0 2px 0 #EEEEEE;
-	font-weight: 500;
-}
-
-#footer {
-	text-align: center;
-	padding: 1em 0;
-}
-</style>
 </head>
 <body>
 	<div id="container">
@@ -161,29 +52,35 @@ body {
 					<input id="s" type="text" size="30">
 					<div class="s_right"></div>
 				</div>
-				<ul>
-					<li>BUILD_JAVA <span>build/core/definitions</span></li>
-					<li>BUILD_STATIC_LIB</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_JAVA</li>
-					<li>BUILD_STATIC_LIB</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li> 
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_EXECTUABLE</li>  
-				</ul>
+				<div id="list">
+					<ul>
+						<li><a href="http://www.baidu.com">BUILD_JAVA <span>build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.hh.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
+						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+					</ul>
+				</div>
 			</div>
 
 			<div id="file" class="widget">
