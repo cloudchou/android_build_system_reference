@@ -11,19 +11,20 @@
 <link type="text/css" href="style/index.css" rel="stylesheet"
 	media="all" />
 
+<link rel="stylesheet" href="style/jquery.treeview.css" />
+
 <!-- latest jQuery direct from google's CDN -->
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
 
-<!-- the mousewheel plugin - optional to provide mousewheel support -->
-<script type="text/javascript" src="script/jquery.mousewheel.js"></script>
-
 <!-- the jScrollPane script -->
 <script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
 
-<script src="script/functions.js" type="text/javascript">
-</script>
+<script src="script/jquery.treeview.js" type="text/javascript"></script>
+
+<script src="script/functions.js" type="text/javascript"></script>
+
 
 </head>
 <body>
@@ -85,14 +86,10 @@
 
 			<div id="file" class="widget">
 				<h3>Makefile文件</h3>
-				<ul>
-					<li>BUILD_JAVA <span>build/core/definitions</span></li>
-					<li>BUILD_STATIC_LIB</li>
-					<li>BUILD_EXECTUABLE</li>
-					<li>BUILD_JAVA</li>
-					<li>BUILD_STATIC_LIB</li>
-					<li>BUILD_EXECTUABLE</li>
-				</ul>
+				<div id="mklist_container">
+					<ul id="mklist">
+					</ul>
+				</div>
 			</div>
 		</div>
 

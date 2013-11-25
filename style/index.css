@@ -3,6 +3,16 @@ body {
 	background-color: #eceef0;
 }
 
+.widget h3 {
+	border-bottom: 1px solid #E5E5E5;
+	color: #333333;
+	font-size: 18px;
+	text-shadow: 0 2px 0 #EEEEEE;
+	font-weight: 500;
+	margin: 10px 0px;
+	padding-left: 10px;
+}
+
 #container {
 	width: 980px;
 	margin: 0 auto;
@@ -107,6 +117,19 @@ body {
 	margin-top: 0px;
 }
 
+#file #mklist_container {
+	overflow: auto;
+	height: 430px;
+	border-bottom: 1px solid #CCCCCC; 
+	outline: none;
+}
+
+#file  h3{
+	margin-bottom: 0px;
+	 
+}
+
+
 ul li a {
 	text-decoration: none;
 	color: #222222;
@@ -125,15 +148,7 @@ ul li a span {
 	font-size: 0.8em;
 }
 
-.widget h3 {
-	border-bottom: 1px solid #E5E5E5;
-	color: #333333;
-	font-size: 18px;
-	text-shadow: 0 2px 0 #EEEEEE;
-	font-weight: 500;
-	margin: 10px 0px;
-	padding-left: 10px;
-}
+
 
 #footer {
 	text-align: center;
