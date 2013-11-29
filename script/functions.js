@@ -20,10 +20,12 @@ $(document).ready(function() {
 	});
 
 	$("#mklist").treeview({
-		url : "json_files.php"
-	});
-
-	$("#mklist_container").jScrollPane({
-		arrowScrollOnHover : true
-	});
+		url : "json_files.php" ,
+		toggle : function() {
+			$("#mklist_container").jScrollPane({
+				arrowScrollOnHover : true
+			});
+		}
+	}); 
+	
 });
