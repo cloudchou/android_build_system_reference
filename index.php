@@ -14,8 +14,7 @@
 <link rel="stylesheet" href="style/jquery.treeview.css" />
 
 <!-- latest jQuery direct from google's CDN -->
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+<script type="text/javascript" src="script/jquery.min.js ">
 </script>
 
 <!-- the jScrollPane script -->

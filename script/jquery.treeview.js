@@ -293,7 +293,8 @@ function load(settings, root, child, container) {
 		success: function(response) {
 			child.empty();
 			$.each(response, createNode, [child]);
-	        $(container).treeview({add: child});
+			settings=$.extend({},settings,{add:child});
+	        $(container).treeview(settings);
 	    }
 	}, settings.ajax));
 	/*
