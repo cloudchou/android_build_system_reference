@@ -54,31 +54,29 @@
 				</div>
 				<div id="list">
 					<ul>
-						<li><a href="http://www.baidu.com">BUILD_JAVA <span>build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.hh.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
-						<li><a href="http://www.baidu.com">BUILD_EXECTUABLE</a></li>
-						<li><a href="http://www.baidu.com">BUILD_STATIC_LIB</a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_C</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_C</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_TEXT</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_TEXT</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_TEXT</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_STATIC</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_TEXT</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
+						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
 					</ul>
 				</div>
 			</div>

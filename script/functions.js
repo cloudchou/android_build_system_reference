@@ -28,4 +28,16 @@ $(document).ready(function() {
 		}
 	}); 
 	
+	$("#s").keyup(function(){
+		 var branches=$("#variable #list").find("li"); 
+		 var input=$("#s").val();
+		 branches.each(function(i,e){
+			 var v=$(e).find(".v").text(); 
+			 if(v.toLowerCase().indexOf(input.toLowerCase())>=0){
+				 $(e).show();
+			 }else{
+				 $(e).hide();
+			 }
+		 });
+	});
 });
