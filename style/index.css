@@ -154,3 +154,11 @@ ul li a span {
 	text-align: center;
 	padding: 1em 0;
 }
+
+.treeview .hover{
+	color: #7AA1B0;
+}
+
+.treeview a:active, .treeview a:focus {
+	color: #33B5E5;
+}
