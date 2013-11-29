@@ -34,7 +34,11 @@
 
 #treecontrol { margin: 1em 0; display: none; }
 
-.treeview .hover { color: red; cursor: pointer; }
+.treeview .hover { color: #7AA1B0; cursor: pointer; }
+
+.treeview a:active, .treeview a:focus {
+	color: #33B5E5;
+}
 
 .treeview li { background: url(images/treeview-default-line.gif) 0 0 no-repeat; }
 .treeview li.collapsable, .treeview li.expandable { background-position: 0 -176px; }
