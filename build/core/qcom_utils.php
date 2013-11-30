@@ -11,13 +11,8 @@
 <?php require_once '../../header.php';?> 
 <div id="content">
 
-<div class="">
-<h3><a id="">Target:&nbsp;&bsp;</a></h3>
-<p>
-</p>
-</div>
-<div class="function">
-<h3><a id="_thisfile">Function:&nbsp;&nbsp;_thisfile</a></h3>
+<div class="file">
+<h3>build/core/qcom_utils.mk</h3>
 <p>
 Board&nbsp;platforms&nbsp;lists&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;TARGET_BOARD_PLATFORM&nbsp;specific&nbsp;featurization<br/>
 </p>
