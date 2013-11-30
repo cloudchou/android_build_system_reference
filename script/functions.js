@@ -39,5 +39,8 @@ $(document).ready(function() {
 				 $(e).hide();
 			 }
 		 });
+		 $("#variable #list").jScrollPane({
+				arrowScrollOnHover : true
+		 }); 
 	});
 });

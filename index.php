@@ -24,7 +24,6 @@
 
 <script src="script/functions.js" type="text/javascript"></script>
 
-
 </head>
 <body>
 	<div id="container">
@@ -52,32 +51,10 @@
 					<input id="s" type="text" size="30">
 					<div class="s_right"></div>
 				</div>
-				<div id="list">
-					<ul>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_C</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_C</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_TEXT</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_TEXT</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_TEXT</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_STATIC</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_TEXT</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-						<li><a href="http://www.baidu.com"><span class="v">BUILD_JAVA</span> <span class="f">build/core/definitions</span></a></li>
-					</ul>
+				<div id="list"> 
+					<?php
+					  require_once 'vlist.php';
+					?>  
 				</div>
 			</div>
 

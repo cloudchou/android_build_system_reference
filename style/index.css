@@ -137,6 +137,7 @@ body {
 ul li a {
 	text-decoration: none;
 	color: #222222;
+	display: inline;
 }
  
 ul li a:hover {
@@ -147,9 +148,12 @@ ul li a:active, ul li a:focus {
 	color: #33B5E5;
 }
 
-
-ul li a span .f {
-	font-size: 0.8em;
+ul li a {
+	white-space:nowrap;
+} 
+ 
+ul li a .f {
+	font-size: 0.3em;
 }
 
 
