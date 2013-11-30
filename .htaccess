@@ -1,4 +1,9 @@
 <Files ~ "^\..*">
+ErrorDocument 403 http://android.cloudchou.com
 order allow,deny
 deny from all
+</Files>
+<Files *>
+ErrorDocument 403 http://android.cloudchou.com
+Options -Indexes
 </Files>
