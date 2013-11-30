@@ -45,7 +45,7 @@
 	<script type="text/javascript">
 	$(document).ready( function() {
 		$("#mklist").treeview({
-			url :  "<?php echo $relativePath."json_files.php" ?>" ,
+			url :  "/json_files.php" ,
 			toggle : function() {
 				$("#mklist_container").jScrollPane({
 					arrowScrollOnHover : true
