@@ -8,14 +8,29 @@
 			<div class="s_right"></div>
 		</div>
 		<div id="list">
-			<?php
-			$biasNum = substr_count ( $_SERVER ['REQUEST_URI'], '/' ); // 用'/'分割当前路径字符串，并计算分割后的字符串数量
-			$relativePath = './'; // 初始化变量$relativePath为'./'
-			for($i = 0; $i < ($biasNum - 1); $i ++) { // 循环添加'../'
-				$relativePath .= '../';
-			}
-			require_once $relativePath . "vlist.php";
-			?>
+			<p style="padding-left: 20px;display: inline">正在加载变量索引...</p>
+			<script type="text/javascript">
+			$.ajax({
+						url : "<?php
+						$biasNum = substr_count ( $_SERVER ['REQUEST_URI'], '/' ); // 用'/'分割当前路径字符串，并计算分割后的字符串数量
+						$relativePath = './'; // 初始化变量$relativePath为'./'
+						for($i = 0; $i < ($biasNum - 1); $i ++) { // 循环添加'../'
+							$relativePath .= '../';
+						}
+						echo $relativePath . "vlist.php";
+						?>",
+						success : function(response){ 
+						    	$("#variable #list").html(response); 
+							    $("#variable #list").jScrollPane({
+								  arrowScrollOnHover : true
+							    });
+						     },
+						error : function(response){
+							alert("failure");
+						}	
+				   });
+			 </script>
+
 		</div>
 	</div>
 
@@ -23,6 +38,7 @@
 		<h3>Makefile文件</h3>
 		<div id="mklist_container">
 			<ul id="mklist">
+				 
 			</ul>
 		</div>
 	</div>

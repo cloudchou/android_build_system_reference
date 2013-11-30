@@ -15,33 +15,32 @@ $(document).ready(function() {
 
 	$("#s").focus();
 
-	$("#variable #list").jScrollPane({
-		arrowScrollOnHover : true
-	});
-	
-	$("#s").keyup(function(){
-		 var branches=$("#variable #list").find("li"); 
-		 var input=$("#s").val();
-		 branches.each(function(i,e){
-			 var v=$(e).find(".v").text(); 
-			 if(v.toLowerCase().indexOf(input.toLowerCase())>=0){
-				 $(e).show();
-			 }else{
-				 $(e).hide();
-			 }
-		 });
-		 $("#variable #list").jScrollPane({
+	$("#s").keyup(function(event) {
+		var branches = $("#variable #list").find("li");
+		var input = $("#s").val();
+		branches.each(function(i, e) {
+			var v = $(e).find(".v").text();
+			if (v.toLowerCase().indexOf(input.toLowerCase()) >= 0) {
+				$(e).show();
+			} else {
+				$(e).hide();
+			}
+		});
+		console.log(event.keyCode);
+		if (event.keyCode != 116) {
+			$("#variable #list").jScrollPane({
 				arrowScrollOnHover : true
-		 }); 
+			});
+		}
 	});
-	
-	if($(window).scrollTop()<=0){
+
+	if ($(window).scrollTop() <= 0) {
 		$('#back-top').hide();
-	}	
-	
+	}
+
 	// fade in #back-top
-	$(function () {		 
-		$(window).scroll(function () {
+	$(function() {
+		$(window).scroll(function() {
 			if ($(this).scrollTop() > 100) {
 				$('#back-top').fadeIn();
 			} else {
@@ -49,12 +48,12 @@ $(document).ready(function() {
 			}
 		});
 		// scroll body to 0px on click
-		$('#back-top a').click(function () {
+		$('#back-top a').click(function() {
 			$('body,html').animate({
-				scrollTop: 0
+				scrollTop : 0
 			}, 800);
 			return false;
 		});
 	});
-    
+
 });
