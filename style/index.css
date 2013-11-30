@@ -186,8 +186,8 @@ ul li a .f {
 }
 .variable p{
 	padding-left: 20px;
-	word-wrap:break-word; overflow:hidden;
-	width:400px;
+	word-wrap:break-word; 
+	overflow:hidden;
 }
 
 .variable h3{
