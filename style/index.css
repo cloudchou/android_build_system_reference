@@ -4,6 +4,20 @@ body {
 	color:#444;
 }
 
+a {
+	text-decoration: none;
+	color: #222222;
+	display: inline;
+}
+ 
+a:hover {
+	color: #7AA1B0;
+}
+
+a:active, a:focus {
+	color: #33B5E5;
+}
+
 .widget h3 {
 	border-bottom: 1px solid #E5E5E5;
 	color: #333333;
@@ -214,4 +228,53 @@ ul li a .f {
 	padding-left: 20px;
 	word-break: break-word;
 }
+
+
+/************************************************************************************/
+/*
+Back to top button 
+*/
+#back-top {
+	position: fixed;
+	bottom: 120px;
+	right: 5px;
+}
+
+#back-top a {
+	display: block;
+	text-align: center;
+	font: 12px/100% Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	text-decoration: none;
+	color: #bbb;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+
+#back-top a:hover {
+	color: #000;
+} 
+/* arrow icon (span tag) */
+#back-top span {
+	width: 70px;
+	height: 70px;
+	display: block;
+	margin-bottom: 7px;
+	background: #bbb url("/style/images/totop.png") no-repeat;
+	/* rounded corners */
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+
+#back-top a:hover span {
+	background-color: #444;
+}
+
  

@@ -11,8 +11,8 @@
 <?php require_once '../../../header.php';?> 
 <div id="content">
 
-<div class="">
-<h3><a id="">Target:&nbsp;&bsp;</a></h3>
+<div class="file">
+<h3>build/target/board/generic_mips.mk</h3>
 <p>
 The&nbsp;"generic_mips"&nbsp;product&nbsp;defines&nbsp;a&nbsp;MIPS&nbsp;based&nbsp;non-hardware-specific<br/>
 target&nbsp;without&nbsp;a&nbsp;kernel&nbsp;or&nbsp;bootloader.<br/>

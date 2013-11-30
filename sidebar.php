@@ -34,7 +34,8 @@
 				$("#mklist_container").jScrollPane({
 					arrowScrollOnHover : true
 				});
-			}
+			},
+			
 		}) ;	
 	});	
 	</script>

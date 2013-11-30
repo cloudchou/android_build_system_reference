@@ -11,8 +11,8 @@
 <?php require_once '../../../header.php';?> 
 <div id="content">
 
-<div class="">
-<h3><a id="">Target:&nbsp;&bsp;</a></h3>
+<div class="file">
+<h3>build/target/board/generic_x86.mk</h3>
 <p>
 The&nbsp;"generic_x86"&nbsp;product&nbsp;defines&nbsp;a&nbsp;non-hardware-specific&nbsp;IA&nbsp;target<br/>
 without&nbsp;a&nbsp;kernel&nbsp;or&nbsp;bootloader.<br/>
