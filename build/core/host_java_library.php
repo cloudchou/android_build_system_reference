@@ -18,37 +18,37 @@
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_CLASS">■ &nbsp;&nbsp;LOCAL_MODULE_CLASS</a></h3>
+<h3><a id="LOCAL_MODULE_CLASS">LOCAL_MODULE_CLASS</a></h3>
 <p>
 LOCAL_MODULE_CLASS&nbsp;:=&nbsp;JAVA_LIBRARIES<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_SUFFIX">■ &nbsp;&nbsp;LOCAL_MODULE_SUFFIX</a></h3>
+<h3><a id="LOCAL_MODULE_SUFFIX">LOCAL_MODULE_SUFFIX</a></h3>
 <p>
 LOCAL_MODULE_SUFFIX&nbsp;:=&nbsp;$(COMMON_JAVA_PACKAGE_SUFFIX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_IS_HOST_MODULE">■ &nbsp;&nbsp;LOCAL_IS_HOST_MODULE</a></h3>
+<h3><a id="LOCAL_IS_HOST_MODULE">LOCAL_IS_HOST_MODULE</a></h3>
 <p>
 LOCAL_IS_HOST_MODULE&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_BUILT_MODULE_STEM">■ &nbsp;&nbsp;LOCAL_BUILT_MODULE_STEM</a></h3>
+<h3><a id="LOCAL_BUILT_MODULE_STEM">LOCAL_BUILT_MODULE_STEM</a></h3>
 <p>
 LOCAL_BUILT_MODULE_STEM&nbsp;:=&nbsp;javalib.jar<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_INTERMEDIATE_SOURCE_DIR">■ &nbsp;&nbsp;LOCAL_INTERMEDIATE_SOURCE_DIR</a></h3>
+<h3><a id="LOCAL_INTERMEDIATE_SOURCE_DIR">LOCAL_INTERMEDIATE_SOURCE_DIR</a></h3>
 <p>
 LOCAL_INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;$(intermediates.COMMON)/src<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_BUILD_HOST_DEX">■ &nbsp;&nbsp;LOCAL_BUILD_HOST_DEX</a></h3>
+<h3><a id="LOCAL_BUILD_HOST_DEX">LOCAL_BUILD_HOST_DEX</a></h3>
 <p>
 host的java库也转为dex格式<br/>
 &nbsp;示例：<br/>

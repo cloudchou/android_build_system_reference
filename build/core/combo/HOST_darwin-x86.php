@@ -20,7 +20,7 @@ Included&nbsp;by&nbsp;combo/select.mk<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="BUILD_HOST_64bit">■ &nbsp;&nbsp;BUILD_HOST_64bit</a></h3>
+<h3><a id="BUILD_HOST_64bit">BUILD_HOST_64bit</a></h3>
 <p>
 ifneq&nbsp;($(strip&nbsp;$(BUILD_HOST_64bit)),)<br/>
 #By&nbsp;default&nbsp;we&nbsp;build&nbsp;everything&nbsp;in&nbsp;32-bit,&nbsp;because&nbsp;it&nbsp;gives&nbsp;us<br/>
@@ -36,86 +36,86 @@ endif&nbsp;#&nbsp;BUILD_HOST_64bit<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_NO_UNDEFINED_LDFLAGS">■ &nbsp;&nbsp;HOST_NO_UNDEFINED_LDFLAGS</a></h3>
+<h3><a id="HOST_NO_UNDEFINED_LDFLAGS">HOST_NO_UNDEFINED_LDFLAGS</a></h3>
 <p>
 HOST_NO_UNDEFINED_LDFLAGS&nbsp;:=&nbsp;-Wl,-undefined,error<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_CC">■ &nbsp;&nbsp;HOST_CC</a></h3>
+<h3><a id="HOST_CC">HOST_CC</a></h3>
 <p>
 HOST_CC&nbsp;:=&nbsp;gcc<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_CXX">■ &nbsp;&nbsp;HOST_CXX</a></h3>
+<h3><a id="HOST_CXX">HOST_CXX</a></h3>
 <p>
 HOST_CXX&nbsp;:=&nbsp;g++<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_AR">■ &nbsp;&nbsp;HOST_AR</a></h3>
+<h3><a id="HOST_AR">HOST_AR</a></h3>
 <p>
 HOST_AR&nbsp;:=&nbsp;$(AR)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_STRIP">■ &nbsp;&nbsp;HOST_STRIP</a></h3>
+<h3><a id="HOST_STRIP">HOST_STRIP</a></h3>
 <p>
 HOST_STRIP&nbsp;:=&nbsp;$(STRIP)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_STRIP_COMMAND">■ &nbsp;&nbsp;HOST_STRIP_COMMAND</a></h3>
+<h3><a id="HOST_STRIP_COMMAND">HOST_STRIP_COMMAND</a></h3>
 <p>
 HOST_STRIP_COMMAND&nbsp;=&nbsp;$(HOST_STRIP)&nbsp;--strip-debug&nbsp;$<&nbsp;-o&nbsp;$@<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_SHLIB_SUFFIX">■ &nbsp;&nbsp;HOST_SHLIB_SUFFIX</a></h3>
+<h3><a id="HOST_SHLIB_SUFFIX">HOST_SHLIB_SUFFIX</a></h3>
 <p>
 HOST_SHLIB_SUFFIX&nbsp;:=&nbsp;.dylib<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_JNILIB_SUFFIX">■ &nbsp;&nbsp;HOST_JNILIB_SUFFIX</a></h3>
+<h3><a id="HOST_JNILIB_SUFFIX">HOST_JNILIB_SUFFIX</a></h3>
 <p>
 HOST_JNILIB_SUFFIX&nbsp;:=&nbsp;.jnilib<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_GLOBAL_CFLAGS">■ &nbsp;&nbsp;HOST_GLOBAL_CFLAGS</a></h3>
+<h3><a id="HOST_GLOBAL_CFLAGS">HOST_GLOBAL_CFLAGS</a></h3>
 <p>
 HOST_GLOBAL_CFLAGS&nbsp;+=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;-include&nbsp;$(call&nbsp;select-android-config-h,darwin-x86)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_GLOBAL_ARFLAGS">■ &nbsp;&nbsp;HOST_GLOBAL_ARFLAGS</a></h3>
+<h3><a id="HOST_GLOBAL_ARFLAGS">HOST_GLOBAL_ARFLAGS</a></h3>
 <p>
 HOST_GLOBAL_ARFLAGS&nbsp;:=&nbsp;cqs<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_CUSTOM_LD_COMMAND">■ &nbsp;&nbsp;HOST_CUSTOM_LD_COMMAND</a></h3>
+<h3><a id="HOST_CUSTOM_LD_COMMAND">HOST_CUSTOM_LD_COMMAND</a></h3>
 <p>
 HOST_CUSTOM_LD_COMMAND&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-o-to-shared-lib-inner]">■ &nbsp;&nbsp;[transform-host-o-to-shared-lib-inner]</a></h3>
+<div class="function">
+<h3><a id="transform-host-o-to-shared-lib-inner">Function:&nbsp;&nbsp;transform-host-o-to-shared-lib-inner</a></h3>
 <p>
 将目标代码转为动态链接库的宏函数<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-o-to-executable-inner]">■ &nbsp;&nbsp;[transform-host-o-to-executable-inner]</a></h3>
+<div class="function">
+<h3><a id="transform-host-o-to-executable-inner">Function:&nbsp;&nbsp;transform-host-o-to-executable-inner</a></h3>
 <p>
 将目标代码转为可执行文件的宏函数<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-file-size]">■ &nbsp;&nbsp;[get-file-size]</a></h3>
+<div class="function">
+<h3><a id="get-file-size">Function:&nbsp;&nbsp;get-file-size</a></h3>
 <p>
 获取文件大小宏函数<br/>
 </p>

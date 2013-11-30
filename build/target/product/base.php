@@ -18,7 +18,7 @@ Base&nbsp;modules&nbsp;(will&nbsp;move&nbsp;elsewhere,&nbsp;previously&nbsp;user
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 PRODUCT_PACKAGES&nbsp;+=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;20-dns.conf&nbsp;\<br/>

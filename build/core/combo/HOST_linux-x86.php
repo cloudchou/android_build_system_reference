@@ -19,39 +19,39 @@ Configuration&nbsp;for&nbsp;builds&nbsp;hosted&nbsp;on&nbsp;linux-x86.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在linux上的编译配置<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-file-size]">■ &nbsp;&nbsp;[get-file-size]</a></h3>
+<div class="function">
+<h3><a id="get-file-size">Function:&nbsp;&nbsp;get-file-size</a></h3>
 <p>
 获取文件大小<br/>
 $(1):&nbsp;The&nbsp;file&nbsp;to&nbsp;check<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_SDK_TOOLCHAIN_PREFIX">■ &nbsp;&nbsp;HOST_SDK_TOOLCHAIN_PREFIX</a></h3>
+<h3><a id="HOST_SDK_TOOLCHAIN_PREFIX">HOST_SDK_TOOLCHAIN_PREFIX</a></h3>
 <p>
 HOST_SDK_TOOLCHAIN_PREFIX&nbsp;:=&nbsp;prebuilts/tools/gcc-sdk<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_CC">■ &nbsp;&nbsp;HOST_CC</a></h3>
+<h3><a id="HOST_CC">HOST_CC</a></h3>
 <p>
 HOST_CC&nbsp;&nbsp;:=&nbsp;$(HOST_SDK_TOOLCHAIN_PREFIX)/gcc<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_CXX">■ &nbsp;&nbsp;HOST_CXX</a></h3>
+<h3><a id="HOST_CXX">HOST_CXX</a></h3>
 <p>
 HOST_CXX&nbsp;:=&nbsp;$(HOST_SDK_TOOLCHAIN_PREFIX)/g++<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_AR">■ &nbsp;&nbsp;HOST_AR</a></h3>
+<h3><a id="HOST_AR">HOST_AR</a></h3>
 <p>
 HOST_AR&nbsp;&nbsp;:=&nbsp;$(HOST_SDK_TOOLCHAIN_PREFIX)/ar<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="BUILD_HOST_64bit">■ &nbsp;&nbsp;BUILD_HOST_64bit</a></h3>
+<h3><a id="BUILD_HOST_64bit">BUILD_HOST_64bit</a></h3>
 <p>
 ifneq&nbsp;($(strip&nbsp;$(BUILD_HOST_64bit)),)<br/>
 #By&nbsp;default&nbsp;we&nbsp;build&nbsp;everything&nbsp;in&nbsp;32-bit,&nbsp;because&nbsp;it&nbsp;gives&nbsp;us<br/>
@@ -67,7 +67,7 @@ endif&nbsp;#&nbsp;BUILD_HOST_64bit<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_NO_UNDEFINED_LDFLAGS">■ &nbsp;&nbsp;HOST_NO_UNDEFINED_LDFLAGS</a></h3>
+<h3><a id="HOST_NO_UNDEFINED_LDFLAGS">HOST_NO_UNDEFINED_LDFLAGS</a></h3>
 <p>
 HOST_NO_UNDEFINED_LDFLAGS&nbsp;:=&nbsp;-Wl,--no-undefined<br/>
 </p>

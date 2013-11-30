@@ -23,7 +23,7 @@ COMMON_JAVAC&nbsp;--&nbsp;Java&nbsp;compiler&nbsp;command&nbsp;with&nbsp;common&
 </p>
 </div>
 <div class="variable">
-<h3><a id="COMMON_JAVAC">■ &nbsp;&nbsp;COMMON_JAVAC</a></h3>
+<h3><a id="COMMON_JAVAC">COMMON_JAVAC</a></h3>
 <p>
 ifeq&nbsp;($(BUILD_OS),&nbsp;windows)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;COMMON_JAVAC&nbsp;:=&nbsp;development/host/windows/prebuilt/javawrap.exe&nbsp;-J-Xmx256m&nbsp;\<br/>
@@ -47,13 +47,13 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_JAVAC">■ &nbsp;&nbsp;HOST_JAVAC</a></h3>
+<h3><a id="HOST_JAVAC">HOST_JAVAC</a></h3>
 <p>
 HOST_JAVAC&nbsp;?=&nbsp;$(COMMON_JAVAC)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_JAVAC">■ &nbsp;&nbsp;TARGET_JAVAC</a></h3>
+<h3><a id="TARGET_JAVAC">TARGET_JAVAC</a></h3>
 <p>
 TARGET_JAVAC&nbsp;?=&nbsp;$(COMMON_JAVAC)<br/>
 </p>

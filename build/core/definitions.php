@@ -11,19 +11,14 @@
 <?php require_once '../../header.php';?> 
 <div id="content">
 
-<div class="">
-<h3><a id="">▶ &nbsp;&nbsp;</a></h3>
-<p>
-</p>
-</div>
-<div class="variable">
-<h3><a id="__thisfile">■ &nbsp;&nbsp;__thisfile</a></h3>
+<div class="file">
+<h3>build/core/definitions.mk</h3>
 <p>
 定义了公共的编译系统变量，还定义了很多命令用来编译各种各样的目标，其它地方用来构建最终目标,build/core/main.mk，build/core/Makefile将用到这些变量<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_DOCS">■ &nbsp;&nbsp;ALL_DOCS</a></h3>
+<h3><a id="ALL_DOCS">ALL_DOCS</a></h3>
 <p>
 所有文档的全路径<br/>
 ALL_DOCS的赋值在droddoc.mk里：<br/>
@@ -36,7 +31,7 @@ include&nbsp;$(BUILD_DROIDDOC)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_MODULES">■ &nbsp;&nbsp;ALL_MODULES</a></h3>
+<h3><a id="ALL_MODULES">ALL_MODULES</a></h3>
 <p>
 系统的所有模块的简单名字集合<br/>
 编译系统还为每一个模块还定义了其它两个变量<br/>
@@ -83,14 +78,14 @@ ALL_MODULES.$(LOCAL_MODULE).BUILT&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_DEFAULT_INSTALLED_MODULES">■ &nbsp;&nbsp;ALL_DEFAULT_INSTALLED_MODULES</a></h3>
+<h3><a id="ALL_DEFAULT_INSTALLED_MODULES">ALL_DEFAULT_INSTALLED_MODULES</a></h3>
 <p>
 Full&nbsp;paths&nbsp;to&nbsp;targets&nbsp;that&nbsp;should&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;"make&nbsp;droid"&nbsp;set&nbsp;of&nbsp;installed&nbsp;targets.<br/>
 droid目标将安装的所有模块的集合<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_MODULE_TAGS">■ &nbsp;&nbsp;ALL_MODULE_TAGS</a></h3>
+<h3><a id="ALL_MODULE_TAGS">ALL_MODULE_TAGS</a></h3>
 <p>
 使用LOCAL_MODULE_TAGS定义的所有tag集合<br/>
 每一个tag对应一个ALL_MODULE_TAGS.<tagname>变量<br/>
@@ -106,7 +101,7 @@ droid目标将安装的所有模块的集合<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_MODULE_NAME_TAGS">■ &nbsp;&nbsp;ALL_MODULE_NAME_TAGS</a></h3>
+<h3><a id="ALL_MODULE_NAME_TAGS">ALL_MODULE_NAME_TAGS</a></h3>
 <p>
 类似于ALL_MODULE_TAGS，但是包含某个tag的所有模块名&nbsp;<br/>
 例：<br/>
@@ -118,7 +113,7 @@ droid目标将安装的所有模块的集合<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_HOST_INSTALLED_FILES">■ &nbsp;&nbsp;ALL_HOST_INSTALLED_FILES</a></h3>
+<h3><a id="ALL_HOST_INSTALLED_FILES">ALL_HOST_INSTALLED_FILES</a></h3>
 <p>
 所有安装在pc上的程序<br/>
 例：<br/>
@@ -129,7 +124,7 @@ ALL_HOST_INSTALLED_FILES:&nbsp;&nbsp;/home/cloud/android/Cyanogenmod/out/host/li
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_PREBUILT">■ &nbsp;&nbsp;ALL_PREBUILT</a></h3>
+<h3><a id="ALL_PREBUILT">ALL_PREBUILT</a></h3>
 <p>
 Full&nbsp;paths&nbsp;to&nbsp;all&nbsp;prebuilt&nbsp;files&nbsp;that&nbsp;will&nbsp;be&nbsp;copied&nbsp;(used&nbsp;to&nbsp;make&nbsp;the&nbsp;dependency&nbsp;on&nbsp;acp)<br/>
 将会被拷贝的预编译文件的全路径<br/>
@@ -141,7 +136,7 @@ ALL_PREBUILT:&nbsp;out/target/product/find5/system/etc/dbus.conf&nbsp;out/target
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_GENERATED_SOURCES">■ &nbsp;&nbsp;ALL_GENERATED_SOURCES</a></h3>
+<h3><a id="ALL_GENERATED_SOURCES">ALL_GENERATED_SOURCES</a></h3>
 <p>
 Full&nbsp;path&nbsp;to&nbsp;all&nbsp;files&nbsp;that&nbsp;are&nbsp;made&nbsp;by&nbsp;some&nbsp;tool<br/>
 某些工具生成的所有文件的全路径，比如aidl<br/>
@@ -154,7 +149,7 @@ out/target/product/find5/obj/SHARED_LIBRARIES/libbt-vendor_intermediates/vnd_bui
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_ORIGINAL_DYNAMIC_BINARIES">■ &nbsp;&nbsp;ALL_ORIGINAL_DYNAMIC_BINARIES</a></h3>
+<h3><a id="ALL_ORIGINAL_DYNAMIC_BINARIES">ALL_ORIGINAL_DYNAMIC_BINARIES</a></h3>
 <p>
 The&nbsp;list&nbsp;of&nbsp;dynamic&nbsp;binaries&nbsp;that&nbsp;haven't&nbsp;been&nbsp;stripped/compressed/etc<br/>
 没有被优化，也没有被压缩的动态链接库<br/>
@@ -165,7 +160,7 @@ ALL_ORIGINAL_DYNAMIC_BINARIES：out/target/product/find5/obj/EXECUTABLES/vold_in
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_SDK_FILES">■ &nbsp;&nbsp;ALL_SDK_FILES</a></h3>
+<h3><a id="ALL_SDK_FILES">ALL_SDK_FILES</a></h3>
 <p>
 These&nbsp;files&nbsp;go&nbsp;into&nbsp;the&nbsp;SDK&nbsp;<br/>
 将会放在sdk的文件<br/>
@@ -173,7 +168,7 @@ These&nbsp;files&nbsp;go&nbsp;into&nbsp;the&nbsp;SDK&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="INTERNAL_DALVIK_MODULES">■ &nbsp;&nbsp;INTERNAL_DALVIK_MODULES</a></h3>
+<h3><a id="INTERNAL_DALVIK_MODULES">INTERNAL_DALVIK_MODULES</a></h3>
 <p>
 Files&nbsp;for&nbsp;dalvik.&nbsp;&nbsp;This&nbsp;is&nbsp;often&nbsp;build&nbsp;without&nbsp;building&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;OS<br/>
 dalvik虚拟机需要的文件<br/>
@@ -181,7 +176,7 @@ dalvik虚拟机需要的文件<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_FINDBUGS_FILES">■ &nbsp;&nbsp;ALL_FINDBUGS_FILES</a></h3>
+<h3><a id="ALL_FINDBUGS_FILES">ALL_FINDBUGS_FILES</a></h3>
 <p>
 ./build/core/java.mk:400:ALL_FINDBUGS_FILES&nbsp;+=&nbsp;$(findbugs_xml)<br/>
 All&nbsp;findbugs&nbsp;xml&nbsp;files<br/>
@@ -189,7 +184,7 @@ All&nbsp;findbugs&nbsp;xml&nbsp;files<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_GPL_MODULE_LICENSE_FILES">■ &nbsp;&nbsp;ALL_GPL_MODULE_LICENSE_FILES</a></h3>
+<h3><a id="ALL_GPL_MODULE_LICENSE_FILES">ALL_GPL_MODULE_LICENSE_FILES</a></h3>
 <p>
 GPLmodulelicensefiles<br/>
 GPL模块的许可文件<br/>
@@ -202,77 +197,77 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ANDROID_RESOURCE_GENERATED_CLASSES">■ &nbsp;&nbsp;ANDROID_RESOURCE_GENERATED_CLASSES</a></h3>
+<h3><a id="ANDROID_RESOURCE_GENERATED_CLASSES">ANDROID_RESOURCE_GENERATED_CLASSES</a></h3>
 <p>
 ANDROID_RESOURCE_GENERATED_CLASSES&nbsp;:=&nbsp;'R.class'&nbsp;'R$$*.class'&nbsp;'Manifest.class'&nbsp;'Manifest$$*.class'<br/>
 在build/core/static_java_library.mk中有用到，用于排除某些文件，使其不被打包至lib文件<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[print-vars]">■ &nbsp;&nbsp;[print-vars]</a></h3>
+<div class="function">
+<h3><a id="print-vars">Function:&nbsp;&nbsp;print-vars</a></h3>
 <p>
 Debugging;&nbsp;prints&nbsp;a&nbsp;variable&nbsp;list&nbsp;to&nbsp;stdout<br/>
 用于打印变量的值<br/>
 $(1):&nbsp;variable&nbsp;name&nbsp;list,&nbsp;not&nbsp;variable&nbsp;values<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[true-or-empty]">■ &nbsp;&nbsp;[true-or-empty]</a></h3>
+<div class="function">
+<h3><a id="true-or-empty">Function:&nbsp;&nbsp;true-or-empty</a></h3>
 <p>
 如果参数含有true，则返回true，否则返回空<br/>
 $(1)&nbsp;要测试的变量<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[my-dir]">■ &nbsp;&nbsp;[my-dir]</a></h3>
+<div class="function">
+<h3><a id="my-dir">Function:&nbsp;&nbsp;my-dir</a></h3>
 <p>
 返回当前makefile所在目录<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-makefiles-under]">■ &nbsp;&nbsp;[all-makefiles-under]</a></h3>
+<div class="function">
+<h3><a id="all-makefiles-under">Function:&nbsp;&nbsp;all-makefiles-under</a></h3>
 <p>
 获取某个目录下的所有Android.mk<br/>
 $(1):需要提取Android.mk的目录<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[first-makefiles-under]">■ &nbsp;&nbsp;[first-makefiles-under]</a></h3>
+<div class="function">
+<h3><a id="first-makefiles-under">Function:&nbsp;&nbsp;first-makefiles-under</a></h3>
 <p>
 在某个目录下的所有子目录中查找Android.mk，不包括当前目录<br/>
 $(1):要搜索的目录<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-subdir-makefiles]">■ &nbsp;&nbsp;[all-subdir-makefiles]</a></h3>
+<div class="function">
+<h3><a id="all-subdir-makefiles">Function:&nbsp;&nbsp;all-subdir-makefiles</a></h3>
 <p>
 查找当前目录及子目录下的所有Android.mk<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-named-subdir-makefiles]">■ &nbsp;&nbsp;[all-named-subdir-makefiles]</a></h3>
+<div class="function">
+<h3><a id="all-named-subdir-makefiles">Function:&nbsp;&nbsp;all-named-subdir-makefiles</a></h3>
 <p>
 在当前目录下的一组子目录下查找Android.mk<br/>
 $(1):&nbsp;List&nbsp;of&nbsp;directories&nbsp;to&nbsp;look&nbsp;for&nbsp;under&nbsp;this&nbsp;directory<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-java-files-under]">■ &nbsp;&nbsp;[all-java-files-under]</a></h3>
+<div class="function">
+<h3><a id="all-java-files-under">Function:&nbsp;&nbsp;all-java-files-under</a></h3>
 <p>
 找出当前makefile所在目录的指定子目录里的所有java文件<br/>
 $(1)&nbsp;指定子目录<br/>
 使用范例：SRC_FILES&nbsp;:=&nbsp;$(call&nbsp;all-java-files-under,src&nbsp;tests)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-subdir-java-files]">■ &nbsp;&nbsp;[all-subdir-java-files]</a></h3>
+<div class="function">
+<h3><a id="all-subdir-java-files">Function:&nbsp;&nbsp;all-subdir-java-files</a></h3>
 <p>
 从当前目录查找所有java文件<br/>
 使用范例：&nbsp;SRC_FILES&nbsp;:=&nbsp;$(call&nbsp;all-subdir-java-files)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-c-files-under]">■ &nbsp;&nbsp;[all-c-files-under]</a></h3>
+<div class="function">
+<h3><a id="all-c-files-under">Function:&nbsp;&nbsp;all-c-files-under</a></h3>
 <p>
 Findallofthecfilesunderthenameddirectories.<br/>
 Meanttobeusedlike:<br/>
@@ -280,15 +275,15 @@ SRC_FILES:=$(callall-c-files-under,srctests)<br/>
 $1:指定子目录名称<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-subdir-c-files]">■ &nbsp;&nbsp;[all-subdir-c-files]</a></h3>
+<div class="function">
+<h3><a id="all-subdir-c-files">Function:&nbsp;&nbsp;all-subdir-c-files</a></h3>
 <p>
 Findallofthecfilesfromhere.Meanttobeusedlike:<br/>
 SRC_FILES:=$(callall-subdir-c-files)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-Iaidl-files-under]">■ &nbsp;&nbsp;[all-Iaidl-files-under]</a></h3>
+<div class="function">
+<h3><a id="all-Iaidl-files-under">Function:&nbsp;&nbsp;all-Iaidl-files-under</a></h3>
 <p>
 Findallfilesnamed"I*.aidl"underthenameddirectories,<br/>
 whichmustberelativeto$(LOCAL_PATH).Thereturnedlist<br/>
@@ -296,14 +291,14 @@ isrelativeto$(LOCAL_PATH).<br/>
 $1:指定子目录名称<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-subdir-Iaidl-files]">■ &nbsp;&nbsp;[all-subdir-Iaidl-files]</a></h3>
+<div class="function">
+<h3><a id="all-subdir-Iaidl-files">Function:&nbsp;&nbsp;all-subdir-Iaidl-files</a></h3>
 <p>
 Findallofthe"I*.aidl"filesunder$(LOCAL_PATH).<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-logtags-files-under]">■ &nbsp;&nbsp;[all-logtags-files-under]</a></h3>
+<div class="function">
+<h3><a id="all-logtags-files-under">Function:&nbsp;&nbsp;all-logtags-files-under</a></h3>
 <p>
 Findallofthelogtagsfilesunderthenameddirectories.<br/>
 Meanttobeusedlike:<br/>
@@ -312,8 +307,8 @@ SRC_FILES:=$(callall-logtags-files-under,src)<br/>
 $1:指定子目录名称<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-proto-files-under]">■ &nbsp;&nbsp;[all-proto-files-under]</a></h3>
+<div class="function">
+<h3><a id="all-proto-files-under">Function:&nbsp;&nbsp;all-proto-files-under</a></h3>
 <p>
 Findallofthe.protofilesunderthenameddirectories.<br/>
 Meanttobeusedlike:<br/>
@@ -322,8 +317,8 @@ SRC_FILES:=$(callall-proto-files-under,src)<br/>
 $1:指定子目录名称<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-renderscript-files-under]">■ &nbsp;&nbsp;[all-renderscript-files-under]</a></h3>
+<div class="function">
+<h3><a id="all-renderscript-files-under">Function:&nbsp;&nbsp;all-renderscript-files-under</a></h3>
 <p>
 FindalloftheRenderScriptfilesunderthenameddirectories.<br/>
 Meanttobeusedlike:<br/>
@@ -332,8 +327,8 @@ SRC_FILES:=$(callall-renderscript-files-under,src)<br/>
 $1:指定子目录名称<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-html-files-under]">■ &nbsp;&nbsp;[all-html-files-under]</a></h3>
+<div class="function">
+<h3><a id="all-html-files-under">Function:&nbsp;&nbsp;all-html-files-under</a></h3>
 <p>
 Findallofthehtmlfilesunderthenameddirectories.<br/>
 Meanttobeusedlike:<br/>
@@ -342,23 +337,23 @@ SRC_FILES:=$(callall-html-files-under,srctests)<br/>
 $1:指定子目录名称<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[all-subdir-html-files]">■ &nbsp;&nbsp;[all-subdir-html-files]</a></h3>
+<div class="function">
+<h3><a id="all-subdir-html-files">Function:&nbsp;&nbsp;all-subdir-html-files</a></h3>
 <p>
 Findallofthehtmlfilesfromhere.Meanttobeusedlike:<br/>
 SRC_FILES:=$(callall-subdir-html-files)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[find-subdir-files]">■ &nbsp;&nbsp;[find-subdir-files]</a></h3>
+<div class="function">
+<h3><a id="find-subdir-files">Function:&nbsp;&nbsp;find-subdir-files</a></h3>
 <p>
 Findallofthefilesmatchingpattern<br/>
 SRC_FILES:=$(callfind-subdir-files,<pattern>)<br/>
 $1根据正则表达式搜索，按find命令的正则规则<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[find-subdir-subdir-files]">■ &nbsp;&nbsp;[find-subdir-subdir-files]</a></h3>
+<div class="function">
+<h3><a id="find-subdir-subdir-files">Function:&nbsp;&nbsp;find-subdir-subdir-files</a></h3>
 <p>
 findthefilesinthesubdirectory$1ofLOCAL_DIR<br/>
 matchingpattern$2,filteringoutfiles$3<br/>
@@ -370,30 +365,30 @@ $2匹配规则<br/>
 $3过滤的文件<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[find-subdir-assets]">■ &nbsp;&nbsp;[find-subdir-assets]</a></h3>
+<div class="function">
+<h3><a id="find-subdir-assets">Function:&nbsp;&nbsp;find-subdir-assets</a></h3>
 <p>
 查找所有不是软链的文件，且文件名不含"."<br/>
 SRC_FILES:=$(callfind-subdir-assets)<br/>
 $1要进入并查找的目录<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[find-other-java-files]">■ &nbsp;&nbsp;[find-other-java-files]</a></h3>
+<div class="function">
+<h3><a id="find-other-java-files">Function:&nbsp;&nbsp;find-other-java-files</a></h3>
 <p>
 查找java文件<br/>
 $1&nbsp;要进入并查找的目录&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[find-other-html-files]">■ &nbsp;&nbsp;[find-other-html-files]</a></h3>
+<div class="function">
+<h3><a id="find-other-html-files">Function:&nbsp;&nbsp;find-other-html-files</a></h3>
 <p>
 查找html文件<br/>
 $1&nbsp;要进入并查找的目录<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[find-parent-file]">■ &nbsp;&nbsp;[find-parent-file]</a></h3>
+<div class="function">
+<h3><a id="find-parent-file">Function:&nbsp;&nbsp;find-parent-file</a></h3>
 <p>
 Scanthrougheachdirectoryof$(1)lookingforfiles<br/>
 thatmatch$(2)using$(wildcard).Usefulforseeingif<br/>
@@ -402,21 +397,21 @@ aparticularfile.Returnsthefirstmatchfound,<br/>
 startingfurthestfromtheroot.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-dependency]">■ &nbsp;&nbsp;[add-dependency]</a></h3>
+<div class="function">
+<h3><a id="add-dependency">Function:&nbsp;&nbsp;add-dependency</a></h3>
 <p>
 Functionwecanevaluatetointroduceadynamicdependency<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-prebuilt-file]">■ &nbsp;&nbsp;[add-prebuilt-file]</a></h3>
+<div class="function">
+<h3><a id="add-prebuilt-file">Function:&nbsp;&nbsp;add-prebuilt-file</a></h3>
 <p>
 Setupthedependenciesforaprebuilttarget<br/>
 $(calladd-prebuilt-file,srcfile,[targetclass])<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-prebuilt-files]">■ &nbsp;&nbsp;[add-prebuilt-files]</a></h3>
+<div class="function">
+<h3><a id="add-prebuilt-files">Function:&nbsp;&nbsp;add-prebuilt-files</a></h3>
 <p>
 domultipleprebuilts<br/>
 $(calltargetclass,files...)<br/>
@@ -424,8 +419,8 @@ $(calltargetclass,files...)<br/>
 gdbserver/Android.mk:$(calladd-prebuilt-files,EXECUTABLES,$(prebuilt_files))<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[intermediates-dir-for]">■ &nbsp;&nbsp;[intermediates-dir-for]</a></h3>
+<div class="function">
+<h3><a id="intermediates-dir-for">Function:&nbsp;&nbsp;intermediates-dir-for</a></h3>
 <p>
 Theintermediatesdirectory.Whereobjectfilesgofor<br/>
 agiventarget.Wecouldtechnicallygetawaywithout<br/>
@@ -445,8 +440,8 @@ out/target/common/obj/APPS/framework-res_intermediates<br/>
 out/target/common/obj/JAVA_LIBRARIES/framework_intermediates<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[local-intermediates-dir]">■ &nbsp;&nbsp;[local-intermediates-dir]</a></h3>
+<div class="function">
+<h3><a id="local-intermediates-dir">Function:&nbsp;&nbsp;local-intermediates-dir</a></h3>
 <p>
 UsesLOCAL_MODULE_CLASS,LOCAL_MODULE,andLOCAL_IS_HOST_MODULE<br/>
 todeterminetheintermediatesdirectory.<br/>
@@ -458,27 +453,27 @@ $1为空<br/>
 那么返回out/target/product/find5/obj/EXECUTABLES/recovery_intermediates<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[normalize-libraries]">■ &nbsp;&nbsp;[normalize-libraries]</a></h3>
+<div class="function">
+<h3><a id="normalize-libraries">Function:&nbsp;&nbsp;normalize-libraries</a></h3>
 <p>
 Convert"path/to/libXXX.so"to"-lXXX".<br/>
 Any"path/to/libXXX.a"elementspassthroughunchanged.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[normalize-host-libraries]">■ &nbsp;&nbsp;[normalize-host-libraries]</a></h3>
+<div class="function">
+<h3><a id="normalize-host-libraries">Function:&nbsp;&nbsp;normalize-host-libraries</a></h3>
 <p>
 参见normalize-libraries<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[normalize-target-libraries]">■ &nbsp;&nbsp;[normalize-target-libraries]</a></h3>
+<div class="function">
+<h3><a id="normalize-target-libraries">Function:&nbsp;&nbsp;normalize-target-libraries</a></h3>
 <p>
 参见normalize-libraries<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[module-built-files]">■ &nbsp;&nbsp;[module-built-files]</a></h3>
+<div class="function">
+<h3><a id="module-built-files">Function:&nbsp;&nbsp;module-built-files</a></h3>
 <p>
 Convertalistofshortmodulenames(e.g.,"framework","Browser")<br/>
 intothelistoffilesthatarebuiltforthosemodules.<br/>
@@ -487,8 +482,8 @@ sub-makefileshavebeenincluded.<br/>
 $(1):targetlist<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[module-installed-files]">■ &nbsp;&nbsp;[module-installed-files]</a></h3>
+<div class="function">
+<h3><a id="module-installed-files">Function:&nbsp;&nbsp;module-installed-files</a></h3>
 <p>
 Convertalistofshortmodulesnames(e.g.,"framework","Browser")<br/>
 intothelistoffilesthatareinstalledforthosemodules.<br/>
@@ -497,8 +492,8 @@ sub-makefileshavebeenincluded.<br/>
 $(1):targetlist<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[module-stubs-files]">■ &nbsp;&nbsp;[module-stubs-files]</a></h3>
+<div class="function">
+<h3><a id="module-stubs-files">Function:&nbsp;&nbsp;module-stubs-files</a></h3>
 <p>
 Convertalistofshortmodulesnames(e.g.,"framework","Browser")<br/>
 intothelistoffilesthatshouldbeusedwhenlinking<br/>
@@ -509,16 +504,16 @@ sub-makefileshavebeenincluded.<br/>
 $(1):targetlist<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[doc-timestamp-for]">■ &nbsp;&nbsp;[doc-timestamp-for]</a></h3>
+<div class="function">
+<h3><a id="doc-timestamp-for">Function:&nbsp;&nbsp;doc-timestamp-for</a></h3>
 <p>
 Evaluatestothetimestampfileforadocmodule,which<br/>
 isthedependencythatshouldbeused.<br/>
 $(1):docmodule<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_java-lib-dir]">■ &nbsp;&nbsp;[_java-lib-dir]</a></h3>
+<div class="function">
+<h3><a id="_java-lib-dir">Function:&nbsp;&nbsp;_java-lib-dir</a></h3>
 <p>
 Convert"coreextframework"to"out/.../javalib.jar..."<br/>
 返回out/target/common/JAVA_LIBRARIES/*_indeterminates<br/>
@@ -527,15 +522,15 @@ $(1):libraryname<br/>
 $(2):Non-emptyifIS_HOST_MODULE<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_java-lib-full-classes.jar]">■ &nbsp;&nbsp;[_java-lib-full-classes.jar]</a></h3>
+<div class="function">
+<h3><a id="_java-lib-full-classes.jar">Function:&nbsp;&nbsp;_java-lib-full-classes.jar</a></h3>
 <p>
 out/target/common/JAVA_LIBRARIES/*_indeterminates/classes.jar<br/>
 辅助java-lib-files<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[java-lib-files]">■ &nbsp;&nbsp;[java-lib-files]</a></h3>
+<div class="function">
+<h3><a id="java-lib-files">Function:&nbsp;&nbsp;java-lib-files</a></h3>
 <p>
 Convert&nbsp;"core&nbsp;ext&nbsp;framework"&nbsp;to&nbsp;"out/.../javalib.jar&nbsp;..."<br/>
 out/target/common/JAVA_LIBRARIES/libname_indeterminates/classes.jar<br/>
@@ -544,8 +539,8 @@ $(1):&nbsp;library&nbsp;name&nbsp;list<br/>
 $(2):&nbsp;Non-empty&nbsp;if&nbsp;IS_HOST_MODULE<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_java-lib-full-dep]">■ &nbsp;&nbsp;[_java-lib-full-dep]</a></h3>
+<div class="function">
+<h3><a id="_java-lib-full-dep">Function:&nbsp;&nbsp;_java-lib-full-dep</a></h3>
 <p>
 out/target/common/JAVA_LIBRARIES/libname_indeterminates/javalib.jar<br/>
 out/host/common/JAVA_LIBRARIES/libname_indeterminates/javalib.jar<br/>
@@ -553,36 +548,36 @@ $(1):&nbsp;library&nbsp;name<br/>
 $(2):&nbsp;Non-empty&nbsp;if&nbsp;IS_HOST_MODULE<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[java-lib-deps]">■ &nbsp;&nbsp;[java-lib-deps]</a></h3>
+<div class="function">
+<h3><a id="java-lib-deps">Function:&nbsp;&nbsp;java-lib-deps</a></h3>
 <p>
 多个javalib.jar<br/>
 $(1):&nbsp;library&nbsp;name&nbsp;list<br/>
 $(2):&nbsp;Non-empty&nbsp;if&nbsp;IS_HOST_MODULE<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[rot13]">■ &nbsp;&nbsp;[rot13]</a></h3>
+<div class="function">
+<h3><a id="rot13">Function:&nbsp;&nbsp;rot13</a></h3>
 <p>
 Runrot13onastring<br/>
 $(1):thestring.Mustbeoneline.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[streq]">■ &nbsp;&nbsp;[streq]</a></h3>
+<div class="function">
+<h3><a id="streq">Function:&nbsp;&nbsp;streq</a></h3>
 <p>
 Returnstrueif$(1)and$(2)areequal.Returns<br/>
 theemptystringiftheyarenotequal.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[normalize-path-list]">■ &nbsp;&nbsp;[normalize-path-list]</a></h3>
+<div class="function">
+<h3><a id="normalize-path-list">Function:&nbsp;&nbsp;normalize-path-list</a></h3>
 <p>
 Convert"abc"into"a:b:c"<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[word-colon]">■ &nbsp;&nbsp;[word-colon]</a></h3>
+<div class="function">
+<h3><a id="word-colon">Function:&nbsp;&nbsp;word-colon</a></h3>
 <p>
 Readthewordoutofacolon-separatedlistofwords.<br/>
 Thishasthesamebehaviorasthebuilt-infunction<br/>
@@ -593,8 +588,8 @@ $(1):1basedindex<br/>
 $(2):valueoftheforma:b:c...<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[collapse-pairs]">■ &nbsp;&nbsp;[collapse-pairs]</a></h3>
+<div class="function">
+<h3><a id="collapse-pairs">Function:&nbsp;&nbsp;collapse-pairs</a></h3>
 <p>
 Convert"a=bc=de=f"into"a=bc=de=f"<br/>
 $(1):listtocollapse<br/>
@@ -602,8 +597,8 @@ $(2):ifset,separatorword;usually"=",":",or":="<br/>
 Defaultsto"="ifnotset.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[uniq-pairs-by-first-component]">■ &nbsp;&nbsp;[uniq-pairs-by-first-component]</a></h3>
+<div class="function">
+<h3><a id="uniq-pairs-by-first-component">Function:&nbsp;&nbsp;uniq-pairs-by-first-component</a></h3>
 <p>
 Given&nbsp;a&nbsp;list&nbsp;of&nbsp;pairs,&nbsp;if&nbsp;multiple&nbsp;pairs&nbsp;have&nbsp;the&nbsp;same<br/>
 first&nbsp;components,&nbsp;keep&nbsp;only&nbsp;the&nbsp;first&nbsp;pair.<br/>
@@ -611,8 +606,8 @@ $(1):&nbsp;list&nbsp;of&nbsp;pairs<br/>
 $(2):&nbsp;the&nbsp;separator&nbsp;word,&nbsp;such&nbsp;as&nbsp;":",&nbsp;"=",&nbsp;etc.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[modules-for-tag-list]">■ &nbsp;&nbsp;[modules-for-tag-list]</a></h3>
+<div class="function">
+<h3><a id="modules-for-tag-list">Function:&nbsp;&nbsp;modules-for-tag-list</a></h3>
 <p>
 Givenalistofpairs,ifmultiplepairshavethesame<br/>
 firstcomponents,keeponlythefirstpair.<br/>
@@ -621,8 +616,8 @@ $(2):theseparatorword,suchas":","=",etc.<br/>
 ALL_MODULE_TAGS.eng：out/target/product/find5/system/bin/recovery<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[module-names-for-tag-list]">■ &nbsp;&nbsp;[module-names-for-tag-list]</a></h3>
+<div class="function">
+<h3><a id="module-names-for-tag-list">Function:&nbsp;&nbsp;module-names-for-tag-list</a></h3>
 <p>
 Given&nbsp;a&nbsp;list&nbsp;of&nbsp;tags,&nbsp;return&nbsp;the&nbsp;targets&nbsp;that&nbsp;specify<br/>
 any&nbsp;of&nbsp;those&nbsp;tags.<br/>
@@ -630,8 +625,8 @@ $(1):&nbsp;tag&nbsp;list<br/>
 ALL_MODULE_NAME_TAGS.eng:&nbsp;recovery&nbsp;libbmlutils&nbsp;libdedupe&nbsp;utility_dedupe&nbsp;libcrecovery&nbsp;libmmcutils&nbsp;updater&nbsp;libapplypatch&nbsp;applypatch_static&nbsp;su.recovery<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-tagged-modules]">■ &nbsp;&nbsp;[get-tagged-modules]</a></h3>
+<div class="function">
+<h3><a id="get-tagged-modules">Function:&nbsp;&nbsp;get-tagged-modules</a></h3>
 <p>
 Given&nbsp;an&nbsp;accept&nbsp;and&nbsp;reject&nbsp;list,&nbsp;find&nbsp;the&nbsp;matching&nbsp;set&nbsp;of&nbsp;targets.&nbsp;&nbsp;If&nbsp;a&nbsp;target&nbsp;has&nbsp;multiple&nbsp;tags&nbsp;and<br/>
 any&nbsp;of&nbsp;them&nbsp;are&nbsp;rejected,&nbsp;the&nbsp;target&nbsp;is&nbsp;rejected.<br/>
@@ -640,8 +635,8 @@ $(1):&nbsp;list&nbsp;of&nbsp;tags&nbsp;to&nbsp;accept<br/>
 $(2):&nbsp;list&nbsp;of&nbsp;tags&nbsp;to&nbsp;reject<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[append-path]">■ &nbsp;&nbsp;[append-path]</a></h3>
+<div class="function">
+<h3><a id="append-path">Function:&nbsp;&nbsp;append-path</a></h3>
 <p>
 Appendaleaftoabasepath.Properlydealswith<br/>
 basepathsendingin/.<br/>
@@ -649,8 +644,8 @@ $(1):basepath<br/>
 $(2):leafpath<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_get-package-overrides]">■ &nbsp;&nbsp;[_get-package-overrides]</a></h3>
+<div class="function">
+<h3><a id="_get-package-overrides">Function:&nbsp;&nbsp;_get-package-overrides</a></h3>
 <p>
 Packagefiltering<br/>
 #Givenalistofinstalledmodules(shortorlongnames)<br/>
@@ -661,49 +656,49 @@ Packagefiltering<br/>
 #TODO:Thisisfragile;findareliablewaytogetthisinformation.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-package-overrides]">■ &nbsp;&nbsp;[get-package-overrides]</a></h3>
+<div class="function">
+<h3><a id="get-package-overrides">Function:&nbsp;&nbsp;get-package-overrides</a></h3>
 <p>
 参见_get-package-overrides<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[pretty]">■ &nbsp;&nbsp;[pretty]</a></h3>
+<div class="function">
+<h3><a id="pretty">Function:&nbsp;&nbsp;pretty</a></h3>
 <p>
 Output&nbsp;the&nbsp;command&nbsp;lines,&nbsp;or&nbsp;not<br/>
 如果编译时传递了添加了showcommands参数，调用pretty会打印正在执行的命令<br/>
 如果没有传递showcommand参数，则不会打印正在执行的命令<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[dump-module-variables]">■ &nbsp;&nbsp;[dump-module-variables]</a></h3>
+<div class="function">
+<h3><a id="dump-module-variables">Function:&nbsp;&nbsp;dump-module-variables</a></h3>
 <p>
 Dump&nbsp;the&nbsp;variables&nbsp;that&nbsp;are&nbsp;associated&nbsp;with&nbsp;targets<br/>
 &nbsp;打印编译时的一些参数<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-variables]">■ &nbsp;&nbsp;[transform-variables]</a></h3>
+<div class="function">
+<h3><a id="transform-variables">Function:&nbsp;&nbsp;transform-variables</a></h3>
 <p>
 Commands&nbsp;for&nbsp;using&nbsp;sed&nbsp;to&nbsp;replace&nbsp;given&nbsp;variable&nbsp;values<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-d-to-p-args]">■ &nbsp;&nbsp;[transform-d-to-p-args]</a></h3>
+<div class="function">
+<h3><a id="transform-d-to-p-args">Function:&nbsp;&nbsp;transform-d-to-p-args</a></h3>
 <p>
 CommandsformungingthedependencyfilesGCCgenerates<br/>
 $(1):theinput.dfile<br/>
 $(2):theoutput.Pfile<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-d-to-p]">■ &nbsp;&nbsp;[transform-d-to-p]</a></h3>
+<div class="function">
+<h3><a id="transform-d-to-p">Function:&nbsp;&nbsp;transform-d-to-p</a></h3>
 <p>
 参见&nbsp;transform-d-to-p-args&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-l-to-cpp]">■ &nbsp;&nbsp;[transform-l-to-cpp]</a></h3>
+<div class="function">
+<h3><a id="transform-l-to-cpp">Function:&nbsp;&nbsp;transform-l-to-cpp</a></h3>
 <p>
 Commandsforrunninglex<br/>
 举例：<br/>
@@ -713,8 +708,8 @@ $(TOPDIR)$(LOCAL_PATH)/%.l<br/>
 $(transform-l-to-cpp)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-y-to-cpp]">■ &nbsp;&nbsp;[transform-y-to-cpp]</a></h3>
+<div class="function">
+<h3><a id="transform-y-to-cpp">Function:&nbsp;&nbsp;transform-y-to-cpp</a></h3>
 <p>
 Commandsforrunningyacc<br/>
 Becausetheextensionofc++filescanchange,the<br/>
@@ -722,162 +717,162 @@ extensionmustbespecifiedin$1.<br/>
 E.g,"$(calltransform-y-to-cpp,.cpp)"<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-renderscripts-to-java-and-bc]">■ &nbsp;&nbsp;[transform-renderscripts-to-java-and-bc]</a></h3>
+<div class="function">
+<h3><a id="transform-renderscripts-to-java-and-bc">Function:&nbsp;&nbsp;transform-renderscripts-to-java-and-bc</a></h3>
 <p>
 CommandstocompileRenderScript<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-aidl-to-java]">■ &nbsp;&nbsp;[transform-aidl-to-java]</a></h3>
+<div class="function">
+<h3><a id="transform-aidl-to-java">Function:&nbsp;&nbsp;transform-aidl-to-java</a></h3>
 <p>
 Commandsforrunningaidl<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-logtags-to-java]">■ &nbsp;&nbsp;[transform-logtags-to-java]</a></h3>
+<div class="function">
+<h3><a id="transform-logtags-to-java">Function:&nbsp;&nbsp;transform-logtags-to-java</a></h3>
 <p>
 Commandsforrunningjava-event-log-tags.py<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-proto-to-java]">■ &nbsp;&nbsp;[transform-proto-to-java]</a></h3>
+<div class="function">
+<h3><a id="transform-proto-to-java">Function:&nbsp;&nbsp;transform-proto-to-java</a></h3>
 <p>
 Commandsforrunningprotoctocompile.protointo.java<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-proto-to-cc]">■ &nbsp;&nbsp;[transform-proto-to-cc]</a></h3>
+<div class="function">
+<h3><a id="transform-proto-to-cc">Function:&nbsp;&nbsp;transform-proto-to-cc</a></h3>
 <p>
 Commandsforrunningprotoctocompile.protointo.pb.ccand.pb.h<br/>
 #<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-cpp-to-o]">■ &nbsp;&nbsp;[transform-cpp-to-o]</a></h3>
+<div class="function">
+<h3><a id="transform-cpp-to-o">Function:&nbsp;&nbsp;transform-cpp-to-o</a></h3>
 <p>
 CommandsforrunninggcctocompileaC++file<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-c-or-s-to-o-no-deps]">■ &nbsp;&nbsp;[transform-c-or-s-to-o-no-deps]</a></h3>
+<div class="function">
+<h3><a id="transform-c-or-s-to-o-no-deps">Function:&nbsp;&nbsp;transform-c-or-s-to-o-no-deps</a></h3>
 <p>
 Commands&nbsp;for&nbsp;running&nbsp;gcc&nbsp;to&nbsp;compile&nbsp;a&nbsp;C&nbsp;file<br/>
 #&nbsp;$(1):&nbsp;extra&nbsp;flags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-c-to-o-no-deps]">■ &nbsp;&nbsp;[transform-c-to-o-no-deps]</a></h3>
+<div class="function">
+<h3><a id="transform-c-to-o-no-deps">Function:&nbsp;&nbsp;transform-c-to-o-no-deps</a></h3>
 <p>
 编译c文件至目标文件,无依赖的编译<br/>
 #&nbsp;$(1):&nbsp;extra&nbsp;flags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-s-to-o-no-deps]">■ &nbsp;&nbsp;[transform-s-to-o-no-deps]</a></h3>
+<div class="function">
+<h3><a id="transform-s-to-o-no-deps">Function:&nbsp;&nbsp;transform-s-to-o-no-deps</a></h3>
 <p>
 编译汇编文件至目标文件，无依赖的编译<br/>
 &nbsp;$(1):&nbsp;extra&nbsp;flags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-c-to-o]">■ &nbsp;&nbsp;[transform-c-to-o]</a></h3>
+<div class="function">
+<h3><a id="transform-c-to-o">Function:&nbsp;&nbsp;transform-c-to-o</a></h3>
 <p>
 编译c文件至目标文件<br/>
 #&nbsp;$(1):&nbsp;extra&nbsp;flags&nbsp;编译参数<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-s-to-o]">■ &nbsp;&nbsp;[transform-s-to-o]</a></h3>
+<div class="function">
+<h3><a id="transform-s-to-o">Function:&nbsp;&nbsp;transform-s-to-o</a></h3>
 <p>
 编译汇编文件至目标文件<br/>
 &nbsp;$(1):&nbsp;extra&nbsp;flags，编译参数<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-m-to-o-no-deps]">■ &nbsp;&nbsp;[transform-m-to-o-no-deps]</a></h3>
+<div class="function">
+<h3><a id="transform-m-to-o-no-deps">Function:&nbsp;&nbsp;transform-m-to-o-no-deps</a></h3>
 <p>
 CommandsforrunninggcctocompileanObjective-Cfile<br/>
 Thisshouldneverhappenfortargetbuildsbutthis<br/>
 willerroratbuildtime.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-m-to-o]">■ &nbsp;&nbsp;[transform-m-to-o]</a></h3>
+<div class="function">
+<h3><a id="transform-m-to-o">Function:&nbsp;&nbsp;transform-m-to-o</a></h3>
 <p>
 编译objet&nbsp;c文件至目标文件<br/>
 &nbsp;$(1):&nbsp;extra&nbsp;flags，编译参数<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-cpp-to-o]">■ &nbsp;&nbsp;[transform-host-cpp-to-o]</a></h3>
+<div class="function">
+<h3><a id="transform-host-cpp-to-o">Function:&nbsp;&nbsp;transform-host-cpp-to-o</a></h3>
 <p>
 Commands&nbsp;for&nbsp;running&nbsp;gcc&nbsp;to&nbsp;compile&nbsp;a&nbsp;host&nbsp;C++&nbsp;file<br/>
 编译cpp文件，目标代码将在主机上运行<br/>
 #&nbsp;$(1):&nbsp;extra&nbsp;flags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-c-or-s-to-o-no-deps]">■ &nbsp;&nbsp;[transform-host-c-or-s-to-o-no-deps]</a></h3>
+<div class="function">
+<h3><a id="transform-host-c-or-s-to-o-no-deps">Function:&nbsp;&nbsp;transform-host-c-or-s-to-o-no-deps</a></h3>
 <p>
 CommandsforrunninggcctocompileahostCfile<br/>
 编译c代码或者汇编代码，目标代码将在主机上运行，无依赖的编译<br/>
 #$(1):extraflags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-c-to-o-no-deps]">■ &nbsp;&nbsp;[transform-host-c-to-o-no-deps]</a></h3>
+<div class="function">
+<h3><a id="transform-host-c-to-o-no-deps">Function:&nbsp;&nbsp;transform-host-c-to-o-no-deps</a></h3>
 <p>
 Commands&nbsp;for&nbsp;running&nbsp;gcc&nbsp;to&nbsp;compile&nbsp;a&nbsp;host&nbsp;C&nbsp;file<br/>
 &nbsp;编译c代码，目标代码将在主机上运行，无依赖的编译<br/>
 &nbsp;#&nbsp;$(1):&nbsp;extra&nbsp;flags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-s-to-o-no-deps]">■ &nbsp;&nbsp;[transform-host-s-to-o-no-deps]</a></h3>
+<div class="function">
+<h3><a id="transform-host-s-to-o-no-deps">Function:&nbsp;&nbsp;transform-host-s-to-o-no-deps</a></h3>
 <p>
 编译汇编代码，目标代码将在主机上运行，无依赖的编译<br/>
 #$(1):extraflags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-c-to-o]">■ &nbsp;&nbsp;[transform-host-c-to-o]</a></h3>
+<div class="function">
+<h3><a id="transform-host-c-to-o">Function:&nbsp;&nbsp;transform-host-c-to-o</a></h3>
 <p>
 编译c代码，目标代码将在主机上运行<br/>
 #$(1):extraflags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-s-to-o]">■ &nbsp;&nbsp;[transform-host-s-to-o]</a></h3>
+<div class="function">
+<h3><a id="transform-host-s-to-o">Function:&nbsp;&nbsp;transform-host-s-to-o</a></h3>
 <p>
 编译汇编代码，目标代码将在主机上运行<br/>
 $(1):extraflags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-m-to-o-no-deps]">■ &nbsp;&nbsp;[transform-host-m-to-o-no-deps]</a></h3>
+<div class="function">
+<h3><a id="transform-host-m-to-o-no-deps">Function:&nbsp;&nbsp;transform-host-m-to-o-no-deps</a></h3>
 <p>
 CommandsforrunninggcctocompileahostObjective-Cfile<br/>
 编译objectc代码，目标代码将在主机上运行，无依赖编译<br/>
 $(1):extraflags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-m-to-o]">■ &nbsp;&nbsp;[transform-host-m-to-o]</a></h3>
+<div class="function">
+<h3><a id="transform-host-m-to-o">Function:&nbsp;&nbsp;transform-host-m-to-o</a></h3>
 <p>
 Commands&nbsp;for&nbsp;running&nbsp;gcc&nbsp;to&nbsp;compile&nbsp;a&nbsp;host&nbsp;Objective-C&nbsp;file<br/>
 &nbsp;编译object&nbsp;c代码，目标代码将在主机上运行，<br/>
 &nbsp;$(1):&nbsp;extra&nbsp;flags<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_concat-if-arg2-not-empty]">■ &nbsp;&nbsp;[_concat-if-arg2-not-empty]</a></h3>
+<div class="function">
+<h3><a id="_concat-if-arg2-not-empty">Function:&nbsp;&nbsp;_concat-if-arg2-not-empty</a></h3>
 <p>
 Commandsforrunningar<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[split-long-arguments]">■ &nbsp;&nbsp;[split-long-arguments]</a></h3>
+<div class="function">
+<h3><a id="split-long-arguments">Function:&nbsp;&nbsp;split-long-arguments</a></h3>
 <p>
 Split&nbsp;long&nbsp;argument&nbsp;list&nbsp;into&nbsp;smaller&nbsp;groups&nbsp;and&nbsp;call&nbsp;the&nbsp;command&nbsp;repeatedly<br/>
 Call&nbsp;the&nbsp;command&nbsp;at&nbsp;least&nbsp;once&nbsp;even&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;arguments,&nbsp;as&nbsp;otherwise<br/>
@@ -886,49 +881,49 @@ $(1):&nbsp;the&nbsp;command&nbsp;without&nbsp;arguments<br/>
 $(2):&nbsp;the&nbsp;arguments<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_extract-and-include-single-target-whole-static-lib]">■ &nbsp;&nbsp;[_extract-and-include-single-target-whole-static-lib]</a></h3>
+<div class="function">
+<h3><a id="_extract-and-include-single-target-whole-static-lib">Function:&nbsp;&nbsp;_extract-and-include-single-target-whole-static-lib</a></h3>
 <p>
 #&nbsp;$(1):&nbsp;the&nbsp;full&nbsp;path&nbsp;of&nbsp;the&nbsp;source&nbsp;static&nbsp;library.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[extract-and-include-target-whole-static-libs]">■ &nbsp;&nbsp;[extract-and-include-target-whole-static-libs]</a></h3>
+<div class="function">
+<h3><a id="extract-and-include-target-whole-static-libs">Function:&nbsp;&nbsp;extract-and-include-target-whole-static-libs</a></h3>
 <p>
 参见_extract-and-include-single-target-whole-static-lib<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-o-to-static-lib]">■ &nbsp;&nbsp;[transform-o-to-static-lib]</a></h3>
+<div class="function">
+<h3><a id="transform-o-to-static-lib">Function:&nbsp;&nbsp;transform-o-to-static-lib</a></h3>
 <p>
 Explicitlydeletethearchivefirstsothatardoesn't<br/>
 trytoaddtoanexistingarchive.<br/>
 将目标代码打包成静态库<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_extract-and-include-single-host-whole-static-lib]">■ &nbsp;&nbsp;[_extract-and-include-single-host-whole-static-lib]</a></h3>
+<div class="function">
+<h3><a id="_extract-and-include-single-host-whole-static-lib">Function:&nbsp;&nbsp;_extract-and-include-single-host-whole-static-lib</a></h3>
 <p>
 Commandsforrunninghostar<br/>
 #$(1):thefullpathofthesourcestaticlibrary.<br/>
 静态库将在主机上运行<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[extract-and-include-host-whole-static-libs]">■ &nbsp;&nbsp;[extract-and-include-host-whole-static-libs]</a></h3>
+<div class="function">
+<h3><a id="extract-and-include-host-whole-static-libs">Function:&nbsp;&nbsp;extract-and-include-host-whole-static-libs</a></h3>
 <p>
 参见_extract-and-include-single-host-whole-static-lib<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-o-to-static-lib]">■ &nbsp;&nbsp;[transform-host-o-to-static-lib]</a></h3>
+<div class="function">
+<h3><a id="transform-host-o-to-static-lib">Function:&nbsp;&nbsp;transform-host-o-to-static-lib</a></h3>
 <p>
 将目标代码打包成在主机上运行的静态库<br/>
 静态库将在主机上运行<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-o-to-shared-lib-inner]">■ &nbsp;&nbsp;[transform-host-o-to-shared-lib-inner]</a></h3>
+<div class="function">
+<h3><a id="transform-host-o-to-shared-lib-inner">Function:&nbsp;&nbsp;transform-host-o-to-shared-lib-inner</a></h3>
 <p>
 Commandsforrunninggcctolinkasharedlibraryorpackage<br/>
 ldjustseemstobesofinickywithcommandorderthatweallow<br/>
@@ -936,20 +931,20 @@ ittobeoverridenen-masseseecombo/linux-arm.makeforanexample.<br/>
 将目标代码打包成在主机上运行的动态库或者包<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-o-to-shared-lib]">■ &nbsp;&nbsp;[transform-host-o-to-shared-lib]</a></h3>
+<div class="function">
+<h3><a id="transform-host-o-to-shared-lib">Function:&nbsp;&nbsp;transform-host-o-to-shared-lib</a></h3>
 <p>
 参见transform-host-o-to-shared-lib-inner<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-o-to-package]">■ &nbsp;&nbsp;[transform-host-o-to-package]</a></h3>
+<div class="function">
+<h3><a id="transform-host-o-to-package">Function:&nbsp;&nbsp;transform-host-o-to-package</a></h3>
 <p>
 参见transform-host-o-to-shared-lib-inner<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-o-to-shared-lib-inner]">■ &nbsp;&nbsp;[transform-o-to-shared-lib-inner]</a></h3>
+<div class="function">
+<h3><a id="transform-o-to-shared-lib-inner">Function:&nbsp;&nbsp;transform-o-to-shared-lib-inner</a></h3>
 <p>
 Commandsforrunninggcctolinkasharedlibraryorpackage<br/>
 #ldjustseemstobesofinickywithcommandorderthatweallow<br/>
@@ -957,39 +952,39 @@ Commandsforrunninggcctolinkasharedlibraryorpackage<br/>
 将目标代码打包成在目标机上运行的动态库<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-o-to-shared-lib]">■ &nbsp;&nbsp;[transform-o-to-shared-lib]</a></h3>
+<div class="function">
+<h3><a id="transform-o-to-shared-lib">Function:&nbsp;&nbsp;transform-o-to-shared-lib</a></h3>
 <p>
 参见transform-o-to-shared-lib-inner<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-o-to-package]">■ &nbsp;&nbsp;[transform-o-to-package]</a></h3>
+<div class="function">
+<h3><a id="transform-o-to-package">Function:&nbsp;&nbsp;transform-o-to-package</a></h3>
 <p>
 参见transform-o-to-shared-lib-inner<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-to-stripped]">■ &nbsp;&nbsp;[transform-to-stripped]</a></h3>
+<div class="function">
+<h3><a id="transform-to-stripped">Function:&nbsp;&nbsp;transform-to-stripped</a></h3>
 <p>
 Commands&nbsp;for&nbsp;filtering&nbsp;a&nbsp;target&nbsp;executable&nbsp;or&nbsp;library<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-o-to-executable-inner]">■ &nbsp;&nbsp;[transform-o-to-executable-inner]</a></h3>
+<div class="function">
+<h3><a id="transform-o-to-executable-inner">Function:&nbsp;&nbsp;transform-o-to-executable-inner</a></h3>
 <p>
 Commandsforrunninggcctolinkanexecutable<br/>
 编译成可执行文件<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-o-to-executable]">■ &nbsp;&nbsp;[transform-o-to-executable]</a></h3>
+<div class="function">
+<h3><a id="transform-o-to-executable">Function:&nbsp;&nbsp;transform-o-to-executable</a></h3>
 <p>
 参见transform-o-to-executable-inner<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-o-to-static-executable-inner]">■ &nbsp;&nbsp;[transform-o-to-static-executable-inner]</a></h3>
+<div class="function">
+<h3><a id="transform-o-to-static-executable-inner">Function:&nbsp;&nbsp;transform-o-to-static-executable-inner</a></h3>
 <p>
 Commandsforrunninggcctolinkastaticallylinked<br/>
 executable.Inpractice,weonlyusethisonarm,so<br/>
@@ -997,26 +992,26 @@ theotherplatformsdon'thavethe<br/>
 transform-o-to-static-executabledefined<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-o-to-static-executable]">■ &nbsp;&nbsp;[transform-o-to-static-executable]</a></h3>
+<div class="function">
+<h3><a id="transform-o-to-static-executable">Function:&nbsp;&nbsp;transform-o-to-static-executable</a></h3>
 <p>
 参见transform-o-to-static-executable-inner<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-o-to-executable-inner]">■ &nbsp;&nbsp;[transform-host-o-to-executable-inner]</a></h3>
+<div class="function">
+<h3><a id="transform-host-o-to-executable-inner">Function:&nbsp;&nbsp;transform-host-o-to-executable-inner</a></h3>
 <p>
 Commands&nbsp;for&nbsp;running&nbsp;gcc&nbsp;to&nbsp;link&nbsp;a&nbsp;host&nbsp;executable<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-o-to-executable]">■ &nbsp;&nbsp;[transform-host-o-to-executable]</a></h3>
+<div class="function">
+<h3><a id="transform-host-o-to-executable">Function:&nbsp;&nbsp;transform-host-o-to-executable</a></h3>
 <p>
 参见transform-host-o-to-executable-inner<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[create-resource-java-files]">■ &nbsp;&nbsp;[create-resource-java-files]</a></h3>
+<div class="function">
+<h3><a id="create-resource-java-files">Function:&nbsp;&nbsp;create-resource-java-files</a></h3>
 <p>
 Commandsforrunningjavactomake.classfiles<br/>
 #@echo"Sourceintermediatesdir:$(PRIVATE_SOURCE_INTERMEDIATES_DIR)"<br/>
@@ -1025,20 +1020,20 @@ Commandsforrunningjavactomake.classfiles<br/>
 #arePRODUCT-neutral.Don'tpassPRIVATE_PRODUCT_AAPT_CONFIGtothisinvocation.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[emit-line]">■ &nbsp;&nbsp;[emit-line]</a></h3>
+<div class="function">
+<h3><a id="emit-line">Function:&nbsp;&nbsp;emit-line</a></h3>
 <p>
 emit-line,<wordlist>,<outputfile><br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[dump-words-to-file]">■ &nbsp;&nbsp;[dump-words-to-file]</a></h3>
+<div class="function">
+<h3><a id="dump-words-to-file">Function:&nbsp;&nbsp;dump-words-to-file</a></h3>
 <p>
 dump-words-to-file,<wordlist>,<outputfile><br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[unzip-jar-files]">■ &nbsp;&nbsp;[unzip-jar-files]</a></h3>
+<div class="function">
+<h3><a id="unzip-jar-files">Function:&nbsp;&nbsp;unzip-jar-files</a></h3>
 <p>
 For&nbsp;a&nbsp;list&nbsp;of&nbsp;jar&nbsp;files,&nbsp;unzip&nbsp;them&nbsp;to&nbsp;a&nbsp;specified&nbsp;directory,<br/>
 but&nbsp;make&nbsp;sure&nbsp;that&nbsp;no&nbsp;META-INF&nbsp;files&nbsp;come&nbsp;along&nbsp;for&nbsp;the&nbsp;ride.<br/>
@@ -1046,8 +1041,8 @@ $(1):&nbsp;files&nbsp;to&nbsp;unzip<br/>
 $(2):&nbsp;destination&nbsp;directory<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[compile-java]">■ &nbsp;&nbsp;[compile-java]</a></h3>
+<div class="function">
+<h3><a id="compile-java">Function:&nbsp;&nbsp;compile-java</a></h3>
 <p>
 Common&nbsp;definition&nbsp;to&nbsp;invoke&nbsp;javac&nbsp;on&nbsp;the&nbsp;host&nbsp;and&nbsp;target.<br/>
 Some&nbsp;historical&nbsp;notes:<br/>
@@ -1059,34 +1054,34 @@ $(1):&nbsp;javac<br/>
 $(2):&nbsp;bootclasspath<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-java-to-classes.jar]">■ &nbsp;&nbsp;[transform-java-to-classes.jar]</a></h3>
+<div class="function">
+<h3><a id="transform-java-to-classes.jar">Function:&nbsp;&nbsp;transform-java-to-classes.jar</a></h3>
 <p>
 将java编译并打包成classes.jar<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-classes.jar-to-emma]">■ &nbsp;&nbsp;[transform-classes.jar-to-emma]</a></h3>
+<div class="function">
+<h3><a id="transform-classes.jar-to-emma">Function:&nbsp;&nbsp;transform-classes.jar-to-emma</a></h3>
 <p>
 emma代码覆盖率测试<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-classes.jar-to-dex]">■ &nbsp;&nbsp;[transform-classes.jar-to-dex]</a></h3>
+<div class="function">
+<h3><a id="transform-classes.jar-to-dex">Function:&nbsp;&nbsp;transform-classes.jar-to-dex</a></h3>
 <p>
 将classes.jar转化为dex<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[create-empty-package]">■ &nbsp;&nbsp;[create-empty-package]</a></h3>
+<div class="function">
+<h3><a id="create-empty-package">Function:&nbsp;&nbsp;create-empty-package</a></h3>
 <p>
 Create&nbsp;a&nbsp;mostly-empty&nbsp;.jar&nbsp;file&nbsp;that&nbsp;we'll&nbsp;add&nbsp;to&nbsp;later.<br/>
 The&nbsp;MacOS&nbsp;jar&nbsp;tool&nbsp;doesn't&nbsp;like&nbsp;creating&nbsp;empty&nbsp;jar&nbsp;files,<br/>
 so&nbsp;we&nbsp;need&nbsp;to&nbsp;give&nbsp;it&nbsp;something.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-assets-to-package]">■ &nbsp;&nbsp;[add-assets-to-package]</a></h3>
+<div class="function">
+<h3><a id="add-assets-to-package">Function:&nbsp;&nbsp;add-assets-to-package</a></h3>
 <p>
 TODO:&nbsp;we&nbsp;kinda&nbsp;want&nbsp;to&nbsp;build&nbsp;different&nbsp;asset&nbsp;packages&nbsp;for<br/>
 &nbsp;different&nbsp;configurations,&nbsp;then&nbsp;combine&nbsp;them&nbsp;later&nbsp;(or&nbsp;something).<br/>
@@ -1100,51 +1095,51 @@ them&nbsp;in&nbsp;their&nbsp;manifest.<br/>
 将资源文件打包到package<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-jni-shared-libs-to-package]">■ &nbsp;&nbsp;[add-jni-shared-libs-to-package]</a></h3>
+<div class="function">
+<h3><a id="add-jni-shared-libs-to-package">Function:&nbsp;&nbsp;add-jni-shared-libs-to-package</a></h3>
 <p>
 将jni&nbsp;动态库打包到package<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-dex-to-package]">■ &nbsp;&nbsp;[add-dex-to-package]</a></h3>
+<div class="function">
+<h3><a id="add-dex-to-package">Function:&nbsp;&nbsp;add-dex-to-package</a></h3>
 <p>
 将dex打包到package<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-java-resources-to-package]">■ &nbsp;&nbsp;[add-java-resources-to-package]</a></h3>
+<div class="function">
+<h3><a id="add-java-resources-to-package">Function:&nbsp;&nbsp;add-java-resources-to-package</a></h3>
 <p>
 Add&nbsp;java&nbsp;resources&nbsp;added&nbsp;by&nbsp;the&nbsp;current&nbsp;module.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-carried-java-resources]">■ &nbsp;&nbsp;[add-carried-java-resources]</a></h3>
+<div class="function">
+<h3><a id="add-carried-java-resources">Function:&nbsp;&nbsp;add-carried-java-resources</a></h3>
 <p>
 AddjavaresourcescarriedbystaticJavalibraries.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[sign-package]">■ &nbsp;&nbsp;[sign-package]</a></h3>
+<div class="function">
+<h3><a id="sign-package">Function:&nbsp;&nbsp;sign-package</a></h3>
 <p>
 Sign&nbsp;a&nbsp;package&nbsp;using&nbsp;the&nbsp;specified&nbsp;key/cert.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[align-package]">■ &nbsp;&nbsp;[align-package]</a></h3>
+<div class="function">
+<h3><a id="align-package">Function:&nbsp;&nbsp;align-package</a></h3>
 <p>
 Align&nbsp;STORED&nbsp;entries&nbsp;of&nbsp;a&nbsp;package&nbsp;on&nbsp;4-byte&nbsp;boundaries<br/>
 to&nbsp;make&nbsp;them&nbsp;easier&nbsp;to&nbsp;mmap.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[install-dex-debug]">■ &nbsp;&nbsp;[install-dex-debug]</a></h3>
+<div class="function">
+<h3><a id="install-dex-debug">Function:&nbsp;&nbsp;install-dex-debug</a></h3>
 <p>
 安装debug版本的dex文件<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-java-to-package]">■ &nbsp;&nbsp;[transform-host-java-to-package]</a></h3>
+<div class="function">
+<h3><a id="transform-host-java-to-package">Function:&nbsp;&nbsp;transform-host-java-to-package</a></h3>
 <p>
 TODO(joeo):Ifwecaneverupgradetopost3.81makeandgetthe<br/>
 newprebuiltrulestowork,weshouldchangethistocopythe<br/>
@@ -1153,8 +1148,8 @@ Note:weintentionallydon'tcleanPRIVATE_CLASS_INTERMEDIATES_DIR<br/>
 intransform-java-to-classesforthesakeofvm-tests.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[obfuscate-jar]">■ &nbsp;&nbsp;[obfuscate-jar]</a></h3>
+<div class="function">
+<h3><a id="obfuscate-jar">Function:&nbsp;&nbsp;obfuscate-jar</a></h3>
 <p>
 Obfuscateajarfile<br/>
 PRIVATE_KEEP_FILEisafilecontainingalistofclasses<br/>
@@ -1164,8 +1159,8 @@ $(HOST_OUT_JAVA_LIBRARIES)/proguard-4.0.1.jar<br/>
 混淆代码<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-one-header]">■ &nbsp;&nbsp;[copy-one-header]</a></h3>
+<div class="function">
+<h3><a id="copy-one-header">Function:&nbsp;&nbsp;copy-one-header</a></h3>
 <p>
 Commandsforcopyingfiles<br/>
 Definearuletocopyaheader.Usedvia$(eval)bycopy_headers.make.<br/>
@@ -1173,32 +1168,32 @@ $(1):sourceheader<br/>
 $(2):destinationheader<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-one-file]">■ &nbsp;&nbsp;[copy-one-file]</a></h3>
+<div class="function">
+<h3><a id="copy-one-file">Function:&nbsp;&nbsp;copy-one-file</a></h3>
 <p>
 Definearuletocopyafile.Forusevia$(eval).<br/>
 $(1):sourcefile<br/>
 $(2):destinationfile<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-many-files]">■ &nbsp;&nbsp;[copy-many-files]</a></h3>
+<div class="function">
+<h3><a id="copy-many-files">Function:&nbsp;&nbsp;copy-many-files</a></h3>
 <p>
 Copiesmanyfiles.<br/>
 $(1):Thefilestocopy.Eachentryisa':'separatedsrc:dstpair<br/>
 Evaluatestothelistofthedstfiles(iesuitableforadependencylist)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-xml-file-checked]">■ &nbsp;&nbsp;[copy-xml-file-checked]</a></h3>
+<div class="function">
+<h3><a id="copy-xml-file-checked">Function:&nbsp;&nbsp;copy-xml-file-checked</a></h3>
 <p>
 Copythefileonlyifit'sawell-formedxmlfile.Forusevia$(eval).<br/>
 $(1):sourcefile<br/>
 $(2):destinationfile,mustendwith.xml.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-file-to-target]">■ &nbsp;&nbsp;[copy-file-to-target]</a></h3>
+<div class="function">
+<h3><a id="copy-file-to-target">Function:&nbsp;&nbsp;copy-file-to-target</a></h3>
 <p>
 #&nbsp;The&nbsp;-t&nbsp;option&nbsp;to&nbsp;acp&nbsp;and&nbsp;the&nbsp;-p&nbsp;option&nbsp;to&nbsp;cp&nbsp;is<br/>
 #&nbsp;required&nbsp;for&nbsp;OSX.&nbsp;&nbsp;OSX&nbsp;has&nbsp;a&nbsp;ridiculous&nbsp;restriction<br/>
@@ -1213,99 +1208,99 @@ $(2):destinationfile,mustendwith.xml.<br/>
 #&nbsp;Therefore&nbsp;copy-file-to-target&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;copy-file-to-new-target.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-file-to-target-with-cp]">■ &nbsp;&nbsp;[copy-file-to-target-with-cp]</a></h3>
+<div class="function">
+<h3><a id="copy-file-to-target-with-cp">Function:&nbsp;&nbsp;copy-file-to-target-with-cp</a></h3>
 <p>
 #&nbsp;The&nbsp;same&nbsp;as&nbsp;copy-file-to-target,&nbsp;but&nbsp;use&nbsp;the&nbsp;local<br/>
 #&nbsp;cp&nbsp;command&nbsp;instead&nbsp;of&nbsp;acp.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-file-to-target-with-zipalign]">■ &nbsp;&nbsp;[copy-file-to-target-with-zipalign]</a></h3>
+<div class="function">
+<h3><a id="copy-file-to-target-with-zipalign">Function:&nbsp;&nbsp;copy-file-to-target-with-zipalign</a></h3>
 <p>
 #&nbsp;The&nbsp;same&nbsp;as&nbsp;copy-file-to-target,&nbsp;but&nbsp;use&nbsp;the&nbsp;zipalign&nbsp;tool&nbsp;to&nbsp;do&nbsp;so.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-file-to-target-strip-comments]">■ &nbsp;&nbsp;[copy-file-to-target-strip-comments]</a></h3>
+<div class="function">
+<h3><a id="copy-file-to-target-strip-comments">Function:&nbsp;&nbsp;copy-file-to-target-strip-comments</a></h3>
 <p>
 #&nbsp;The&nbsp;same&nbsp;as&nbsp;copy-file-to-target,&nbsp;but&nbsp;strip&nbsp;out&nbsp;"#&nbsp;comment"-style<br/>
 #&nbsp;comments&nbsp;(for&nbsp;config&nbsp;files&nbsp;and&nbsp;such).<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-file-to-new-target]">■ &nbsp;&nbsp;[copy-file-to-new-target]</a></h3>
+<div class="function">
+<h3><a id="copy-file-to-new-target">Function:&nbsp;&nbsp;copy-file-to-new-target</a></h3>
 <p>
 #&nbsp;The&nbsp;same&nbsp;as&nbsp;copy-file-to-target,&nbsp;but&nbsp;don't&nbsp;preserve<br/>
 #&nbsp;the&nbsp;old&nbsp;modification&nbsp;time.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-file-to-new-target-with-cp]">■ &nbsp;&nbsp;[copy-file-to-new-target-with-cp]</a></h3>
+<div class="function">
+<h3><a id="copy-file-to-new-target-with-cp">Function:&nbsp;&nbsp;copy-file-to-new-target-with-cp</a></h3>
 <p>
 #&nbsp;The&nbsp;same&nbsp;as&nbsp;copy-file-to-new-target,&nbsp;but&nbsp;use&nbsp;the&nbsp;local<br/>
 #&nbsp;cp&nbsp;command&nbsp;instead&nbsp;of&nbsp;acp.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-prebuilt-to-target]">■ &nbsp;&nbsp;[transform-prebuilt-to-target]</a></h3>
+<div class="function">
+<h3><a id="transform-prebuilt-to-target">Function:&nbsp;&nbsp;transform-prebuilt-to-target</a></h3>
 <p>
 #&nbsp;Copy&nbsp;a&nbsp;prebuilt&nbsp;file&nbsp;to&nbsp;a&nbsp;target&nbsp;location.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-prebuilt-to-target-with-zipalign]">■ &nbsp;&nbsp;[transform-prebuilt-to-target-with-zipalign]</a></h3>
+<div class="function">
+<h3><a id="transform-prebuilt-to-target-with-zipalign">Function:&nbsp;&nbsp;transform-prebuilt-to-target-with-zipalign</a></h3>
 <p>
 Copyaprebuiltfiletoatargetlocation,usingzipalignonit.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-prebuilt-to-target-strip-comments]">■ &nbsp;&nbsp;[transform-prebuilt-to-target-strip-comments]</a></h3>
+<div class="function">
+<h3><a id="transform-prebuilt-to-target-strip-comments">Function:&nbsp;&nbsp;transform-prebuilt-to-target-strip-comments</a></h3>
 <p>
 #&nbsp;Copy&nbsp;a&nbsp;prebuilt&nbsp;file&nbsp;to&nbsp;a&nbsp;target&nbsp;location,&nbsp;stripping&nbsp;"#&nbsp;comment"&nbsp;comments.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-host-ranlib-copy-hack]">■ &nbsp;&nbsp;[transform-host-ranlib-copy-hack]</a></h3>
+<div class="function">
+<h3><a id="transform-host-ranlib-copy-hack">Function:&nbsp;&nbsp;transform-host-ranlib-copy-hack</a></h3>
 <p>
 Onsomeplatforms(MacOS),aftercopyingastatic<br/>
 library,ranlibmustberuntoupdateaninternal<br/>
 timestamp!?!?!<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[proguard-disabled-commands]">■ &nbsp;&nbsp;[proguard-disabled-commands]</a></h3>
+<div class="function">
+<h3><a id="proguard-disabled-commands">Function:&nbsp;&nbsp;proguard-disabled-commands</a></h3>
 <p>
 Commands&nbsp;to&nbsp;call&nbsp;Proguard<br/>
 Command&nbsp;to&nbsp;copy&nbsp;the&nbsp;file&nbsp;with&nbsp;acp,&nbsp;if&nbsp;proguard&nbsp;is&nbsp;disabled.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[proguard-enabled-commands]">■ &nbsp;&nbsp;[proguard-enabled-commands]</a></h3>
+<div class="function">
+<h3><a id="proguard-enabled-commands">Function:&nbsp;&nbsp;proguard-enabled-commands</a></h3>
 <p>
 Command&nbsp;to&nbsp;copy&nbsp;the&nbsp;file&nbsp;with&nbsp;acp,&nbsp;if&nbsp;proguard&nbsp;is&nbsp;disabled.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-instrumentation-proguard-flags]">■ &nbsp;&nbsp;[get-instrumentation-proguard-flags]</a></h3>
+<div class="function">
+<h3><a id="get-instrumentation-proguard-flags">Function:&nbsp;&nbsp;get-instrumentation-proguard-flags</a></h3>
 <p>
 Figure&nbsp;out&nbsp;the&nbsp;proguard&nbsp;dictionary&nbsp;file&nbsp;of&nbsp;the&nbsp;module&nbsp;that&nbsp;is&nbsp;instrumentationed&nbsp;for.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-jar-to-proguard]">■ &nbsp;&nbsp;[transform-jar-to-proguard]</a></h3>
+<div class="function">
+<h3><a id="transform-jar-to-proguard">Function:&nbsp;&nbsp;transform-jar-to-proguard</a></h3>
 <p>
 将jar混淆<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[transform-generated-source]">■ &nbsp;&nbsp;[transform-generated-source]</a></h3>
+<div class="function">
+<h3><a id="transform-generated-source">Function:&nbsp;&nbsp;transform-generated-source</a></h3>
 <p>
 Stuffsourcegeneratedfromone-offtools<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[image-size-from-data-size]">■ &nbsp;&nbsp;[image-size-from-data-size]</a></h3>
+<div class="function">
+<h3><a id="image-size-from-data-size">Function:&nbsp;&nbsp;image-size-from-data-size</a></h3>
 <p>
 Convert&nbsp;a&nbsp;partition&nbsp;data&nbsp;size&nbsp;(eg,&nbsp;as&nbsp;reported&nbsp;in&nbsp;/proc/mtd)&nbsp;to&nbsp;the<br/>
 size&nbsp;of&nbsp;the&nbsp;image&nbsp;used&nbsp;to&nbsp;flash&nbsp;that&nbsp;partition&nbsp;(which&nbsp;includes&nbsp;a<br/>
@@ -1313,8 +1308,8 @@ spare&nbsp;area&nbsp;for&nbsp;each&nbsp;page).<br/>
 $(1):&nbsp;the&nbsp;partition&nbsp;data&nbsp;size<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[assert-max-file-size]">■ &nbsp;&nbsp;[assert-max-file-size]</a></h3>
+<div class="function">
+<h3><a id="assert-max-file-size">Function:&nbsp;&nbsp;assert-max-file-size</a></h3>
 <p>
 $(1):&nbsp;The&nbsp;file(s)&nbsp;to&nbsp;check&nbsp;(often&nbsp;$@)<br/>
 $(2):&nbsp;The&nbsp;maximum&nbsp;total&nbsp;image&nbsp;size,&nbsp;in&nbsp;decimal&nbsp;bytes<br/>
@@ -1326,8 +1321,8 @@ $(3):&nbsp;the&nbsp;type&nbsp;of&nbsp;filesystem&nbsp;"yaffs"&nbsp;or&nbsp;"raw"
 #&nbsp;next&nbsp;whole&nbsp;flash&nbsp;block&nbsp;size.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[assert-max-image-size]">■ &nbsp;&nbsp;[assert-max-image-size]</a></h3>
+<div class="function">
+<h3><a id="assert-max-image-size">Function:&nbsp;&nbsp;assert-max-image-size</a></h3>
 <p>
 Like&nbsp;assert-max-file-size,&nbsp;but&nbsp;the&nbsp;second&nbsp;argument&nbsp;is&nbsp;a&nbsp;partition<br/>
 size,&nbsp;which&nbsp;we'll&nbsp;convert&nbsp;to&nbsp;a&nbsp;max&nbsp;image&nbsp;size&nbsp;before&nbsp;checking&nbsp;it<br/>
@@ -1336,8 +1331,8 @@ $(1):&nbsp;The&nbsp;file(s)&nbsp;to&nbsp;check&nbsp;(often&nbsp;$@)<br/>
 $(2):&nbsp;The&nbsp;partition&nbsp;size.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-radio-file]">■ &nbsp;&nbsp;[add-radio-file]</a></h3>
+<div class="function">
+<h3><a id="add-radio-file">Function:&nbsp;&nbsp;add-radio-file</a></h3>
 <p>
 Definedevice-specificradiofiles<br/>
 #Copyaradioimagefiletotheoutputlocation,andadditto<br/>
@@ -1345,14 +1340,14 @@ Definedevice-specificradiofiles<br/>
 #$(1):filename<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-radio-file-internal]">■ &nbsp;&nbsp;[add-radio-file-internal]</a></h3>
+<div class="function">
+<h3><a id="add-radio-file-internal">Function:&nbsp;&nbsp;add-radio-file-internal</a></h3>
 <p>
 参见add-radio-file<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-radio-file-checked]">■ &nbsp;&nbsp;[add-radio-file-checked]</a></h3>
+<div class="function">
+<h3><a id="add-radio-file-checked">Function:&nbsp;&nbsp;add-radio-file-checked</a></h3>
 <p>
 #&nbsp;Version&nbsp;of&nbsp;add-radio-file&nbsp;that&nbsp;also&nbsp;arranges&nbsp;for&nbsp;the&nbsp;version&nbsp;of&nbsp;the<br/>
 #&nbsp;file&nbsp;to&nbsp;be&nbsp;checked&nbsp;against&nbsp;the&nbsp;contents&nbsp;of<br/>
@@ -1361,14 +1356,14 @@ Definedevice-specificradiofiles<br/>
 #&nbsp;$(2):&nbsp;name&nbsp;of&nbsp;version&nbsp;variable&nbsp;in&nbsp;board-info&nbsp;(eg,&nbsp;"version-baseband")<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-radio-file-checked-internal]">■ &nbsp;&nbsp;[add-radio-file-checked-internal]</a></h3>
+<div class="function">
+<h3><a id="add-radio-file-checked-internal">Function:&nbsp;&nbsp;add-radio-file-checked-internal</a></h3>
 <p>
 参见add-radio-file-internal<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[inherit-package]">■ &nbsp;&nbsp;[inherit-package]</a></h3>
+<div class="function">
+<h3><a id="inherit-package">Function:&nbsp;&nbsp;inherit-package</a></h3>
 <p>
 Override&nbsp;the&nbsp;package&nbsp;defined&nbsp;in&nbsp;$(1),&nbsp;setting&nbsp;the<br/>
 variables&nbsp;listed&nbsp;below&nbsp;differently.<br/>
@@ -1384,33 +1379,33 @@ $(7):&nbsp;New&nbsp;LOCAL_MANIFEST_INSTRUMENTATION_FOR&nbsp;value.<br/>
 &nbsp;clear_vars.mk.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[inherit-package-internal]">■ &nbsp;&nbsp;[inherit-package-internal]</a></h3>
+<div class="function">
+<h3><a id="inherit-package-internal">Function:&nbsp;&nbsp;inherit-package-internal</a></h3>
 <p>
 参见inherit-package<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[set-inherited-package-variables]">■ &nbsp;&nbsp;[set-inherited-package-variables]</a></h3>
+<div class="function">
+<h3><a id="set-inherited-package-variables">Function:&nbsp;&nbsp;set-inherited-package-variables</a></h3>
 <p>
 To&nbsp;be&nbsp;used&nbsp;with&nbsp;inherit-package&nbsp;above<br/>
 Evalutes&nbsp;to&nbsp;true&nbsp;if&nbsp;the&nbsp;package&nbsp;was&nbsp;overridden<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[keep-or-override]">■ &nbsp;&nbsp;[keep-or-override]</a></h3>
+<div class="function">
+<h3><a id="keep-or-override">Function:&nbsp;&nbsp;keep-or-override</a></h3>
 <p>
 参见inherit-package<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[set-inherited-package-variables-internal]">■ &nbsp;&nbsp;[set-inherited-package-variables-internal]</a></h3>
+<div class="function">
+<h3><a id="set-inherited-package-variables-internal">Function:&nbsp;&nbsp;set-inherited-package-variables-internal</a></h3>
 <p>
 参见keep-or-override<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[expand-required-modules]">■ &nbsp;&nbsp;[expand-required-modules]</a></h3>
+<div class="function">
+<h3><a id="expand-required-modules">Function:&nbsp;&nbsp;expand-required-modules</a></h3>
 <p>
 ExpandamodulenamelistwithREQUIREDmodules<br/>
 $(1):Thevariablenamethatholdstheinitialmodulenamelist.<br/>
@@ -1419,8 +1414,8 @@ $(2):Theinitialmodulenamelist.<br/>
 Returnsemptystring(maybewithsomewhitespaces).<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[check-api]">■ &nbsp;&nbsp;[check-api]</a></h3>
+<div class="function">
+<h3><a id="check-api">Function:&nbsp;&nbsp;check-api</a></h3>
 <p>
 APICheck<br/>
 #evalthistodefinearulethatrunsapicheck.<br/>

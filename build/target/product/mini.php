@@ -19,43 +19,43 @@ This&nbsp;is&nbsp;mainly&nbsp;for&nbsp;creating&nbsp;small&nbsp;system&nbsp;imag
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_NAME">■ &nbsp;&nbsp;PRODUCT_NAME</a></h3>
+<h3><a id="PRODUCT_NAME">PRODUCT_NAME</a></h3>
 <p>
 PRODUCT_BRAND&nbsp;:=&nbsp;mini<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEVICE">■ &nbsp;&nbsp;PRODUCT_DEVICE</a></h3>
+<h3><a id="PRODUCT_DEVICE">PRODUCT_DEVICE</a></h3>
 <p>
 PRODUCT_DEVICE&nbsp;:=&nbsp;mini<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<h3><a id="PRODUCT_BRAND">PRODUCT_BRAND</a></h3>
 <p>
 PRODUCT_BRAND&nbsp;:=&nbsp;mini&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_AAPT_CONFIG">■ &nbsp;&nbsp;PRODUCT_AAPT_CONFIG</a></h3>
+<h3><a id="PRODUCT_AAPT_CONFIG">PRODUCT_AAPT_CONFIG</a></h3>
 <p>
 PRODUCT_AAPT_CONFIG&nbsp;:=&nbsp;normal&nbsp;ldpi&nbsp;mdpi&nbsp;hdpi&nbsp;xhdpi&nbsp;xxhdpi<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_AAPT_PREF_CONFIG">■ &nbsp;&nbsp;PRODUCT_AAPT_PREF_CONFIG</a></h3>
+<h3><a id="PRODUCT_AAPT_PREF_CONFIG">PRODUCT_AAPT_PREF_CONFIG</a></h3>
 <p>
 PRODUCT_AAPT_PREF_CONFIG:=&nbsp;hdpi<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_LOCALES">■ &nbsp;&nbsp;PRODUCT_LOCALES</a></h3>
+<h3><a id="PRODUCT_LOCALES">PRODUCT_LOCALES</a></h3>
 <p>
 PRODUCT_LOCALES&nbsp;:=&nbsp;en_US<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_PROPERTY_OVERRIDES</a></h3>
+<h3><a id="PRODUCT_PROPERTY_OVERRIDES">PRODUCT_PROPERTY_OVERRIDES</a></h3>
 <p>
 PRODUCT_PROPERTY_OVERRIDES&nbsp;:=<br/>
 PRODUCT_PROPERTY_OVERRIDES&nbsp;+=&nbsp;\<br/>
@@ -70,7 +70,7 @@ PRODUCT_PROPERTY_OVERRIDES&nbsp;+=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_COPY_FILES">■ &nbsp;&nbsp;PRODUCT_COPY_FILES</a></h3>
+<h3><a id="PRODUCT_COPY_FILES">PRODUCT_COPY_FILES</a></h3>
 <p>
 PRODUCT_COPY_FILES&nbsp;:=<br/>
 PRODUCT_COPY_FILES&nbsp;+=&nbsp;\<br/>
@@ -85,7 +85,7 @@ PRODUCT_COPY_FILES&nbsp;+=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 PRODUCT_PACKAGES&nbsp;+=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;com.android.future.usb.accessory<br/>

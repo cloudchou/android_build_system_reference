@@ -18,55 +18,55 @@
 </p>
 </div>
 <div class="variable">
-<h3><a id="prebuilt_static_libs">■ &nbsp;&nbsp;prebuilt_static_libs</a></h3>
+<h3><a id="prebuilt_static_libs">prebuilt_static_libs</a></h3>
 <p>
 prebuilt_static_libs&nbsp;:=&nbsp;$(filter&nbsp;%.a,$(LOCAL_PREBUILT_LIBS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="prebuilt_shared_libs">■ &nbsp;&nbsp;prebuilt_shared_libs</a></h3>
+<h3><a id="prebuilt_shared_libs">prebuilt_shared_libs</a></h3>
 <p>
 prebuilt_shared_libs&nbsp;:=&nbsp;$(filter-out&nbsp;%.a,$(LOCAL_PREBUILT_LIBS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="prebuilt_executables">■ &nbsp;&nbsp;prebuilt_executables</a></h3>
+<h3><a id="prebuilt_executables">prebuilt_executables</a></h3>
 <p>
 prebuilt_executables&nbsp;:=&nbsp;$(LOCAL_PREBUILT_EXECUTABLES)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="prebuilt_java_libraries">■ &nbsp;&nbsp;prebuilt_java_libraries</a></h3>
+<h3><a id="prebuilt_java_libraries">prebuilt_java_libraries</a></h3>
 <p>
 prebuilt_java_libraries&nbsp;:=&nbsp;$(LOCAL_PREBUILT_JAVA_LIBRARIES)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="prebuilt_static_java_libraries">■ &nbsp;&nbsp;prebuilt_static_java_libraries</a></h3>
+<h3><a id="prebuilt_static_java_libraries">prebuilt_static_java_libraries</a></h3>
 <p>
 prebuilt_static_java_libraries&nbsp;:=&nbsp;$(LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="prebuilt_is_host">■ &nbsp;&nbsp;prebuilt_is_host</a></h3>
+<h3><a id="prebuilt_is_host">prebuilt_is_host</a></h3>
 <p>
 prebuilt_is_host&nbsp;:=&nbsp;$(LOCAL_IS_HOST_MODULE)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="prebuilt_module_tags">■ &nbsp;&nbsp;prebuilt_module_tags</a></h3>
+<h3><a id="prebuilt_module_tags">prebuilt_module_tags</a></h3>
 <p>
 prebuilt_module_tags&nbsp;:=&nbsp;$(LOCAL_MODULE_TAGS)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="prebuilt_strip_module">■ &nbsp;&nbsp;prebuilt_strip_module</a></h3>
+<h3><a id="prebuilt_strip_module">prebuilt_strip_module</a></h3>
 <p>
 prebuilt_strip_module&nbsp;:=&nbsp;$(LOCAL_STRIP_MODULE)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="auto-prebuilt-boilerplate">■ &nbsp;&nbsp;auto-prebuilt-boilerplate</a></h3>
+<h3><a id="auto-prebuilt-boilerplate">auto-prebuilt-boilerplate</a></h3>
 <p>
 Elements&nbsp;in&nbsp;the&nbsp;file&nbsp;list&nbsp;may&nbsp;be&nbsp;bare&nbsp;filenames,<br/>
 &nbsp;or&nbsp;of&nbsp;the&nbsp;form&nbsp;"<modulename>:<filename>".<br/>

@@ -19,13 +19,13 @@ for&nbsp;a&nbsp;specific&nbsp;device.&nbsp;It&nbsp;includes&nbsp;the&nbsp;base&n
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_POLICY">■ &nbsp;&nbsp;PRODUCT_POLICY</a></h3>
+<h3><a id="PRODUCT_POLICY">PRODUCT_POLICY</a></h3>
 <p>
 PRODUCT_POLICY&nbsp;:=&nbsp;android.policy_mid<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 PRODUCT_PACKAGES&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;CarHome&nbsp;\<br/>
@@ -54,19 +54,19 @@ PRODUCT_PACKAGES&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_NAME">■ &nbsp;&nbsp;PRODUCT_NAME</a></h3>
+<h3><a id="PRODUCT_NAME">PRODUCT_NAME</a></h3>
 <p>
 PRODUCT_NAME&nbsp;:=&nbsp;large_emu_hw<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEVICE">■ &nbsp;&nbsp;PRODUCT_DEVICE</a></h3>
+<h3><a id="PRODUCT_DEVICE">PRODUCT_DEVICE</a></h3>
 <p>
 PRODUCT_DEVICE&nbsp;:=&nbsp;generic<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<h3><a id="PRODUCT_BRAND">PRODUCT_BRAND</a></h3>
 <p>
 PRODUCT_BRAND&nbsp;:=&nbsp;generic<br/>
 </p>

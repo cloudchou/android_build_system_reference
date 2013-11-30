@@ -30,7 +30,7 @@ it&nbsp;includes.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_MAKEFILES">■ &nbsp;&nbsp;PRODUCT_MAKEFILES</a></h3>
+<h3><a id="PRODUCT_MAKEFILES">PRODUCT_MAKEFILES</a></h3>
 <p>
 ifneq&nbsp;($(TARGET_BUILD_APPS),)<br/>
 PRODUCT_MAKEFILES&nbsp;:=&nbsp;\<br/>

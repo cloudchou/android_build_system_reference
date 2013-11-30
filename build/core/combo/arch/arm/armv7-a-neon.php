@@ -20,13 +20,13 @@ armv7-a-neon&nbsp;相关配置<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_ARCH_VARIANT_FPU">■ &nbsp;&nbsp;TARGET_ARCH_VARIANT_FPU</a></h3>
+<h3><a id="TARGET_ARCH_VARIANT_FPU">TARGET_ARCH_VARIANT_FPU</a></h3>
 <p>
 TARGET_ARCH_VARIANT_FPU&nbsp;:=&nbsp;neon<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_ARCH_VARIANT_CPU">■ &nbsp;&nbsp;TARGET_ARCH_VARIANT_CPU</a></h3>
+<h3><a id="TARGET_ARCH_VARIANT_CPU">TARGET_ARCH_VARIANT_CPU</a></h3>
 <p>
 ifeq&nbsp;($(TARGET_ARCH_VARIANT_CPU),&nbsp;cortex-a15)<br/>
 ARCH_ARM_HAVE_NEON_UNALIGNED_ACCESS&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>

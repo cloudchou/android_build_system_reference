@@ -17,21 +17,21 @@
 产品配置相关变量定义<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[is-c-identifier]">■ &nbsp;&nbsp;[is-c-identifier]</a></h3>
+<div class="function">
+<h3><a id="is-c-identifier">Function:&nbsp;&nbsp;is-c-identifier</a></h3>
 <p>
 判断是否是C标识符<br/>
 &nbsp;$(1):要判断的单词<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="SED_EXTENDED">■ &nbsp;&nbsp;SED_EXTENDED</a></h3>
+<h3><a id="SED_EXTENDED">SED_EXTENDED</a></h3>
 <p>
 加了扩展的sed命令&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[find-copy-subdir-files]">■ &nbsp;&nbsp;[find-copy-subdir-files]</a></h3>
+<div class="function">
+<h3><a id="find-copy-subdir-files">Function:&nbsp;&nbsp;find-copy-subdir-files</a></h3>
 <p>
 List&nbsp;all&nbsp;of&nbsp;the&nbsp;files&nbsp;in&nbsp;a&nbsp;subdirectory&nbsp;in&nbsp;a&nbsp;format<br/>
 suitable&nbsp;for&nbsp;PRODUCT_COPY_FILES&nbsp;and<br/>
@@ -42,7 +42,7 @@ $(1):&nbsp;Glob&nbsp;to&nbsp;match&nbsp;file&nbsp;name<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="INTERNAL_VALID_VARIANTS">■ &nbsp;&nbsp;INTERNAL_VALID_VARIANTS</a></h3>
+<h3><a id="INTERNAL_VALID_VARIANTS">INTERNAL_VALID_VARIANTS</a></h3>
 <p>
 INTERNAL_VALID_VARIANTS&nbsp;:=&nbsp;user&nbsp;userdebug&nbsp;eng&nbsp;tests<br/>
 These&nbsp;are&nbsp;the&nbsp;valid&nbsp;values&nbsp;of&nbsp;TARGET_BUILD_VARIANT.&nbsp;&nbsp;Also,&nbsp;if&nbsp;anything&nbsp;else&nbsp;is&nbsp;passed<br/>
@@ -51,62 +51,62 @@ it&nbsp;will&nbsp;be&nbsp;treated&nbsp;as&nbsp;a&nbsp;goal,&nbsp;and&nbsp;the&nb
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_LOCALES">■ &nbsp;&nbsp;PRODUCT_LOCALES</a></h3>
+<h3><a id="PRODUCT_LOCALES">PRODUCT_LOCALES</a></h3>
 <p>
 Figure&nbsp;out&nbsp;which&nbsp;resoure&nbsp;configuration&nbsp;options&nbsp;to&nbsp;use&nbsp;for&nbsp;this<br/>
 &nbsp;product.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_AAPT_CONFIG">■ &nbsp;&nbsp;PRODUCT_AAPT_CONFIG</a></h3>
+<h3><a id="PRODUCT_AAPT_CONFIG">PRODUCT_AAPT_CONFIG</a></h3>
 <p>
 用AAPT编译资源时的配置<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_AAPT_PREF_CONFIG">■ &nbsp;&nbsp;PRODUCT_AAPT_PREF_CONFIG</a></h3>
+<h3><a id="PRODUCT_AAPT_PREF_CONFIG">PRODUCT_AAPT_PREF_CONFIG</a></h3>
 <p>
 用AAPT编译资源时的配置<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<h3><a id="PRODUCT_BRAND">PRODUCT_BRAND</a></h3>
 <p>
 产品品牌<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_MODEL">■ &nbsp;&nbsp;PRODUCT_MODEL</a></h3>
+<h3><a id="PRODUCT_MODEL">PRODUCT_MODEL</a></h3>
 <p>
 产品型号<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_MANUFACTURER">■ &nbsp;&nbsp;PRODUCT_MANUFACTURER</a></h3>
+<h3><a id="PRODUCT_MANUFACTURER">PRODUCT_MANUFACTURER</a></h3>
 <p>
 产品制造商<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_AAPT_CHARACTERISTICS">■ &nbsp;&nbsp;TARGET_AAPT_CHARACTERISTICS</a></h3>
+<h3><a id="TARGET_AAPT_CHARACTERISTICS">TARGET_AAPT_CHARACTERISTICS</a></h3>
 <p>
 AAPT编译用的配置<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEFAULT_WIFI_CHANNELS">■ &nbsp;&nbsp;PRODUCT_DEFAULT_WIFI_CHANNELS</a></h3>
+<h3><a id="PRODUCT_DEFAULT_WIFI_CHANNELS">PRODUCT_DEFAULT_WIFI_CHANNELS</a></h3>
 <p>
 wifi频道<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEFAULT_DEV_CERTIFICATE">■ &nbsp;&nbsp;PRODUCT_DEFAULT_DEV_CERTIFICATE</a></h3>
+<h3><a id="PRODUCT_DEFAULT_DEV_CERTIFICATE">PRODUCT_DEFAULT_DEV_CERTIFICATE</a></h3>
 <p>
 产品开发用的密钥<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_COPY_FILES">■ &nbsp;&nbsp;PRODUCT_COPY_FILES</a></h3>
+<h3><a id="PRODUCT_COPY_FILES">PRODUCT_COPY_FILES</a></h3>
 <p>
 A&nbsp;list&nbsp;of&nbsp;words&nbsp;like&nbsp;<source&nbsp;path>:<destination&nbsp;path>[:<owner>].<br/>
 The&nbsp;file&nbsp;at&nbsp;the&nbsp;source&nbsp;path&nbsp;should&nbsp;be&nbsp;copied&nbsp;to&nbsp;the&nbsp;destination&nbsp;path<br/>
@@ -117,14 +117,14 @@ The&nbsp;optional&nbsp;:<owner>&nbsp;is&nbsp;used&nbsp;to&nbsp;indicate&nbsp;the
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_PROPERTY_OVERRIDES</a></h3>
+<h3><a id="PRODUCT_PROPERTY_OVERRIDES">PRODUCT_PROPERTY_OVERRIDES</a></h3>
 <p>
 A&nbsp;list&nbsp;of&nbsp;property&nbsp;assignments,&nbsp;like&nbsp;"key&nbsp;=&nbsp;value",&nbsp;with&nbsp;zero&nbsp;or&nbsp;more<br/>
 whitespace&nbsp;characters&nbsp;on&nbsp;either&nbsp;side&nbsp;of&nbsp;the&nbsp;'='.&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEFAULT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_DEFAULT_PROPERTY_OVERRIDES</a></h3>
+<h3><a id="PRODUCT_DEFAULT_PROPERTY_OVERRIDES">PRODUCT_DEFAULT_PROPERTY_OVERRIDES</a></h3>
 <p>
 A&nbsp;list&nbsp;of&nbsp;property&nbsp;assignments,&nbsp;like&nbsp;"key&nbsp;=&nbsp;value",&nbsp;with&nbsp;zero&nbsp;or&nbsp;more<br/>
 whitespace&nbsp;characters&nbsp;on&nbsp;either&nbsp;side&nbsp;of&nbsp;the&nbsp;'='.<br/>
@@ -132,45 +132,45 @@ used&nbsp;for&nbsp;adding&nbsp;properties&nbsp;to&nbsp;default.prop<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BUILD_PROP_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_BUILD_PROP_OVERRIDES</a></h3>
+<h3><a id="PRODUCT_BUILD_PROP_OVERRIDES">PRODUCT_BUILD_PROP_OVERRIDES</a></h3>
 <p>
 一些覆盖的属性&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGE_OVERLAYS">■ &nbsp;&nbsp;PRODUCT_PACKAGE_OVERLAYS</a></h3>
+<h3><a id="PRODUCT_PACKAGE_OVERLAYS">PRODUCT_PACKAGE_OVERLAYS</a></h3>
 <p>
 PRODUCT_PACKAGE_OVERLAYS&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;$(strip&nbsp;$(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_PACKAGE_OVERLAYS))&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEVICE_PACKAGE_OVERLAYS">■ &nbsp;&nbsp;DEVICE_PACKAGE_OVERLAYS</a></h3>
+<h3><a id="DEVICE_PACKAGE_OVERLAYS">DEVICE_PACKAGE_OVERLAYS</a></h3>
 <p>
 DEVICE_PACKAGE_OVERLAYS&nbsp;:=&nbsp;\<br/>
 $(strip&nbsp;$(PRODUCTS.$(INTERNAL_PRODUCT).DEVICE_PACKAGE_OVERLAYS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_TAGS">■ &nbsp;&nbsp;PRODUCT_TAGS</a></h3>
+<h3><a id="PRODUCT_TAGS">PRODUCT_TAGS</a></h3>
 <p>
 An&nbsp;list&nbsp;of&nbsp;whitespace-separated&nbsp;words.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_VENDOR_KERNEL_HEADERS">■ &nbsp;&nbsp;PRODUCT_VENDOR_KERNEL_HEADERS</a></h3>
+<h3><a id="PRODUCT_VENDOR_KERNEL_HEADERS">PRODUCT_VENDOR_KERNEL_HEADERS</a></h3>
 <p>
 The&nbsp;list&nbsp;of&nbsp;product-specific&nbsp;kernel&nbsp;header&nbsp;dirs<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ADDITIONAL_BUILD_PROPERTIES">■ &nbsp;&nbsp;ADDITIONAL_BUILD_PROPERTIES</a></h3>
+<h3><a id="ADDITIONAL_BUILD_PROPERTIES">ADDITIONAL_BUILD_PROPERTIES</a></h3>
 <p>
 Add&nbsp;the&nbsp;product-defined&nbsp;properties&nbsp;to&nbsp;the&nbsp;build&nbsp;properties.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_OTA_PUBLIC_KEYS">■ &nbsp;&nbsp;PRODUCT_OTA_PUBLIC_KEYS</a></h3>
+<h3><a id="PRODUCT_OTA_PUBLIC_KEYS">PRODUCT_OTA_PUBLIC_KEYS</a></h3>
 <p>
 The&nbsp;OTA&nbsp;key(s)&nbsp;specified&nbsp;by&nbsp;the&nbsp;product&nbsp;config,&nbsp;if&nbsp;any.&nbsp;&nbsp;The&nbsp;names<br/>
 of&nbsp;these&nbsp;keys&nbsp;are&nbsp;stored&nbsp;in&nbsp;the&nbsp;target-files&nbsp;zip&nbsp;so&nbsp;that&nbsp;post-build<br/>
@@ -179,7 +179,7 @@ default.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_EXTRA_RECOVERY_KEYS">■ &nbsp;&nbsp;PRODUCT_EXTRA_RECOVERY_KEYS</a></h3>
+<h3><a id="PRODUCT_EXTRA_RECOVERY_KEYS">PRODUCT_EXTRA_RECOVERY_KEYS</a></h3>
 <p>
 recovery&nbsp;key<br/>
 </p>

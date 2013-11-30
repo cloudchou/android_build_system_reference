@@ -1,6 +1,7 @@
 body {
 	font: 14px/21px Microsoft YaHei, Tahoma, Arial;
 	background-color: #eceef0;
+	color:#444;
 }
 
 .widget h3 {
@@ -128,8 +129,7 @@ body {
 	outline: none;
 }
 
-#file  h3{
-	margin-bottom: 0px;
+#file  h3{ 
 	 
 }
 
@@ -190,8 +190,12 @@ ul li a .f {
 	overflow:hidden;
 }
 
-.variable h3{
-	 
+.file h3, .variable h3, .function h3, .build_target h3{
+	 margin:0.3em 0px;
+}
+
+.file h3 a, .variable h3 a, .function h3 a, .build_target a{
+	 border-bottom: 1px solid #ccc;
 }
 
 .function{
@@ -202,10 +206,7 @@ ul li a .f {
 	word-break: break-word;
 }
 
-.function h3{
-	
-}
-
+ 
 .build_target{
 	 
 }
@@ -213,7 +214,4 @@ ul li a .f {
 	padding-left: 20px;
 	word-break: break-word;
 }
-
-.build_target h3{
-	
-}
+ 

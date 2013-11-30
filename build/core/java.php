@@ -19,7 +19,7 @@
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_SDK_VERSION">■ &nbsp;&nbsp;LOCAL_SDK_VERSION</a></h3>
+<h3><a id="LOCAL_SDK_VERSION">LOCAL_SDK_VERSION</a></h3>
 <p>
 用于设置当前工程用的android&nbsp;sdk的版本<br/>
 示例：<br/>
@@ -28,13 +28,13 @@ LOCAL_SDK_VERSION&nbsp;:=&nbsp;9<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PDK_BUILD_SDK_VERSION">■ &nbsp;&nbsp;PDK_BUILD_SDK_VERSION</a></h3>
+<h3><a id="PDK_BUILD_SDK_VERSION">PDK_BUILD_SDK_VERSION</a></h3>
 <p>
 ./build/core/pdk_config.mk:148:PDK_BUILD_SDK_VERSION&nbsp;:=&nbsp;$(lastword&nbsp;$(TARGET_AVAILABLE_SDK_VERSIONS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_NO_STANDARD_LIBRARIES">■ &nbsp;&nbsp;LOCAL_NO_STANDARD_LIBRARIES</a></h3>
+<h3><a id="LOCAL_NO_STANDARD_LIBRARIES">LOCAL_NO_STANDARD_LIBRARIES</a></h3>
 <p>
 表示不使用标准库<br/>
 ./frameworks/base/Android.mk:254:LOCAL_NO_STANDARD_LIBRARIES&nbsp;:=&nbsp;true<br/>
@@ -42,14 +42,14 @@ LOCAL_SDK_VERSION&nbsp;:=&nbsp;9<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_BUILD_APPS">■ &nbsp;&nbsp;TARGET_BUILD_APPS</a></h3>
+<h3><a id="TARGET_BUILD_APPS">TARGET_BUILD_APPS</a></h3>
 <p>
 build/core/product_config.mk&nbsp;<br/>
 TARGET_BUILD_APPS&nbsp;:=&nbsp;$(strip&nbsp;$(subst&nbsp;-,&nbsp;,$(patsubst&nbsp;APP-%,%,$(unbundled_goals))))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_JAVA_LIBRARIES">■ &nbsp;&nbsp;LOCAL_JAVA_LIBRARIES</a></h3>
+<h3><a id="LOCAL_JAVA_LIBRARIES">LOCAL_JAVA_LIBRARIES</a></h3>
 <p>
 ifneq&nbsp;($(LOCAL_SDK_VERSION),)<br/>
 &nbsp;&nbsp;&nbsp;.......<br/>
@@ -68,62 +68,62 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_PROGUARD_ENABLED">■ &nbsp;&nbsp;LOCAL_PROGUARD_ENABLED</a></h3>
+<h3><a id="LOCAL_PROGUARD_ENABLED">LOCAL_PROGUARD_ENABLED</a></h3>
 <p>
 是否启用混淆<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_INTERMEDIATE_TARGETS">■ &nbsp;&nbsp;LOCAL_INTERMEDIATE_TARGETS</a></h3>
+<h3><a id="LOCAL_INTERMEDIATE_TARGETS">LOCAL_INTERMEDIATE_TARGETS</a></h3>
 <p>
 编译的中间结果集合<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_INTERMEDIATE_SOURCE_DIR">■ &nbsp;&nbsp;LOCAL_INTERMEDIATE_SOURCE_DIR</a></h3>
+<h3><a id="LOCAL_INTERMEDIATE_SOURCE_DIR">LOCAL_INTERMEDIATE_SOURCE_DIR</a></h3>
 <p>
 编译生成的源代码存放的目录<br/>
 LOCAL_INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;$(intermediates.COMMON)/src<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_RENDERSCRIPT_CC">■ &nbsp;&nbsp;LOCAL_RENDERSCRIPT_CC</a></h3>
+<h3><a id="LOCAL_RENDERSCRIPT_CC">LOCAL_RENDERSCRIPT_CC</a></h3>
 <p>
 编译rs,fs用的编译器<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_RENDERSCRIPT_INCLUDES">■ &nbsp;&nbsp;LOCAL_RENDERSCRIPT_INCLUDES</a></h3>
+<h3><a id="LOCAL_RENDERSCRIPT_INCLUDES">LOCAL_RENDERSCRIPT_INCLUDES</a></h3>
 <p>
 RenderScript&nbsp;system&nbsp;include&nbsp;path<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_MODULES.$(LOCAL_MODULE).CHECKED">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).CHECKED</a></h3>
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).CHECKED">ALL_MODULES.$(LOCAL_MODULE).CHECKED</a></h3>
 <p>
 ALL_MODULES.$(LOCAL_MODULE).CHECKED&nbsp;:=&nbsp;$(full_classes_compiled_jar)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_EMMA_INSTRUMENT">■ &nbsp;&nbsp;LOCAL_EMMA_INSTRUMENT</a></h3>
+<h3><a id="LOCAL_EMMA_INSTRUMENT">LOCAL_EMMA_INSTRUMENT</a></h3>
 <p>
 是否使用emmma进行代码覆盖测试<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_EMMA_COVERAGE_FILTER">■ &nbsp;&nbsp;LOCAL_EMMA_COVERAGE_FILTER</a></h3>
+<h3><a id="LOCAL_EMMA_COVERAGE_FILTER">LOCAL_EMMA_COVERAGE_FILTER</a></h3>
 <p>
 LOCAL_EMMA_COVERAGE_FILTER&nbsp;:=&nbsp;+com.android.emailcommon.*,+com.android.email.*,&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_MODULES.$(LOCAL_MODULE).PROGUARD_ENABLED">■ &nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).PROGUARD_ENABLED</a></h3>
+<h3><a id="ALL_MODULES.$(LOCAL_MODULE).PROGUARD_ENABLED">ALL_MODULES.$(LOCAL_MODULE).PROGUARD_ENABLED</a></h3>
 <p>
 ALL_MODULES.$(LOCAL_MODULE).PROGUARD_ENABLED:=$(LOCAL_PROGUARD_ENABLED)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_FINDBUGS_FILES">■ &nbsp;&nbsp;ALL_FINDBUGS_FILES</a></h3>
+<h3><a id="ALL_FINDBUGS_FILES">ALL_FINDBUGS_FILES</a></h3>
 <p>
 ALL_FINDBUGS_FILES&nbsp;+=&nbsp;$(findbugs_xml)<br/>
 </p>

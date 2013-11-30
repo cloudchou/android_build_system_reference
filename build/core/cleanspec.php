@@ -52,8 +52,8 @@ For&nbsp;example:<br/>
 &nbsp;&nbsp;&nbsp;$(call&nbsp;add-clean-step,&nbsp;rm&nbsp;-rf&nbsp;$(PRODUCT_OUT)/data/*)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-top-dir]">■ &nbsp;&nbsp;[get-top-dir]</a></h3>
+<div class="function">
+<h3><a id="get-top-dir">Function:&nbsp;&nbsp;get-top-dir</a></h3>
 <p>
 Get&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;tree.<br/>
 for&nbsp;example:<br/>

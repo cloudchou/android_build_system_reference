@@ -19,7 +19,7 @@ Generating&nbsp;binaries&nbsp;for&nbsp;MIPS32R2/soft-float/little-endian<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="arch_variant_cflags">■ &nbsp;&nbsp;arch_variant_cflags</a></h3>
+<h3><a id="arch_variant_cflags">arch_variant_cflags</a></h3>
 <p>
 arch_variant_cflags&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;-EL&nbsp;\<br/>
@@ -30,7 +30,7 @@ arch_variant_cflags&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="arch_variant_ldflags">■ &nbsp;&nbsp;arch_variant_ldflags</a></h3>
+<h3><a id="arch_variant_ldflags">arch_variant_ldflags</a></h3>
 <p>
 arch_variant_ldflags&nbsp;:=&nbsp;\<br/>
 -EL<br/>

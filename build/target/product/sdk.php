@@ -18,19 +18,19 @@ sdk&nbsp;product<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_POLICY">■ &nbsp;&nbsp;PRODUCT_POLICY</a></h3>
+<h3><a id="PRODUCT_POLICY">PRODUCT_POLICY</a></h3>
 <p>
 PRODUCT_POLICY&nbsp;:=&nbsp;android.policy_phone<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_PROPERTY_OVERRIDES</a></h3>
+<h3><a id="PRODUCT_PROPERTY_OVERRIDES">PRODUCT_PROPERTY_OVERRIDES</a></h3>
 <p>
 PRODUCT_PROPERTY_OVERRIDES&nbsp;:=<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 PRODUCT_PACKAGES&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;Calculator&nbsp;\<br/>
@@ -90,13 +90,13 @@ PRODUCT_PACKAGES&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGE_OVERLAYS">■ &nbsp;&nbsp;PRODUCT_PACKAGE_OVERLAYS</a></h3>
+<h3><a id="PRODUCT_PACKAGE_OVERLAYS">PRODUCT_PACKAGE_OVERLAYS</a></h3>
 <p>
 PRODUCT_PACKAGE_OVERLAYS&nbsp;:=&nbsp;development/sdk_overlay<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_COPY_FILES">■ &nbsp;&nbsp;PRODUCT_COPY_FILES</a></h3>
+<h3><a id="PRODUCT_COPY_FILES">PRODUCT_COPY_FILES</a></h3>
 <p>
 PRODUCT_COPY_FILES&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;device/generic/goldfish/data/etc/apns-conf.xml:system/etc/apns-conf.xml&nbsp;\<br/>
@@ -113,25 +113,25 @@ PRODUCT_COPY_FILES&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_NAME">■ &nbsp;&nbsp;PRODUCT_NAME</a></h3>
+<h3><a id="PRODUCT_NAME">PRODUCT_NAME</a></h3>
 <p>
 PRODUCT_NAME&nbsp;:=&nbsp;sdk<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEVICE">■ &nbsp;&nbsp;PRODUCT_DEVICE</a></h3>
+<h3><a id="PRODUCT_DEVICE">PRODUCT_DEVICE</a></h3>
 <p>
 PRODUCT_DEVICE&nbsp;:=&nbsp;generic<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<h3><a id="PRODUCT_BRAND">PRODUCT_BRAND</a></h3>
 <p>
 PRODUCT_BRAND&nbsp;:=&nbsp;generic<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_LOCALES">■ &nbsp;&nbsp;PRODUCT_LOCALES</a></h3>
+<h3><a id="PRODUCT_LOCALES">PRODUCT_LOCALES</a></h3>
 <p>
 PRODUCT_LOCALES&nbsp;=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;en_US&nbsp;\<br/>

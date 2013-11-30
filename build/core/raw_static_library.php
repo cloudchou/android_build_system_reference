@@ -21,7 +21,7 @@
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_RAW_STATIC_LIBRARY">■ &nbsp;&nbsp;LOCAL_RAW_STATIC_LIBRARY</a></h3>
+<h3><a id="LOCAL_RAW_STATIC_LIBRARY">LOCAL_RAW_STATIC_LIBRARY</a></h3>
 <p>
 LOCAL_RAW_STATIC_LIBRARY:=true<br/>
 </p>

@@ -18,25 +18,25 @@
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_SUFFIX">■ &nbsp;&nbsp;LOCAL_MODULE_SUFFIX</a></h3>
+<h3><a id="LOCAL_MODULE_SUFFIX">LOCAL_MODULE_SUFFIX</a></h3>
 <p>
 LOCAL_MODULE_SUFFIX&nbsp;:=&nbsp;$(COMMON_JAVA_PACKAGE_SUFFIX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_CLASS">■ &nbsp;&nbsp;LOCAL_MODULE_CLASS</a></h3>
+<h3><a id="LOCAL_MODULE_CLASS">LOCAL_MODULE_CLASS</a></h3>
 <p>
 LOCAL_MODULE_CLASS&nbsp;:=&nbsp;JAVA_LIBRARIES<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_BUILT_MODULE_STEM">■ &nbsp;&nbsp;LOCAL_BUILT_MODULE_STEM</a></h3>
+<h3><a id="LOCAL_BUILT_MODULE_STEM">LOCAL_BUILT_MODULE_STEM</a></h3>
 <p>
 LOCAL_BUILT_MODULE_STEM&nbsp;:=&nbsp;javalib.jar<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_DEX_PREOPT">■ &nbsp;&nbsp;LOCAL_DEX_PREOPT</a></h3>
+<h3><a id="LOCAL_DEX_PREOPT">LOCAL_DEX_PREOPT</a></h3>
 <p>
 ifneq&nbsp;(true,$(WITH_DEXPREOPT))<br/>
 如果编译为userm模式WITH_DEXPREOPT在main.mk里默认设置为true，也就是说会进行Dalvik&nbsp;preoptimization<br/>
@@ -55,7 +55,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_EMMA_INSTRUMENT">■ &nbsp;&nbsp;LOCAL_EMMA_INSTRUMENT</a></h3>
+<h3><a id="LOCAL_EMMA_INSTRUMENT">LOCAL_EMMA_INSTRUMENT</a></h3>
 <p>
 ifeq&nbsp;(true,$(EMMA_INSTRUMENT))<br/>
 ifeq&nbsp;(true,$(LOCAL_EMMA_INSTRUMENT))<br/>

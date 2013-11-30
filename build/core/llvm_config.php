@@ -20,31 +20,31 @@ Clang&nbsp;对源程序进行词法分析和语义分析，并将分析结果转
 </p>
 </div>
 <div class="variable">
-<h3><a id="CLANG">■ &nbsp;&nbsp;CLANG</a></h3>
+<h3><a id="CLANG">CLANG</a></h3>
 <p>
 CLANG&nbsp;:=&nbsp;$(HOST_OUT_EXECUTABLES)/clang$(HOST_EXECUTABLE_SUFFIX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CLANG_CXX">■ &nbsp;&nbsp;CLANG_CXX</a></h3>
+<h3><a id="CLANG_CXX">CLANG_CXX</a></h3>
 <p>
 CLANG_CXX&nbsp;:=&nbsp;$(HOST_OUT_EXECUTABLES)/clang++$(HOST_EXECUTABLE_SUFFIX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LLVM_AS">■ &nbsp;&nbsp;LLVM_AS</a></h3>
+<h3><a id="LLVM_AS">LLVM_AS</a></h3>
 <p>
 LLVM_AS&nbsp;:=&nbsp;$(HOST_OUT_EXECUTABLES)/llvm-as$(HOST_EXECUTABLE_SUFFIX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LLVM_LINK">■ &nbsp;&nbsp;LLVM_LINK</a></h3>
+<h3><a id="LLVM_LINK">LLVM_LINK</a></h3>
 <p>
 LLVM_LINK&nbsp;:=&nbsp;$(HOST_OUT_EXECUTABLES)/llvm-link$(HOST_EXECUTABLE_SUFFIX)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[do-clang-flags-subst]">■ &nbsp;&nbsp;[do-clang-flags-subst]</a></h3>
+<div class="function">
+<h3><a id="do-clang-flags-subst">Function:&nbsp;&nbsp;do-clang-flags-subst</a></h3>
 <p>
 define&nbsp;do-clang-flags-subst<br/>
 &nbsp;&nbsp;TARGET_GLOBAL_CLANG_FLAGS&nbsp;:=&nbsp;$(subst&nbsp;$(1),$(2),$(TARGET_GLOBAL_CLANG_FLAGS))<br/>
@@ -53,7 +53,7 @@ endef<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="clang-flags-subst">■ &nbsp;&nbsp;clang-flags-subst</a></h3>
+<h3><a id="clang-flags-subst">clang-flags-subst</a></h3>
 <p>
 define&nbsp;clang-flags-subst<br/>
 &nbsp;&nbsp;$(eval&nbsp;$(call&nbsp;do-clang-flags-subst,$(1),$(2)))<br/>
@@ -61,7 +61,7 @@ endef<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CLANG_CONFIG_EXTRA_CFLAGS">■ &nbsp;&nbsp;CLANG_CONFIG_EXTRA_CFLAGS</a></h3>
+<h3><a id="CLANG_CONFIG_EXTRA_CFLAGS">CLANG_CONFIG_EXTRA_CFLAGS</a></h3>
 <p>
 CLANG_CONFIG_EXTRA_CFLAGS&nbsp;:=&nbsp;\<br/>
 -D__compiler_offsetof=__builtin_offsetof&nbsp;\<br/>
@@ -69,14 +69,14 @@ CLANG_CONFIG_EXTRA_CFLAGS&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CLANG_CONFIG_UNKNOWN_CFLAGS">■ &nbsp;&nbsp;CLANG_CONFIG_UNKNOWN_CFLAGS</a></h3>
+<h3><a id="CLANG_CONFIG_UNKNOWN_CFLAGS">CLANG_CONFIG_UNKNOWN_CFLAGS</a></h3>
 <p>
 CLANG_CONFIG_UNKNOWN_CFLAGS&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;-funswitch-loops<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CLANG_CONFIG_EXTRA_CFLAGS">■ &nbsp;&nbsp;CLANG_CONFIG_EXTRA_CFLAGS</a></h3>
+<h3><a id="CLANG_CONFIG_EXTRA_CFLAGS">CLANG_CONFIG_EXTRA_CFLAGS</a></h3>
 <p>
 CLANG_CONFIG_EXTRA_CFLAGS&nbsp;+=&nbsp;\<br/>
 -target&nbsp;arm-linux-androideabi&nbsp;\<br/>
@@ -86,7 +86,7 @@ CLANG_CONFIG_EXTRA_CFLAGS&nbsp;+=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CLANG_CONFIG_EXTRA_LDFLAGS">■ &nbsp;&nbsp;CLANG_CONFIG_EXTRA_LDFLAGS</a></h3>
+<h3><a id="CLANG_CONFIG_EXTRA_LDFLAGS">CLANG_CONFIG_EXTRA_LDFLAGS</a></h3>
 <p>
 CLANG_CONFIG_EXTRA_LDFLAGS&nbsp;+=&nbsp;\<br/>
 -target&nbsp;arm-linux-androideabi&nbsp;\<br/>
@@ -94,7 +94,7 @@ CLANG_CONFIG_EXTRA_LDFLAGS&nbsp;+=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CLANG_CONFIG_UNKNOWN_CFLAGS">■ &nbsp;&nbsp;CLANG_CONFIG_UNKNOWN_CFLAGS</a></h3>
+<h3><a id="CLANG_CONFIG_UNKNOWN_CFLAGS">CLANG_CONFIG_UNKNOWN_CFLAGS</a></h3>
 <p>
 CLANG_CONFIG_UNKNOWN_CFLAGS&nbsp;+=&nbsp;\<br/>
 -mthumb-interwork&nbsp;\<br/>
@@ -108,66 +108,66 @@ CLANG_CONFIG_UNKNOWN_CFLAGS&nbsp;+=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CLANG_CONFIG_EXTRA_TARGET_C_INCLUDES">■ &nbsp;&nbsp;CLANG_CONFIG_EXTRA_TARGET_C_INCLUDES</a></h3>
+<h3><a id="CLANG_CONFIG_EXTRA_TARGET_C_INCLUDES">CLANG_CONFIG_EXTRA_TARGET_C_INCLUDES</a></h3>
 <p>
 CLANG_CONFIG_EXTRA_TARGET_C_INCLUDES&nbsp;:=&nbsp;external/clang/lib/include&nbsp;$(TARGET_OUT_HEADERS)/clang<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_GLOBAL_CLANG_FLAGS">■ &nbsp;&nbsp;TARGET_GLOBAL_CLANG_FLAGS</a></h3>
+<h3><a id="TARGET_GLOBAL_CLANG_FLAGS">TARGET_GLOBAL_CLANG_FLAGS</a></h3>
 <p>
 TARGET_GLOBAL_CLANG_FLAGS&nbsp;+=&nbsp;$(filter-out&nbsp;$(CLANG_CONFIG_UNKNOWN_CFLAGS),$(TARGET_GLOBAL_CFLAGS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_GLOBAL_CLANG_FLAGS">■ &nbsp;&nbsp;HOST_GLOBAL_CLANG_FLAGS</a></h3>
+<h3><a id="HOST_GLOBAL_CLANG_FLAGS">HOST_GLOBAL_CLANG_FLAGS</a></h3>
 <p>
 HOST_GLOBAL_CLANG_FLAGS&nbsp;+=&nbsp;$(filter-out&nbsp;$(CLANG_CONFIG_UNKNOWN_CFLAGS),$(HOST_GLOBAL_CFLAGS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_arm_CLANG_CFLAGS">■ &nbsp;&nbsp;TARGET_arm_CLANG_CFLAGS</a></h3>
+<h3><a id="TARGET_arm_CLANG_CFLAGS">TARGET_arm_CLANG_CFLAGS</a></h3>
 <p>
 TARGET_arm_CLANG_CFLAGS&nbsp;+=&nbsp;$(filter-out&nbsp;$(CLANG_CONFIG_UNKNOWN_CFLAGS),$(TARGET_arm_CFLAGS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_thumb_CLANG_CFLAGS">■ &nbsp;&nbsp;TARGET_thumb_CLANG_CFLAGS</a></h3>
+<h3><a id="TARGET_thumb_CLANG_CFLAGS">TARGET_thumb_CLANG_CFLAGS</a></h3>
 <p>
 TARGET_thumb_CLANG_CFLAGS&nbsp;+=&nbsp;$(filter-out&nbsp;$(CLANG_CONFIG_UNKNOWN_CFLAGS),$(TARGET_thumb_CFLAGS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_CFLAGS">■ &nbsp;&nbsp;ADDRESS_SANITIZER_CONFIG_EXTRA_CFLAGS</a></h3>
+<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_CFLAGS">ADDRESS_SANITIZER_CONFIG_EXTRA_CFLAGS</a></h3>
 <p>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_LDFLAGS">■ &nbsp;&nbsp;ADDRESS_SANITIZER_CONFIG_EXTRA_LDFLAGS</a></h3>
+<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_LDFLAGS">ADDRESS_SANITIZER_CONFIG_EXTRA_LDFLAGS</a></h3>
 <p>
 ADDRESS_SANITIZER_CONFIG_EXTRA_CFLAGS&nbsp;:=&nbsp;-faddress-sanitizer<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_SHARED_LIBRARIES">■ &nbsp;&nbsp;ADDRESS_SANITIZER_CONFIG_EXTRA_SHARED_LIBRARIES</a></h3>
+<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_SHARED_LIBRARIES">ADDRESS_SANITIZER_CONFIG_EXTRA_SHARED_LIBRARIES</a></h3>
 <p>
 ADDRESS_SANITIZER_CONFIG_EXTRA_LDFLAGS&nbsp;:=&nbsp;-Wl,-u,__asan_preinit<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES">■ &nbsp;&nbsp;ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES</a></h3>
+<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES">ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES</a></h3>
 <p>
 ADDRESS_SANITIZER_CONFIG_EXTRA_SHARED_LIBRARIES&nbsp;:=&nbsp;libdl&nbsp;libasan_preload<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES">■ &nbsp;&nbsp;ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES</a></h3>
+<h3><a id="ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES">ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES</a></h3>
 <p>
 ADDRESS_SANITIZER_CONFIG_EXTRA_STATIC_LIBRARIES&nbsp;:=&nbsp;libasan<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="COMPILER_RT_CONFIG_EXTRA_STATIC_LIBRARIES">■ &nbsp;&nbsp;COMPILER_RT_CONFIG_EXTRA_STATIC_LIBRARIES</a></h3>
+<h3><a id="COMPILER_RT_CONFIG_EXTRA_STATIC_LIBRARIES">COMPILER_RT_CONFIG_EXTRA_STATIC_LIBRARIES</a></h3>
 <p>
 COMPILER_RT_CONFIG_EXTRA_STATIC_LIBRARIES&nbsp;:=&nbsp;libcompiler-rt-extras<br/>
 </p>

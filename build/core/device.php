@@ -12,18 +12,18 @@
 <div id="content">
 
 <div class="">
-<h3><a id="">▶ &nbsp;&nbsp;</a></h3>
+<h3><a id="">Target:&nbsp;&bsp;</a></h3>
 <p>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[__this_file]">■ &nbsp;&nbsp;[__this_file]</a></h3>
+<div class="function">
+<h3><a id="__this_file">Function:&nbsp;&nbsp;__this_file</a></h3>
 <p>
 定于了设备变量列表的变量以及设备相关函数，<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="_device_var_list">■ &nbsp;&nbsp;_device_var_list</a></h3>
+<h3><a id="_device_var_list">_device_var_list</a></h3>
 <p>
 设备变量列表<br/>
 _device_var_list&nbsp;:=&nbsp;\<br/>
@@ -32,34 +32,34 @@ _device_var_list&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;DEVICE_REGION<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[dump-device]">■ &nbsp;&nbsp;[dump-device]</a></h3>
+<div class="function">
+<h3><a id="dump-device">Function:&nbsp;&nbsp;dump-device</a></h3>
 <p>
 打印设备变量<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[dump-devices]">■ &nbsp;&nbsp;[dump-devices]</a></h3>
+<div class="function">
+<h3><a id="dump-devices">Function:&nbsp;&nbsp;dump-devices</a></h3>
 <p>
 打印所有设备的设备变量&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[inherit-device]">■ &nbsp;&nbsp;[inherit-device]</a></h3>
+<div class="function">
+<h3><a id="inherit-device">Function:&nbsp;&nbsp;inherit-device</a></h3>
 <p>
 继承设备<br/>
 $(1)&nbsp;device&nbsp;to&nbsp;inherit<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[import-devices]">■ &nbsp;&nbsp;[import-devices]</a></h3>
+<div class="function">
+<h3><a id="import-devices">Function:&nbsp;&nbsp;import-devices</a></h3>
 <p>
 导入设备变量<br/>
 &nbsp;&nbsp;&nbsp;$(1):&nbsp;device&nbsp;makefile&nbsp;list<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[resolve-short-device-name]">■ &nbsp;&nbsp;[resolve-short-device-name]</a></h3>
+<div class="function">
+<h3><a id="resolve-short-device-name">Function:&nbsp;&nbsp;resolve-short-device-name</a></h3>
 <p>
 获取设备的名字<br/>
 $(1):&nbsp;short&nbsp;device&nbsp;name&nbsp;like&nbsp;"sooner"<br/>

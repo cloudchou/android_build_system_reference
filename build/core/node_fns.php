@@ -17,8 +17,8 @@
 定义了一些函数<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[clear-var-list]">■ &nbsp;&nbsp;[clear-var-list]</a></h3>
+<div class="function">
+<h3><a id="clear-var-list">Function:&nbsp;&nbsp;clear-var-list</a></h3>
 <p>
 Clears&nbsp;a&nbsp;list&nbsp;of&nbsp;variables&nbsp;using&nbsp;":=".<br/>
 #&nbsp;E.g.,<br/>
@@ -30,8 +30,8 @@ Clears&nbsp;a&nbsp;list&nbsp;of&nbsp;variables&nbsp;using&nbsp;":=".<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(1):&nbsp;list&nbsp;of&nbsp;variable&nbsp;names&nbsp;to&nbsp;clear<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-var-list]">■ &nbsp;&nbsp;[copy-var-list]</a></h3>
+<div class="function">
+<h3><a id="copy-var-list">Function:&nbsp;&nbsp;copy-var-list</a></h3>
 <p>
 Copies&nbsp;a&nbsp;list&nbsp;of&nbsp;variables&nbsp;into&nbsp;another&nbsp;list&nbsp;of&nbsp;variables.<br/>
 The&nbsp;target&nbsp;list&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;source&nbsp;list,&nbsp;but&nbsp;has<br/>
@@ -44,8 +44,8 @@ $(call&nbsp;copy-var-list,&nbsp;PREFIX,&nbsp;A&nbsp;B)<br/>
 &nbsp;&nbsp;$(2):&nbsp;list&nbsp;of&nbsp;variable&nbsp;names&nbsp;to&nbsp;copy<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[move-var-list]">■ &nbsp;&nbsp;[move-var-list]</a></h3>
+<div class="function">
+<h3><a id="move-var-list">Function:&nbsp;&nbsp;move-var-list</a></h3>
 <p>
 Moves&nbsp;a&nbsp;list&nbsp;of&nbsp;variables&nbsp;into&nbsp;another&nbsp;list&nbsp;of&nbsp;variables.<br/>
 The&nbsp;variable&nbsp;names&nbsp;differ&nbsp;by&nbsp;a&nbsp;prefix.&nbsp;&nbsp;After&nbsp;moving,&nbsp;the<br/>
@@ -63,8 +63,8 @@ $(2):&nbsp;destination&nbsp;prefix<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;$(3):&nbsp;list&nbsp;of&nbsp;variable&nbsp;names&nbsp;to&nbsp;move<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[uniq-word]">■ &nbsp;&nbsp;[uniq-word]</a></h3>
+<div class="function">
+<h3><a id="uniq-word">Function:&nbsp;&nbsp;uniq-word</a></h3>
 <p>
 $(1):&nbsp;haystack<br/>
 $(2):&nbsp;needle<br/>
@@ -83,8 +83,8 @@ How&nbsp;it&nbsp;works:<br/>
 &nbsp;&nbsp;individual&nbsp;words.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-inherited-nodes]">■ &nbsp;&nbsp;[get-inherited-nodes]</a></h3>
+<div class="function">
+<h3><a id="get-inherited-nodes">Function:&nbsp;&nbsp;get-inherited-nodes</a></h3>
 <p>
 Walks&nbsp;through&nbsp;the&nbsp;list&nbsp;of&nbsp;variables,&nbsp;each&nbsp;qualified&nbsp;by&nbsp;the&nbsp;prefix,<br/>
 and&nbsp;finds&nbsp;instances&nbsp;of&nbsp;words&nbsp;beginning&nbsp;with&nbsp;INHERIT_TAG.&nbsp;&nbsp;Scrape<br/>
@@ -101,8 +101,8 @@ $(1):&nbsp;variable&nbsp;prefix<br/>
 $(2):&nbsp;list&nbsp;of&nbsp;variables&nbsp;to&nbsp;check<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[import-nodes]">■ &nbsp;&nbsp;[import-nodes]</a></h3>
+<div class="function">
+<h3><a id="import-nodes">Function:&nbsp;&nbsp;import-nodes</a></h3>
 <p>
 $(1):&nbsp;output&nbsp;list&nbsp;variable&nbsp;name,&nbsp;like&nbsp;"PRODUCTS"&nbsp;or&nbsp;"DEVICES"<br/>
 $(2):&nbsp;list&nbsp;of&nbsp;makefiles&nbsp;representing&nbsp;nodes&nbsp;to&nbsp;import<br/>

@@ -19,19 +19,19 @@ It&nbsp;includes&nbsp;the&nbsp;base&nbsp;Android&nbsp;platform.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_NAME">■ &nbsp;&nbsp;PRODUCT_NAME</a></h3>
+<h3><a id="PRODUCT_NAME">PRODUCT_NAME</a></h3>
 <p>
 PRODUCT_NAME&nbsp;:=&nbsp;generic_mips<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEVICE">■ &nbsp;&nbsp;PRODUCT_DEVICE</a></h3>
+<h3><a id="PRODUCT_DEVICE">PRODUCT_DEVICE</a></h3>
 <p>
 PRODUCT_DEVICE&nbsp;:=&nbsp;generic_mips<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<h3><a id="PRODUCT_BRAND">PRODUCT_BRAND</a></h3>
 <p>
 PRODUCT_BRAND&nbsp;:=&nbsp;generic_mips<br/>
 </p>

@@ -21,25 +21,25 @@ entirely&nbsp;appropriate&nbsp;to&nbsp;inherit&nbsp;from&nbsp;for&nbsp;on-device
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_NAME">■ &nbsp;&nbsp;PRODUCT_NAME</a></h3>
+<h3><a id="PRODUCT_NAME">PRODUCT_NAME</a></h3>
 <p>
 PRODUCT_NAME&nbsp;:=&nbsp;generic_x86<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEVICE">■ &nbsp;&nbsp;PRODUCT_DEVICE</a></h3>
+<h3><a id="PRODUCT_DEVICE">PRODUCT_DEVICE</a></h3>
 <p>
 PRODUCT_DEVICE&nbsp;:=&nbsp;generic_x86<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<h3><a id="PRODUCT_BRAND">PRODUCT_BRAND</a></h3>
 <p>
 PRODUCT_BRAND&nbsp;:=&nbsp;generic_x86<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_MODEL">■ &nbsp;&nbsp;PRODUCT_MODEL</a></h3>
+<h3><a id="PRODUCT_MODEL">PRODUCT_MODEL</a></h3>
 <p>
 PRODUCT_MODEL&nbsp;:=&nbsp;Android&nbsp;SDK&nbsp;built&nbsp;for&nbsp;x86<br/>
 </p>

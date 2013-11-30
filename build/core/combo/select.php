@@ -20,151 +20,151 @@ combo_target&nbsp;--&nbsp;prefix&nbsp;for&nbsp;final&nbsp;variables&nbsp;(HOST_&
 </p>
 </div>
 <div class="variable">
-<h3><a id="combo_os_arch">■ &nbsp;&nbsp;combo_os_arch</a></h3>
+<h3><a id="combo_os_arch">combo_os_arch</a></h3>
 <p>
 Build&nbsp;a&nbsp;target&nbsp;string&nbsp;like&nbsp;"linux-arm"&nbsp;or&nbsp;"darwin-x86".&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)CC">■ &nbsp;&nbsp;$(combo_target)CC</a></h3>
+<h3><a id="$(combo_target)CC">$(combo_target)CC</a></h3>
 <p>
 $(combo_target)CC&nbsp;:=&nbsp;$(CC)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)CXX">■ &nbsp;&nbsp;$(combo_target)CXX</a></h3>
+<h3><a id="$(combo_target)CXX">$(combo_target)CXX</a></h3>
 <p>
 $(combo_target)CXX&nbsp;:=&nbsp;$(CXX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)AR">■ &nbsp;&nbsp;$(combo_target)AR</a></h3>
+<h3><a id="$(combo_target)AR">$(combo_target)AR</a></h3>
 <p>
 $(combo_target)AR&nbsp;:=&nbsp;$(AR)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)STRIP">■ &nbsp;&nbsp;$(combo_target)STRIP</a></h3>
+<h3><a id="$(combo_target)STRIP">$(combo_target)STRIP</a></h3>
 <p>
 $(combo_target)STRIP&nbsp;:=&nbsp;$(STRIP)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)BINDER_MINI">■ &nbsp;&nbsp;$(combo_target)BINDER_MINI</a></h3>
+<h3><a id="$(combo_target)BINDER_MINI">$(combo_target)BINDER_MINI</a></h3>
 <p>
 $(combo_target)BINDER_MINI&nbsp;:=&nbsp;0<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_EXCEPTIONS">■ &nbsp;&nbsp;$(combo_target)HAVE_EXCEPTIONS</a></h3>
+<h3><a id="$(combo_target)HAVE_EXCEPTIONS">$(combo_target)HAVE_EXCEPTIONS</a></h3>
 <p>
 $(combo_target)HAVE_EXCEPTIONS&nbsp;:=&nbsp;0<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_UNIX_FILE_PATH">■ &nbsp;&nbsp;$(combo_target)HAVE_UNIX_FILE_PATH</a></h3>
+<h3><a id="$(combo_target)HAVE_UNIX_FILE_PATH">$(combo_target)HAVE_UNIX_FILE_PATH</a></h3>
 <p>
 $(combo_target)HAVE_UNIX_FILE_PATH&nbsp;:=&nbsp;1<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_WINDOWS_FILE_PATH">■ &nbsp;&nbsp;$(combo_target)HAVE_WINDOWS_FILE_PATH</a></h3>
+<h3><a id="$(combo_target)HAVE_WINDOWS_FILE_PATH">$(combo_target)HAVE_WINDOWS_FILE_PATH</a></h3>
 <p>
 $(combo_target)HAVE_WINDOWS_FILE_PATH&nbsp;:=&nbsp;0<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_RTTI">■ &nbsp;&nbsp;$(combo_target)HAVE_RTTI</a></h3>
+<h3><a id="$(combo_target)HAVE_RTTI">$(combo_target)HAVE_RTTI</a></h3>
 <p>
 $(combo_target)HAVE_RTTI&nbsp;:=&nbsp;1<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_CALL_STACKS">■ &nbsp;&nbsp;$(combo_target)HAVE_CALL_STACKS</a></h3>
+<h3><a id="$(combo_target)HAVE_CALL_STACKS">$(combo_target)HAVE_CALL_STACKS</a></h3>
 <p>
 $(combo_target)HAVE_CALL_STACKS&nbsp;:=&nbsp;1<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_64BIT_IO">■ &nbsp;&nbsp;$(combo_target)HAVE_64BIT_IO</a></h3>
+<h3><a id="$(combo_target)HAVE_64BIT_IO">$(combo_target)HAVE_64BIT_IO</a></h3>
 <p>
 $(combo_target)HAVE_64BIT_IO&nbsp;:=&nbsp;1<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_CLOCK_TIMERS">■ &nbsp;&nbsp;$(combo_target)HAVE_CLOCK_TIMERS</a></h3>
+<h3><a id="$(combo_target)HAVE_CLOCK_TIMERS">$(combo_target)HAVE_CLOCK_TIMERS</a></h3>
 <p>
 $(combo_target)HAVE_CLOCK_TIMERS&nbsp;:=&nbsp;1<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_PTHREAD_RWLOCK">■ &nbsp;&nbsp;$(combo_target)HAVE_PTHREAD_RWLOCK</a></h3>
+<h3><a id="$(combo_target)HAVE_PTHREAD_RWLOCK">$(combo_target)HAVE_PTHREAD_RWLOCK</a></h3>
 <p>
 $(combo_target)HAVE_PTHREAD_RWLOCK&nbsp;:=&nbsp;1<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_STRNLEN">■ &nbsp;&nbsp;$(combo_target)HAVE_STRNLEN</a></h3>
+<h3><a id="$(combo_target)HAVE_STRNLEN">$(combo_target)HAVE_STRNLEN</a></h3>
 <p>
 $(combo_target)HAVE_STRNLEN&nbsp;:=&nbsp;1<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_STRERROR_R_STRRET">■ &nbsp;&nbsp;$(combo_target)HAVE_STRERROR_R_STRRET</a></h3>
+<h3><a id="$(combo_target)HAVE_STRERROR_R_STRRET">$(combo_target)HAVE_STRERROR_R_STRRET</a></h3>
 <p>
 $(combo_target)HAVE_STRERROR_R_STRRET&nbsp;:=&nbsp;1<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_STRLCPY">■ &nbsp;&nbsp;$(combo_target)HAVE_STRLCPY</a></h3>
+<h3><a id="$(combo_target)HAVE_STRLCPY">$(combo_target)HAVE_STRLCPY</a></h3>
 <p>
 $(combo_target)HAVE_STRLCPY&nbsp;:=&nbsp;0<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_STRLCAT">■ &nbsp;&nbsp;$(combo_target)HAVE_STRLCAT</a></h3>
+<h3><a id="$(combo_target)HAVE_STRLCAT">$(combo_target)HAVE_STRLCAT</a></h3>
 <p>
 $(combo_target)HAVE_STRLCAT&nbsp;:=&nbsp;0<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)HAVE_KERNEL_MODULES">■ &nbsp;&nbsp;$(combo_target)HAVE_KERNEL_MODULES</a></h3>
+<h3><a id="$(combo_target)HAVE_KERNEL_MODULES">$(combo_target)HAVE_KERNEL_MODULES</a></h3>
 <p>
 $(combo_target)HAVE_KERNEL_MODULES&nbsp;:=&nbsp;0<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)GLOBAL_CFLAGS">■ &nbsp;&nbsp;$(combo_target)GLOBAL_CFLAGS</a></h3>
+<h3><a id="$(combo_target)GLOBAL_CFLAGS">$(combo_target)GLOBAL_CFLAGS</a></h3>
 <p>
 $(combo_target)GLOBAL_CFLAGS&nbsp;:=&nbsp;-fno-exceptions&nbsp;-Wno-multichar<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)RELEASE_CFLAGS">■ &nbsp;&nbsp;$(combo_target)RELEASE_CFLAGS</a></h3>
+<h3><a id="$(combo_target)RELEASE_CFLAGS">$(combo_target)RELEASE_CFLAGS</a></h3>
 <p>
 $(combo_target)RELEASE_CFLAGS&nbsp;:=&nbsp;-O2&nbsp;-g&nbsp;-fno-strict-aliasing<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)GLOBAL_LDFLAGS">■ &nbsp;&nbsp;$(combo_target)GLOBAL_LDFLAGS</a></h3>
+<h3><a id="$(combo_target)GLOBAL_LDFLAGS">$(combo_target)GLOBAL_LDFLAGS</a></h3>
 <p>
 $(combo_target)GLOBAL_LDFLAGS&nbsp;:=<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)GLOBAL_ARFLAGS">■ &nbsp;&nbsp;$(combo_target)GLOBAL_ARFLAGS</a></h3>
+<h3><a id="$(combo_target)GLOBAL_ARFLAGS">$(combo_target)GLOBAL_ARFLAGS</a></h3>
 <p>
 $(combo_target)GLOBAL_ARFLAGS&nbsp;:=&nbsp;crsP<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="$(combo_target)EXECUTABLE_SUFFIX">■ &nbsp;&nbsp;$(combo_target)EXECUTABLE_SUFFIX</a></h3>
+<h3><a id="$(combo_target)EXECUTABLE_SUFFIX">$(combo_target)EXECUTABLE_SUFFIX</a></h3>
 <p>
 $(combo_target)EXECUTABLE_SUFFIX&nbsp;:=&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CCACHE_COMPILERCHECK">■ &nbsp;&nbsp;CCACHE_COMPILERCHECK</a></h3>
+<h3><a id="CCACHE_COMPILERCHECK">CCACHE_COMPILERCHECK</a></h3>
 <p>
 The&nbsp;default&nbsp;check&nbsp;uses&nbsp;size&nbsp;and&nbsp;modification&nbsp;time,&nbsp;causing&nbsp;false&nbsp;misses<br/>
 since&nbsp;the&nbsp;mtime&nbsp;depends&nbsp;when&nbsp;the&nbsp;repo&nbsp;was&nbsp;checked&nbsp;out<br/>
@@ -172,7 +172,7 @@ since&nbsp;the&nbsp;mtime&nbsp;depends&nbsp;when&nbsp;the&nbsp;repo&nbsp;was&nbs
 </p>
 </div>
 <div class="variable">
-<h3><a id="CCACHE_SLOPPINESS">■ &nbsp;&nbsp;CCACHE_SLOPPINESS</a></h3>
+<h3><a id="CCACHE_SLOPPINESS">CCACHE_SLOPPINESS</a></h3>
 <p>
 See&nbsp;man&nbsp;page,&nbsp;optimizations&nbsp;to&nbsp;get&nbsp;more&nbsp;cache&nbsp;hits<br/>
 implies&nbsp;that&nbsp;__DATE__&nbsp;and&nbsp;__TIME__&nbsp;are&nbsp;not&nbsp;critical&nbsp;for&nbsp;functionality.<br/>
@@ -182,7 +182,7 @@ the&nbsp;repo&nbsp;was&nbsp;checked&nbsp;out<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CCACHE_BASEDIR">■ &nbsp;&nbsp;CCACHE_BASEDIR</a></h3>
+<h3><a id="CCACHE_BASEDIR">CCACHE_BASEDIR</a></h3>
 <p>
 Turn&nbsp;all&nbsp;preprocessor&nbsp;absolute&nbsp;paths&nbsp;into&nbsp;relative&nbsp;paths.<br/>
 Fixes&nbsp;absolute&nbsp;paths&nbsp;in&nbsp;preprocessed&nbsp;source&nbsp;due&nbsp;to&nbsp;use&nbsp;of&nbsp;-g.<br/>
@@ -193,7 +193,7 @@ on&nbsp;a&nbsp;workstation.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CCACHE_HOST_TAG">■ &nbsp;&nbsp;CCACHE_HOST_TAG</a></h3>
+<h3><a id="CCACHE_HOST_TAG">CCACHE_HOST_TAG</a></h3>
 <p>
 If&nbsp;we&nbsp;are&nbsp;cross-compiling&nbsp;Windows&nbsp;binaries&nbsp;on&nbsp;Linux<br/>
 then&nbsp;use&nbsp;the&nbsp;linux&nbsp;ccache&nbsp;binary&nbsp;instead.<br/>

@@ -12,36 +12,36 @@
 <div id="content">
 
 <div class="">
-<h3><a id="">▶ &nbsp;&nbsp;</a></h3>
+<h3><a id="">Target:&nbsp;&bsp;</a></h3>
 <p>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_thisfile]">■ &nbsp;&nbsp;[_thisfile]</a></h3>
+<div class="function">
+<h3><a id="_thisfile">Function:&nbsp;&nbsp;_thisfile</a></h3>
 <p>
 Board&nbsp;platforms&nbsp;lists&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;TARGET_BOARD_PLATFORM&nbsp;specific&nbsp;featurization<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="QCOM_BOARD_PLATFORMS">■ &nbsp;&nbsp;QCOM_BOARD_PLATFORMS</a></h3>
+<h3><a id="QCOM_BOARD_PLATFORMS">QCOM_BOARD_PLATFORMS</a></h3>
 <p>
 高通的板子<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="MSM7K_BOARD_PLATFORMS">■ &nbsp;&nbsp;MSM7K_BOARD_PLATFORMS</a></h3>
+<h3><a id="MSM7K_BOARD_PLATFORMS">MSM7K_BOARD_PLATFORMS</a></h3>
 <p>
 mtk的板子<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="QSD8K_BOARD_PLATFORMS">■ &nbsp;&nbsp;QSD8K_BOARD_PLATFORMS</a></h3>
+<h3><a id="QSD8K_BOARD_PLATFORMS">QSD8K_BOARD_PLATFORMS</a></h3>
 <p>
 qsd的板子<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[match-word]">■ &nbsp;&nbsp;[match-word]</a></h3>
+<div class="function">
+<h3><a id="match-word">Function:&nbsp;&nbsp;match-word</a></h3>
 <p>
 $(call&nbsp;match-word,w1,w2)<br/>
 checks&nbsp;if&nbsp;w1&nbsp;==&nbsp;w2<br/>
@@ -52,8 +52,8 @@ returns&nbsp;true&nbsp;or&nbsp;empty<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(warning&nbsp;:$(2):&nbsp;:$(1):&nbsp;:$(subst&nbsp;$(2),,$(1)):)&nbsp;\<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[find-word-in-list]">■ &nbsp;&nbsp;[find-word-in-list]</a></h3>
+<div class="function">
+<h3><a id="find-word-in-list">Function:&nbsp;&nbsp;find-word-in-list</a></h3>
 <p>
 $(call&nbsp;find-word-in-list,w,wlist)<br/>
 finds&nbsp;an&nbsp;exact&nbsp;match&nbsp;of&nbsp;word&nbsp;w&nbsp;in&nbsp;word&nbsp;list&nbsp;wlist<br/>
@@ -64,8 +64,8 @@ How&nbsp;it&nbsp;works<br/>
 returns&nbsp;stripped&nbsp;word&nbsp;or&nbsp;empty<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[match-word-in-list]">■ &nbsp;&nbsp;[match-word-in-list]</a></h3>
+<div class="function">
+<h3><a id="match-word-in-list">Function:&nbsp;&nbsp;match-word-in-list</a></h3>
 <p>
 $(call&nbsp;match-word-in-list,w,wlist)<br/>
 does&nbsp;an&nbsp;exact&nbsp;match&nbsp;of&nbsp;word&nbsp;w&nbsp;in&nbsp;word&nbsp;list&nbsp;wlist<br/>
@@ -77,8 +77,8 @@ How&nbsp;it&nbsp;works<br/>
 returns&nbsp;true&nbsp;or&nbsp;empty<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[match-prefix]">■ &nbsp;&nbsp;[match-prefix]</a></h3>
+<div class="function">
+<h3><a id="match-prefix">Function:&nbsp;&nbsp;match-prefix</a></h3>
 <p>
 $(call&nbsp;match-prefix,p,delim,w/wlist)<br/>
 matches&nbsp;prefix&nbsp;p&nbsp;in&nbsp;wlist&nbsp;using&nbsp;delimiter&nbsp;delim<br/>
@@ -90,8 +90,8 @@ else<br/>
 return&nbsp;empty<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-vendor-board-platforms]">■ &nbsp;&nbsp;[get-vendor-board-platforms]</a></h3>
+<div class="function">
+<h3><a id="get-vendor-board-platforms">Function:&nbsp;&nbsp;get-vendor-board-platforms</a></h3>
 <p>
 The&nbsp;following&nbsp;utilities&nbsp;are&nbsp;meant&nbsp;for&nbsp;board&nbsp;platform&nbsp;specific<br/>
 featurisation<br/>
@@ -99,29 +99,29 @@ featurisation<br/>
 returns&nbsp;list&nbsp;of&nbsp;board&nbsp;platforms&nbsp;for&nbsp;vendor&nbsp;v<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[is-board-platform]">■ &nbsp;&nbsp;[is-board-platform]</a></h3>
+<div class="function">
+<h3><a id="is-board-platform">Function:&nbsp;&nbsp;is-board-platform</a></h3>
 <p>
 $(call&nbsp;is-board-platform,bp)<br/>
 &nbsp;returns&nbsp;true&nbsp;or&nbsp;empty<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[is-not-board-platform]">■ &nbsp;&nbsp;[is-not-board-platform]</a></h3>
+<div class="function">
+<h3><a id="is-not-board-platform">Function:&nbsp;&nbsp;is-not-board-platform</a></h3>
 <p>
 $(call&nbsp;is-not-board-platform,bp)<br/>
 &nbsp;returns&nbsp;true&nbsp;or&nbsp;empty<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[is-board-platform-in-list]">■ &nbsp;&nbsp;[is-board-platform-in-list]</a></h3>
+<div class="function">
+<h3><a id="is-board-platform-in-list">Function:&nbsp;&nbsp;is-board-platform-in-list</a></h3>
 <p>
 $(call&nbsp;is-board-platform-in-list,bpl)<br/>
 returns&nbsp;true&nbsp;or&nbsp;empty<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[is-chipset-in-board-platform]">■ &nbsp;&nbsp;[is-chipset-in-board-platform]</a></h3>
+<div class="function">
+<h3><a id="is-chipset-in-board-platform">Function:&nbsp;&nbsp;is-chipset-in-board-platform</a></h3>
 <p>
 $(call&nbsp;is-chipset-in-board-platform,chipset)<br/>
 does&nbsp;a&nbsp;prefix&nbsp;match&nbsp;of&nbsp;chipset&nbsp;in&nbsp;TARGET_BOARD_PLATFORM<br/>
@@ -129,8 +129,8 @@ uses&nbsp;underscore&nbsp;as&nbsp;a&nbsp;delimiter<br/>
 returns&nbsp;true&nbsp;or&nbsp;empty<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[is-chipset-prefix-in-board-platform]">■ &nbsp;&nbsp;[is-chipset-prefix-in-board-platform]</a></h3>
+<div class="function">
+<h3><a id="is-chipset-prefix-in-board-platform">Function:&nbsp;&nbsp;is-chipset-prefix-in-board-platform</a></h3>
 <p>
 $(call&nbsp;is-chipset-prefix-in-board-platform,prefix)<br/>
 does&nbsp;a&nbsp;chipset&nbsp;prefix&nbsp;match&nbsp;in&nbsp;TARGET_BOARD_PLATFORM<br/>
@@ -143,63 +143,63 @@ How&nbsp;it&nbsp;works<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="CUPCAKE_SDK_VERSIONS">■ &nbsp;&nbsp;CUPCAKE_SDK_VERSIONS</a></h3>
+<h3><a id="CUPCAKE_SDK_VERSIONS">CUPCAKE_SDK_VERSIONS</a></h3>
 <p>
 CUPCAKE_SDK_VERSIONS&nbsp;:=&nbsp;3<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DONUT_SDK_VERSIONS">■ &nbsp;&nbsp;DONUT_SDK_VERSIONS</a></h3>
+<h3><a id="DONUT_SDK_VERSIONS">DONUT_SDK_VERSIONS</a></h3>
 <p>
 DONUT_SDK_VERSIONS&nbsp;&nbsp;&nbsp;:=&nbsp;4<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ECLAIR_SDK_VERSIONS">■ &nbsp;&nbsp;ECLAIR_SDK_VERSIONS</a></h3>
+<h3><a id="ECLAIR_SDK_VERSIONS">ECLAIR_SDK_VERSIONS</a></h3>
 <p>
 ECLAIR_SDK_VERSIONS&nbsp;&nbsp;:=&nbsp;5&nbsp;6&nbsp;7<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="FROYO_SDK_VERSIONS">■ &nbsp;&nbsp;FROYO_SDK_VERSIONS</a></h3>
+<h3><a id="FROYO_SDK_VERSIONS">FROYO_SDK_VERSIONS</a></h3>
 <p>
 FROYO_SDK_VERSIONS&nbsp;&nbsp;&nbsp;:=&nbsp;8<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="GINGERBREAD_SDK_VERSIONS">■ &nbsp;&nbsp;GINGERBREAD_SDK_VERSIONS</a></h3>
+<h3><a id="GINGERBREAD_SDK_VERSIONS">GINGERBREAD_SDK_VERSIONS</a></h3>
 <p>
 GINGERBREAD_SDK_VERSIONS&nbsp;:=&nbsp;9&nbsp;10<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HONEYCOMB_SDK_VERSIONS">■ &nbsp;&nbsp;HONEYCOMB_SDK_VERSIONS</a></h3>
+<h3><a id="HONEYCOMB_SDK_VERSIONS">HONEYCOMB_SDK_VERSIONS</a></h3>
 <p>
 HONEYCOMB_SDK_VERSIONS&nbsp;:=&nbsp;11&nbsp;12&nbsp;13<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ICECREAM_SANDWICH_SDK_VERSIONS">■ &nbsp;&nbsp;ICECREAM_SANDWICH_SDK_VERSIONS</a></h3>
+<h3><a id="ICECREAM_SANDWICH_SDK_VERSIONS">ICECREAM_SANDWICH_SDK_VERSIONS</a></h3>
 <p>
 ICECREAM_SANDWICH_SDK_VERSIONS&nbsp;:=&nbsp;14&nbsp;15<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="JELLY_BEAN_SDK_VERSIONS">■ &nbsp;&nbsp;JELLY_BEAN_SDK_VERSIONS</a></h3>
+<h3><a id="JELLY_BEAN_SDK_VERSIONS">JELLY_BEAN_SDK_VERSIONS</a></h3>
 <p>
 JELLY_BEAN_SDK_VERSIONS&nbsp;:=&nbsp;16&nbsp;17<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[is-android-codename]">■ &nbsp;&nbsp;[is-android-codename]</a></h3>
+<div class="function">
+<h3><a id="is-android-codename">Function:&nbsp;&nbsp;is-android-codename</a></h3>
 <p>
 $(call&nbsp;is-android-codename,codename)<br/>
 codename&nbsp;is&nbsp;one&nbsp;of&nbsp;cupcake,donut,eclair,froyo,gingerbread,icecream<br/>
 please&nbsp;refer&nbsp;the&nbsp;$(codename)_SDK_VERSIONS&nbsp;declared&nbsp;above<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[is-android-codename-in-list]">■ &nbsp;&nbsp;[is-android-codename-in-list]</a></h3>
+<div class="function">
+<h3><a id="is-android-codename-in-list">Function:&nbsp;&nbsp;is-android-codename-in-list</a></h3>
 <p>
 $(call&nbsp;is-android-codename-in-list,cnlist)<br/>
 cnlist&nbsp;is&nbsp;combination/list&nbsp;of&nbsp;android&nbsp;codenames&nbsp;&nbsp;&nbsp;<br/>

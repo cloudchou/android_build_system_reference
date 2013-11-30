@@ -26,16 +26,16 @@ PRODUCT_MAKEFILES&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;$(LOCAL_DIR)/full_find5.mk<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-product-makefiles]">■ &nbsp;&nbsp;[get-product-makefiles]</a></h3>
+<div class="function">
+<h3><a id="get-product-makefiles">Function:&nbsp;&nbsp;get-product-makefiles</a></h3>
 <p>
 Returns&nbsp;the&nbsp;sorted&nbsp;concatenation&nbsp;of&nbsp;PRODUCT_MAKEFILES<br/>
 variables&nbsp;set&nbsp;in&nbsp;the&nbsp;given&nbsp;AndroidProducts.mk&nbsp;files.<br/>
 $(1):&nbsp;the&nbsp;list&nbsp;of&nbsp;AndroidProducts.mk&nbsp;files.&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[get-all-product-makefiles]">■ &nbsp;&nbsp;[get-all-product-makefiles]</a></h3>
+<div class="function">
+<h3><a id="get-all-product-makefiles">Function:&nbsp;&nbsp;get-all-product-makefiles</a></h3>
 <p>
 Returns&nbsp;the&nbsp;sorted&nbsp;concatenation&nbsp;of&nbsp;all&nbsp;PRODUCT_MAKEFILES<br/>
 variables&nbsp;set&nbsp;in&nbsp;all&nbsp;AndroidProducts.mk&nbsp;files.<br/>
@@ -43,7 +43,7 @@ $(call&nbsp;)&nbsp;isn't&nbsp;necessary.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="_product_var_list">■ &nbsp;&nbsp;_product_var_list</a></h3>
+<h3><a id="_product_var_list">_product_var_list</a></h3>
 <p>
 产品变量列表：<br/>
 &nbsp;_product_var_list&nbsp;:=&nbsp;\<br/>
@@ -81,21 +81,21 @@ PRODUCT_FACTORY_RAMDISK_MODULES&nbsp;\<br/>
 PRODUCT_FACTORY_BUNDLE_MODULES&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[dump-product]">■ &nbsp;&nbsp;[dump-product]</a></h3>
+<div class="function">
+<h3><a id="dump-product">Function:&nbsp;&nbsp;dump-product</a></h3>
 <p>
 打印某个产品的所有产品变量<br/>
 $(1)&nbsp;产品名称<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[dump-products]">■ &nbsp;&nbsp;[dump-products]</a></h3>
+<div class="function">
+<h3><a id="dump-products">Function:&nbsp;&nbsp;dump-products</a></h3>
 <p>
 打印所有产品的所有产品变量<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[inherit-product]">■ &nbsp;&nbsp;[inherit-product]</a></h3>
+<div class="function">
+<h3><a id="inherit-product">Function:&nbsp;&nbsp;inherit-product</a></h3>
 <p>
 Does&nbsp;three&nbsp;things:<br/>
 &nbsp;1.&nbsp;Inherits&nbsp;all&nbsp;of&nbsp;the&nbsp;variables&nbsp;from&nbsp;$1.<br/>
@@ -105,34 +105,34 @@ Does&nbsp;three&nbsp;things:<br/>
 &nbsp;&nbsp;示例：./device/oppo/find5/cm.mk:15:$(call&nbsp;inherit-product,&nbsp;device/oppo/find5/full_find5.mk)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[inherit-product-if-exists]">■ &nbsp;&nbsp;[inherit-product-if-exists]</a></h3>
+<div class="function">
+<h3><a id="inherit-product-if-exists">Function:&nbsp;&nbsp;inherit-product-if-exists</a></h3>
 <p>
 Do&nbsp;inherit-product&nbsp;only&nbsp;if&nbsp;$(1)&nbsp;exists<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[import-products]">■ &nbsp;&nbsp;[import-products]</a></h3>
+<div class="function">
+<h3><a id="import-products">Function:&nbsp;&nbsp;import-products</a></h3>
 <p>
 $(1):&nbsp;product&nbsp;makefile&nbsp;list<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[check-all-products]">■ &nbsp;&nbsp;[check-all-products]</a></h3>
+<div class="function">
+<h3><a id="check-all-products">Function:&nbsp;&nbsp;check-all-products</a></h3>
 <p>
 Does&nbsp;various&nbsp;consistency&nbsp;checks&nbsp;on&nbsp;all&nbsp;of&nbsp;the&nbsp;known&nbsp;products.<br/>
 Takes&nbsp;no&nbsp;parameters,&nbsp;so&nbsp;$(call&nbsp;)&nbsp;is&nbsp;not&nbsp;necessary.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[resolve-short-product-name]">■ &nbsp;&nbsp;[resolve-short-product-name]</a></h3>
+<div class="function">
+<h3><a id="resolve-short-product-name">Function:&nbsp;&nbsp;resolve-short-product-name</a></h3>
 <p>
 Returns&nbsp;the&nbsp;product&nbsp;makefile&nbsp;path&nbsp;for&nbsp;the&nbsp;product&nbsp;with&nbsp;the&nbsp;provided&nbsp;name<br/>
 $(1):&nbsp;short&nbsp;product&nbsp;name&nbsp;like&nbsp;"generic"<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="_product_stash_var_list">■ &nbsp;&nbsp;_product_stash_var_list</a></h3>
+<h3><a id="_product_stash_var_list">_product_stash_var_list</a></h3>
 <p>
 _product_stash_var_list&nbsp;:=&nbsp;$(_product_var_list)&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;TARGET_ARCH&nbsp;\<br/>
@@ -180,22 +180,22 @@ _product_stash_var_list&nbsp;+=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;DEFAULT_SYSTEM_DEV_CERTIFICATE<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[stash-product-vars]">■ &nbsp;&nbsp;[stash-product-vars]</a></h3>
+<div class="function">
+<h3><a id="stash-product-vars">Function:&nbsp;&nbsp;stash-product-vars</a></h3>
 <p>
 Stash&nbsp;vaues&nbsp;of&nbsp;the&nbsp;variables&nbsp;in&nbsp;_product_stash_var_list.<br/>
 &nbsp;$(1):&nbsp;Renamed&nbsp;prefix&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[assert-product-vars]">■ &nbsp;&nbsp;[assert-product-vars]</a></h3>
+<div class="function">
+<h3><a id="assert-product-vars">Function:&nbsp;&nbsp;assert-product-vars</a></h3>
 <p>
 Assert&nbsp;that&nbsp;the&nbsp;the&nbsp;variable&nbsp;stashed&nbsp;by&nbsp;stash-product-vars&nbsp;remains&nbsp;untouched.<br/>
 $(1):&nbsp;The&nbsp;prefix&nbsp;as&nbsp;supplied&nbsp;to&nbsp;stash-product-vars<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[add-to-product-copy-files-if-exists]">■ &nbsp;&nbsp;[add-to-product-copy-files-if-exists]</a></h3>
+<div class="function">
+<h3><a id="add-to-product-copy-files-if-exists">Function:&nbsp;&nbsp;add-to-product-copy-files-if-exists</a></h3>
 <p>
 $(1):要拷贝的文件<br/>
 </p>

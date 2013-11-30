@@ -19,19 +19,19 @@ Generating&nbsp;binaries&nbsp;for&nbsp;MIPS32R2/soft-float/little-endian/dsp<br/
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_MIPS_HAS_DSP">■ &nbsp;&nbsp;ARCH_MIPS_HAS_DSP</a></h3>
+<h3><a id="ARCH_MIPS_HAS_DSP">ARCH_MIPS_HAS_DSP</a></h3>
 <p>
 ARCH_MIPS_HAS_DSP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_MIPS_DSP_REV">■ &nbsp;&nbsp;ARCH_MIPS_DSP_REV</a></h3>
+<h3><a id="ARCH_MIPS_DSP_REV">ARCH_MIPS_DSP_REV</a></h3>
 <p>
 ARCH_MIPS_DSP_REV&nbsp;&nbsp;&nbsp;:=2<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="arch_variant_cflags">■ &nbsp;&nbsp;arch_variant_cflags</a></h3>
+<h3><a id="arch_variant_cflags">arch_variant_cflags</a></h3>
 <p>
 arch_variant_cflags&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;-EL&nbsp;\<br/>
@@ -43,7 +43,7 @@ arch_variant_cflags&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="arch_variant_ldflags">■ &nbsp;&nbsp;arch_variant_ldflags</a></h3>
+<h3><a id="arch_variant_ldflags">arch_variant_ldflags</a></h3>
 <p>
 arch_variant_ldflags&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;-EL<br/>

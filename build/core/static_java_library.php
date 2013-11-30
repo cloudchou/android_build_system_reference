@@ -23,19 +23,19 @@ other&nbsp;java&nbsp;modules.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_UNINSTALLABLE_MODULE">■ &nbsp;&nbsp;LOCAL_UNINSTALLABLE_MODULE</a></h3>
+<h3><a id="LOCAL_UNINSTALLABLE_MODULE">LOCAL_UNINSTALLABLE_MODULE</a></h3>
 <p>
 LOCAL_UNINSTALLABLE_MODULE&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_IS_STATIC_JAVA_LIBRARY">■ &nbsp;&nbsp;LOCAL_IS_STATIC_JAVA_LIBRARY</a></h3>
+<h3><a id="LOCAL_IS_STATIC_JAVA_LIBRARY">LOCAL_IS_STATIC_JAVA_LIBRARY</a></h3>
 <p>
 LOCAL_IS_STATIC_JAVA_LIBRARY&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_JAR_EXCLUDE_FILES">■ &nbsp;&nbsp;LOCAL_JAR_EXCLUDE_FILES</a></h3>
+<h3><a id="LOCAL_JAR_EXCLUDE_FILES">LOCAL_JAR_EXCLUDE_FILES</a></h3>
 <p>
 By&nbsp;default&nbsp;we&nbsp;should&nbsp;remove&nbsp;the&nbsp;R/Manifest&nbsp;classes&nbsp;from&nbsp;a&nbsp;static&nbsp;Java&nbsp;library,<br/>
 because&nbsp;they&nbsp;will&nbsp;be&nbsp;regenerated&nbsp;in&nbsp;the&nbsp;app&nbsp;that&nbsp;uses&nbsp;it.<br/>
@@ -52,13 +52,13 @@ endif&nbsp;&nbsp;#&nbsp;LOCAL_RESOURCE_DIR<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MANIFEST_FILE">■ &nbsp;&nbsp;LOCAL_MANIFEST_FILE</a></h3>
+<h3><a id="LOCAL_MANIFEST_FILE">LOCAL_MANIFEST_FILE</a></h3>
 <p>
 LOCAL_MANIFEST_FILE&nbsp;:=&nbsp;AndroidManifest.xml<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_SDK_RES_VERSION">■ &nbsp;&nbsp;LOCAL_SDK_RES_VERSION</a></h3>
+<h3><a id="LOCAL_SDK_RES_VERSION">LOCAL_SDK_RES_VERSION</a></h3>
 <p>
 LOCAL_SDK_RES_VERSION:=$(strip&nbsp;$(LOCAL_SDK_RES_VERSION))<br/>
 ifeq&nbsp;($(LOCAL_SDK_RES_VERSION),)<br/>

@@ -18,7 +18,7 @@ ALL_PREBUILT&nbsp;modules&nbsp;are&nbsp;hard&nbsp;to&nbsp;control&nbsp;and&nbsp;
 </p>
 </div>
 <div class="variable">
-<h3><a id="GRANDFATHERED_ALL_PREBUILT">■ &nbsp;&nbsp;GRANDFATHERED_ALL_PREBUILT</a></h3>
+<h3><a id="GRANDFATHERED_ALL_PREBUILT">GRANDFATHERED_ALL_PREBUILT</a></h3>
 <p>
 主要用途：在main.mk里用于过滤ALL_PEBUILT里的变量&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;GRANDFATHERED_ALL_PREBUILT&nbsp;:=&nbsp;\<br/>

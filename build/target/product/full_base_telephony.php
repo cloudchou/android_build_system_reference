@@ -21,14 +21,14 @@ entirely&nbsp;appropriate&nbsp;to&nbsp;inherit&nbsp;from&nbsp;for&nbsp;on-device
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 PRODUCT_PACKAGES&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;VoiceDialer<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_PROPERTY_OVERRIDES</a></h3>
+<h3><a id="PRODUCT_PROPERTY_OVERRIDES">PRODUCT_PROPERTY_OVERRIDES</a></h3>
 <p>
 PRODUCT_PROPERTY_OVERRIDES&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;keyguard.no_require_sim=true<br/>

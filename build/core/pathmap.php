@@ -18,7 +18,7 @@ A&nbsp;central&nbsp;place&nbsp;to&nbsp;define&nbsp;mappings&nbsp;to&nbsp;paths,&
 </p>
 </div>
 <div class="variable">
-<h3><a id="pathmap_INCL">■ &nbsp;&nbsp;pathmap_INCL</a></h3>
+<h3><a id="pathmap_INCL">pathmap_INCL</a></h3>
 <p>
 A&nbsp;mapping&nbsp;from&nbsp;shorthand&nbsp;names&nbsp;to&nbsp;include&nbsp;directories.<br/>
 &nbsp;&nbsp;&nbsp;pathmap_INCL&nbsp;:=&nbsp;\<br/>
@@ -51,8 +51,8 @@ wilhelm-ut:frameworks/wilhelm/src/ut&nbsp;\<br/>
 speex:external/speex/include<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[include-path-for]">■ &nbsp;&nbsp;[include-path-for]</a></h3>
+<div class="function">
+<h3><a id="include-path-for">Function:&nbsp;&nbsp;include-path-for</a></h3>
 <p>
 Returns&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;requested&nbsp;module's&nbsp;include&nbsp;directory,<br/>
 relative&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;source&nbsp;tree.&nbsp;&nbsp;Does&nbsp;not&nbsp;handle&nbsp;external<br/>
@@ -61,7 +61,7 @@ relative&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;source&nbsp;tree.&nbsp
 </p>
 </div>
 <div class="variable">
-<h3><a id="JNI_H_INCLUDE">■ &nbsp;&nbsp;JNI_H_INCLUDE</a></h3>
+<h3><a id="JNI_H_INCLUDE">JNI_H_INCLUDE</a></h3>
 <p>
 Many&nbsp;modules&nbsp;expect&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;say&nbsp;"#include&nbsp;<jni.h>",<br/>
 so&nbsp;make&nbsp;it&nbsp;easy&nbsp;for&nbsp;them&nbsp;to&nbsp;find&nbsp;the&nbsp;correct&nbsp;path.<br/>
@@ -69,7 +69,7 @@ so&nbsp;make&nbsp;it&nbsp;easy&nbsp;for&nbsp;them&nbsp;to&nbsp;find&nbsp;the&nbs
 </p>
 </div>
 <div class="variable">
-<h3><a id="FRAMEWORKS_BASE_SUBDIRS">■ &nbsp;&nbsp;FRAMEWORKS_BASE_SUBDIRS</a></h3>
+<h3><a id="FRAMEWORKS_BASE_SUBDIRS">FRAMEWORKS_BASE_SUBDIRS</a></h3>
 <p>
 A&nbsp;list&nbsp;of&nbsp;all&nbsp;source&nbsp;roots&nbsp;under&nbsp;frameworks/base,&nbsp;which&nbsp;will&nbsp;be<br/>
 built&nbsp;into&nbsp;the&nbsp;android.jar.<br/>
@@ -99,7 +99,7 @@ FRAMEWORKS_BASE_SUBDIRS&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="FRAMEWORKS_BASE_JAVA_SRC_DIRS">■ &nbsp;&nbsp;FRAMEWORKS_BASE_JAVA_SRC_DIRS</a></h3>
+<h3><a id="FRAMEWORKS_BASE_JAVA_SRC_DIRS">FRAMEWORKS_BASE_JAVA_SRC_DIRS</a></h3>
 <p>
 A&nbsp;version&nbsp;of&nbsp;FRAMEWORKS_BASE_SUBDIRS&nbsp;that&nbsp;is&nbsp;expanded&nbsp;to&nbsp;full&nbsp;paths&nbsp;from<br/>
 the&nbsp;root&nbsp;of&nbsp;the&nbsp;tree.&nbsp;&nbsp;This&nbsp;currently&nbsp;needs&nbsp;to&nbsp;be&nbsp;here&nbsp;so&nbsp;that&nbsp;other&nbsp;libraries<br/>
@@ -110,7 +110,7 @@ $(addprefix&nbsp;frameworks/base/,$(FRAMEWORKS_BASE_SUBDIRS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="FRAMEWORKS_SUPPORT_SUBDIRS">■ &nbsp;&nbsp;FRAMEWORKS_SUPPORT_SUBDIRS</a></h3>
+<h3><a id="FRAMEWORKS_SUPPORT_SUBDIRS">FRAMEWORKS_SUPPORT_SUBDIRS</a></h3>
 <p>
 A&nbsp;list&nbsp;of&nbsp;all&nbsp;source&nbsp;roots&nbsp;under&nbsp;frameworks/support<br/>
 FRAMEWORKS_SUPPORT_SUBDIRS&nbsp;:=&nbsp;\<br/>
@@ -119,7 +119,7 @@ v13&nbsp;\&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS">■ &nbsp;&nbsp;FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS</a></h3>
+<h3><a id="FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS">FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS</a></h3>
 <p>
 A&nbsp;version&nbsp;of&nbsp;FRAMEWORKS_SUPPORT_SUBDIRS&nbsp;that&nbsp;is&nbsp;expanded&nbsp;to&nbsp;full&nbsp;paths&nbsp;from<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;tree.<br/>

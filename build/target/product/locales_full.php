@@ -18,7 +18,7 @@ contains&nbsp;all&nbsp;loacale<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_LOCALES">■ &nbsp;&nbsp;PRODUCT_LOCALES</a></h3>
+<h3><a id="PRODUCT_LOCALES">PRODUCT_LOCALES</a></h3>
 <p>
 PRODUCT_LOCALES&nbsp;:=&nbsp;en_US&nbsp;cs_CZ&nbsp;da_DK&nbsp;de_AT&nbsp;de_CH&nbsp;de_DE&nbsp;de_LI&nbsp;el_GR&nbsp;en_AU&nbsp;en_CA&nbsp;en_GB&nbsp;en_NZ&nbsp;en_SG&nbsp;eo_EU&nbsp;es_ES&nbsp;fr_CA&nbsp;fr_CH&nbsp;fr_BE&nbsp;fr_FR&nbsp;it_CH&nbsp;it_IT&nbsp;ja_JP&nbsp;ko_KR&nbsp;nb_NO&nbsp;nl_BE&nbsp;nl_NL&nbsp;pl_PL&nbsp;pt_PT&nbsp;ru_RU&nbsp;sv_SE&nbsp;tr_TR&nbsp;zh_CN&nbsp;zh_HK&nbsp;zh_TW&nbsp;am_ET&nbsp;hi_IN&nbsp;ug_CN<br/>
 </p>

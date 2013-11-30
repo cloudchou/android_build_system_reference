@@ -19,13 +19,13 @@
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_CLASS">■ &nbsp;&nbsp;LOCAL_MODULE_CLASS</a></h3>
+<h3><a id="LOCAL_MODULE_CLASS">LOCAL_MODULE_CLASS</a></h3>
 <p>
 LOCAL_MODULE_CLASS&nbsp;:=&nbsp;SHARED_LIBRARIES<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_SUFFIX">■ &nbsp;&nbsp;LOCAL_MODULE_SUFFIX</a></h3>
+<h3><a id="LOCAL_MODULE_SUFFIX">LOCAL_MODULE_SUFFIX</a></h3>
 <p>
 LOCAL_MODULE_SUFFIX&nbsp;:=&nbsp;$(TARGET_SHLIB_SUFFIX)&nbsp;<br/>
 为空<br/>

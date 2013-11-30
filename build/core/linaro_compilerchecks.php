@@ -30,7 +30,7 @@ Usage&nbsp;examples:<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LINARO_COMPILERCHECK_CC">■ &nbsp;&nbsp;LINARO_COMPILERCHECK_CC</a></h3>
+<h3><a id="LINARO_COMPILERCHECK_CC">LINARO_COMPILERCHECK_CC</a></h3>
 <p>
 We&nbsp;have&nbsp;to&nbsp;do&nbsp;our&nbsp;own&nbsp;version&nbsp;of&nbsp;setting&nbsp;TARGET_CC&nbsp;because&nbsp;we&nbsp;can&nbsp;be<br/>
 included&nbsp;before&nbsp;TARGET_CC&nbsp;is&nbsp;set,&nbsp;but&nbsp;we&nbsp;may&nbsp;want&nbsp;to&nbsp;use&nbsp;cc-option&nbsp;and<br/>
@@ -43,7 +43,7 @@ included&nbsp;before&nbsp;TARGET_CC&nbsp;is&nbsp;set,&nbsp;but&nbsp;we&nbsp;may&
 </p>
 </div>
 <div class="variable">
-<h3><a id="try-run">■ &nbsp;&nbsp;try-run</a></h3>
+<h3><a id="try-run">try-run</a></h3>
 <p>
 try-run&nbsp;=&nbsp;$(shell&nbsp;set&nbsp;-e;&nbsp;\<br/>
 if&nbsp;($(1))&nbsp;>/dev/null&nbsp;2>&1;&nbsp;then&nbsp;\<br/>
@@ -54,20 +54,20 @@ fi)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="cc-version">■ &nbsp;&nbsp;cc-version</a></h3>
+<h3><a id="cc-version">cc-version</a></h3>
 <p>
 cc-version&nbsp;=&nbsp;$(shell&nbsp;echo&nbsp;'__GNUC__&nbsp;__GNUC_MINOR__'&nbsp;\<br/>
 |$(LINARO_COMPILERCHECK_CC)&nbsp;-E&nbsp;-xc&nbsp;-&nbsp;|tail&nbsp;-n1&nbsp;|sed&nbsp;-e&nbsp;'s,&nbsp;,,g')<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="cc-ifversion">■ &nbsp;&nbsp;cc-ifversion</a></h3>
+<h3><a id="cc-ifversion">cc-ifversion</a></h3>
 <p>
 $(shell&nbsp;[&nbsp;$(call&nbsp;cc-version)&nbsp;$(1)&nbsp;$(2)&nbsp;]&nbsp;&&&nbsp;echo&nbsp;$(3))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="cc-option">■ &nbsp;&nbsp;cc-option</a></h3>
+<h3><a id="cc-option">cc-option</a></h3>
 <p>
 cc-option&nbsp;=&nbsp;$(call&nbsp;try-run,&nbsp;echo&nbsp;-e&nbsp;"$(1)"&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;|$(LINARO_COMPILERCHECK_CC)&nbsp;$(1)&nbsp;-c&nbsp;-xc&nbsp;/dev/null&nbsp;-o&nbsp;/dev/null,$(1),$(2))<br/>

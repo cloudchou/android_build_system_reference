@@ -24,7 +24,7 @@ network&nbsp;connection&nbsp;so&nbsp;that&nbsp;you&nbsp;can&nbsp;use&nbsp;it&nbs
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_PROPERTY_OVERRIDES</a></h3>
+<h3><a id="PRODUCT_PROPERTY_OVERRIDES">PRODUCT_PROPERTY_OVERRIDES</a></h3>
 <p>
 ifdef&nbsp;NET_ETH0_STARTONBOOT<br/>
 &nbsp;&nbsp;PRODUCT_PROPERTY_OVERRIDES&nbsp;+=&nbsp;net.eth0.startonboot=1<br/>
@@ -32,7 +32,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 Ensure&nbsp;we&nbsp;package&nbsp;the&nbsp;BIOS&nbsp;files&nbsp;too.<br/>
 PRODUCT_PACKAGES&nbsp;+=&nbsp;\<br/>
@@ -41,25 +41,25 @@ PRODUCT_PACKAGES&nbsp;+=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_NAME">■ &nbsp;&nbsp;PRODUCT_NAME</a></h3>
+<h3><a id="PRODUCT_NAME">PRODUCT_NAME</a></h3>
 <p>
 PRODUCT_NAME&nbsp;:=&nbsp;full_x86<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEVICE">■ &nbsp;&nbsp;PRODUCT_DEVICE</a></h3>
+<h3><a id="PRODUCT_DEVICE">PRODUCT_DEVICE</a></h3>
 <p>
 PRODUCT_DEVICE&nbsp;:=&nbsp;generic_x86<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<h3><a id="PRODUCT_BRAND">PRODUCT_BRAND</a></h3>
 <p>
 PRODUCT_BRAND&nbsp;:=&nbsp;Android<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_MODEL">■ &nbsp;&nbsp;PRODUCT_MODEL</a></h3>
+<h3><a id="PRODUCT_MODEL">PRODUCT_MODEL</a></h3>
 <p>
 PRODUCT_MODEL&nbsp;:=&nbsp;Full&nbsp;Android&nbsp;on&nbsp;x86&nbsp;Emulator<br/>
 </p>

@@ -12,7 +12,7 @@
 <div id="content">
 
 <div class="">
-<h3><a id="">▶ &nbsp;&nbsp;</a></h3>
+<h3><a id="">Target:&nbsp;&bsp;</a></h3>
 <p>
 The&nbsp;"generic_mips"&nbsp;product&nbsp;defines&nbsp;a&nbsp;MIPS&nbsp;based&nbsp;non-hardware-specific<br/>
 target&nbsp;without&nbsp;a&nbsp;kernel&nbsp;or&nbsp;bootloader.<br/>

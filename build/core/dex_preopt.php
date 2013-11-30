@@ -12,30 +12,30 @@
 <div id="content">
 
 <div class="">
-<h3><a id="">▶ &nbsp;&nbsp;</a></h3>
+<h3><a id="">Target:&nbsp;&bsp;</a></h3>
 <p>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[__this_file]">■ &nbsp;&nbsp;[__this_file]</a></h3>
+<div class="function">
+<h3><a id="__this_file">Function:&nbsp;&nbsp;__this_file</a></h3>
 <p>
 Dexpreopt&nbsp;on&nbsp;the&nbsp;boot&nbsp;jars<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_BOOT_JARS">■ &nbsp;&nbsp;DEXPREOPT_BOOT_JARS</a></h3>
+<h3><a id="DEXPREOPT_BOOT_JARS">DEXPREOPT_BOOT_JARS</a></h3>
 <p>
 DEXPREOPT_BOOT_JARS&nbsp;:=&nbsp;core:core-junit:bouncycastle:ext:framework:telephony-common:mms-common:android.policy:services:apache-xml<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_BOOT_JARS_MODULES">■ &nbsp;&nbsp;DEXPREOPT_BOOT_JARS_MODULES</a></h3>
+<h3><a id="DEXPREOPT_BOOT_JARS_MODULES">DEXPREOPT_BOOT_JARS_MODULES</a></h3>
 <p>
 DEXPREOPT_BOOT_JARS_MODULES&nbsp;:=&nbsp;$(subst&nbsp;:,&nbsp;,$(DEXPREOPT_BOOT_JARS))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_BUILD_DIR">■ &nbsp;&nbsp;DEXPREOPT_BUILD_DIR</a></h3>
+<h3><a id="DEXPREOPT_BUILD_DIR">DEXPREOPT_BUILD_DIR</a></h3>
 <p>
 编译输出目录<br/>
 &nbsp;DEXPREOPT_BUILD_DIR&nbsp;:=&nbsp;$(OUT_DIR)<br/>
@@ -43,7 +43,7 @@ DEXPREOPT_BOOT_JARS_MODULES&nbsp;:=&nbsp;$(subst&nbsp;:,&nbsp;,$(DEXPREOPT_BOOT_
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_PRODUCT_DIR">■ &nbsp;&nbsp;DEXPREOPT_PRODUCT_DIR</a></h3>
+<h3><a id="DEXPREOPT_PRODUCT_DIR">DEXPREOPT_PRODUCT_DIR</a></h3>
 <p>
 产品目录<br/>
 &nbsp;&nbsp;&nbsp;DEXPREOPT_PRODUCT_DIR&nbsp;:=&nbsp;$(patsubst&nbsp;$(DEXPREOPT_BUILD_DIR)/%,%,$(PRODUCT_OUT))/dex_bootjars<br/>
@@ -51,28 +51,28 @@ DEXPREOPT_BOOT_JARS_MODULES&nbsp;:=&nbsp;$(subst&nbsp;:,&nbsp;,$(DEXPREOPT_BOOT_
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_BOOT_JAR_DIR">■ &nbsp;&nbsp;DEXPREOPT_BOOT_JAR_DIR</a></h3>
+<h3><a id="DEXPREOPT_BOOT_JAR_DIR">DEXPREOPT_BOOT_JAR_DIR</a></h3>
 <p>
 DEXPREOPT_BOOT_JAR_DIR&nbsp;:=&nbsp;system/framework<br/>
 例：system/framework<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_DEXOPT">■ &nbsp;&nbsp;DEXPREOPT_DEXOPT</a></h3>
+<h3><a id="DEXPREOPT_DEXOPT">DEXPREOPT_DEXOPT</a></h3>
 <p>
 DEXPREOPT_DEXOPT&nbsp;:=&nbsp;$(patsubst&nbsp;$(DEXPREOPT_BUILD_DIR)/%,%,$(DEXOPT))<br/>
 例：host/linux-x86/bin/dexopt<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_BOOT_JAR_DIR_FULL_PATH">■ &nbsp;&nbsp;DEXPREOPT_BOOT_JAR_DIR_FULL_PATH</a></h3>
+<h3><a id="DEXPREOPT_BOOT_JAR_DIR_FULL_PATH">DEXPREOPT_BOOT_JAR_DIR_FULL_PATH</a></h3>
 <p>
 DEXPREOPT_BOOT_JAR_DIR_FULL_PATH&nbsp;:=&nbsp;$(DEXPREOPT_BUILD_DIR)/$(DEXPREOPT_PRODUCT_DIR)/$(DEXPREOPT_BOOT_JAR_DIR)<br/>
 例：out/target/target/product/m7ul/dex_bootjars/system/framework<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_BOOT_ODEXS">■ &nbsp;&nbsp;DEXPREOPT_BOOT_ODEXS</a></h3>
+<h3><a id="DEXPREOPT_BOOT_ODEXS">DEXPREOPT_BOOT_ODEXS</a></h3>
 <p>
 DEXPREOPT_BOOT_ODEXS&nbsp;:=&nbsp;$(foreach&nbsp;b,$(DEXPREOPT_BOOT_JARS_MODULES),\<br/>
 &nbsp;$(DEXPREOPT_BOOT_JAR_DIR_FULL_PATH)/$(b).odex)<br/>
@@ -80,7 +80,7 @@ DEXPREOPT_BOOT_ODEXS&nbsp;:=&nbsp;$(foreach&nbsp;b,$(DEXPREOPT_BOOT_JARS_MODULES
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEXPREOPT_UNIPROCESSOR">■ &nbsp;&nbsp;DEXPREOPT_UNIPROCESSOR</a></h3>
+<h3><a id="DEXPREOPT_UNIPROCESSOR">DEXPREOPT_UNIPROCESSOR</a></h3>
 <p>
 If&nbsp;the&nbsp;target&nbsp;is&nbsp;a&nbsp;uniprocessor,&nbsp;then&nbsp;explicitly&nbsp;tell&nbsp;the&nbsp;preoptimizer<br/>
 &nbsp;that&nbsp;fact.&nbsp;(By&nbsp;default,&nbsp;it&nbsp;always&nbsp;optimizes&nbsp;for&nbsp;an&nbsp;SMP&nbsp;target.)<br/>
@@ -91,37 +91,37 @@ If&nbsp;the&nbsp;target&nbsp;is&nbsp;a&nbsp;uniprocessor,&nbsp;then&nbsp;explici
 &nbsp;&nbsp;endif&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[dexpreopt-remove-classes.dex]">■ &nbsp;&nbsp;[dexpreopt-remove-classes.dex]</a></h3>
+<div class="function">
+<h3><a id="dexpreopt-remove-classes.dex">Function:&nbsp;&nbsp;dexpreopt-remove-classes.dex</a></h3>
 <p>
 移除classes.dex<br/>
 &nbsp;&nbsp;&nbsp;$(1):&nbsp;the&nbsp;.jar&nbsp;or&nbsp;.apk&nbsp;to&nbsp;remove&nbsp;classes.dex<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[dexpreopt-one-file]">■ &nbsp;&nbsp;[dexpreopt-one-file]</a></h3>
+<div class="function">
+<h3><a id="dexpreopt-one-file">Function:&nbsp;&nbsp;dexpreopt-one-file</a></h3>
 <p>
 将apk转为优化后格式，及专为.odex和只有资源文件的apk文件<br/>
 $(1):&nbsp;the&nbsp;input&nbsp;.jar&nbsp;or&nbsp;.apk&nbsp;file<br/>
 $(2):&nbsp;the&nbsp;output&nbsp;.odex&nbsp;file<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_dexpreopt-boot-jar]">■ &nbsp;&nbsp;[_dexpreopt-boot-jar]</a></h3>
+<div class="function">
+<h3><a id="_dexpreopt-boot-jar">Function:&nbsp;&nbsp;_dexpreopt-boot-jar</a></h3>
 <p>
 对所有boot的jar进行优化<br/>
 &nbsp;$(1):boot&nbsp;jar&nbsp;module&nbsp;name<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_build-dexpreopt-boot-jar-dependency-pair]">■ &nbsp;&nbsp;[_build-dexpreopt-boot-jar-dependency-pair]</a></h3>
+<div class="function">
+<h3><a id="_build-dexpreopt-boot-jar-dependency-pair">Function:&nbsp;&nbsp;_build-dexpreopt-boot-jar-dependency-pair</a></h3>
 <p>
 系统apk优化相关函数<br/>
 $(1):&nbsp;the&nbsp;rest&nbsp;list&nbsp;of&nbsp;boot&nbsp;jars<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[_build-dexpreopt-boot-jar-dependency]">■ &nbsp;&nbsp;[_build-dexpreopt-boot-jar-dependency]</a></h3>
+<div class="function">
+<h3><a id="_build-dexpreopt-boot-jar-dependency">Function:&nbsp;&nbsp;_build-dexpreopt-boot-jar-dependency</a></h3>
 <p>
 系统apk优化相关函数<br/>
 </p>

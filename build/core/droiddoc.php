@@ -18,27 +18,27 @@
 </p>
 </div>
 <div class="variable">
-<h3><a id="full_src_files">■ &nbsp;&nbsp;full_src_files</a></h3>
+<h3><a id="full_src_files">full_src_files</a></h3>
 <p>
 全部源代码<br/>
 full_src_files&nbsp;:=&nbsp;$(patsubst&nbsp;%,$(LOCAL_PATH)/%,$(LOCAL_SRC_FILES))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="out_dir">■ &nbsp;&nbsp;out_dir</a></h3>
+<h3><a id="out_dir">out_dir</a></h3>
 <p>
 out_dir&nbsp;:=&nbsp;$(OUT_DOCS)/$(LOCAL_MODULE)<br/>
 示例：out/target/common/docs/doc-comment-check<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="full_target">■ &nbsp;&nbsp;full_target</a></h3>
+<h3><a id="full_target">full_target</a></h3>
 <p>
 full_target&nbsp;:=&nbsp;$(call&nbsp;doc-timestamp-for,$(LOCAL_MODULE))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_DROIDDOC_SOURCE_PATH">■ &nbsp;&nbsp;LOCAL_DROIDDOC_SOURCE_PATH</a></h3>
+<h3><a id="LOCAL_DROIDDOC_SOURCE_PATH">LOCAL_DROIDDOC_SOURCE_PATH</a></h3>
 <p>
 ifeq&nbsp;($(LOCAL_DROIDDOC_SOURCE_PATH),)<br/>
 LOCAL_DROIDDOC_SOURCE_PATH&nbsp;:=&nbsp;$(LOCAL_PATH)<br/>
@@ -46,7 +46,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR">■ &nbsp;&nbsp;LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR</a></h3>
+<h3><a id="LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR">LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR</a></h3>
 <p>
 ifeq&nbsp;($(LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR),)<br/>
 LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR&nbsp;:=&nbsp;$(SRC_DROIDDOC_DIR)/$(LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR)<br/>
@@ -55,7 +55,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_DROIDDOC_ASSET_DIR">■ &nbsp;&nbsp;LOCAL_DROIDDOC_ASSET_DIR</a></h3>
+<h3><a id="LOCAL_DROIDDOC_ASSET_DIR">LOCAL_DROIDDOC_ASSET_DIR</a></h3>
 <p>
 ifeq&nbsp;($(LOCAL_DROIDDOC_ASSET_DIR),)<br/>
 LOCAL_DROIDDOC_ASSET_DIR&nbsp;:=&nbsp;assets<br/>
@@ -63,7 +63,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_DROIDDOC_CUSTOM_ASSET_DIR">■ &nbsp;&nbsp;LOCAL_DROIDDOC_CUSTOM_ASSET_DIR</a></h3>
+<h3><a id="LOCAL_DROIDDOC_CUSTOM_ASSET_DIR">LOCAL_DROIDDOC_CUSTOM_ASSET_DIR</a></h3>
 <p>
 ifeq&nbsp;($(LOCAL_DROIDDOC_CUSTOM_ASSET_DIR),)<br/>
 LOCAL_DROIDDOC_CUSTOM_ASSET_DIR&nbsp;:=&nbsp;assets<br/>
@@ -71,7 +71,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_JAVA_LIBRARIES">■ &nbsp;&nbsp;LOCAL_JAVA_LIBRARIES</a></h3>
+<h3><a id="LOCAL_JAVA_LIBRARIES">LOCAL_JAVA_LIBRARIES</a></h3>
 <p>
 ifneq&nbsp;($(LOCAL_SDK_VERSION),)<br/>
 &nbsp;&nbsp;ifeq&nbsp;($(LOCAL_SDK_VERSION)$(TARGET_BUILD_APPS),current)<br/>
@@ -87,31 +87,31 @@ LOCAL_JAVA_LIBRARIES&nbsp;:=&nbsp;$(sort&nbsp;$(LOCAL_JAVA_LIBRARIES))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="full_java_libs">■ &nbsp;&nbsp;full_java_libs</a></h3>
+<h3><a id="full_java_libs">full_java_libs</a></h3>
 <p>
 full_java_libs&nbsp;:=&nbsp;$(call&nbsp;java-lib-files,$(LOCAL_JAVA_LIBRARIES),$(LOCAL_IS_HOST_MODULE))<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="full_java_lib_deps">■ &nbsp;&nbsp;full_java_lib_deps</a></h3>
+<h3><a id="full_java_lib_deps">full_java_lib_deps</a></h3>
 <p>
 full_java_lib_deps&nbsp;:=&nbsp;$(call&nbsp;java-lib-deps,$(LOCAL_JAVA_LIBRARIES),$(LOCAL_IS_HOST_MODULE))<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[[$(LOCAL_MODULE)-docs]]">■ &nbsp;&nbsp;[[$(LOCAL_MODULE)-docs]]</a></h3>
+<div class="build_target">
+<h3><a id="$(LOCAL_MODULE)-docs">Target:&nbsp;&bsp;$(LOCAL_MODULE)-docs</a></h3>
 <p>
 生成某个模块的文档<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="out_zip">■ &nbsp;&nbsp;out_zip</a></h3>
+<h3><a id="out_zip">out_zip</a></h3>
 <p>
 out_zip&nbsp;:=&nbsp;$(OUT_DOCS)/$(LOCAL_MODULE)-docs.zip<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[[$(out_zip)]]]">■ &nbsp;&nbsp;[[$(out_zip)]]]</a></h3>
+<div class="build_target">
+<h3><a id="$(out_zip)]">Target:&nbsp;&bsp;$(out_zip)]</a></h3>
 <p>
 生成本模块文档zip包<br/>
 </p>

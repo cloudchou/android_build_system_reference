@@ -21,7 +21,7 @@ the&nbsp;system&nbsp;misbehaves&nbsp;when&nbsp;a&nbsp;density&nbsp;is&nbsp;the&n
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_LOCALES">■ &nbsp;&nbsp;PRODUCT_LOCALES</a></h3>
+<h3><a id="PRODUCT_LOCALES">PRODUCT_LOCALES</a></h3>
 <p>
 Those&nbsp;are&nbsp;all&nbsp;the&nbsp;locales&nbsp;that&nbsp;have&nbsp;translations&nbsp;and&nbsp;are&nbsp;displayable<br/>
 by&nbsp;TextView&nbsp;in&nbsp;this&nbsp;branch.&nbsp;&nbsp;<br/>

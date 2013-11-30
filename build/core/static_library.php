@@ -24,7 +24,7 @@ LOCAL_MODULE_SUFFIX&nbsp;will&nbsp;be&nbsp;set&nbsp;for&nbsp;you.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_CLASS">■ &nbsp;&nbsp;LOCAL_MODULE_CLASS</a></h3>
+<h3><a id="LOCAL_MODULE_CLASS">LOCAL_MODULE_CLASS</a></h3>
 <p>
 ifeq&nbsp;($(strip&nbsp;$(LOCAL_MODULE_CLASS)),)<br/>
 LOCAL_MODULE_CLASS&nbsp;:=&nbsp;STATIC_LIBRARIES<br/>
@@ -32,7 +32,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_SUFFIX">■ &nbsp;&nbsp;LOCAL_MODULE_SUFFIX</a></h3>
+<h3><a id="LOCAL_MODULE_SUFFIX">LOCAL_MODULE_SUFFIX</a></h3>
 <p>
 ifeq&nbsp;($(strip&nbsp;$(LOCAL_MODULE_SUFFIX)),)<br/>
 LOCAL_MODULE_SUFFIX&nbsp;:=&nbsp;.a<br/>
@@ -40,13 +40,13 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_UNINSTALLABLE_MODULE">■ &nbsp;&nbsp;LOCAL_UNINSTALLABLE_MODULE</a></h3>
+<h3><a id="LOCAL_UNINSTALLABLE_MODULE">LOCAL_UNINSTALLABLE_MODULE</a></h3>
 <p>
 LOCAL_UNINSTALLABLE_MODULE&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_WHOLE_STATIC_LIBRARIES">■ &nbsp;&nbsp;LOCAL_WHOLE_STATIC_LIBRARIES</a></h3>
+<h3><a id="LOCAL_WHOLE_STATIC_LIBRARIES">LOCAL_WHOLE_STATIC_LIBRARIES</a></h3>
 <p>
 ifeq&nbsp;($(strip&nbsp;$(LOCAL_ENABLE_APROF)),true)<br/>
 LOCAL_WHOLE_STATIC_LIBRARIES&nbsp;+=&nbsp;libaprof<br/>

@@ -18,25 +18,25 @@
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_BRAND">■ &nbsp;&nbsp;PRODUCT_BRAND</a></h3>
+<h3><a id="PRODUCT_BRAND">PRODUCT_BRAND</a></h3>
 <p>
 PRODUCT_BRAND&nbsp;:=&nbsp;generic<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_DEVICE">■ &nbsp;&nbsp;PRODUCT_DEVICE</a></h3>
+<h3><a id="PRODUCT_DEVICE">PRODUCT_DEVICE</a></h3>
 <p>
 PRODUCT_DEVICE&nbsp;:=&nbsp;generic<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_NAME">■ &nbsp;&nbsp;PRODUCT_NAME</a></h3>
+<h3><a id="PRODUCT_NAME">PRODUCT_NAME</a></h3>
 <p>
 PRODUCT_NAME&nbsp;:=&nbsp;core<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 PRODUCT_PACKAGES&nbsp;+=&nbsp;\<br/>
 ApplicationsProvider&nbsp;\<br/>
@@ -152,7 +152,7 @@ zoneinfo.version<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_COPY_FILES">■ &nbsp;&nbsp;PRODUCT_COPY_FILES</a></h3>
+<h3><a id="PRODUCT_COPY_FILES">PRODUCT_COPY_FILES</a></h3>
 <p>
 PRODUCT_COPY_FILES&nbsp;+=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;system/core/rootdir/init.usb.rc:root/init.usb.rc&nbsp;\<br/>
@@ -160,7 +160,7 @@ PRODUCT_COPY_FILES&nbsp;+=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="WITH_HOST_DALVIK">■ &nbsp;&nbsp;WITH_HOST_DALVIK</a></h3>
+<h3><a id="WITH_HOST_DALVIK">WITH_HOST_DALVIK</a></h3>
 <p>
 ifeq&nbsp;($(WITH_HOST_DALVIK),true)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;PRODUCT_PACKAGES&nbsp;+=&nbsp;\<br/>

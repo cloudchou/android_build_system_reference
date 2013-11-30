@@ -18,13 +18,13 @@ A&nbsp;thin&nbsp;wrapper&nbsp;around&nbsp;BUILD_EXECUTABLE&nbsp;Common&nbsp;flag
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_CFLAGS">■ &nbsp;&nbsp;LOCAL_CFLAGS</a></h3>
+<h3><a id="LOCAL_CFLAGS">LOCAL_CFLAGS</a></h3>
 <p>
 LOCAL_CFLAGS&nbsp;+=&nbsp;-DGTEST_OS_LINUX_ANDROID&nbsp;-DGTEST_HAS_STD_STRING<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_C_INCLUDES">■ &nbsp;&nbsp;LOCAL_C_INCLUDES</a></h3>
+<h3><a id="LOCAL_C_INCLUDES">LOCAL_C_INCLUDES</a></h3>
 <p>
 LOCAL_C_INCLUDES&nbsp;+=&nbsp;bionic&nbsp;\<br/>
 bionic/libstdc++/include&nbsp;\<br/>
@@ -33,19 +33,19 @@ external/stlport/stlport<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_STATIC_LIBRARIES">■ &nbsp;&nbsp;LOCAL_STATIC_LIBRARIES</a></h3>
+<h3><a id="LOCAL_STATIC_LIBRARIES">LOCAL_STATIC_LIBRARIES</a></h3>
 <p>
 LOCAL_STATIC_LIBRARIES&nbsp;+=&nbsp;libgtest&nbsp;libgtest_main<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_SHARED_LIBRARIES">■ &nbsp;&nbsp;LOCAL_SHARED_LIBRARIES</a></h3>
+<h3><a id="LOCAL_SHARED_LIBRARIES">LOCAL_SHARED_LIBRARIES</a></h3>
 <p>
 LOCAL_SHARED_LIBRARIES&nbsp;+=&nbsp;libstlport<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_PATH">■ &nbsp;&nbsp;LOCAL_MODULE_PATH</a></h3>
+<h3><a id="LOCAL_MODULE_PATH">LOCAL_MODULE_PATH</a></h3>
 <p>
 ifndef&nbsp;LOCAL_MODULE_PATH<br/>
 LOCAL_MODULE_PATH&nbsp;:=&nbsp;$(TARGET_OUT_DATA_NATIVE_TESTS)/$(LOCAL_MODULE)<br/>

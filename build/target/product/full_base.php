@@ -21,7 +21,7 @@ in&nbsp;inherited&nbsp;configurations.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 PRODUCT_PACKAGES&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;libfwdlockengine&nbsp;\<br/>
@@ -46,14 +46,14 @@ PRODUCT_PACKAGES&nbsp;+=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PROPERTY_OVERRIDES">■ &nbsp;&nbsp;PRODUCT_PROPERTY_OVERRIDES</a></h3>
+<h3><a id="PRODUCT_PROPERTY_OVERRIDES">PRODUCT_PROPERTY_OVERRIDES</a></h3>
 <p>
 PRODUCT_PROPERTY_OVERRIDES&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;ro.com.android.dateformat=MM-dd-yyyy&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_LOCALES">■ &nbsp;&nbsp;PRODUCT_LOCALES</a></h3>
+<h3><a id="PRODUCT_LOCALES">PRODUCT_LOCALES</a></h3>
 <p>
 PRODUCT_LOCALES&nbsp;:=&nbsp;en_US&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 </p>

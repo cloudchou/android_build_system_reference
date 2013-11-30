@@ -21,7 +21,7 @@ the&nbsp;system&nbsp;misbehaves&nbsp;when&nbsp;a&nbsp;density&nbsp;is&nbsp;the&n
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_LOCALES">■ &nbsp;&nbsp;PRODUCT_LOCALES</a></h3>
+<h3><a id="PRODUCT_LOCALES">PRODUCT_LOCALES</a></h3>
 <p>
 This&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;languages&nbsp;that&nbsp;originally&nbsp;shipped&nbsp;on&nbsp;ADP1&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;PRODUCT_LOCALES&nbsp;:=&nbsp;en_US&nbsp;en_GB&nbsp;fr_FR&nbsp;it_IT&nbsp;de_DE&nbsp;es_ES<br/>

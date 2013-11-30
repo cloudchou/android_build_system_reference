@@ -22,7 +22,7 @@ Standard&nbsp;rules&nbsp;for&nbsp;copying&nbsp;files&nbsp;that&nbsp;are&nbsp;pre
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_CERTIFICATE">■ &nbsp;&nbsp;LOCAL_CERTIFICATE</a></h3>
+<h3><a id="LOCAL_CERTIFICATE">LOCAL_CERTIFICATE</a></h3>
 <p>
 签名证书<br/>
 </p>

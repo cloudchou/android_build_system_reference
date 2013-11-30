@@ -25,7 +25,7 @@ BUILD_NUMBER&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="INTERNAL_BUILD_ID_MAKEFILE">■ &nbsp;&nbsp;INTERNAL_BUILD_ID_MAKEFILE</a></h3>
+<h3><a id="INTERNAL_BUILD_ID_MAKEFILE">INTERNAL_BUILD_ID_MAKEFILE</a></h3>
 <p>
 Look&nbsp;for&nbsp;an&nbsp;optional&nbsp;file&nbsp;containing&nbsp;overrides&nbsp;of&nbsp;the&nbsp;defaults,<br/>
 but&nbsp;don't&nbsp;cry&nbsp;if&nbsp;we&nbsp;don't&nbsp;find&nbsp;it.&nbsp;&nbsp;We&nbsp;could&nbsp;just&nbsp;use&nbsp;-include,&nbsp;but<br/>
@@ -38,7 +38,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PLATFORM_VERSION">■ &nbsp;&nbsp;PLATFORM_VERSION</a></h3>
+<h3><a id="PLATFORM_VERSION">PLATFORM_VERSION</a></h3>
 <p>
 ifeq&nbsp;""&nbsp;"$(PLATFORM_VERSION)"<br/>
 &nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;canonical&nbsp;definition&nbsp;of&nbsp;the&nbsp;platform&nbsp;version<br/>
@@ -50,7 +50,7 @@ endif&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PLATFORM_SDK_VERSION">■ &nbsp;&nbsp;PLATFORM_SDK_VERSION</a></h3>
+<h3><a id="PLATFORM_SDK_VERSION">PLATFORM_SDK_VERSION</a></h3>
 <p>
 ifeq&nbsp;""&nbsp;"$(PLATFORM_SDK_VERSION)"<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;canonical&nbsp;definition&nbsp;of&nbsp;the&nbsp;SDK&nbsp;version,&nbsp;which&nbsp;defines<br/>
@@ -66,7 +66,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PLATFORM_VERSION_CODENAME">■ &nbsp;&nbsp;PLATFORM_VERSION_CODENAME</a></h3>
+<h3><a id="PLATFORM_VERSION_CODENAME">PLATFORM_VERSION_CODENAME</a></h3>
 <p>
 ifeq&nbsp;""&nbsp;"$(PLATFORM_VERSION_CODENAME)"<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;current&nbsp;development&nbsp;code-name,&nbsp;if&nbsp;the&nbsp;build&nbsp;is&nbsp;not&nbsp;a&nbsp;final<br/>
@@ -76,7 +76,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="DEFAULT_APP_TARGET_SDK">■ &nbsp;&nbsp;DEFAULT_APP_TARGET_SDK</a></h3>
+<h3><a id="DEFAULT_APP_TARGET_SDK">DEFAULT_APP_TARGET_SDK</a></h3>
 <p>
 ifeq&nbsp;""&nbsp;"$(DEFAULT_APP_TARGET_SDK)"<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;default&nbsp;minSdkVersion&nbsp;and&nbsp;targetSdkVersion&nbsp;to&nbsp;use&nbsp;for<br/>
@@ -93,7 +93,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="BUILD_ID">■ &nbsp;&nbsp;BUILD_ID</a></h3>
+<h3><a id="BUILD_ID">BUILD_ID</a></h3>
 <p>
 ifeq&nbsp;""&nbsp;"$(BUILD_ID)"<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;Used&nbsp;to&nbsp;signify&nbsp;special&nbsp;builds.&nbsp;&nbsp;E.g.,&nbsp;branches&nbsp;and/or&nbsp;releases,<br/>
@@ -105,7 +105,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="BUILD_NUMBER">■ &nbsp;&nbsp;BUILD_NUMBER</a></h3>
+<h3><a id="BUILD_NUMBER">BUILD_NUMBER</a></h3>
 <p>
 ifeq&nbsp;""&nbsp;"$(BUILD_NUMBER)"<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;BUILD_NUMBER&nbsp;should&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;source&nbsp;control&nbsp;value&nbsp;that<br/>

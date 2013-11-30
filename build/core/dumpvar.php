@@ -18,25 +18,25 @@ the&nbsp;setpath&nbsp;shell&nbsp;function&nbsp;in&nbsp;envsetup.sh&nbsp;uses&nbs
 </p>
 </div>
 <div class="variable">
-<h3><a id="ANDROID_BUILD_PATHS">■ &nbsp;&nbsp;ANDROID_BUILD_PATHS</a></h3>
+<h3><a id="ANDROID_BUILD_PATHS">ANDROID_BUILD_PATHS</a></h3>
 <p>
 Android&nbsp;build&nbsp;toolchain&nbsp;bin&nbsp;dir&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ANDROID_PREBUILTS">■ &nbsp;&nbsp;ANDROID_PREBUILTS</a></h3>
+<h3><a id="ANDROID_PREBUILTS">ANDROID_PREBUILTS</a></h3>
 <p>
 ANDROID_PREBUILTS&nbsp;:=&nbsp;prebuilt/$(HOST_PREBUILT_TAG)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ANDROID_GCC_PREBUILTS">■ &nbsp;&nbsp;ANDROID_GCC_PREBUILTS</a></h3>
+<h3><a id="ANDROID_GCC_PREBUILTS">ANDROID_GCC_PREBUILTS</a></h3>
 <p>
 ANDROID_GCC_PREBUILTS&nbsp;:=&nbsp;prebuilts/gcc/$(HOST_PREBUILT_TAG)<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[[$(dumpvar_target)]]">■ &nbsp;&nbsp;[[$(dumpvar_target)]]</a></h3>
+<div class="build_target">
+<h3><a id="$(dumpvar_target)">Target:&nbsp;&bsp;$(dumpvar_target)</a></h3>
 <p>
 如果编译目标里有dumpvar-%，形式将打印%对应的变量的值<br/>
 </p>

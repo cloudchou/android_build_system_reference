@@ -19,7 +19,7 @@ Set&nbsp;up&nbsp;product-global&nbsp;definitions&nbsp;and&nbsp;include&nbsp;prod
 </p>
 </div>
 <div class="variable">
-<h3><a id="INSTALLED_BOOTLOADER_MODULE">■ &nbsp;&nbsp;INSTALLED_BOOTLOADER_MODULE</a></h3>
+<h3><a id="INSTALLED_BOOTLOADER_MODULE">INSTALLED_BOOTLOADER_MODULE</a></h3>
 <p>
 ifneq&nbsp;($(strip&nbsp;$(TARGET_NO_BOOTLOADER)),true)<br/>
 &nbsp;&nbsp;INSTALLED_BOOTLOADER_MODULE&nbsp;:=&nbsp;$(PRODUCT_OUT)/bootloader<br/>
@@ -35,7 +35,7 @@ endif&nbsp;&nbsp;&nbsp;#&nbsp;TARGET_NO_BOOTLOADER<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="INSTALLED_KERNEL_TARGET">■ &nbsp;&nbsp;INSTALLED_KERNEL_TARGET</a></h3>
+<h3><a id="INSTALLED_KERNEL_TARGET">INSTALLED_KERNEL_TARGET</a></h3>
 <p>
 ifneq&nbsp;($(strip&nbsp;$(TARGET_NO_KERNEL)),true)<br/>
 &nbsp;&nbsp;INSTALLED_KERNEL_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/kernel<br/>
@@ -45,13 +45,13 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="INSTALLED_ANDROID_INFO_TXT_TARGET">■ &nbsp;&nbsp;INSTALLED_ANDROID_INFO_TXT_TARGET</a></h3>
+<h3><a id="INSTALLED_ANDROID_INFO_TXT_TARGET">INSTALLED_ANDROID_INFO_TXT_TARGET</a></h3>
 <p>
 INSTALLED_ANDROID_INFO_TXT_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/android-info.txt<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="board_info_txt">■ &nbsp;&nbsp;board_info_txt</a></h3>
+<h3><a id="board_info_txt">board_info_txt</a></h3>
 <p>
 board_info_txt&nbsp;:=&nbsp;$(TARGET_BOARD_INFO_FILE)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifndef&nbsp;board_info_txt<br/>

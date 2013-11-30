@@ -19,7 +19,7 @@ emulator-related&nbsp;host&nbsp;modules&nbsp;to&nbsp;PRODUCT_PACKAGES.&nbsp;&nbs
 </p>
 </div>
 <div class="variable">
-<h3><a id="PRODUCT_PACKAGES">■ &nbsp;&nbsp;PRODUCT_PACKAGES</a></h3>
+<h3><a id="PRODUCT_PACKAGES">PRODUCT_PACKAGES</a></h3>
 <p>
 PRODUCT_PACKAGES&nbsp;+=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;emulator&nbsp;\<br/>

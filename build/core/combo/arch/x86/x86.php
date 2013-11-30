@@ -27,49 +27,49 @@ under&nbsp;build/core/combo/arch/x86/<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_X86_HAVE_MMX">■ &nbsp;&nbsp;ARCH_X86_HAVE_MMX</a></h3>
+<h3><a id="ARCH_X86_HAVE_MMX">ARCH_X86_HAVE_MMX</a></h3>
 <p>
 ARCH_X86_HAVE_MMX&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_X86_HAVE_SSE">■ &nbsp;&nbsp;ARCH_X86_HAVE_SSE</a></h3>
+<h3><a id="ARCH_X86_HAVE_SSE">ARCH_X86_HAVE_SSE</a></h3>
 <p>
 ARCH_X86_HAVE_SSE&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_X86_HAVE_SSE2">■ &nbsp;&nbsp;ARCH_X86_HAVE_SSE2</a></h3>
+<h3><a id="ARCH_X86_HAVE_SSE2">ARCH_X86_HAVE_SSE2</a></h3>
 <p>
 ARCH_X86_HAVE_SSE2&nbsp;&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_X86_HAVE_SSE3">■ &nbsp;&nbsp;ARCH_X86_HAVE_SSE3</a></h3>
+<h3><a id="ARCH_X86_HAVE_SSE3">ARCH_X86_HAVE_SSE3</a></h3>
 <p>
 ARCH_X86_HAVE_SSE3&nbsp;&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_X86_HAVE_SSSE3">■ &nbsp;&nbsp;ARCH_X86_HAVE_SSSE3</a></h3>
+<h3><a id="ARCH_X86_HAVE_SSSE3">ARCH_X86_HAVE_SSSE3</a></h3>
 <p>
 ARCH_X86_HAVE_SSSE3&nbsp;:=&nbsp;false<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_X86_HAVE_MOVBE">■ &nbsp;&nbsp;ARCH_X86_HAVE_MOVBE</a></h3>
+<h3><a id="ARCH_X86_HAVE_MOVBE">ARCH_X86_HAVE_MOVBE</a></h3>
 <p>
 ARCH_X86_HAVE_MOVBE&nbsp;:=&nbsp;false<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_X86_HAVE_POPCNT">■ &nbsp;&nbsp;ARCH_X86_HAVE_POPCNT</a></h3>
+<h3><a id="ARCH_X86_HAVE_POPCNT">ARCH_X86_HAVE_POPCNT</a></h3>
 <p>
 ARCH_X86_HAVE_POPCNT&nbsp;:=&nbsp;false<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_GLOBAL_CFLAGS">■ &nbsp;&nbsp;TARGET_GLOBAL_CFLAGS</a></h3>
+<h3><a id="TARGET_GLOBAL_CFLAGS">TARGET_GLOBAL_CFLAGS</a></h3>
 <p>
 TARGET_GLOBAL_CFLAGS&nbsp;+=&nbsp;-march=i686<br/>
 </p>

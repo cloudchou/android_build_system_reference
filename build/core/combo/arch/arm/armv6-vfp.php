@@ -20,49 +20,49 @@ Generating&nbsp;binaries&nbsp;for&nbsp;the&nbsp;ARMv6-VFP&nbsp;architecture&nbsp
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_ARM_HAVE_THUMB_SUPPORT">■ &nbsp;&nbsp;ARCH_ARM_HAVE_THUMB_SUPPORT</a></h3>
+<h3><a id="ARCH_ARM_HAVE_THUMB_SUPPORT">ARCH_ARM_HAVE_THUMB_SUPPORT</a></h3>
 <p>
 ARCH_ARM_HAVE_THUMB_SUPPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_ARM_HAVE_FAST_INTERWORKING">■ &nbsp;&nbsp;ARCH_ARM_HAVE_FAST_INTERWORKING</a></h3>
+<h3><a id="ARCH_ARM_HAVE_FAST_INTERWORKING">ARCH_ARM_HAVE_FAST_INTERWORKING</a></h3>
 <p>
 ARCH_ARM_HAVE_FAST_INTERWORKING&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_ARM_HAVE_64BIT_DATA">■ &nbsp;&nbsp;ARCH_ARM_HAVE_64BIT_DATA</a></h3>
+<h3><a id="ARCH_ARM_HAVE_64BIT_DATA">ARCH_ARM_HAVE_64BIT_DATA</a></h3>
 <p>
 ARCH_ARM_HAVE_64BIT_DATA:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_ARM_HAVE_HALFWORD_MULTIPLY">■ &nbsp;&nbsp;ARCH_ARM_HAVE_HALFWORD_MULTIPLY</a></h3>
+<h3><a id="ARCH_ARM_HAVE_HALFWORD_MULTIPLY">ARCH_ARM_HAVE_HALFWORD_MULTIPLY</a></h3>
 <p>
 ARCH_ARM_HAVE_HALFWORD_MULTIPLY&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_ARM_HAVE_CLZ">■ &nbsp;&nbsp;ARCH_ARM_HAVE_CLZ</a></h3>
+<h3><a id="ARCH_ARM_HAVE_CLZ">ARCH_ARM_HAVE_CLZ</a></h3>
 <p>
 ARCH_ARM_HAVE_CLZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_ARM_HAVE_FFS">■ &nbsp;&nbsp;ARCH_ARM_HAVE_FFS</a></h3>
+<h3><a id="ARCH_ARM_HAVE_FFS">ARCH_ARM_HAVE_FFS</a></h3>
 <p>
 ARCH_ARM_HAVE_FFS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="ARCH_ARM_HAVE_VFP">■ &nbsp;&nbsp;ARCH_ARM_HAVE_VFP</a></h3>
+<h3><a id="ARCH_ARM_HAVE_VFP">ARCH_ARM_HAVE_VFP</a></h3>
 <p>
 ARCH_ARM_HAVE_VFP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TARGET_ARCH_VARIANT_FPU">■ &nbsp;&nbsp;TARGET_ARCH_VARIANT_FPU</a></h3>
+<h3><a id="TARGET_ARCH_VARIANT_FPU">TARGET_ARCH_VARIANT_FPU</a></h3>
 <p>
 ifeq&nbsp;($(strip&nbsp;$(TARGET_ARCH_VARIANT_FPU)),)<br/>
 TARGET_ARCH_VARIANT_FPU&nbsp;&nbsp;&nbsp;:=&nbsp;vfp<br/>
@@ -73,7 +73,7 @@ endif<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="arch_variant_cflags">■ &nbsp;&nbsp;arch_variant_cflags</a></h3>
+<h3><a id="arch_variant_cflags">arch_variant_cflags</a></h3>
 <p>
 Note:&nbsp;Hard&nbsp;coding&nbsp;the&nbsp;'tune'&nbsp;value&nbsp;here&nbsp;is&nbsp;probably&nbsp;not&nbsp;ideal,&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;and&nbsp;a&nbsp;better&nbsp;solution&nbsp;should&nbsp;be&nbsp;found&nbsp;in&nbsp;the&nbsp;future.<br/>

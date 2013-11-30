@@ -17,14 +17,14 @@
 定义帮助的目标&nbsp;help和out，如果用make&nbsp;help，将显示编译可用目标<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[[help]]">■ &nbsp;&nbsp;[[help]]</a></h3>
+<div class="build_target">
+<h3><a id="help">Target:&nbsp;&bsp;help</a></h3>
 <p>
 显示帮助菜单<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[[out]]">■ &nbsp;&nbsp;[[out]]</a></h3>
+<div class="build_target">
+<h3><a id="out">Target:&nbsp;&bsp;out</a></h3>
 <p>
 显示I'm&nbsp;sure&nbsp;you're&nbsp;nice&nbsp;and&nbsp;all,&nbsp;but&nbsp;no&nbsp;thanks.<br/>
 </p>

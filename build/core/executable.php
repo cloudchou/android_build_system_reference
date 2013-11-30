@@ -20,19 +20,19 @@ None.编译为手机上的可执行文件<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_CLASS">■ &nbsp;&nbsp;LOCAL_MODULE_CLASS</a></h3>
+<h3><a id="LOCAL_MODULE_CLASS">LOCAL_MODULE_CLASS</a></h3>
 <p>
 如果模块没有设置，默认为EXECUTABLES，<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_SUFFIX">■ &nbsp;&nbsp;LOCAL_MODULE_SUFFIX</a></h3>
+<h3><a id="LOCAL_MODULE_SUFFIX">LOCAL_MODULE_SUFFIX</a></h3>
 <p>
 如果模块没有设置，&nbsp;&nbsp;&nbsp;默认为$(TARGET_EXECUTABLE_SUFFIX)，即为空<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_ENABLE_APROF">■ &nbsp;&nbsp;LOCAL_ENABLE_APROF</a></h3>
+<h3><a id="LOCAL_ENABLE_APROF">LOCAL_ENABLE_APROF</a></h3>
 <p>
 Add&nbsp;profiling&nbsp;libraries&nbsp;if&nbsp;aprof&nbsp;is&nbsp;turned<br/>
 aprof&nbsp;is&nbsp;a&nbsp;Valgrind&nbsp;tool&nbsp;for&nbsp;performance&nbsp;profiling&nbsp;designed&nbsp;to&nbsp;help&nbsp;developers&nbsp;discover&nbsp;hidden&nbsp;asymptotic&nbsp;inefficiencies&nbsp;in&nbsp;the&nbsp;code.<br/>
@@ -42,8 +42,8 @@ yielding&nbsp;clues&nbsp;to&nbsp;its&nbsp;growth&nbsp;rate&nbsp;and&nbsp;to&nbsp
 如果定义LOCAL_ENABLE_APROF为true，那么将引入prof相关的库&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[[linked_module]]">■ &nbsp;&nbsp;[[linked_module]]</a></h3>
+<div class="build_target">
+<h3><a id="linked_module">Target:&nbsp;&bsp;linked_module</a></h3>
 <p>
 linked_module&nbsp;:=&nbsp;$(guessed_intermediates)/LINKED/$(LOCAL_BUILT_MODULE_STEM)<br/>
 编译链接后可执行文件存放目录<br/>

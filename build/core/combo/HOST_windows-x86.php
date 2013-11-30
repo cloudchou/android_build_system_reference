@@ -20,49 +20,49 @@ Configuration&nbsp;for&nbsp;builds&nbsp;hosted&nbsp;on&nbsp;windows-x86.<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TOOLS_PREFIX">■ &nbsp;&nbsp;TOOLS_PREFIX</a></h3>
+<h3><a id="TOOLS_PREFIX">TOOLS_PREFIX</a></h3>
 <p>
 TOOLS_PREFIX&nbsp;:=&nbsp;#prebuilt/windows/host/bin/<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="TOOLS_EXE_SUFFIX">■ &nbsp;&nbsp;TOOLS_EXE_SUFFIX</a></h3>
+<h3><a id="TOOLS_EXE_SUFFIX">TOOLS_EXE_SUFFIX</a></h3>
 <p>
 TOOLS_EXE_SUFFIX&nbsp;:=&nbsp;.exe<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_GLOBAL_CFLAGS">■ &nbsp;&nbsp;HOST_GLOBAL_CFLAGS</a></h3>
+<h3><a id="HOST_GLOBAL_CFLAGS">HOST_GLOBAL_CFLAGS</a></h3>
 <p>
 HOST_GLOBAL_CFLAGS&nbsp;+=&nbsp;-DUSE_MINGW<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_CC">■ &nbsp;&nbsp;HOST_CC</a></h3>
+<h3><a id="HOST_CC">HOST_CC</a></h3>
 <p>
 HOST_CC&nbsp;:=&nbsp;$(TOOLS_PREFIX)gcc$(TOOLS_EXE_SUFFIX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_CXX">■ &nbsp;&nbsp;HOST_CXX</a></h3>
+<h3><a id="HOST_CXX">HOST_CXX</a></h3>
 <p>
 HOST_CXX&nbsp;:=&nbsp;$(TOOLS_PREFIX)g++$(TOOLS_EXE_SUFFIX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_AR">■ &nbsp;&nbsp;HOST_AR</a></h3>
+<h3><a id="HOST_AR">HOST_AR</a></h3>
 <p>
 HOST_AR&nbsp;:=&nbsp;$(TOOLS_PREFIX)ar$(TOOLS_EXE_SUFFIX)<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="HOST_SHLIB_SUFFIX">■ &nbsp;&nbsp;HOST_SHLIB_SUFFIX</a></h3>
+<h3><a id="HOST_SHLIB_SUFFIX">HOST_SHLIB_SUFFIX</a></h3>
 <p>
 HOST_SHLIB_SUFFIX&nbsp;:=&nbsp;.dll<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="get-file-size">■ &nbsp;&nbsp;get-file-size</a></h3>
+<h3><a id="get-file-size">get-file-size</a></h3>
 <p>
 $(1):&nbsp;The&nbsp;file&nbsp;to&nbsp;check<br/>
 TODO:&nbsp;find&nbsp;out&nbsp;what&nbsp;format&nbsp;cygwin's&nbsp;stat(1)&nbsp;uses<br/>

@@ -18,8 +18,8 @@ When&nbsp;specifying&nbsp;"dist",&nbsp;the&nbsp;user&nbsp;has&nbsp;asked&nbsp;th
 files&nbsp;from&nbsp;this&nbsp;build&nbsp;into&nbsp;DIST_DIR.<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="[copy-one-dist-file]">■ &nbsp;&nbsp;[copy-one-dist-file]</a></h3>
+<div class="function">
+<h3><a id="copy-one-dist-file">Function:&nbsp;&nbsp;copy-one-dist-file</a></h3>
 <p>
 $(1):&nbsp;source&nbsp;file<br/>
 $(2):&nbsp;destination&nbsp;file<br/>
@@ -27,7 +27,7 @@ $(3):&nbsp;goals&nbsp;that&nbsp;should&nbsp;copy&nbsp;the&nbsp;file<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="dist-for-goals">■ &nbsp;&nbsp;dist-for-goals</a></h3>
+<h3><a id="dist-for-goals">dist-for-goals</a></h3>
 <p>
 $(1):&nbsp;a&nbsp;list&nbsp;of&nbsp;goals&nbsp;&nbsp;(e.g.&nbsp;droid,&nbsp;sdk,&nbsp;pdk,&nbsp;ndk)<br/>
 $(2):&nbsp;the&nbsp;dist&nbsp;files&nbsp;to&nbsp;add&nbsp;to&nbsp;those&nbsp;goals.&nbsp;&nbsp;If&nbsp;the&nbsp;file&nbsp;contains&nbsp;':',<br/>

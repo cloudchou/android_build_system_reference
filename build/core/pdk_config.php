@@ -30,7 +30,7 @@ This&nbsp;file&nbsp;defines&nbsp;the&nbsp;rule&nbsp;to&nbsp;fuse&nbsp;the&nbsp;p
 </p>
 </div>
 <div class="variable">
-<h3><a id="PDK_FUSION_PLATFORM_ZIP">■ &nbsp;&nbsp;PDK_FUSION_PLATFORM_ZIP</a></h3>
+<h3><a id="PDK_FUSION_PLATFORM_ZIP">PDK_FUSION_PLATFORM_ZIP</a></h3>
 <p>
 platform.zip<br/>
 &nbsp;ifndef&nbsp;PDK_FUSION_PLATFORM_ZIP<br/>
@@ -44,7 +44,7 @@ endif&nbsp;#&nbsp;!PDK_FUSION_PLATFORM_ZIP<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PDK_PLATFORM_JAVA_ZIP_JAVA_LIB_DIR">■ &nbsp;&nbsp;PDK_PLATFORM_JAVA_ZIP_JAVA_LIB_DIR</a></h3>
+<h3><a id="PDK_PLATFORM_JAVA_ZIP_JAVA_LIB_DIR">PDK_PLATFORM_JAVA_ZIP_JAVA_LIB_DIR</a></h3>
 <p>
 PDK_PLATFORM_JAVA_ZIP_JAVA_LIB_DIR&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;target/common/obj/JAVA_LIBRARIES/android_stubs_current_intermediates&nbsp;\<br/>
@@ -58,7 +58,7 @@ PDK_PLATFORM_JAVA_ZIP_JAVA_LIB_DIR&nbsp;:=&nbsp;\<br/>
 </p>
 </div>
 <div class="variable">
-<h3><a id="PDK_PLATFORM_JAVA_ZIP_CONTENTS">■ &nbsp;&nbsp;PDK_PLATFORM_JAVA_ZIP_CONTENTS</a></h3>
+<h3><a id="PDK_PLATFORM_JAVA_ZIP_CONTENTS">PDK_PLATFORM_JAVA_ZIP_CONTENTS</a></h3>
 <p>
 PDK_PLATFORM_JAVA_ZIP_CONTENTS&nbsp;:=&nbsp;\<br/>
 target/common/obj/APPS/framework-res_intermediates/package-export.apk&nbsp;\<br/>
@@ -68,7 +68,7 @@ PDK_PLATFORM_JAVA_ZIP_CONTENTS&nbsp;+=&nbsp;$(foreach&nbsp;lib_dir,$(PDK_PLATFOR
 </p>
 </div>
 <div class="variable">
-<h3><a id="ALL_PDK_FUSION_FILES">■ &nbsp;&nbsp;ALL_PDK_FUSION_FILES</a></h3>
+<h3><a id="ALL_PDK_FUSION_FILES">ALL_PDK_FUSION_FILES</a></h3>
 <p>
 ALL_PDK_FUSION_FILES&nbsp;:=&nbsp;$(addprefix&nbsp;$(PRODUCT_OUT)/,&nbsp;$(_pdk_fusion_file_list))<br/>
 </p>
