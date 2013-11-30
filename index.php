@@ -3,35 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Android编译系统参考手册</title>
-
-<!-- styles needed by jScrollPane -->
-<link type="text/css" href="style/jquery.jscrollpane.css"
-	rel="stylesheet" media="all" />
-
-<link type="text/css" href="style/index.css" rel="stylesheet"
-	media="all" />
-
-<link rel="stylesheet" href="style/jquery.treeview.css" />
-
-<!-- latest jQuery direct from google's CDN -->
-<script type="text/javascript" src="script/jquery.min.js ">
-</script>
-
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
-
-<script src="script/jquery.treeview.js" type="text/javascript"></script>
-
-<script src="script/functions.js" type="text/javascript"></script>
-
+<?php require_once 'html_header.php';?>
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1>Android编译系统 参考手册</h1>
-		</div>
-
-
+		<?php require_once 'header.php';?> 
 		<div id="content">
 			<h2>欢迎光临</h2>
 			<p>您还在为阅读Android编译系统代码烦恼吗？</p>
@@ -41,33 +17,8 @@
 			<p>这里是Android编译系统参考手册，当您阅读源码，不知变量意义时，来这里检阅把，这里有参考值，有意义描述，可以帮您更好地理解编译系统!</p>
 			<p>本网站基于Cyanogemod10.1研究</p>
 		</div>
-
-		<div id="sidebar">
-			<div id="variable" class="widget">
-				<h3>编译变量列表</h3>
-				<div id="search">
-					<p>检索变量：</p>
-					<div class="s_left"></div>
-					<input id="s" type="text" size="30">
-					<div class="s_right"></div>
-				</div>
-				<div id="list"> 
-					<?php
-					  require_once 'vlist.php';
-					?>  
-				</div>
-			</div>
-
-			<div id="file" class="widget">
-				<h3>Makefile文件</h3>
-				<div id="mklist_container">
-					<ul id="mklist">
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div id="footer">Copyright©软件架构师成长之路</div>
+		<?php require_once 'sidebar.php';?>
+		<?php require_once 'footer.php';?>
 	</div>
 </body>
 </html>

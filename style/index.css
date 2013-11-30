@@ -170,3 +170,50 @@ ul li a .f {
 .treeview a:active, .treeview a:focus {
 	color: #33B5E5;
 }
+
+/********参考文档内容的css************/
+
+.file{
+	   
+}
+.file p{
+	border-bottom: 1px solid #CCC;
+	 
+} 
+
+.variable{
+	 
+}
+.variable p{
+	padding-left: 20px;
+	word-wrap:break-word; overflow:hidden;
+	width:400px;
+}
+
+.variable h3{
+	 
+}
+
+.function{
+	 
+}
+.function p{
+	padding-left: 20px;
+	word-break: break-word;
+}
+
+.function h3{
+	
+}
+
+.build_target{
+	 
+}
+.build_target p{
+	padding-left: 20px;
+	word-break: break-word;
+}
+
+.build_target h3{
+	
+}

@@ -18,15 +18,6 @@ $(document).ready(function() {
 	$("#variable #list").jScrollPane({
 		arrowScrollOnHover : true
 	});
-
-	$("#mklist").treeview({
-		url : "json_files.php" ,
-		toggle : function() {
-			$("#mklist_container").jScrollPane({
-				arrowScrollOnHover : true
-			});
-		}
-	}); 
 	
 	$("#s").keyup(function(){
 		 var branches=$("#variable #list").find("li"); 
