@@ -1,3 +1,6 @@
+<?php
+header('Content-type: text/json');
+?>
 [
 {
     "text": "build",
