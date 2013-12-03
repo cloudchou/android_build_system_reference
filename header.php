@@ -1,4 +1,4 @@
 <div id="header">
-	<h1><a href="/">Android编译系统 参考手册</a></h1>
+	<h1><a href="/">Android编译系统参考手册</a></h1> <h3><a href="http://www.cloudchou.com">作者博客: http://www.cloudchou.com</a></h3>
 </div>
 

@@ -40,7 +40,7 @@ a:active, a:focus {
 #header {
 	border-bottom: 2px dashed #CCCCCC;
 	line-height: 200%;
-	padding: 0 1em;
+	padding: 1em 1em;
 }
 
 #header h1 {
@@ -48,6 +48,13 @@ a:active, a:focus {
 	font-size: 32px;
 	text-shadow: 2px 2px 1px #CCCCCC;
 	font-weight: normal;
+	display: inline;
+}
+
+#header h3{
+	display: inline	;
+	font-weight: normal;
+	padding-left: 3em; 
 }
 
 #content {
