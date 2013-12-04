@@ -12,7 +12,7 @@
 <div id="content">
 
 <div class="">
-<h3><a id="">Target:&nbsp;&bsp;</a></h3>
+<h3><a id="">Target:&nbsp;&nbsp;</a></h3>
 <p>
 </p>
 </div>

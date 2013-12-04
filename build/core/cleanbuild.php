@@ -60,13 +60,13 @@ then&nbsp;we&nbsp;won't&nbsp;do&nbsp;anything.<br/>
 </p>
 </div>
 <div class="build_target">
-<h3><a id="dataclean">Target:&nbsp;&bsp;dataclean</a></h3>
+<h3><a id="dataclean">Target:&nbsp;&nbsp;dataclean</a></h3>
 <p>
 清除data/*&nbsp;/data-qemu/*&nbsp;userdata-qemu.img文件<br/>
 </p>
 </div>
 <div class="build_target">
-<h3><a id="installclean">Target:&nbsp;&bsp;installclean</a></h3>
+<h3><a id="installclean">Target:&nbsp;&nbsp;installclean</a></h3>
 <p>
 清除安装文件及data文件<br/>
 </p>

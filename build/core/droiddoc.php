@@ -99,7 +99,7 @@ full_java_lib_deps&nbsp;:=&nbsp;$(call&nbsp;java-lib-deps,$(LOCAL_JAVA_LIBRARIES
 </p>
 </div>
 <div class="build_target">
-<h3><a id="$(LOCAL_MODULE)-docs">Target:&nbsp;&bsp;$(LOCAL_MODULE)-docs</a></h3>
+<h3><a id="$(LOCAL_MODULE)-docs">Target:&nbsp;&nbsp;$(LOCAL_MODULE)-docs</a></h3>
 <p>
 生成某个模块的文档<br/>
 </p>
@@ -111,7 +111,7 @@ out_zip&nbsp;:=&nbsp;$(OUT_DOCS)/$(LOCAL_MODULE)-docs.zip<br/>
 </p>
 </div>
 <div class="build_target">
-<h3><a id="$(out_zip)]">Target:&nbsp;&bsp;$(out_zip)]</a></h3>
+<h3><a id="$(out_zip)]">Target:&nbsp;&nbsp;$(out_zip)]</a></h3>
 <p>
 生成本模块文档zip包<br/>
 </p>

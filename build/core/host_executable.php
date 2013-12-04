@@ -38,7 +38,7 @@
 </p>
 </div>
 <div class="build_target">
-<h3><a id="$(LOCAL_BUILT_MODULE)">Target:&nbsp;&bsp;$(LOCAL_BUILT_MODULE)</a></h3>
+<h3><a id="$(LOCAL_BUILT_MODULE)">Target:&nbsp;&nbsp;$(LOCAL_BUILT_MODULE)</a></h3>
 <p>
 编译链接后执行文件存放目录<br/>
 </p>

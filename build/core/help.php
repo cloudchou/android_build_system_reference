@@ -18,13 +18,13 @@
 </p>
 </div>
 <div class="build_target">
-<h3><a id="help">Target:&nbsp;&bsp;help</a></h3>
+<h3><a id="help">Target:&nbsp;&nbsp;help</a></h3>
 <p>
 显示帮助菜单<br/>
 </p>
 </div>
 <div class="build_target">
-<h3><a id="out">Target:&nbsp;&bsp;out</a></h3>
+<h3><a id="out">Target:&nbsp;&nbsp;out</a></h3>
 <p>
 显示I'm&nbsp;sure&nbsp;you're&nbsp;nice&nbsp;and&nbsp;all,&nbsp;but&nbsp;no&nbsp;thanks.<br/>
 </p>
