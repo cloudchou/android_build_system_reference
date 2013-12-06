@@ -121,6 +121,8 @@ The&nbsp;optional&nbsp;:<owner>&nbsp;is&nbsp;used&nbsp;to&nbsp;indicate&nbsp;the
 <p>
 A&nbsp;list&nbsp;of&nbsp;property&nbsp;assignments,&nbsp;like&nbsp;"key&nbsp;=&nbsp;value",&nbsp;with&nbsp;zero&nbsp;or&nbsp;more<br/>
 whitespace&nbsp;characters&nbsp;on&nbsp;either&nbsp;side&nbsp;of&nbsp;the&nbsp;'='.&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT_BUILD_PROP_OVERRIDES&nbsp;+=&nbsp;\<br/>
+&nbsp;&nbsp;BUILD_UTC_DATE=0<br/>
 </p>
 </div>
 <div class="variable">
