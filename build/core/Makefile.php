@@ -510,6 +510,567 @@ tmp_dir_for_image&nbsp;:=&nbsp;$(call&nbsp;intermediates-dir-for,EXECUTABLES,boo
 生成notice_files文件<br/>
 </p>
 </div>
+<div class="function">
+<h3><a id="combine-notice-files">Function:&nbsp;&nbsp;combine-notice-files</a></h3>
+<p>
+Create&nbsp;the&nbsp;rule&nbsp;to&nbsp;combine&nbsp;the&nbsp;files&nbsp;into&nbsp;text&nbsp;and&nbsp;html&nbsp;forms<br/>
+&nbsp;$(1)&nbsp;-&nbsp;Plain&nbsp;text&nbsp;output&nbsp;file<br/>
+&nbsp;$(2)&nbsp;-&nbsp;HTML&nbsp;output&nbsp;file<br/>
+&nbsp;$(3)&nbsp;-&nbsp;File&nbsp;title<br/>
+&nbsp;$(4)&nbsp;-&nbsp;Directory&nbsp;to&nbsp;use.&nbsp;&nbsp;Notice&nbsp;files&nbsp;are&nbsp;all&nbsp;$(4)/src.&nbsp;&nbsp;Other<br/>
+&nbsp;&nbsp;&nbsp;directories&nbsp;in&nbsp;there&nbsp;will&nbsp;be&nbsp;used&nbsp;for&nbsp;scratch&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;$(5)&nbsp;-&nbsp;Dependencies&nbsp;for&nbsp;the&nbsp;output&nbsp;files<br/>
+The&nbsp;algorithm&nbsp;here&nbsp;is&nbsp;that&nbsp;we&nbsp;go&nbsp;collect&nbsp;a&nbsp;hash&nbsp;for&nbsp;each&nbsp;of&nbsp;the&nbsp;notice<br/>
+files&nbsp;and&nbsp;write&nbsp;the&nbsp;names&nbsp;of&nbsp;the&nbsp;files&nbsp;that&nbsp;match&nbsp;that&nbsp;hash.&nbsp;&nbsp;Then<br/>
+to&nbsp;generate&nbsp;the&nbsp;real&nbsp;files,&nbsp;we&nbsp;go&nbsp;print&nbsp;out&nbsp;all&nbsp;of&nbsp;the&nbsp;files&nbsp;and&nbsp;their<br/>
+&nbsp;hashes.<br/>
+These&nbsp;rules&nbsp;are&nbsp;fairly&nbsp;complex,&nbsp;so&nbsp;they&nbsp;depend&nbsp;on&nbsp;this&nbsp;makefile&nbsp;so&nbsp;if<br/>
+it&nbsp;changes,&nbsp;they'll&nbsp;run&nbsp;again.<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="target_notice_file_txt">target_notice_file_txt</a></h3>
+<p>
+target_notice_file_txt&nbsp;:=&nbsp;$(TARGET_OUT_INTERMEDIATES)/NOTICE.txt<br/>
+示例：out/target/product/i9100/obj/NOTICE.txt<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="target_notice_file_html">target_notice_file_html</a></h3>
+<p>
+target_notice_file_html&nbsp;:=&nbsp;$(TARGET_OUT_INTERMEDIATES)/NOTICE.html<br/>
+示例：out/target/product/i9100/obj/NOTICE.html<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="target_notice_file_html_gz">target_notice_file_html_gz</a></h3>
+<p>
+target_notice_file_html_gz&nbsp;:=&nbsp;$(TARGET_OUT_INTERMEDIATES)/NOTICE.html.gz<br/>
+示例：out/target/product/i9100/obj/NOTICE.html.gz<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="tools_notice_file_txt">tools_notice_file_txt</a></h3>
+<p>
+tools_notice_file_txt&nbsp;:=&nbsp;$(HOST_OUT_INTERMEDIATES)/NOTICE.txt<br/>
+示例：:out/host/linux-x86/obj/NOTICE.txt<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="tools_notice_file_html">tools_notice_file_html</a></h3>
+<p>
+tools_notice_file_html&nbsp;:=&nbsp;$(HOST_OUT_INTERMEDIATES)/NOTICE.html<br/>
+示例：out/host/linux-x86/obj/NOTICE.html<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="kernel_notice_file">kernel_notice_file</a></h3>
+<p>
+kernel_notice_file&nbsp;:=&nbsp;$(TARGET_OUT_NOTICE_FILES)/src/kernel.txt<br/>
+示例：out/target/product/i9100/obj/NOTICE_FILES/src/kernel.txt<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="pdk_fusion_notice_files">pdk_fusion_notice_files</a></h3>
+<p>
+pdk_fusion_notice_files&nbsp;:=&nbsp;$(filter&nbsp;$(TARGET_OUT_NOTICE_FILES)/%,&nbsp;$(ALL_PDK_FUSION_FILES))<br/>
+ALL_PDK_FUSION_FILES里得到符合$(TARGET_OUT_NOTICE_FILES)/%的文件<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(target_notice_file_html_gz)">Target:&nbsp;&nbsp;$(target_notice_file_html_gz)</a></h3>
+<p>
+利用minigzip将$(target_notice_file_html)压缩生成out/target/product/i9100/obj/NOTICE.html.gz<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="installed_notice_html_gz">installed_notice_html_gz</a></h3>
+<p>
+installed_notice_html_gz&nbsp;:=&nbsp;$(TARGET_OUT)/etc/NOTICE.html.gz<br/>
+示例：out/target/product/i9100/system/etc/NOTICE.html.gz<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(installed_notice_html_gz)">Target:&nbsp;&nbsp;$(installed_notice_html_gz)</a></h3>
+<p>
+生成规则：<br/>
+&nbsp;将$(target_notice_file_html_gz)拷贝至system/etc/NOTICE.html.gz<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(kernel_notice_file)">Target:&nbsp;&nbsp;$(kernel_notice_file)</a></h3>
+<p>
+The&nbsp;kernel&nbsp;isn't&nbsp;really&nbsp;a&nbsp;module,&nbsp;so&nbsp;to&nbsp;get&nbsp;its&nbsp;module&nbsp;file&nbsp;in&nbsp;there,&nbsp;we<br/>
+&nbsp;&nbsp;&nbsp;make&nbsp;the&nbsp;target&nbsp;NOTICE&nbsp;files&nbsp;depend&nbsp;on&nbsp;this&nbsp;particular&nbsp;file&nbsp;too,&nbsp;which&nbsp;will<br/>
+then&nbsp;be&nbsp;in&nbsp;the&nbsp;right&nbsp;directory&nbsp;for&nbsp;the&nbsp;find&nbsp;in&nbsp;combine-notice-files&nbsp;to&nbsp;work.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生成规则：<br/>
+&nbsp;&nbsp;将prebuilts/qemu-kernel/arm/LINUX_KERNEL_COPYING拷贝生成$(kernel_notice_file)<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="otacerts">Target:&nbsp;&nbsp;otacerts</a></h3>
+<p>
+伪目标，用于生成在out/target/product/i9100/system/etc/otacerts.zip<br/>
+生成规则：<br/>
+&nbsp;&nbsp;&nbsp;将$(DEFAULT_KEY_CERT_PAIR).x509.pem打包为otacerts.zip<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_USERIMAGES_EXT_VARIANT">INTERNAL_USERIMAGES_EXT_VARIANT</a></h3>
+<p>
+生成的img文件用的格式，可能为空，也可能为ext2,&nbsp;ext3，ext4<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_USERIMAGES_USE_EXT">INTERNAL_USERIMAGES_USE_EXT</a></h3>
+<p>
+生成的镜像文件格式是否启用ext类型<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_USERIMAGES_USE_EXT2">TARGET_USERIMAGES_USE_EXT2</a></h3>
+<p>
+是否使用ext2格式的镜像类型，<br/>
+示例(在devcie目录的BoardConfig.mk里设置)：<br/>
+&nbsp;&nbsp;&nbsp;TARGET_USERIMAGES_USE_EXT2&nbsp;:=&nbsp;true<br/>
+如果设置为true，那么<br/>
+INTERNAL_USERIMAGES_USE_EXT&nbsp;:=&nbsp;true<br/>
+INTERNAL_USERIMAGES_EXT_VARIANT&nbsp;:=&nbsp;ext2<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_USERIMAGES_USE_EXT3">TARGET_USERIMAGES_USE_EXT3</a></h3>
+<p>
+是否使用ext3格式的镜像类型，<br/>
+示例(在devcie目录的BoardConfig.mk里设置)：<br/>
+&nbsp;&nbsp;&nbsp;TARGET_USERIMAGES_USE_EXT3&nbsp;:=&nbsp;true<br/>
+如果设置为true，那么<br/>
+INTERNAL_USERIMAGES_USE_EXT&nbsp;:=&nbsp;true<br/>
+INTERNAL_USERIMAGES_EXT_VARIANT&nbsp;:=&nbsp;ext3<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_USERIMAGES_USE_EXT4">TARGET_USERIMAGES_USE_EXT4</a></h3>
+<p>
+是否使用ext4格式的镜像类型，<br/>
+示例(在devcie目录的BoardConfig.mk里设置)：<br/>
+&nbsp;&nbsp;&nbsp;TARGET_USERIMAGES_USE_EXT4&nbsp;:=&nbsp;true<br/>
+如果设置为true，那么<br/>
+INTERNAL_USERIMAGES_USE_EXT&nbsp;:=&nbsp;true<br/>
+INTERNAL_USERIMAGES_EXT_VARIANT&nbsp;:=&nbsp;ext4<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_USERIMAGES_SPARSE_EXT_DISABLED">TARGET_USERIMAGES_SPARSE_EXT_DISABLED</a></h3>
+<p>
+是否关闭稀疏的ext格式<br/>
+在BoardConfig.mk里设置，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;TARGET_USERIMAGES_SPARSE_EXT_DISABLED&nbsp;:=&nbsp;true<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_USERIMAGES_SPARSE_EXT_FLAG">INTERNAL_USERIMAGES_SPARSE_EXT_FLAG</a></h3>
+<p>
+如果设置了TARGET_USERIMAGES_SPARSE_EXT_DISABLED为true<br/>
+那么<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;INTERNAL_USERIMAGES_SPARSE_EXT_FLAG&nbsp;:=&nbsp;-s<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_USERIMAGES_DEPS">INTERNAL_USERIMAGES_DEPS</a></h3>
+<p>
+生成userimage依赖的文件<br/>
+ifeq&nbsp;($(INTERNAL_USERIMAGES_USE_EXT),true)<br/>
+INTERNAL_USERIMAGES_DEPS&nbsp;:=&nbsp;$(MKEXTUSERIMG)&nbsp;$(MAKE_EXT4FS)&nbsp;$(SIMG2IMG)&nbsp;$(E2FSCK)<br/>
+else<br/>
+INTERNAL_USERIMAGES_DEPS&nbsp;:=&nbsp;$(MKYAFFS2)<br/>
+endif<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_USERIMAGES_BINARY_PATHS">INTERNAL_USERIMAGES_BINARY_PATHS</a></h3>
+<p>
+$(INTERNAL_USERIMAGES_DEPS)所指的文件&nbsp;所在的&nbsp;目录&nbsp;集合<br/>
+</p>
+</div>
+<div class="function">
+<h3><a id="generate-userimage-prop-dictionary">Function:&nbsp;&nbsp;generate-userimage-prop-dictionary</a></h3>
+<p>
+生成词典文件<br/>
+$(1):&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;output&nbsp;dictionary&nbsp;file<br/>
+词典的词有：<br/>
+fs_type=$(INTERNAL_USERIMAGES_EXT_VARIANT)<br/>
+system_size=$(BOARD_SYSTEMIMAGE_PARTITION_SIZE)<br/>
+userdata_size=$(BOARD_USERDATAIMAGE_PARTITION_SIZE)<br/>
+cache_fs_type=$(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE)<br/>
+cache_size=$(BOARD_CACHEIMAGE_PARTITION_SIZE)<br/>
+extfs_sparse_flag=$(INTERNAL_USERIMAGES_SPARSE_EXT_FLAG)<br/>
+mkyaffs2_extra_flags=$(mkyaffs2_extra_flags)<br/>
+selinux_fc=$(TARGET_ROOT_OUT)/file_contexts<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_UTILITY_FILES">INTERNAL_UTILITY_FILES</a></h3>
+<p>
+从所有要安装的模块里选出安装在$(PRODUCT_OUT)/utilities的文件<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="utilities">Target:&nbsp;&nbsp;utilities</a></h3>
+<p>
+生成所有安装在$(PRODUCT)/utitility目录的文件<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_RECOVERYIMAGE_TARGET">INSTALLED_RECOVERYIMAGE_TARGET</a></h3>
+<p>
+INSTALLED_RECOVERYIMAGE_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/recovery.img<br/>
+使用mka&nbsp;recoveryimage生成的文件<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/i9100/recovery.img<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_RECOVERY_INITRC">TARGET_RECOVERY_INITRC</a></h3>
+<p>
+recovery镜像根文件系统使用的init.rc文件<br/>
+在BoardConfig.mk文件里设置<br/>
+示例：<br/>
+&nbsp;&nbsp;TARGET_RECOVERY_INITRC&nbsp;:=&nbsp;device/samsung/i9100g/rootdir/recovery.rc<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_initrc">recovery_initrc</a></h3>
+<p>
+recovery镜像根文件系统是的init.rc文件，<br/>
+如果设置了TARGET_RECOVERY_INITRC，那么使用TARGET_RECOVERY_INITRC作为根文件系统的init.rc<br/>
+否则使用bootable/recovery/etc/init.rc作为根文件系统的init.rc<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_USES_RECOVERY_CHARGEMODE">BOARD_USES_RECOVERY_CHARGEMODE</a></h3>
+<p>
+是否用recovery模式做充电模式，该宏在cm10.1已经被取消了，<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_PREBUILT_RECOVERY_KERNEL">TARGET_PREBUILT_RECOVERY_KERNEL</a></h3>
+<p>
+预制的内核，适配设备时，常拿不到内核源码，可使用该宏设置已经编译好的内核<br/>
+示例：<br/>
+&nbsp;&nbsp;TARGET_PREBUILT_RECOVERY_KERNEL&nbsp;:=&nbsp;device/samsung/i9100g/kernel<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_kernel">recovery_kernel</a></h3>
+<p>
+编译Recovery使用的内核&nbsp;&nbsp;&nbsp;<br/>
+ifneq&nbsp;($(TARGET_PREBUILT_RECOVERY_KERNEL),)<br/>
+&nbsp;&nbsp;recovery_kernel&nbsp;:=&nbsp;$(TARGET_PREBUILT_RECOVERY_KERNEL)&nbsp;#&nbsp;Use&nbsp;prebuilt&nbsp;recovery&nbsp;kernel<br/>
+else<br/>
+&nbsp;&nbsp;recovery_kernel&nbsp;:=&nbsp;$(INSTALLED_KERNEL_TARGET)&nbsp;#&nbsp;same&nbsp;as&nbsp;a&nbsp;non-recovery&nbsp;system<br/>
+endif<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_uncompressed_ramdisk">recovery_uncompressed_ramdisk</a></h3>
+<p>
+recovery_uncompressed_ramdisk&nbsp;:=&nbsp;$(PRODUCT_OUT)/ramdisk-recovery.cpio<br/>
+示例：<br/>
+out/target/product/i9100/ramdisk-recovery.cpio<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_ramdisk">recovery_ramdisk</a></h3>
+<p>
+recovery使用的根文件系统<br/>
+recovery_ramdisk&nbsp;:=&nbsp;$(PRODUCT_OUT)/ramdisk-recovery.img<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/i9100/ramdisk-recovery.img<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_build_prop">recovery_build_prop</a></h3>
+<p>
+recovery_build_prop&nbsp;:=&nbsp;$(INSTALLED_BUILD_PROP_TARGET)<br/>
+&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/i9100/system/build.prop<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_binary">recovery_binary</a></h3>
+<p>
+recovery_binary&nbsp;:=&nbsp;$(call&nbsp;intermediates-dir-for,EXECUTABLES,recovery)/recovery<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;out/target/common/obj/EXECUTABLES/recovery_intermediates/recovery<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_resources_common">recovery_resources_common</a></h3>
+<p>
+recovery_resources_common&nbsp;:=&nbsp;$(call&nbsp;include-path-for,&nbsp;recovery)/res<br/>
+示例：<br/>
+bootable/recovery/res<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_resources_private">recovery_resources_private</a></h3>
+<p>
+recovery_resources_private&nbsp;:=&nbsp;$(strip&nbsp;$(wildcard&nbsp;$(TARGET_DEVICE_DIR)/recovery/res))<br/>
+示例：<br/>
+device/htc/pyramid/recovery/res<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_root_private">recovery_root_private</a></h3>
+<p>
+recovery_root_private&nbsp;:=&nbsp;$(strip&nbsp;$(wildcard&nbsp;$(TARGET_DEVICE_DIR)/recovery/root))<br/>
+示例：&nbsp;&nbsp;&nbsp;<br/>
+device/htc/pyramid/recovery/root<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_resource_deps">recovery_resource_deps</a></h3>
+<p>
+编译recovery依赖的资源文件，包括bootable/recovery/res下的图片文件，device配置目录recovery/res下的文件<br/>
+,device配置目录recovery/root下的文件<br/>
+recovery_resource_deps&nbsp;:=&nbsp;$(shell&nbsp;find&nbsp;$(recovery_resources_common)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(recovery_resources_private)&nbsp;$(recovery_root_private)&nbsp;-type&nbsp;f)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_RECOVERY_FSTAB">TARGET_RECOVERY_FSTAB</a></h3>
+<p>
+可通过TARGET_RECOVERY_FSTAB设置recovery使用的分区表文件<br/>
+在BoardConfig.mk里设置<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;TARGET_RECOVERY_FSTAB&nbsp;:=&nbsp;device/samsung/i9100g/recovery.fstab<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="recovery_fstab">recovery_fstab</a></h3>
+<p>
+recovery使用的分区表文件，<br/>
+如果未设置TARGET_RECOVERY_FSTAB，那么使用<br/>
+&nbsp;&nbsp;&nbsp;$(TARGET_DEVICE_DIR)/recovery.fstab&nbsp;&nbsp;&nbsp;&nbsp;如&nbsp;device/samsung/i9100g/recovery.fstab<br/>
+否则使用$(TARGET_RECOVERY_FSTAB)的值<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="RECOVERY_RESOURCE_ZIP">RECOVERY_RESOURCE_ZIP</a></h3>
+<p>
+recovery资源的记录：<br/>
+RECOVERY_RESOURCE_ZIP&nbsp;:=&nbsp;$(TARGET_OUT)/etc/recovery-resource.dat<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/i9100/system/etc/recovery-resource.dat<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_RECOVERYIMAGE_ARGS">INTERNAL_RECOVERYIMAGE_ARGS</a></h3>
+<p>
+调用mkboot程序使用的参数<br/>
+其中的参数有：<br/>
+--second&nbsp;,$(INSTALLED_2NDBOOTLOADER_TARGET)<br/>
+--kernel&nbsp;$(recovery_kernel)<br/>
+--ramdisk&nbsp;$(recovery_ramdisk)<br/>
+--cmdline&nbsp;"$(BOARD_KERNEL_CMDLINE)"<br/>
+--base&nbsp;$(BOARD_KERNEL_BASE)<br/>
+--pagesize&nbsp;$(BOARD_KERNEL_PAGESIZE)<br/>
+--ramdiskaddr&nbsp;$(BOARD_FORCE_RAMDISK_ADDRESS)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_KERNEL_CMDLINE">BOARD_KERNEL_CMDLINE</a></h3>
+<p>
+在BoardConfig.mk里设置启动内核参数<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;BOARD_KERNEL_CMDLINE&nbsp;:=&nbsp;console=ttyHSL0,115200,n8&nbsp;androidboot.hardware=find5&nbsp;lpj=67677<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_KERNEL_BASE">BOARD_KERNEL_BASE</a></h3>
+<p>
+在BoardConfig.mk里设置kernel基址<br/>
+BOARD_KERNEL_BASE&nbsp;:=&nbsp;0x40000000<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_KERNEL_PAGESIZE">BOARD_KERNEL_PAGESIZE</a></h3>
+<p>
+在BoardConfig.mk里设置页大小<br/>
+BOARD_KERNEL_PAGESIZE&nbsp;:=&nbsp;4096<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_FORCE_RAMDISK_ADDRESS">BOARD_FORCE_RAMDISK_ADDRESS</a></h3>
+<p>
+在BoardConfig.mk里设置ramdisk地址<br/>
+BOARD_FORCE_RAMDISK_ADDRESS&nbsp;:=&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_RECOVERY_FILES">INTERNAL_RECOVERY_FILES</a></h3>
+<p>
+从所有安装模块$(ALL_MODULES.$(module).INSTALLED)&nbsp;$(ALL_DEFAULT_INSTALLED_MODULES)<br/>
+得到安装在out/target/product/i9100/recovery下的文件<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="OTA_PUBLIC_KEYS">OTA_PUBLIC_KEYS</a></h3>
+<p>
+用于给ota包签名用的公钥.&nbsp;用dev-keys来签名<br/>
+OTA_PUBLIC_KEYS&nbsp;:=&nbsp;$(DEFAULT_SYSTEM_DEV_CERTIFICATE).x509.pem<br/>
+ifneq&nbsp;($(OTA_PACKAGE_SIGNING_KEY),)<br/>
+&nbsp;OTA_PUBLIC_KEYS&nbsp;:=&nbsp;$(OTA_PACKAGE_SIGNING_KEY).x509.pem<br/>
+&nbsp;PRODUCT_EXTRA_RECOVERY_KEYS&nbsp;:=&nbsp;$(DEFAULT_SYSTEM_DEV_CERTIFICATE)<br/>
+endif<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;build/target/product/security/testkey.x509.pem<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PRODUCT_EXTRA_RECOVERY_KEYS">PRODUCT_EXTRA_RECOVERY_KEYS</a></h3>
+<p>
+PRODUCT_EXTRA_RECOVERY_KEYS&nbsp;:=&nbsp;$(DEFAULT_SYSTEM_DEV_CERTIFICATE)<br/>
+PRODUCT_EXTRA_RECOVERY_KEYS&nbsp;+=&nbsp;build/target/product/security/cm<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="RECOVERY_INSTALL_OTA_KEYS">RECOVERY_INSTALL_OTA_KEYS</a></h3>
+<p>
+包含签名公钥的key文件，recovery&nbsp;程序将用该公钥来验证是否<br/>
+RECOVERY_INSTALL_OTA_KEYS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(call&nbsp;intermediates-dir-for,PACKAGING,ota_keys)/keys<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/find5/obj/PACKAGING/ota_keys_intermediates/keys<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="DUMPKEY_JAR">DUMPKEY_JAR</a></h3>
+<p>
+DUMPKEY_JAR&nbsp;:=&nbsp;$(HOST_OUT_JAVA_LIBRARIES)/dumpkey.jar<br/>
+示例：out/host/linux-x86/framework/dumpkey.jar<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(RECOVERY_INSTALL_OTA_KEYS)">Target:&nbsp;&nbsp;$(RECOVERY_INSTALL_OTA_KEYS)</a></h3>
+<p>
+生成规则：<br/>
+&nbsp;&nbsp;&nbsp;使用dumpkey.jar程序将公钥文件转为keys，并保存为$(RECOVERY_INSTALL_OTA_KEYS)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_RECOVERY_ROOT_TIMESTAMP">TARGET_RECOVERY_ROOT_TIMESTAMP</a></h3>
+<p>
+root.ts文件只是一个标志文件，表示recoery根文件系统文件是否都已经生成<br/>
+TARGET_RECOVERY_ROOT_TIMESTAMP&nbsp;:=&nbsp;$(TARGET_RECOVERY_OUT)/root.ts<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/recovery/root.ts<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(TARGET_RECOVERY_ROOT_TIMESTAMP)">Target:&nbsp;&nbsp;$(TARGET_RECOVERY_ROOT_TIMESTAMP)</a></h3>
+<p>
+生成规则：<br/>
+&nbsp;&nbsp;&nbsp;1.&nbsp;新建目录&nbsp;&nbsp;$(TARGET_RECOVERY_OUT)<br/>
+&nbsp;&nbsp;&nbsp;2.&nbsp;建立目录&nbsp;$(TARGET_RECOVERY_ROOT_OUT)/etc&nbsp;$(TARGET_RECOVERY_ROOT_OUT)/tmp<br/>
+&nbsp;&nbsp;&nbsp;3.&nbsp;拷贝root目录下的文件到recovery/root，做recovery根文件系统的底包<br/>
+&nbsp;&nbsp;&nbsp;4.&nbsp;删除&nbsp;$(TARGET_RECOVERY_ROOT_OUT)/init*.rc<br/>
+&nbsp;&nbsp;&nbsp;5.&nbsp;拷贝init.rc&nbsp;为&nbsp;recovery/root/init.rc<br/>
+&nbsp;&nbsp;&nbsp;6.&nbsp;拷贝init.recovery.*rc文件&nbsp;-cp&nbsp;$(TARGET_ROOT_OUT)/init.recovery.*.rc&nbsp;$(TARGET_RECOVERY_ROOT_OUT)/<br/>
+&nbsp;&nbsp;&nbsp;7.&nbsp;拷贝recovery程序放到recovery/root/sbin目录&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;8.&nbsp;拷贝资源文件&nbsp;cp&nbsp;-rf&nbsp;$(recovery_resources_common)&nbsp;$(TARGET_RECOVERY_ROOT_OUT)/<br/>
+&nbsp;&nbsp;&nbsp;9.&nbsp;拷贝私有的资源文件&nbsp;$(recovery_resources_private)<br/>
+&nbsp;&nbsp;&nbsp;10.拷贝私有的根目录文件&nbsp;$(recovery_root_private)<br/>
+&nbsp;&nbsp;&nbsp;11.&nbsp;拷贝recovery.fstab文件至recovery/root/etc/recovery.fstab<br/>
+&nbsp;&nbsp;&nbsp;12.&nbsp;拷贝公钥导出的key文件<br/>
+&nbsp;&nbsp;&nbsp;13.利用build.prop和$(INSTALLED_DEFAULT_PROP_TARGET)生成&nbsp;recovery/root/default.prop文件<br/>
+&nbsp;&nbsp;&nbsp;14.处理default.prop文件ro.build.date.utc设置为0，ro.adb.secure=1取消<br/>
+&nbsp;&nbsp;&nbsp;15.&nbsp;touch&nbsp;&nbsp;$(TARGET_RECOVERY_ROOT_TIMESTAMP)，便生成了recovery镜像的根文件系统<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(recovery_uncompressed_ramdisk)">Target:&nbsp;&nbsp;$(recovery_uncompressed_ramdisk)</a></h3>
+<p>
+利用mkbootfs程序将recovery/root生成根文件系统未压缩的镜像<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(recovery_ramdisk)">Target:&nbsp;&nbsp;$(recovery_ramdisk)</a></h3>
+<p>
+利用minigzip将$(recovery_uncompressed_ramdisk)生成根文件系统镜像ramdisk-recovery.img<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_CUSTOM_BOOTIMG_MK">BOARD_CUSTOM_BOOTIMG_MK</a></h3>
+<p>
+在BoardConfig.mk里设置用于生成镜像的makfile，象索尼的机器生成boot.img比较特殊，会设置该值<br/>
+指向一个makefile文件，会用该文件生成boot.img和recovery.img<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_RECOVERYIMAGE_TARGET)">Target:&nbsp;&nbsp;$(INSTALLED_RECOVERYIMAGE_TARGET)</a></h3>
+<p>
+利用mkbootimg程序将内核&nbsp;根文件系统镜像&nbsp;以及设置的参数$(INTERNAL_RECOVERYIMAGE_ARGS)<br/>
+&nbsp;生成recovery镜像<br/>
+&nbsp;并检验生成的镜像是否超过预设值<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(RECOVERY_RESOURCE_ZIP)">Target:&nbsp;&nbsp;$(RECOVERY_RESOURCE_ZIP)</a></h3>
+<p>
+将recoery/root/res下的文件打包生成&nbsp;&nbsp;&nbsp;out/target/product/i9100/system/etc/recovery-resource.dat<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="recoveryimage">Target:&nbsp;&nbsp;recoveryimage</a></h3>
+<p>
+生成recovery镜像&nbsp;recovery.img<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_RECOVERYZIP_TARGET">INSTALLED_RECOVERYZIP_TARGET</a></h3>
+<p>
+INSTALLED_RECOVERYZIP_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/utilities/update.zip<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/i9100/utilities/update.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_RECOVERYZIP_TARGET)">Target:&nbsp;&nbsp;$(INSTALLED_RECOVERYZIP_TARGET)</a></h3>
+<p>
+生成用于更新recovery的ota包<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="recoveryzip">Target:&nbsp;&nbsp;recoveryzip</a></h3>
+<p>
+伪目标&nbsp;依赖&nbsp;$(INSTALLED_RECOVERYZIP_TARGET)<br/>
+生成用于更新recovery的ota包<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_NAND_PAGE_SIZE">BOARD_NAND_PAGE_SIZE</a></h3>
+<p>
+在BoardConfig.mk里设置BOARD_NAND_PAGE_SIZE&nbsp;nand的page&nbsp;size<br/>
+yaffs文件系统有该选项<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_NAND_SPARE_SIZE">BOARD_NAND_SPARE_SIZE</a></h3>
+<p>
+在BoardConfig.mk里设置BOARD_NAND_PAGE_SIZE&nbsp;nand的spare&nbsp;size<br/>
+yaffs文件系统有该选项<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="mkyaffs2_extra_flags">mkyaffs2_extra_flags</a></h3>
+<p>
+编译yaffs文件系统的选项<br/>
+mkyaffs2_extra_flags&nbsp;:=&nbsp;-c&nbsp;$(BOARD_NAND_PAGE_SIZE)&nbsp;<br/>
+mkyaffs2_extra_flags&nbsp;+=&nbsp;-s&nbsp;$(BOARD_NAND_SPARE_SIZE)<br/>
+</p>
+</div>
 </div>
 <?php require_once '../../sidebar.php';?>
 <?php require_once '../../footer.php';?>
