@@ -1071,6 +1071,200 @@ mkyaffs2_extra_flags&nbsp;:=&nbsp;-c&nbsp;$(BOARD_NAND_PAGE_SIZE)&nbsp;<br/>
 mkyaffs2_extra_flags&nbsp;+=&nbsp;-s&nbsp;$(BOARD_NAND_SPARE_SIZE)<br/>
 </p>
 </div>
+<div class="variable">
+<h3><a id="PDK_FUSION_SYSIMG_FILES">PDK_FUSION_SYSIMG_FILES</a></h3>
+<p>
+从$(ALL_PDK_FUSION_FILES)里剔除被覆盖的apk模块得到PDK_FUSION_SYSIMG_FILES<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_SYSTEMIMAGE_FILES">INTERNAL_SYSTEMIMAGE_FILES</a></h3>
+<p>
+从out/target/product/i9100/system/里取出ALL_PREBUILT,&nbsp;&nbsp;&nbsp;ALL_COPIED_HEADERS，ALL_GENERATED_SOURCES，ALL_DEFAULT_INSTALLED_MODULES，<br/>
+ALL_DEFAULT_INSTALLED_MODULES，PDK_FUSION_SYSIMG_FILES，RECOVERY_RESOURCE_ZIP等类型的模块生成的文件<br/>
+INTERNAL_SYSTEMIMAGE_FILES&nbsp;:=&nbsp;$(filter&nbsp;$(TARGET_OUT)/%,&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_PREBUILT)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_COPIED_HEADERS)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_GENERATED_SOURCES)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_DEFAULT_INSTALLED_MODULES)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(PDK_FUSION_SYSIMG_FILES)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(RECOVERY_RESOURCE_ZIP))<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="FULL_SYSTEMIMAGE_DEPS">FULL_SYSTEMIMAGE_DEPS</a></h3>
+<p>
+编译systemimage需要依赖的文件<br/>
+FULL_SYSTEMIMAGE_DEPS&nbsp;:=&nbsp;$(INTERNAL_SYSTEMIMAGE_FILES)&nbsp;$(INTERNAL_USERIMAGES_DEPS)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_FILES_FILE">INSTALLED_FILES_FILE</a></h3>
+<p>
+INSTALLED_FILES_FILE&nbsp;:=&nbsp;$(PRODUCT_OUT)/installed-files.txt<br/>
+安装的文件列表<br/>
+示例：out/target/product/i9100/installed-files.txt<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_FILES_FILE)">Target:&nbsp;&nbsp;$(INSTALLED_FILES_FILE)</a></h3>
+<p>
+生成out/target/product/i9100/installed-files.txt<br/>
+installed-files.txt里将记录每个安装在system目录下的所有文件的大小<br/>
+规则：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;使用工具build/tools/fileslist.py&nbsp;处理&nbsp;$(TARGET_OUT)&nbsp;生成installed-files.txt<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="installed-file-list">Target:&nbsp;&nbsp;installed-file-list</a></h3>
+<p>
+伪目标&nbsp;依赖目标&nbsp;$(INSTALLED_FILES_FILE)<br/>
+&nbsp;&nbsp;&nbsp;最终生成out/target/product/i9100/installed-files.txt<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="systemimage_intermediates">systemimage_intermediates</a></h3>
+<p>
+systemimage_intermediates&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;intermediates-dir-for,PACKAGING,systemimage)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/find5/obj/PACKAGING/systemimage_intermediates<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILT_SYSTEMIMAGE">BUILT_SYSTEMIMAGE</a></h3>
+<p>
+BUILT_SYSTEMIMAGE&nbsp;:=&nbsp;$(systemimage_intermediates)/system.img<br/>
+示例：&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/obj/PACKAGING/systemimage_intermediates/system.img<br/>
+</p>
+</div>
+<div class="function">
+<h3><a id="build-systemimage-target">Function:&nbsp;&nbsp;build-systemimage-target</a></h3>
+<p>
+利用build/tools/releasetools/build_image.py&nbsp;将&nbsp;system目录下的文件打包成镜像，<br/>
+并将镜像信息输出至system_image_info.txt&nbsp;&nbsp;&nbsp;<br/>
+#&nbsp;$(1):&nbsp;output&nbsp;file&nbsp;镜像文件路径<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="$(BUILT_SYSTEMIMAGE)">$(BUILT_SYSTEMIMAGE)</a></h3>
+<p>
+直接调用函数build-systemimage-target生成<br/>
+&nbsp;&nbsp;out/target/product/find5/obj/PACKAGING/systemimage_intermediates/system.img<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_SYSTEMIMAGE">INSTALLED_SYSTEMIMAGE</a></h3>
+<p>
+INSTALLED_SYSTEMIMAGE&nbsp;:=&nbsp;$(PRODUCT_OUT)/system.img<br/>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/find5/system.img<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="SYSTEMIMAGE_SOURCE_DIR">SYSTEMIMAGE_SOURCE_DIR</a></h3>
+<p>
+SYSTEMIMAGE_SOURCE_DIR&nbsp;:=&nbsp;$(TARGET_OUT)<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/system<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="RECOVERY_FROM_BOOT_PATCH">RECOVERY_FROM_BOOT_PATCH</a></h3>
+<p>
+RECOVERY_FROM_BOOT_PATCH&nbsp;:=&nbsp;$(intermediates)/recovery_from_boot.p<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/find5/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(RECOVERY_FROM_BOOT_PATCH)">Target:&nbsp;&nbsp;$(RECOVERY_FROM_BOOT_PATCH)</a></h3>
+<p>
+目标：生成中间文件recovery_from_boot.p<br/>
+规则：利用$(HOST_OUT_EXECUTABLES)/imgdiff工具将recovery.img和boot.img进行对比并生成补丁文件recovery_from_boot.p&nbsp;<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_SYSTEMIMAGE)">Target:&nbsp;&nbsp;$(INSTALLED_SYSTEMIMAGE)</a></h3>
+<p>
+目标：生成system.img<br/>
+规则：&nbsp;将中间文件$(BUILT_SYSTEMIMAGE)和$(RECOVERY_FROM_BOOT_PATCH)拷贝至目标目录<br/>
+并检查文件大小<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="systemimage">Target:&nbsp;&nbsp;systemimage</a></h3>
+<p>
+目标：生成产品目录下的system.img文件<br/>
+规则：&nbsp;它是一个伪目标，依赖$(INSTALLED_SYSTEMIMAGE)目标<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="systemimage-nodeps">Target:&nbsp;&nbsp;systemimage-nodeps</a></h3>
+<p>
+伪目标：和伪目标snod一起使用&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;如果目标里同时含有伪目标systemimage-nodeps&nbsp;和&nbsp;snod<br/>
+&nbsp;&nbsp;那么将不做全编译，直接将现有的system目录下的文件打包生成system.img<br/>
+</p>
+</div>
+<div class="function">
+<h3><a id="build-systemtarball-target">Function:&nbsp;&nbsp;build-systemtarball-target</a></h3>
+<p>
+利用&nbsp;build/tools/mktarball.sh&nbsp;工具用于生成system.tar.bz2<br/>
+build/tools/mktarball.sh&nbsp;脚本的参数：<br/>
+$1:path&nbsp;to&nbsp;fs_get_stats&nbsp;program<br/>
+$2:&nbsp;start&nbsp;dir&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;$3:&nbsp;subdir&nbsp;to&nbsp;tar&nbsp;up&nbsp;(from&nbsp;$2)&nbsp;&nbsp;<br/>
+&nbsp;$4:&nbsp;target&nbsp;tar&nbsp;name&nbsp;&nbsp;<br/>
+$5:&nbsp;target&nbsp;tarball&nbsp;name&nbsp;(usually&nbsp;$(3).bz2)<br/>
+调用方式：<br/>
+&nbsp;&nbsp;$(MKTARBALL)&nbsp;$(FS_GET_STATS)&nbsp;&nbsp;$(PRODUCT_OUT)&nbsp;system&nbsp;$(PRIVATE_SYSTEM_TAR)&nbsp;$(INSTALLED_SYSTEMTARBALL_TARGET)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="SYSTEM_TARBALL_FORMAT">SYSTEM_TARBALL_FORMAT</a></h3>
+<p>
+默认为bz2格式<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="system_tar">system_tar</a></h3>
+<p>
+system_tar&nbsp;:=&nbsp;$(PRODUCT_OUT)/system.tar<br/>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/find5/system.tar<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_SYSTEMTARBALL_TARGET">INSTALLED_SYSTEMTARBALL_TARGET</a></h3>
+<p>
+INSTALLED_SYSTEMTARBALL_TARGET&nbsp;:=&nbsp;$(system_tar).$(SYSTEM_TARBALL_FORMAT)<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/system.tar<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="INSTALLED_SYSTEMTARBALL_TARGET">Target:&nbsp;&nbsp;INSTALLED_SYSTEMTARBALL_TARGET</a></h3>
+<p>
+利用函数build-systemtarball-target生成system.tar.bz2<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="systemtarball-nodeps">Target:&nbsp;&nbsp;systemtarball-nodeps</a></h3>
+<p>
+伪目标：和伪目标snod一起使用&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+如果目标里同时含有伪目标systemtarball-nodeps&nbsp;和&nbsp;snod<br/>
+&nbsp;直接将现有的system目录下的文件打包生成system.tar.bz2<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="stnod">Target:&nbsp;&nbsp;stnod</a></h3>
+<p>
+如果单独使用stnod<br/>
+将生成system.tar.bz2<br/>
+</p>
+</div>
 </div>
 <?php require_once '../../sidebar.php';?>
 <?php require_once '../../footer.php';?>
