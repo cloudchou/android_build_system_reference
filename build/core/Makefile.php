@@ -36,6 +36,8 @@ ifneq&nbsp;""&nbsp;"$(filter&nbsp;eng.%,$(BUILD_NUMBER))"<br/>
 else<br/>
 &nbsp;&nbsp;FILE_NAME_TAG&nbsp;:=&nbsp;$(BUILD_NUMBER)<br/>
 endif<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;eng.cloud<br/>
 </p>
 </div>
 <div class="variable">
@@ -1263,6 +1265,610 @@ INSTALLED_SYSTEMTARBALL_TARGET&nbsp;:=&nbsp;$(system_tar).$(SYSTEM_TARBALL_FORMA
 <p>
 如果单独使用stnod<br/>
 将生成system.tar.bz2<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PLATFORM_ZIP_ADD_JAVA">PLATFORM_ZIP_ADD_JAVA</a></h3>
+<p>
+platform.zip里是否添加java资源，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果时目标为platform-java，<br/>
+则会添加java内容至platform.zip<br/>
+ifneq&nbsp;(,$(filter&nbsp;platform-java,&nbsp;$(MAKECMDGOALS)))<br/>
+&nbsp;&nbsp;PLATFORM_ZIP_ADD_JAVA&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_PLATFORM_ZIP">INSTALLED_PLATFORM_ZIP</a></h3>
+<p>
+INSTALLED_PLATFORM_ZIP&nbsp;:=&nbsp;$(PRODUCT_OUT)/platform.zip<br/>
+示例：<br/>
+out/target/product/find5/platform.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="platform">Target:&nbsp;&nbsp;platform</a></h3>
+<p>
+伪目标，依赖于目标$(INSTALLED_PLATFORM_ZIP)&nbsp;<br/>
+生成规则：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将system目录，notice文件&nbsp;$(PDK_SYMBOL_FILES_LIST)&nbsp;打包成platform.zip<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果时目标为platform-java，<br/>
+&nbsp;则会添加java内容至platform.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="platform-java">Target:&nbsp;&nbsp;platform-java</a></h3>
+<p>
+伪目标：&nbsp;依赖于目标platform，<br/>
+生成platform.zip时，会添加java内容<br/>
+</p>
+</div>
+<div class="function">
+<h3><a id="build-boottarball-target">Function:&nbsp;&nbsp;build-boottarball-target</a></h3>
+<p>
+生成boot.tar.bz2<br/>
+规则：<br/>
+&nbsp;&nbsp;&nbsp;1.创建目录$(PRODUCT_OUT)/boot<br/>
+&nbsp;&nbsp;&nbsp;2.拷贝文件&nbsp;包括&nbsp;内核，根文件系统，第二阶段的bootloader至boot目录<br/>
+&nbsp;&nbsp;&nbsp;3.拷贝cmdline至boot目录<br/>
+&nbsp;&nbsp;&nbsp;4.利用build/tools/mktarball.sh&nbsp;将boot目录下的内容生成boot.tar.bz2<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOOT_TARBALL_FORMAT">BOOT_TARBALL_FORMAT</a></h3>
+<p>
+默认后缀格式为bz2<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="boot_tar">boot_tar</a></h3>
+<p>
+boot_tar&nbsp;:=&nbsp;$(PRODUCT_OUT)/boot.tar<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_BOOTTARBALL_TARGET">INSTALLED_BOOTTARBALL_TARGET</a></h3>
+<p>
+INSTALLED_BOOTTARBALL_TARGET&nbsp;:=&nbsp;$(boot_tar).$(BOOT_TARBALL_FORMAT)<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/boot.tar.bz2&nbsp;<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="(INSTALLED_BOOTTARBALL_TARGET)">Target:&nbsp;&nbsp;(INSTALLED_BOOTTARBALL_TARGET)</a></h3>
+<p>
+利用函数build-boottarball-target生成boot.tar.bz2<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="boottarball-nodeps">Target:&nbsp;&nbsp;boottarball-nodeps</a></h3>
+<p>
+生成boot.tar.bz2，某些依赖没生成，也会继续生成boot.tar.bz2<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="btnod">Target:&nbsp;&nbsp;btnod</a></h3>
+<p>
+和boottarball-nodeps一样，&nbsp;生成boot.tar.bz2<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_USERDATAIMAGE_FILES">INTERNAL_USERDATAIMAGE_FILES</a></h3>
+<p>
+安装在data目录的文件，一般只有test类型的模块才会安装在该模块<br/>
+INTERNAL_USERDATAIMAGE_FILES&nbsp;:=&nbsp;\<br/>
+&nbsp;$(filter&nbsp;$(TARGET_OUT_DATA)/%,$(ALL_DEFAULT_INSTALLED_MODULES))<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="userdataimage_intermediates">userdataimage_intermediates</a></h3>
+<p>
+userdataimage_intermediates&nbsp;:=&nbsp;\<br/>
+$(call&nbsp;intermediates-dir-for,PACKAGING,userdata)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例：&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;out/target/product/find5/obj/PACKAGING/userdata_intermediates<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILT_USERDATAIMAGE_TARGET">BUILT_USERDATAIMAGE_TARGET</a></h3>
+<p>
+BUILT_USERDATAIMAGE_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/userdata.img<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/userdata.img<br/>
+</p>
+</div>
+<div class="function">
+<h3><a id="build-userdataimage-target">Function:&nbsp;&nbsp;build-userdataimage-target</a></h3>
+<p>
+生成userdata.img<br/>
+以及userdata_image_info.txt<br/>
+利用的工具：<br/>
+&nbsp;&nbsp;&nbsp;build/tools/releasetools/build_image.py<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_USERDATAIMAGE_TARGET">INSTALLED_USERDATAIMAGE_TARGET</a></h3>
+<p>
+INSTALLED_USERDATAIMAGE_TARGET&nbsp;:=&nbsp;$(BUILT_USERDATAIMAGE_TARGET)<br/>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/find5/userdata.img<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_USERDATAIMAGE_TARGET)">Target:&nbsp;&nbsp;$(INSTALLED_USERDATAIMAGE_TARGET)</a></h3>
+<p>
+利用函数build-userdataimage-target生成userdata.img<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="userdataimage-nodeps">Target:&nbsp;&nbsp;userdataimage-nodeps</a></h3>
+<p>
+伪目标，依赖于$(INSTALLED_USERDATAIMAGE_TARGET)<br/>
+&nbsp;&nbsp;生成userdata.img<br/>
+</p>
+</div>
+<div class="function">
+<h3><a id="build-userdatatarball-target">Function:&nbsp;&nbsp;build-userdatatarball-target</a></h3>
+<p>
+生成userdata.tar.bz2<br/>
+规则：&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用build/tools/mktarball.sh&nbsp;将data目录下的内容生成userdata.tar.bz2&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="userdata_tar">userdata_tar</a></h3>
+<p>
+userdata_tar&nbsp;:=&nbsp;$(PRODUCT_OUT)/userdata.tar<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/find5/userdata.tar<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_USERDATATARBALL_TARGET">INSTALLED_USERDATATARBALL_TARGET</a></h3>
+<p>
+INSTALLED_USERDATATARBALL_TARGET&nbsp;:=&nbsp;$(userdata_tar).bz2&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/find5/userdata.tar.bz2<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_USERDATATARBALL_TARGET)">Target:&nbsp;&nbsp;$(INSTALLED_USERDATATARBALL_TARGET)</a></h3>
+<p>
+利用&nbsp;build-userdatatarball-target&nbsp;函数生成userdata.tar.bz2&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="userdatatarball-nodeps">Target:&nbsp;&nbsp;userdatatarball-nodeps</a></h3>
+<p>
+利用&nbsp;build-userdatatarball-target&nbsp;函数生成userdata.tar.bz2&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE">BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE</a></h3>
+<p>
+在BoardConfig.mk里配置，只有配置了该项&nbsp;才可生成cache.img<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_CACHEIMAGE_FILES">INTERNAL_CACHEIMAGE_FILES</a></h3>
+<p>
+安装在cache目录下的文件&nbsp;&nbsp;&nbsp;集合<br/>
+INTERNAL_CACHEIMAGE_FILES&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(filter&nbsp;$(TARGET_OUT_CACHE)/%,$(ALL_DEFAULT_INSTALLED_MODULES))<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="cacheimage_intermediates">cacheimage_intermediates</a></h3>
+<p>
+cacheimage_intermediates&nbsp;:=&nbsp;\<br/>
+&nbsp;$(call&nbsp;intermediates-dir-for,PACKAGING,cache)&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;out/target/product/find5/obj/PACKAGING/cache_intermediates&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="$(BUILT_CACHEIMAGE_TARGET)">$(BUILT_CACHEIMAGE_TARGET)</a></h3>
+<p>
+BUILT_CACHEIMAGE_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/cache.img<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/cache.img<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="build-cacheimage-target">Target:&nbsp;&nbsp;build-cacheimage-target</a></h3>
+<p>
+生成cache.img和cache_image_info.txt<br/>
+并会检验cache的大小<br/>
+利用工具：build/tools/releasetools/build_image.py<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_CACHEIMAGE_TARGET)">Target:&nbsp;&nbsp;$(INSTALLED_CACHEIMAGE_TARGET)</a></h3>
+<p>
+生成cache.img<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="cacheimage-nodeps">Target:&nbsp;&nbsp;cacheimage-nodeps</a></h3>
+<p>
+生成cache.img<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_USE_DISKINSTALLER">TARGET_USE_DISKINSTALLER</a></h3>
+<p>
+是否使用diskingtall,在BoardConfig.mk里设置，<br/>
+如果启用了该宏，那么将包含：<br/>
+&nbsp;&nbsp;&nbsp;include&nbsp;bootable/diskinstaller/config.mk<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="DISTTOOLS">DISTTOOLS</a></h3>
+<p>
+host&nbsp;tools&nbsp;needed&nbsp;to&nbsp;build&nbsp;dist&nbsp;and&nbsp;OTA&nbsp;packages<br/>
+DISTTOOLS&nbsp;:=&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/minigzip&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/adb&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/mkbootfs&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/mkbootimg&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/unpackbootimg&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/fs_config&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/mkyaffs2image&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/zipalign&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/bsdiff&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/imgdiff&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_JAVA_LIBRARIES)/dumpkey.jar&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_JAVA_LIBRARIES)/signapk.jar&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/mkuserimg.sh&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/make_ext4fs&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/simg2img&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/e2fsck<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="OTATOOLS">OTATOOLS</a></h3>
+<p>
+生成ota包需要的工具集<br/>
+OTATOOLS&nbsp;:=&nbsp;$(DISTTOOLS)&nbsp;\<br/>
+&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/aapt<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="otatools">Target:&nbsp;&nbsp;otatools</a></h3>
+<p>
+生成&nbsp;生成ota包需要的&nbsp;工具集合<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="UNPACKBOOTIMG">UNPACKBOOTIMG</a></h3>
+<p>
+UNPACKBOOTIMG&nbsp;:=&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/unpackbootimg<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/host/linux-x86/bin/unpackbootimg<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="unpackbootimg">Target:&nbsp;&nbsp;unpackbootimg</a></h3>
+<p>
+生成unpackbootimg程序<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILT_TARGET_FILES_PACKAGE">BUILT_TARGET_FILES_PACKAGE</a></h3>
+<p>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/find5/obj/PACKAGING/target_files_intermediates/cm_find5-target_files-eng.cloud.zip<br/>
+</p>
+</div>
+<div class="function">
+<h3><a id="package_files-copy-root">Function:&nbsp;&nbsp;package_files-copy-root</a></h3>
+<p>
+拷贝文件&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(1):&nbsp;Directory&nbsp;to&nbsp;copy<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(2):&nbsp;Location&nbsp;to&nbsp;copy&nbsp;it&nbsp;to&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="built_ota_tools">built_ota_tools</a></h3>
+<p>
+编译ota包需要的工具<br/>
+built_ota_tools&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;intermediates-dir-for,EXECUTABLES,applypatch)/applypatch&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;intermediates-dir-for,EXECUTABLES,applypatch_static)/applypatch_static&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;intermediates-dir-for,EXECUTABLES,check_prereq)/check_prereq&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;intermediates-dir-for,EXECUTABLES,sqlite3)/sqlite3&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;intermediates-dir-for,EXECUTABLES,updater)/updater<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_RELEASETOOLS_EXTENSIONS">TARGET_RELEASETOOLS_EXTENSIONS</a></h3>
+<p>
+在BoardConfig.mk里设置，用于指定扩展的&nbsp;RELEASE&nbsp;TOOLS&nbsp;&nbsp;&nbsp;所在的目录<br/>
+如果不设置该项，默认扩展的release&nbsp;tools所在目录是<br/>
+&nbsp;&nbsp;$(TARGET_DEVICE_DIR)/../common<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(BUILT_TARGET_FILES_PACKAGE)">Target:&nbsp;&nbsp;$(BUILT_TARGET_FILES_PACKAGE)</a></h3>
+<p>
+生成中间ota包，示例：&nbsp;out/target/product/find5/obj/PACKAGING/target_files_intermediates/cm_find5-target_files-eng.cloud.zip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+依赖：$(INSTALLED_BOOTIMAGE_TARGET)&nbsp;$(INSTALLED_RADIOIMAGE_TARGET)&nbsp;$(INSTALLED_RECOVERYIMAGE_TARGET)&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(INSTALLED_SYSTEMIMAGE)&nbsp;&nbsp;$(INSTALLED_USERDATAIMAGE_TARGET)&nbsp;&nbsp;$(INSTALLED_CACHEIMAGE_TARGET)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(INSTALLED_ANDROID_INFO_TXT_TARGET)&nbsp;$(built_ota_tools)&nbsp;$(APKCERTS_FILE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(HOST_OUT_EXECUTABLES)/fs_config<br/>
+为方便起见，称out/target/product/find5/obj/PACKAGING/target_files_intermediates/eng.cloud为$(zip_root)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+生成规则：<br/>
+&nbsp;&nbsp;&nbsp;1)删除中间目录下的所有文件<br/>
+&nbsp;&nbsp;&nbsp;2)创建目录&nbsp;&nbsp;$(zip_root)&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;3)创建目录&nbsp;&nbsp;&nbsp;$(zip_root)/RECOVERY<br/>
+&nbsp;&nbsp;&nbsp;4)拷贝recovery用的根文件系统至$(zip_root)&nbsp;/RECOVERY/RAMDISK<br/>
+&nbsp;&nbsp;&nbsp;5)如果有内核&nbsp;，拷贝内核至$(zip_root)&nbsp;/RECOVERY<br/>
+&nbsp;&nbsp;&nbsp;6)如果有第二阶段的bootloader，拷贝至$(zip_root)/RECOVERY<br/>
+&nbsp;&nbsp;&nbsp;7)输出$(BOARD_KERNEL_CMDLINE)至&nbsp;$(zip_root)/RECOVERY/cmdline<br/>
+&nbsp;&nbsp;&nbsp;8)输出$(BOARD_KERNEL_BASE)至&nbsp;$(zip_root)/RECOVERY/base<br/>
+&nbsp;&nbsp;&nbsp;9)输出$(BOARD_KERNEL_PAGESIZE)至&nbsp;$(zip_root)/RECOVERY/pagesize&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;10)创建目录&nbsp;&nbsp;&nbsp;&nbsp;$(zip_root)/BOOT<br/>
+&nbsp;&nbsp;&nbsp;11)如果有内核&nbsp;，拷贝内核至$(zip_root)/BOOT<br/>
+&nbsp;&nbsp;&nbsp;12)如果有第二阶段的bootloader，拷贝至$(zip_root)/BOOT<br/>
+&nbsp;&nbsp;&nbsp;13)输出$(BOARD_KERNEL_CMDLINE)至&nbsp;$(zip_root)/BOOT/cmdline<br/>
+&nbsp;&nbsp;&nbsp;14)输出$(BOARD_KERNEL_BASE)至&nbsp;$(zip_root)/BOOT/base<br/>
+&nbsp;&nbsp;&nbsp;15)输出$(BOARD_KERNEL_PAGESIZE)至&nbsp;$(zip_root)/BOOT/pagesize&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;16)输出$(ZIP_SAVE_UBOOTIMG_ARGS)至&nbsp;$(zip_root)/BOOT/ubootargs<br/>
+&nbsp;&nbsp;&nbsp;17)拷贝radio.img至$(zip_root)/RADIO<br/>
+&nbsp;&nbsp;&nbsp;18)拷贝产品目录子目录system的所有资源至$(zip_root)/SYSTEM<br/>
+&nbsp;&nbsp;&nbsp;19)拷贝产品目录子目录data的所有资源至$(zip_root)/DATA<br/>
+&nbsp;&nbsp;&nbsp;20)创建目录$(zip_root)&nbsp;/OTA/bin<br/>
+&nbsp;&nbsp;&nbsp;21)创建目录$(zip_root)&nbsp;/META<br/>
+&nbsp;&nbsp;&nbsp;22)拷贝app签名密钥文件$(APKCERTS_FILE)至$(zip_root)/META/apkcerts.txt<br/>
+&nbsp;&nbsp;&nbsp;23)输出$(PRODUCT_OTA_PUBLIC_KEYS)至$(zip_root)/META/otakeys.txt<br/>
+&nbsp;&nbsp;&nbsp;24)输出&nbsp;recovery_api_version=$(PRIVATE_RECOVERY_API_VERSION)至$(zip_root)/META/misc_info.txt<br/>
+&nbsp;&nbsp;&nbsp;25)如果定义了&nbsp;BOARD_FLASH_BLOCK_SIZE，输出block_size=$(BOARD_FLASH_BLOCK_SIZE)至$(zip_root)/META/misc_info.txt<br/>
+&nbsp;&nbsp;&nbsp;26)如果定义了BOARD_BOOTIMAGE_PARTITION_SIZE,输出boot_size=$(BOARD_BOOTIMAGE_PARTITION_SIZE)至$(zip_root)/META/misc_info.txt<br/>
+&nbsp;&nbsp;&nbsp;27)如果定义了BOARD_RECOVERYIMAGE_PARTITION_SIZE,输出recovery_size=$(BOARD_RECOVERYIMAGE_PARTITION_SIZE)至$(zip_root)/META/misc_info.txt<br/>
+&nbsp;&nbsp;&nbsp;28)输出tool_extensions=$(tool_extensions)至$(zip_root)/META/misc_info.txt<br/>
+&nbsp;&nbsp;&nbsp;29)输出default_system_dev_certificate=$(DEFAULT_SYSTEM_DEV_CERTIFICATE)&nbsp;至$(zip_root)/META/misc_info.txt<br/>
+&nbsp;&nbsp;&nbsp;30)&nbsp;如果定义了PRODUCT_EXTRA_RECOVERY_KEYS，则输出extra_recovery_keys=$(PRODUCT_EXTRA_RECOVERY_KEYS)至$(zip_root)/META/misc_info.txt<br/>
+&nbsp;&nbsp;&nbsp;32)输出mkbootimg_args=$(BOARD_MKBOOTIMG_ARGS)至$(zip_root)/META/misc_info.txt<br/>
+&nbsp;&nbsp;&nbsp;33)调用generate-userimage-prop-dictionary函数生成属性字典<br/>
+&nbsp;&nbsp;&nbsp;34)将$(zip_root下的所有文件打包生成$(BUILT_TARGET_FILES_PACKAGE)<br/>
+&nbsp;&nbsp;&nbsp;35)利用fsconfig程序对zip包里的SYSTEM,BOOT/RAMDISK,RAMDISK各自统计，并生成相应的filesystem_config.txt文件<br/>
+&nbsp;&nbsp;&nbsp;36)把所有的filesystem_config.txt打包添加至$(BUILT_TARGET_FILES_PACKAGE)里<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="target-files-package">Target:&nbsp;&nbsp;target-files-package</a></h3>
+<p>
+依赖于$(BUILT_TARGET_FILES_PACKAGE)目标<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_OTA_PACKAGE_TARGET">INTERNAL_OTA_PACKAGE_TARGET</a></h3>
+<p>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/cm_find5-ota-eng.cloud.zip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="OTA_FROM_TARGET_SCRIPT">OTA_FROM_TARGET_SCRIPT</a></h3>
+<p>
+将中间ota包生成最终ota包的python脚本<br/>
+默认为build/tools/releasetools/ota_from_target_files<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT">TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT</a></h3>
+<p>
+在BoardConfig.mk里设置，<br/>
+&nbsp;&nbsp;&nbsp;用于定义将中间ota包生成最终ota包的python脚本文件<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_OTA_ASSERT_DEVICE">TARGET_OTA_ASSERT_DEVICE</a></h3>
+<p>
+在BoardConfig.mk里设置，如果定义了该宏，那么在ota包的updater-script脚本里会添加assert语句用的device，<br/>
+避免将ota包刷至不能用的机型<br/>
+示例：<br/>
+&nbsp;&nbsp;TARGET_OTA_ASSERT_DEVICE&nbsp;:=&nbsp;pyramid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INTERNAL_OTA_PACKAGE_TARGET)">Target:&nbsp;&nbsp;$(INTERNAL_OTA_PACKAGE_TARGET)</a></h3>
+<p>
+生成最终的ota包<br/>
+规则：<br/>
+&nbsp;&nbsp;&nbsp;利用$(OTA_FROM_TARGET_SCRIPT)脚本处理$(BUILT_TARGET_FILES_PACKAGE)，得到$(INTERNAL_OTA_PACKAGE_TARGET)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="CM_TARGET_PACKAGE">CM_TARGET_PACKAGE</a></h3>
+<p>
+CM_TARGET_PACKAGE&nbsp;:=&nbsp;$(PRODUCT_OUT)/cm-$(CM_VERSION).zip<br/>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/find5/cm-10.1.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="otapackage">Target:&nbsp;&nbsp;otapackage</a></h3>
+<p>
+伪目标&nbsp;生成最终ota包，&nbsp;即out/target/product/find5/cm_find5-ota-eng.cloud.zip<br/>
+&nbsp;&nbsp;&nbsp;依赖目标$(INTERNAL_OTA_PACKAGE_TARGET)<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="bacon">Target:&nbsp;&nbsp;bacon</a></h3>
+<p>
+生成$(CM_TARGET_PACKAGE)&nbsp;示例：out/target/product/find5/cm-10.1.zip<br/>
+规则：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;将$(INTERNAL_OTA_PACKAGE_TARGET)做硬链接，并删掉先前的文件，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;最后计算md5<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_UPDATE_PACKAGE_TARGET">INTERNAL_UPDATE_PACKAGE_TARGET</a></h3>
+<p>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/target/product/find5/cm_find5-img-eng.cloud.zip&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="IMG_FROM_TARGET_SCRIPT">IMG_FROM_TARGET_SCRIPT</a></h3>
+<p>
+默认为build/tools/releasetools/img_from_target_files<br/>
+否则设置为TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT">TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT</a></h3>
+<p>
+在BoardConfig.mk里设置<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;用于定义将中间ota包生成最终img包的python脚本文件<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INTERNAL_UPDATE_PACKAGE_TARGET)">Target:&nbsp;&nbsp;$(INTERNAL_UPDATE_PACKAGE_TARGET)</a></h3>
+<p>
+生成$(INTERNAL_UPDATE_PACKAGE_TARGET)，示例：out/target/product/find5/cm_find5-img-eng.cloud.zip<br/>
+这个zip包里包含的都是img文件，一般用fastboot&nbsp;flash&nbsp;zip包的方式更新ROM<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="updatepackage">Target:&nbsp;&nbsp;updatepackage</a></h3>
+<p>
+依赖$(INTERNAL_UPDATE_PACKAGE_TARGET)<br/>
+生成$(INTERNAL_UPDATE_PACKAGE_TARGET)，示例：out/target/product/find5/cm_find5-img-eng.cloud.zip<br/>
+这个zip包里包含的都是img文件，一般用fastboot&nbsp;flash&nbsp;zip包的方式更新ROM<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="BUILT_TESTS_ZIP_PACKAGE">BUILT_TESTS_ZIP_PACKAGE</a></h3>
+<p>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/find5/obj/PACKAGING/tests_zip_intermediates/cm_find5-tests-eng.cloud.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(BUILT_TESTS_ZIP_PACKAGE)">Target:&nbsp;&nbsp;$(BUILT_TESTS_ZIP_PACKAGE)</a></h3>
+<p>
+生成$(BUILT_TESTS_ZIP_PACKAGE)，示例：out/target/product/find5/obj/PACKAGING/tests_zip_intermediates/cm_find5-tests-eng.cloud.zip<br/>
+zip_root为out/target/product/find5/obj/PACKAGING/tests_zip_intermediates<br/>
+规则：<br/>
+&nbsp;&nbsp;&nbsp;将$(TARGET_OUT_DATA)下的所有文件拷贝至$(zip_root)/DATA<br/>
+&nbsp;&nbsp;&nbsp;然后将$(zip_root)/DATA下的文件打包成为$(BUILT_TESTS_ZIP_PACKAGE)<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="tests-zip-package">Target:&nbsp;&nbsp;tests-zip-package</a></h3>
+<p>
+伪目标tests-zip-package<br/>
+&nbsp;&nbsp;依赖$(BUILT_TESTS_ZIP_PACKAGE)<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="tests-build-target">Target:&nbsp;&nbsp;tests-build-target</a></h3>
+<p>
+伪目标tests-build-target<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;依赖$(BUILT_TESTS_ZIP_PACKAGE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="tests">Target:&nbsp;&nbsp;tests</a></h3>
+<p>
+伪目标tests<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;依赖$(BUILT_TESTS_ZIP_PACKAGE)&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="SYMBOLS_ZIP">SYMBOLS_ZIP</a></h3>
+<p>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/find5/cm_find5-symbols-eng.cloud.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(SYMBOLS_ZIP)">Target:&nbsp;&nbsp;$(SYMBOLS_ZIP)</a></h3>
+<p>
+生成$(SYSMBOLS_ZIP)即out/target/product/find5/obj/PACKAGING/tests_zip_intermediates/cm_find5-symbols-eng.cloud.zip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+TARGET_OUT_UNSTRIPPED为&nbsp;out/target/product/i9100/system/symbols&nbsp;&nbsp;&nbsp;<br/>
+规则：<br/>
+&nbsp;&nbsp;&nbsp;将$(TARGET_OUT_UNSTRIPPED)打包生成out/target/product/find5/obj/PACKAGING/tests_zip_intermediates/cm_find5-symbols-eng.cloud.zip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="APPS_ZIP">APPS_ZIP</a></h3>
+<p>
+示例：out/target/product/find5/cm_find5-apps-eng.cloud.zip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(APPS_ZIP)">Target:&nbsp;&nbsp;$(APPS_ZIP)</a></h3>
+<p>
+目标：&nbsp;生成$(APPS_ZIP)&nbsp;示例：out/target/product/find5/cm_find5-apps-eng.cloud.zip<br/>
+&nbsp;TARGET_OUT_APPS&nbsp;示例：&nbsp;out/target/product/i9100/system/app<br/>
+&nbsp;将$(TARGET_OUT_APPS)下的app打包生成$(APPS_ZIP)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="EMMA_META_ZIP">EMMA_META_ZIP</a></h3>
+<p>
+EMMA_META_ZIP&nbsp;:=&nbsp;$(PRODUCT_OUT)/emma_meta.zip<br/>
+示例：<br/>
+&nbsp;out/target/product/find5/emma_meta.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(EMMA_META_ZIP)">Target:&nbsp;&nbsp;$(EMMA_META_ZIP)</a></h3>
+<p>
+将$(TARGET_COMMON_OUT_ROOT)目录下的所有coverage.em打包成emma_meta.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="dalvikfiles">Target:&nbsp;&nbsp;dalvikfiles</a></h3>
+<p>
+伪目标<br/>
+&nbsp;&nbsp;依赖于$(INTERNAL_DALVIK_MODULES)，即dalvik的所有模块<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INSTALLED_QEMU_KERNEL_TARGET">INSTALLED_QEMU_KERNEL_TARGET</a></h3>
+<p>
+INSTALLED_QEMU_KERNEL_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/kernel-qemu<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/find5/kernel-qemu<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_QEMU_KERNEL_TARGET)">Target:&nbsp;&nbsp;$(INSTALLED_QEMU_KERNEL_TARGET)</a></h3>
+<p>
+将生成好的内核拷贝为kernel-qemu即可<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_EMULATOR_PACKAGE_FILES">INTERNAL_EMULATOR_PACKAGE_FILES</a></h3>
+<p>
+模拟器用的文件<br/>
+$(HOST_OUT_EXECUTABLES)/emulator$(HOST_EXECUTABLE_SUFFIX)&nbsp;\<br/>
+$(INSTALLED_QEMU_KERNEL_TARGET)&nbsp;\<br/>
+$(INSTALLED_RAMDISK_TARGET)&nbsp;\<br/>
+$(recovery_ramdisk)&nbsp;\<br/>
+$(INSTALLED_SYSTEMIMAGE)&nbsp;\<br/>
+$(INSTALLED_USERDATAIMAGE_TARGET)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_EMULATOR_PACKAGE_TARGET">INTERNAL_EMULATOR_PACKAGE_TARGET</a></h3>
+<p>
+示例：out/target/product/find5/cm_find5-emulator-eng.cloud.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INTERNAL_EMULATOR_PACKAGE_TARGET)">Target:&nbsp;&nbsp;$(INTERNAL_EMULATOR_PACKAGE_TARGET)</a></h3>
+<p>
+将$(INTERNAL_EMULATOR_PACKAGE_TARGET)打包成cm_find5-emulator-eng.cloud.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="goldfish">Target:&nbsp;&nbsp;goldfish</a></h3>
+<p>
+伪目标，生成模拟器包，依赖于$(INTERNAL_EMULATOR_PACKAGE_TARGET)<br/>
 </p>
 </div>
 </div>
