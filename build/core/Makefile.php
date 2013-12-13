@@ -1871,6 +1871,186 @@ $(INSTALLED_USERDATAIMAGE_TARGET)<br/>
 伪目标，生成模拟器包，依赖于$(INTERNAL_EMULATOR_PACKAGE_TARGET)<br/>
 </p>
 </div>
+<div class="variable">
+<h3><a id="sdk_dir">sdk_dir</a></h3>
+<p>
+sdk_dir&nbsp;:=&nbsp;$(HOST_OUT)/sdk<br/>
+示例：<br/>
+&nbsp;&nbsp;out/host/linux-x86/sdk<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="sdk_name">sdk_name</a></h3>
+<p>
+sdk_name&nbsp;:=&nbsp;android-sdk_$(FILE_NAME_TAG)&nbsp;<br/>
+sdk_name&nbsp;:=&nbsp;$(sdk_name)_$(INTERNAL_SDK_HOST_OS_NAME)&nbsp;<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;sdk_name&nbsp;:=&nbsp;android-sdk_eng.cloud.windows<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_SDK_HOST_OS_NAME">INTERNAL_SDK_HOST_OS_NAME</a></h3>
+<p>
+host&nbsp;os&nbsp;name<br/>
+ifeq&nbsp;($(HOST_OS),darwin)<br/>
+&nbsp;&nbsp;INTERNAL_SDK_HOST_OS_NAME&nbsp;:=&nbsp;mac<br/>
+else<br/>
+&nbsp;&nbsp;INTERNAL_SDK_HOST_OS_NAME&nbsp;:=&nbsp;$(HOST_OS)<br/>
+endif<br/>
+ifneq&nbsp;($(HOST_OS),windows)<br/>
+&nbsp;&nbsp;INTERNAL_SDK_HOST_OS_NAME&nbsp;:=&nbsp;$(INTERNAL_SDK_HOST_OS_NAME)-$(HOST_ARCH)<br/>
+endif<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;linux-x86&nbsp;或者&nbsp;mac-x86&nbsp;或者&nbsp;windows<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="sdk_dep_file">sdk_dep_file</a></h3>
+<p>
+编译sdk需要依赖的文件<br/>
+sdk_dep_file&nbsp;:=&nbsp;$(sdk_dir)/sdk_deps.mk&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ATREE_FILES">ATREE_FILES</a></h3>
+<p>
+android&nbsp;tree&nbsp;files<br/>
+ifeq&nbsp;($(strip&nbsp;$(ATREE_FILES)),)<br/>
+ATREE_FILES&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_PREBUILT)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_COPIED_HEADERS)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_GENERATED_SOURCES)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_DEFAULT_INSTALLED_MODULES)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(INSTALLED_RAMDISK_TARGET)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_DOCS)&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_SDK_FILES)<br/>
+endif&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="atree_dir">atree_dir</a></h3>
+<p>
+sdk&nbsp;tree&nbsp;dir<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atree_dir&nbsp;:=&nbsp;development/build<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="sdk_tools_atree_files">sdk_tools_atree_files</a></h3>
+<p>
+sdk/build/tools.atree&nbsp;contains&nbsp;the&nbsp;generic&nbsp;rules,&nbsp;while<br/>
+sdk/build/tools.$(TARGET_ARCH).atree&nbsp;contains&nbsp;target-specific&nbsp;rules<br/>
+the&nbsp;latter&nbsp;is&nbsp;optional.<br/>
+sdk_tools_atree_files&nbsp;:=&nbsp;sdk/build/tools.atree<br/>
+ifneq&nbsp;(,$(strip&nbsp;$(wildcard&nbsp;sdk/build/tools.$(TARGET_ARCH).atree)))<br/>
+&nbsp;&nbsp;sdk_tools_atree_files&nbsp;+=&nbsp;sdk/build/tools.$(TARGET_ARCH).atree<br/>
+endif<br/>
+ifneq&nbsp;(,$(strip&nbsp;$(wildcard&nbsp;sdk/build/tools.$(HOST_OS).atree)))<br/>
+&nbsp;&nbsp;sdk_tools_atree_files&nbsp;+=&nbsp;sdk/build/tools.$(HOST_OS).atree<br/>
+endif<br/>
+ifneq&nbsp;(,$(strip&nbsp;$(wildcard&nbsp;sdk/build/tools.$(HOST_OS)-$(HOST_ARCH).atree)))<br/>
+&nbsp;&nbsp;sdk_tools_atree_files&nbsp;+=&nbsp;sdk/build/tools.$(HOST_OS)-$(HOST_ARCH).atree<br/>
+endif<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="sdk_atree_files">sdk_atree_files</a></h3>
+<p>
+development/build/sdk-android-<abi>.atree&nbsp;is&nbsp;used&nbsp;to&nbsp;differentiate<br/>
+between&nbsp;architecture&nbsp;models&nbsp;(e.g.&nbsp;ARMv5TE&nbsp;versus&nbsp;ARMv7)&nbsp;when&nbsp;copying<br/>
+files&nbsp;like&nbsp;the&nbsp;kernel&nbsp;image.&nbsp;We&nbsp;use&nbsp;TARGET_CPU_ABI&nbsp;because&nbsp;we&nbsp;don't<br/>
+have&nbsp;a&nbsp;better&nbsp;way&nbsp;to&nbsp;distinguish&nbsp;between&nbsp;CPU&nbsp;models.<br/>
+sdk_atree_files&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(atree_dir)/sdk.exclude.atree&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(atree_dir)/sdk.atree&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(atree_dir)/sdk-$(HOST_OS)-$(HOST_ARCH).atree&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(sdk_tools_atree_files)<br/>
+ifneq&nbsp;(,$(strip&nbsp;$(wildcard&nbsp;$(atree_dir)/sdk-android-$(TARGET_CPU_ABI).atree)))<br/>
+&nbsp;&nbsp;sdk_atree_files&nbsp;+=&nbsp;$(atree_dir)/sdk-android-$(TARGET_CPU_ABI).atree<br/>
+endif<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_SDK_TARGET">INTERNAL_SDK_TARGET</a></h3>
+<p>
+INTERNAL_SDK_TARGET&nbsp;:=&nbsp;$(sdk_dir)/$(sdk_name).zip<br/>
+示例：<br/>
+&nbsp;&nbsp;out/host/linux-x86/sdk/android-sdk_eng.cloud.windows.zip<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INTERNAL_SDK_TARGET)">Target:&nbsp;&nbsp;$(INTERNAL_SDK_TARGET)</a></h3>
+<p>
+用atree程序将依赖的文件拷贝至&nbsp;out/host/linux-x86/sdk/android-sdk_eng.cloud.windows<br/>
+然后打包成zip包<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="MAIN_SDK_NAME">MAIN_SDK_NAME</a></h3>
+<p>
+MAIN_SDK_NAME&nbsp;:=&nbsp;$(sdk_name)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="MAIN_SDK_DIR">MAIN_SDK_DIR</a></h3>
+<p>
+MAIN_SDK_DIR&nbsp;&nbsp;:=&nbsp;$(sdk_dir)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="MAIN_SDK_ZIP">MAIN_SDK_ZIP</a></h3>
+<p>
+MAIN_SDK_ZIP&nbsp;&nbsp;:=&nbsp;$(INTERNAL_SDK_TARGET)<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="win_sdk">Target:&nbsp;&nbsp;win_sdk</a></h3>
+<p>
+生成windows&nbsp;sdk<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="winsdk-tools">Target:&nbsp;&nbsp;winsdk-tools</a></h3>
+<p>
+生成windows&nbsp;sdk的工具<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="winsdk-coretools">Target:&nbsp;&nbsp;winsdk-coretools</a></h3>
+<p>
+生成windows&nbsp;sdk的核心工具&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_FINDBUGS_XML_TARGET">INTERNAL_FINDBUGS_XML_TARGET</a></h3>
+<p>
+INTERNAL_FINDBUGS_XML_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/findbugs.xml<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;out/target/product/i9100/findbugs.xml<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_FINDBUGS_HTML_TARGET">INTERNAL_FINDBUGS_HTML_TARGET</a></h3>
+<p>
+INTERNAL_FINDBUGS_HTML_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/findbugs.html&nbsp;<br/>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/i9100/findbugs.html<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INTERNAL_FINDBUGS_XML_TARGET)">Target:&nbsp;&nbsp;$(INTERNAL_FINDBUGS_XML_TARGET)</a></h3>
+<p>
+使用工具prebuilt/common/findbugs/bin/unionBugs<br/>
+处理$(ALL_FINDBUGS_FILES)得到findbugs.xml<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INTERNAL_FINDBUGS_HTML_TARGET)">Target:&nbsp;&nbsp;$(INTERNAL_FINDBUGS_HTML_TARGET)</a></h3>
+<p>
+使用工具prebuilt/common/findbugs/bin/convertXmlToText&nbsp;&nbsp;<br/>
+将$(INTERNAL_FINDBUGS_XML_TARGET)处理<br/>
+得到findbugs.html<br/>
+</p>
+</div>
 </div>
 <?php require_once '../../sidebar.php';?>
 <?php require_once '../../footer.php';?>
