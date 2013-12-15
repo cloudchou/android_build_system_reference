@@ -18,6 +18,18 @@
 export&nbsp;BUILD_ID=JDQ39E<br/>
 </p>
 </div>
+<div class="variable">
+<h3><a id="BUILD_ID">BUILD_ID</a></h3>
+<p>
+BUILD_ID通常用来指定分支名字.<br/>
+它通常只是一个单词，并且有约定俗成的命名规则<br/>
+BUILD_ID&nbsp;is&nbsp;usually&nbsp;used&nbsp;to&nbsp;specify&nbsp;the&nbsp;branch&nbsp;name<br/>
+(like&nbsp;"MAIN")&nbsp;or&nbsp;a&nbsp;branch&nbsp;name&nbsp;and&nbsp;a&nbsp;release&nbsp;candidate<br/>
+(like&nbsp;"CRB01").&nbsp;&nbsp;It&nbsp;must&nbsp;be&nbsp;a&nbsp;single&nbsp;word,&nbsp;and&nbsp;is<br/>
+capitalized&nbsp;by&nbsp;convention<br/>
+export&nbsp;BUILD_ID=JDQ39E&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
 </div>
 <?php require_once '../../sidebar.php';?>
 <?php require_once '../../footer.php';?>

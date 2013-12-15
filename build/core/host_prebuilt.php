@@ -14,7 +14,7 @@
 <div class="file">
 <h3>build/core/host_prebuilt.mk</h3>
 <p>
-编译为主机上预制程序<br/>
+编译为主机上预编译程序<br/>
 LOCAL_IS_HOST_MODULE&nbsp;:=&nbsp;true<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;include&nbsp;$(BUILD_MULTI_PREBUILT)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;通过包含build/core/multi_prebuilt.mk完成编译<br/>

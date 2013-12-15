@@ -14,7 +14,11 @@
 <div class="file">
 <h3>build/core/binary.mk</h3>
 <p>
-将asm/c/cpp/yacc/lex源代码编译为目标文件的基本规则<br/>
+定义了将asm，c，cpp，yacc，lex源代码编译为目标文件的基本规则<br/>
+模块想生成某类型目标时不会直接包含该makefile，但如果生成二进制程序，会间接包含该makefile<br/>
+dynamic_binary.mk，executable.mk，host_executable.mk，host_shared_library.mk<br/>
+host_static_library.mk，prebuilt.mk，raw_executable.mk，shared_library.mk，static_library.mk<br/>
+等makefile都会包含binary.mk<br/>
 所有的目标文件将添加到$(all_objects)变量里<br/>
 </p>
 </div>
@@ -29,9 +33,18 @@
 <p>
 build/core/java.mk里定义该变量<br/>
 LOCAL_SDK_VERSION&nbsp;:=&nbsp;$(PDK_BUILD_SDK_VERSION)<br/>
-如果定义了LOCAL_SDK_VERSION，那么需要定义ndk编译相关变量<br/>
+如果定义了LOCAL_SDK_VERSION，那么不能定义LOCAL_NDK_VERSION，否则会提示LOCAL_NDK_VERSION&nbsp;is&nbsp;now&nbsp;retired<br/>
+如果定义了LOCAL_SDK_VERSION，那么不能定义LOCAL_IS_HOST_MODULE，否则提示LOCAL_SDK_VERSION&nbsp;cannot&nbsp;be&nbsp;used&nbsp;in&nbsp;host&nbsp;module<br/>
 因为编译app时，常需要编译jni代码<br/>
 示例：LOCAL_SDK_VERSION:&nbsp;9<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="HISTORICAL_NDK_VERSIONS_ROOT">HISTORICAL_NDK_VERSIONS_ROOT</a></h3>
+<p>
+ndk的路径，在config.mk里定义：<br/>
+&nbsp;&nbsp;HISTORICAL_NDK_VERSIONS_ROOT&nbsp;:=&nbsp;$(TOPDIR)prebuilts/ndk<br/>
+&nbsp;&nbsp;即prebuilts/ndk<br/>
 </p>
 </div>
 <div class="variable">
@@ -47,6 +60,14 @@ my_ndk_source_root&nbsp;:=&nbsp;$(HISTORICAL_NDK_VERSIONS_ROOT)/current/sources<
 <p>
 my_ndk_version_root&nbsp;:=&nbsp;$(HISTORICAL_NDK_VERSIONS_ROOT)/current/platforms/android-$(LOCAL_SDK_VERSION)/arch-$(TARGET_ARCH)<br/>
 示例：<br/>
+&nbsp;&nbsp;my_ndk_source_root&nbsp;：&nbsp;prebuilts/ndk/current/current<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_NDK_STL_VARIANT">LOCAL_NDK_STL_VARIANT</a></h3>
+<p>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_NDK_STL_VARIANT&nbsp;:=&nbsp;system<br/>
 </p>
 </div>
 <div class="variable">
@@ -58,13 +79,15 @@ my_ndk_version_root&nbsp;:=&nbsp;$(HISTORICAL_NDK_VERSIONS_ROOT)/current/platfor
 <div class="variable">
 <h3><a id="my_ndk_stl_shared_lib_fullpath">my_ndk_stl_shared_lib_fullpath</a></h3>
 <p>
-示例：空<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;prebuilts/ndk/cxx-stl/stlport/libs/armeabi-v7a/libstlport_static.a<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="my_ndk_stl_shared_lib">my_ndk_stl_shared_lib</a></h3>
 <p>
-示例：空<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_ndk_stl_shared_lib&nbsp;:=&nbsp;-lstlport_shared<br/>
 </p>
 </div>
 <div class="variable">
@@ -93,11 +116,7 @@ endif<br/>
 <div class="function">
 <h3><a id="insert-liblog">Function:&nbsp;&nbsp;insert-liblog</a></h3>
 <p>
-Logging&nbsp;used&nbsp;to&nbsp;be&nbsp;part&nbsp;of&nbsp;libcutils&nbsp;(target)&nbsp;and&nbsp;libutils&nbsp;(sim);<br/>
-hack&nbsp;modules&nbsp;that&nbsp;use&nbsp;those&nbsp;other&nbsp;libs&nbsp;to&nbsp;also&nbsp;include&nbsp;liblog.<br/>
-All&nbsp;of&nbsp;this&nbsp;complexity&nbsp;is&nbsp;to&nbsp;make&nbsp;sure&nbsp;that&nbsp;liblog&nbsp;only&nbsp;appears<br/>
-once,&nbsp;and&nbsp;appears&nbsp;just&nbsp;before&nbsp;libcutils&nbsp;or&nbsp;libutils&nbsp;on&nbsp;the&nbsp;link<br/>
-line.&nbsp;<br/>
+使得包含了libcutils或者libutils的模块，也包含liblog，并使得liblog排在前面<br/>
 </p>
 </div>
 <div class="variable">
@@ -128,6 +147,7 @@ LOCAL_STATIC_LIBRARIES&nbsp;:=&nbsp;libcutils&nbsp;libc&nbsp;libm<br/>
 <div class="variable">
 <h3><a id="LOCAL_WHOLE_STATIC_LIBRARIES">LOCAL_WHOLE_STATIC_LIBRARIES</a></h3>
 <p>
+链接时会将LOCAL_WHOLE_STATIC_LIBRARIES类型的静态链接库的所有目标代码放入最终目标文件里，而不去掉<br/>
 These&nbsp;are&nbsp;the&nbsp;static&nbsp;libraries&nbsp;that&nbsp;you&nbsp;want&nbsp;to&nbsp;include&nbsp;in&nbsp;your&nbsp;module&nbsp;without&nbsp;allowing&nbsp;the&nbsp;linker&nbsp;to&nbsp;remove&nbsp;dead&nbsp;code&nbsp;from&nbsp;them.&nbsp;This&nbsp;is&nbsp;mostly&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;add&nbsp;a&nbsp;static&nbsp;library&nbsp;to&nbsp;a&nbsp;shared&nbsp;library&nbsp;and&nbsp;have&nbsp;the&nbsp;static&nbsp;library's&nbsp;content&nbsp;exposed&nbsp;from&nbsp;the&nbsp;shared&nbsp;library.<br/>
 ifneq&nbsp;(,$(filter&nbsp;libcutils&nbsp;libutils,$(LOCAL_WHOLE_STATIC_LIBRARIES)))<br/>
 &nbsp;&nbsp;LOCAL_WHOLE_STATIC_LIBRARIES&nbsp;:=&nbsp;$(call&nbsp;insert-liblog,$(LOCAL_WHOLE_STATIC_LIBRARIES))<br/>
@@ -158,22 +178,23 @@ $(LOCAL_SYSTEM_SHARED_LIBRARIES)&nbsp;$(LOCAL_SHARED_LIBRARIES)<br/>
 <h3><a id="LOCAL_SYSTEM_SHARED_LIBRARIES">LOCAL_SYSTEM_SHARED_LIBRARIES</a></h3>
 <p>
 Used&nbsp;while&nbsp;building&nbsp;the&nbsp;base&nbsp;libraries:&nbsp;libc,&nbsp;libm,&nbsp;libdl.<br/>
-&nbsp;Usually&nbsp;it&nbsp;should&nbsp;be&nbsp;set&nbsp;to&nbsp;"none,"&nbsp;as&nbsp;it&nbsp;is&nbsp;in&nbsp;$(CLEAR_VARS).&nbsp;<br/>
-&nbsp;When&nbsp;building&nbsp;these&nbsp;libraries,&nbsp;it's&nbsp;set&nbsp;to&nbsp;the&nbsp;ones&nbsp;they&nbsp;link&nbsp;against.&nbsp;For&nbsp;example,&nbsp;libc,&nbsp;libstdc++&nbsp;and&nbsp;libdl&nbsp;don't&nbsp;link&nbsp;against&nbsp;anything,&nbsp;and&nbsp;libm&nbsp;links&nbsp;against&nbsp;libc.&nbsp;Normally,&nbsp;when&nbsp;the&nbsp;value&nbsp;is&nbsp;none,&nbsp;these&nbsp;libraries&nbsp;are&nbsp;automatically&nbsp;linked&nbsp;in&nbsp;to&nbsp;executables&nbsp;and&nbsp;libraries,<br/>
-&nbsp;so&nbsp;you&nbsp;don't&nbsp;need&nbsp;to&nbsp;specify&nbsp;them&nbsp;manually.<br/>
-示例：<br/>
-libc&nbsp;libstdc++&nbsp;libm<br/>
+Usually&nbsp;it&nbsp;should&nbsp;be&nbsp;set&nbsp;to&nbsp;"none,"&nbsp;as&nbsp;it&nbsp;is&nbsp;in&nbsp;$(CLEAR_VARS).&nbsp;<br/>
+When&nbsp;building&nbsp;these&nbsp;libraries,&nbsp;it's&nbsp;set&nbsp;to&nbsp;the&nbsp;ones&nbsp;they&nbsp;link&nbsp;against.&nbsp;For&nbsp;example,&nbsp;libc,&nbsp;libstdc++&nbsp;and&nbsp;libdl&nbsp;don't&nbsp;link&nbsp;against&nbsp;anything,&nbsp;and&nbsp;libm&nbsp;links&nbsp;against&nbsp;libc.&nbsp;Normally,&nbsp;when&nbsp;the&nbsp;value&nbsp;is&nbsp;none,&nbsp;these&nbsp;libraries&nbsp;are&nbsp;automatically&nbsp;linked&nbsp;in&nbsp;to&nbsp;executables&nbsp;and&nbsp;libraries,<br/>
+so&nbsp;you&nbsp;don't&nbsp;need&nbsp;to&nbsp;specify&nbsp;them&nbsp;manually.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;libc&nbsp;libstdc++&nbsp;libm<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_REQUIRED_MODULES">LOCAL_REQUIRED_MODULES</a></h3>
 <p>
-Set&nbsp;LOCAL_REQUIRED_MODULES&nbsp;to&nbsp;any&nbsp;number&nbsp;of&nbsp;whitespace-separated&nbsp;module&nbsp;names,&nbsp;like&nbsp;"libblah"&nbsp;or&nbsp;"Email".&nbsp;<br/>
-If&nbsp;this&nbsp;module&nbsp;is&nbsp;installed,&nbsp;all&nbsp;of&nbsp;the&nbsp;modules&nbsp;that&nbsp;it&nbsp;requires&nbsp;will&nbsp;be&nbsp;installed&nbsp;as&nbsp;well.&nbsp;<br/>
-This&nbsp;can&nbsp;be&nbsp;used&nbsp;to,&nbsp;e.g.,&nbsp;ensure&nbsp;that&nbsp;necessary&nbsp;shared&nbsp;libraries&nbsp;<br/>
-or&nbsp;providers&nbsp;are&nbsp;installed&nbsp;when&nbsp;a&nbsp;given&nbsp;app&nbsp;is&nbsp;installed&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;示例：&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;LOCAL_REQUIRED_MODULES&nbsp;+=&nbsp;$(installed_shared_library_module_names)<br/>
+本模块依赖的模块<br/>
+&nbsp;Set&nbsp;LOCAL_REQUIRED_MODULES&nbsp;to&nbsp;any&nbsp;number&nbsp;of&nbsp;whitespace-separated&nbsp;module&nbsp;names,&nbsp;like&nbsp;"libblah"&nbsp;or&nbsp;"Email".&nbsp;<br/>
+&nbsp;If&nbsp;this&nbsp;module&nbsp;is&nbsp;installed,&nbsp;all&nbsp;of&nbsp;the&nbsp;modules&nbsp;that&nbsp;it&nbsp;requires&nbsp;will&nbsp;be&nbsp;installed&nbsp;as&nbsp;well.&nbsp;<br/>
+&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to,&nbsp;e.g.,&nbsp;ensure&nbsp;that&nbsp;necessary&nbsp;shared&nbsp;libraries&nbsp;<br/>
+&nbsp;or&nbsp;providers&nbsp;are&nbsp;installed&nbsp;when&nbsp;a&nbsp;given&nbsp;app&nbsp;is&nbsp;installed<br/>
+示例：&nbsp;&nbsp;<br/>
+LOCAL_REQUIRED_MODULES&nbsp;+=&nbsp;$(installed_shared_library_module_names)<br/>
 </p>
 </div>
 <div class="variable">
@@ -335,9 +356,9 @@ LOCAL_INTERMEDIATE_TARGETS&nbsp;:=&nbsp;$(linked_module)<br/>
 <div class="variable">
 <h3><a id="all_objects">all_objects</a></h3>
 <p>
+要编译的目标集合&nbsp;&nbsp;&nbsp;<br/>
 some&nbsp;rules&nbsp;depend&nbsp;on&nbsp;asm_objects&nbsp;being&nbsp;first.&nbsp;&nbsp;If&nbsp;your&nbsp;code&nbsp;depends&nbsp;on<br/>
-&nbsp;&nbsp;&nbsp;being&nbsp;first,&nbsp;it's&nbsp;reasonable&nbsp;to&nbsp;require&nbsp;it&nbsp;to&nbsp;be&nbsp;assembly<br/>
-&nbsp;&nbsp;&nbsp;要编译的目标集合&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;being&nbsp;first,&nbsp;it's&nbsp;reasonable&nbsp;to&nbsp;require&nbsp;it&nbsp;to&nbsp;be&nbsp;assembly.&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;all_objects&nbsp;:=&nbsp;\<br/>
 $(asm_objects)&nbsp;\<br/>
 $(cpp_objects)&nbsp;\<br/>
@@ -355,72 +376,86 @@ $(addprefix&nbsp;$(TOPDIR)$(LOCAL_PATH)/,$(LOCAL_PREBUILT_OBJ_FILES))&nbsp;<br/>
 <div class="variable">
 <h3><a id="LOCAL_COPY_HEADERS">LOCAL_COPY_HEADERS</a></h3>
 <p>
-The&nbsp;set&nbsp;of&nbsp;files&nbsp;to&nbsp;copy&nbsp;to&nbsp;the&nbsp;install&nbsp;include&nbsp;tree.&nbsp;You&nbsp;must&nbsp;also&nbsp;supply&nbsp;LOCAL_COPY_HEADERS_TO<br/>
+需要拷贝至安装目录的头文件集合，你需要同时定义LOCAL_COPY_HEADERS_TO&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_COPY_HEADERS_TO">LOCAL_COPY_HEADERS_TO</a></h3>
 <p>
-The&nbsp;directory&nbsp;within&nbsp;"include"&nbsp;to&nbsp;copy&nbsp;the&nbsp;headers&nbsp;listed&nbsp;in&nbsp;LOCAL_COPY_HEADERS&nbsp;to<br/>
+需要拷贝头头文件至哪个安装目录<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_CC">LOCAL_CC</a></h3>
 <p>
-If&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;a&nbsp;different&nbsp;C&nbsp;compiler&nbsp;for&nbsp;this&nbsp;module,&nbsp;set&nbsp;LOCAL_CC&nbsp;to&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;compiler.&nbsp;If&nbsp;LOCAL_CC&nbsp;is&nbsp;blank,&nbsp;the&nbsp;appropriate&nbsp;default&nbsp;compiler&nbsp;is&nbsp;used<br/>
+你可以通过LOCAL_CC定义一个不同的C编译器<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_CXX">LOCAL_CXX</a></h3>
 <p>
-If&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;a&nbsp;different&nbsp;C++&nbsp;compiler&nbsp;for&nbsp;this&nbsp;module,&nbsp;set&nbsp;LOCAL_CXX&nbsp;to&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;compiler.&nbsp;If&nbsp;LOCAL_CXX&nbsp;is&nbsp;blank,&nbsp;the&nbsp;appropriate&nbsp;default&nbsp;compiler&nbsp;is&nbsp;used.<br/>
+你可以通过LOCAL_CXX定义一个不同的C++编译器<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_ASSET_FILES">LOCAL_ASSET_FILES</a></h3>
 <p>
-In&nbsp;Android.mk&nbsp;files&nbsp;that&nbsp;include&nbsp;$(BUILD_PACKAGE)&nbsp;set&nbsp;this&nbsp;to&nbsp;the&nbsp;set&nbsp;of&nbsp;files&nbsp;you&nbsp;want&nbsp;built&nbsp;into&nbsp;your&nbsp;app.&nbsp;Usually<br/>
-LOCAL_ASSET_FILES&nbsp;+=&nbsp;$(call&nbsp;find-subdir-assets)<br/>
-&nbsp;This&nbsp;will&nbsp;probably&nbsp;change&nbsp;when&nbsp;we&nbsp;switch&nbsp;to&nbsp;ant&nbsp;for&nbsp;the&nbsp;apps'&nbsp;build&nbsp;system.<br/>
+编译Android&nbsp;Package(app)程序时，通常用LOCAL_ASSET_FILES，表示assets目录的所有文件<br/>
+通常使用方式：<br/>
+LOCAL_ASSET_FILES&nbsp;+=&nbsp;$(call&nbsp;find-subdir-assets)&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_NO_DEFAULT_COMPILER_FLAGS">LOCAL_NO_DEFAULT_COMPILER_FLAGS</a></h3>
 <p>
-Normally,&nbsp;the&nbsp;compile&nbsp;line&nbsp;for&nbsp;C&nbsp;and&nbsp;C++&nbsp;files&nbsp;includes&nbsp;global&nbsp;include&nbsp;paths&nbsp;and&nbsp;global&nbsp;cflags.&nbsp;If&nbsp;LOCAL_NO_DEFAULT_COMPILER_FLAGS&nbsp;is&nbsp;non-empty,&nbsp;none&nbsp;of&nbsp;the&nbsp;default&nbsp;includes&nbsp;or&nbsp;flags&nbsp;will&nbsp;be&nbsp;used&nbsp;when&nbsp;compiling&nbsp;C&nbsp;and&nbsp;C++&nbsp;files&nbsp;in&nbsp;this&nbsp;module.&nbsp;LOCAL_C_INCLUDES,&nbsp;LOCAL_CFLAGS,&nbsp;and&nbsp;LOCAL_CPPFLAGS&nbsp;will&nbsp;still&nbsp;be&nbsp;used&nbsp;in&nbsp;this&nbsp;case,&nbsp;as&nbsp;will&nbsp;any&nbsp;DEBUG_CFLAGS&nbsp;that&nbsp;are&nbsp;defined&nbsp;for&nbsp;the&nbsp;module.&nbsp;<br/>
+通常为C或者C++源代码文件的编译提供了默认的头文件目录和flag，可以通过LOCAL_NO_DEFAULT_COMPILER_FLAGS设置不使用这些东东<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_FORCE_STATIC_EXECUTABLE">LOCAL_FORCE_STATIC_EXECUTABLE</a></h3>
 <p>
-If&nbsp;your&nbsp;executable&nbsp;should&nbsp;be&nbsp;linked&nbsp;statically,&nbsp;set&nbsp;LOCAL_FORCE_STATIC_EXECUTABLE:=true.&nbsp;There&nbsp;is&nbsp;a&nbsp;very&nbsp;short&nbsp;list&nbsp;of&nbsp;libraries&nbsp;that&nbsp;we&nbsp;have&nbsp;in&nbsp;static&nbsp;form&nbsp;(currently&nbsp;only&nbsp;libc).&nbsp;This&nbsp;is&nbsp;really&nbsp;only&nbsp;used&nbsp;for&nbsp;executables&nbsp;in&nbsp;/sbin&nbsp;on&nbsp;the&nbsp;root&nbsp;filesystem<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_ADDITIONAL_DEPENDENCIES">LOCAL_ADDITIONAL_DEPENDENCIES</a></h3>
+<p>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_JAVACFLAGS">LOCAL_JAVACFLAGS</a></h3>
 <p>
-If&nbsp;you&nbsp;have&nbsp;additional&nbsp;flags&nbsp;to&nbsp;pass&nbsp;into&nbsp;the&nbsp;javac&nbsp;compiler,&nbsp;add&nbsp;them&nbsp;here.&nbsp;For&nbsp;example:<br/>
-&nbsp;LOCAL_JAVACFLAGS&nbsp;+=&nbsp;-Xlint:deprecation<br/>
+额外的编译java用的flags<br/>
+示例：&nbsp;<br/>
+LOCAL_JAVACFLAGS&nbsp;+=&nbsp;-Xlint:deprecation<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_JAVA_LIBRARIES">LOCAL_JAVA_LIBRARIES</a></h3>
 <p>
-When&nbsp;linking&nbsp;Java&nbsp;apps&nbsp;and&nbsp;libraries,&nbsp;LOCAL_JAVA_LIBRARIES&nbsp;specifies&nbsp;which&nbsp;sets&nbsp;of&nbsp;java&nbsp;classes&nbsp;to&nbsp;include.&nbsp;Currently&nbsp;there&nbsp;are&nbsp;two&nbsp;of&nbsp;these:&nbsp;core&nbsp;and&nbsp;framework.&nbsp;In&nbsp;most&nbsp;cases,&nbsp;it&nbsp;will&nbsp;look&nbsp;like&nbsp;this:<br/>
-LOCAL_JAVA_LIBRARIES&nbsp;:=&nbsp;core&nbsp;framework<br/>
-Note&nbsp;that&nbsp;setting&nbsp;LOCAL_JAVA_LIBRARIES&nbsp;is&nbsp;not&nbsp;necessary&nbsp;(and&nbsp;is&nbsp;not&nbsp;allowed)&nbsp;when&nbsp;building&nbsp;an&nbsp;APK&nbsp;with&nbsp;"include&nbsp;$(BUILD_PACKAGE)".&nbsp;The&nbsp;appropriate&nbsp;libraries&nbsp;will&nbsp;be&nbsp;included&nbsp;automatically.<br/>
+当链接java&nbsp;app程序和库时，&nbsp;LOCAL_JAVA_LIBRARIES指定了哪些java类将被包含，<br/>
+目前只有&nbsp;LOCAL_JAVA_LIBRARIES&nbsp;:=&nbsp;core&nbsp;framework<br/>
+注意目前编译app设置LOCAL_JAVA_LIBRARIES是不必要的，也不被允许的，在include&nbsp;&nbsp;$(BUILD_PACKAGE)时<br/>
+合适的库都会被包含进来<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_LDFLAGS">LOCAL_LDFLAGS</a></h3>
 <p>
-You&nbsp;can&nbsp;pass&nbsp;additional&nbsp;flags&nbsp;to&nbsp;the&nbsp;linker&nbsp;by&nbsp;setting&nbsp;LOCAL_LDFLAGS.&nbsp;Keep&nbsp;in&nbsp;mind&nbsp;that&nbsp;the&nbsp;order&nbsp;of&nbsp;parameters&nbsp;is&nbsp;very&nbsp;important&nbsp;to&nbsp;ld,&nbsp;so&nbsp;test&nbsp;whatever&nbsp;you&nbsp;do&nbsp;on&nbsp;all&nbsp;platforms.<br/>
+额外的链接flag&nbsp;<br/>
+记住&nbsp;flag的顺序很重要，需要在所有平台都测试，否则容易出错<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_LDLIBS">LOCAL_LDLIBS</a></h3>
 <p>
-LOCAL_LDLIBS&nbsp;allows&nbsp;you&nbsp;to&nbsp;specify&nbsp;additional&nbsp;libraries&nbsp;that&nbsp;are&nbsp;not&nbsp;part&nbsp;of&nbsp;the&nbsp;build&nbsp;for&nbsp;your&nbsp;executable&nbsp;or&nbsp;library.&nbsp;Specify&nbsp;the&nbsp;libraries&nbsp;you&nbsp;want&nbsp;in&nbsp;-lxxx&nbsp;format;&nbsp;they're&nbsp;passed&nbsp;directly&nbsp;to&nbsp;the&nbsp;link&nbsp;line.&nbsp;However,&nbsp;keep&nbsp;in&nbsp;mind&nbsp;that&nbsp;there&nbsp;will&nbsp;be&nbsp;no&nbsp;dependency&nbsp;generated&nbsp;for&nbsp;these&nbsp;libraries.&nbsp;It's&nbsp;most&nbsp;useful&nbsp;in&nbsp;simulator&nbsp;builds&nbsp;where&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;a&nbsp;library&nbsp;preinstalled&nbsp;on&nbsp;the&nbsp;host.&nbsp;The&nbsp;linker&nbsp;(ld)&nbsp;is&nbsp;a&nbsp;particularly&nbsp;fussy&nbsp;beast,&nbsp;so&nbsp;it's&nbsp;sometimes&nbsp;necessary&nbsp;to&nbsp;pass&nbsp;other&nbsp;flags&nbsp;here&nbsp;if&nbsp;you're&nbsp;doing&nbsp;something&nbsp;sneaky.&nbsp;Some&nbsp;examples:<br/>
+额外的动态链接库<br/>
+LOCAL_LDLIBS&nbsp;allows&nbsp;you&nbsp;to&nbsp;specify&nbsp;additional&nbsp;libraries&nbsp;that&nbsp;are&nbsp;not&nbsp;part&nbsp;of&nbsp;the&nbsp;build&nbsp;for&nbsp;your&nbsp;executable&nbsp;or&nbsp;library.&nbsp;<br/>
+Specify&nbsp;the&nbsp;libraries&nbsp;you&nbsp;want&nbsp;in&nbsp;-lxxx&nbsp;format;&nbsp;they're&nbsp;passed&nbsp;directly&nbsp;to&nbsp;the&nbsp;link&nbsp;line.&nbsp;<br/>
+However,&nbsp;keep&nbsp;in&nbsp;mind&nbsp;that&nbsp;there&nbsp;will&nbsp;be&nbsp;no&nbsp;dependency&nbsp;generated&nbsp;for&nbsp;these&nbsp;libraries.<br/>
+It's&nbsp;most&nbsp;useful&nbsp;in&nbsp;simulator&nbsp;builds&nbsp;where&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;a&nbsp;library&nbsp;preinstalled&nbsp;on&nbsp;the&nbsp;host.<br/>
+The&nbsp;linker&nbsp;(ld)&nbsp;is&nbsp;a&nbsp;particularly&nbsp;fussy&nbsp;beast,&nbsp;<br/>
+so&nbsp;it's&nbsp;sometimes&nbsp;necessary&nbsp;to&nbsp;pass&nbsp;other&nbsp;flags&nbsp;here&nbsp;if&nbsp;you're&nbsp;doing&nbsp;something&nbsp;sneaky.<br/>
+Some&nbsp;examples:<br/>
 LOCAL_LDLIBS&nbsp;+=&nbsp;-lcurses&nbsp;-lpthread<br/>
 LOCAL_LDLIBS&nbsp;+=&nbsp;-Wl,-z,origin&nbsp;<br/>
 </p>
@@ -428,77 +463,106 @@ LOCAL_LDLIBS&nbsp;+=&nbsp;-Wl,-z,origin&nbsp;<br/>
 <div class="variable">
 <h3><a id="LOCAL_NO_MANIFEST">LOCAL_NO_MANIFEST</a></h3>
 <p>
-If&nbsp;your&nbsp;package&nbsp;doesn't&nbsp;have&nbsp;a&nbsp;manifest&nbsp;(AndroidManifest.xml),&nbsp;then&nbsp;set&nbsp;LOCAL_NO_MANIFEST:=true.&nbsp;The&nbsp;common&nbsp;resources&nbsp;package&nbsp;does&nbsp;this.<br/>
+如果你的packege没有manifest，可以设置LOCAL_NO_MANIFEST:=true<br/>
+一般资源包会这么做<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_PACKAGE_NAME">LOCAL_PACKAGE_NAME</a></h3>
 <p>
-LOCAL_PACKAGE_NAME&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;an&nbsp;app.&nbsp;For&nbsp;example,&nbsp;Dialer,&nbsp;Contacts,&nbsp;etc.&nbsp;This&nbsp;will&nbsp;probably&nbsp;change&nbsp;or&nbsp;go&nbsp;away&nbsp;when&nbsp;we&nbsp;switch&nbsp;to&nbsp;an&nbsp;ant-based&nbsp;build&nbsp;system&nbsp;for&nbsp;the&nbsp;apps.<br/>
+App名字&nbsp;<br/>
+示例：&nbsp;Dialer,&nbsp;Contacts,&nbsp;etc.&nbsp;<br/>
+This&nbsp;will&nbsp;probably&nbsp;change&nbsp;or&nbsp;go&nbsp;away&nbsp;when&nbsp;we&nbsp;switch&nbsp;to&nbsp;an&nbsp;ant-based&nbsp;build&nbsp;system&nbsp;for&nbsp;the&nbsp;apps.<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_POST_PROCESS_COMMAND">LOCAL_POST_PROCESS_COMMAND</a></h3>
 <p>
-For&nbsp;host&nbsp;executables,&nbsp;you&nbsp;can&nbsp;specify&nbsp;a&nbsp;command&nbsp;to&nbsp;run&nbsp;on&nbsp;the&nbsp;module&nbsp;after&nbsp;it's&nbsp;been&nbsp;linked.&nbsp;You&nbsp;might&nbsp;have&nbsp;to&nbsp;go&nbsp;through&nbsp;some&nbsp;contortions&nbsp;to&nbsp;get&nbsp;variables&nbsp;right&nbsp;because&nbsp;of&nbsp;early&nbsp;or&nbsp;late&nbsp;variable&nbsp;evaluation:<br/>
-&nbsp;&nbsp;module&nbsp;:=&nbsp;$(HOST_OUT_EXECUTABLES)/$(LOCAL_MODULE)<br/>
-&nbsp;&nbsp;LOCAL_POST_PROCESS_COMMAND&nbsp;:=&nbsp;/Developer/Tools/Rez&nbsp;-d&nbsp;__DARWIN__&nbsp;-t&nbsp;APPL\<br/>
-&nbsp;&nbsp;-d&nbsp;__WXMAC__&nbsp;-o&nbsp;$(module)&nbsp;Carbon.r&nbsp;<br/>
+你可以为主机上的可执行程序添加一条命令，这条命令在这个模块被链接后执行<br/>
+&nbsp;You&nbsp;might&nbsp;have&nbsp;to&nbsp;go&nbsp;through&nbsp;some&nbsp;contortions&nbsp;to&nbsp;get&nbsp;variables&nbsp;right&nbsp;because&nbsp;of&nbsp;early&nbsp;or&nbsp;late&nbsp;variable&nbsp;evaluation:<br/>
+module&nbsp;:=&nbsp;$(HOST_OUT_EXECUTABLES)/$(LOCAL_MODULE)<br/>
+LOCAL_POST_PROCESS_COMMAND&nbsp;:=&nbsp;/Developer/Tools/Rez&nbsp;-d&nbsp;__DARWIN__&nbsp;-t&nbsp;APPL\<br/>
+-d&nbsp;__WXMAC__&nbsp;-o&nbsp;$(module)&nbsp;Carbon.r&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_PREBUILT_EXECUTABLES">LOCAL_PREBUILT_EXECUTABLES</a></h3>
 <p>
-When&nbsp;including&nbsp;$(BUILD_PREBUILT)&nbsp;or&nbsp;$(BUILD_HOST_PREBUILT),&nbsp;set&nbsp;these&nbsp;to&nbsp;executables&nbsp;that&nbsp;you&nbsp;want&nbsp;copied.&nbsp;They're&nbsp;located&nbsp;automatically&nbsp;into&nbsp;the&nbsp;right&nbsp;bin&nbsp;directory<br/>
+预编译好的可执行程序，一般通过include&nbsp;$(BUILD_PREBUILT)设置<br/>
+会将预编译好的程序拷贝直接拷贝至安装目录&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_PREBUILT_LIBS">LOCAL_PREBUILT_LIBS</a></h3>
 <p>
-When&nbsp;including&nbsp;$(BUILD_PREBUILT)&nbsp;or&nbsp;$(BUILD_HOST_PREBUILT),&nbsp;set&nbsp;these&nbsp;to&nbsp;libraries&nbsp;that&nbsp;you&nbsp;want&nbsp;copied.&nbsp;They're&nbsp;located&nbsp;automatically&nbsp;into&nbsp;the&nbsp;right&nbsp;lib&nbsp;directory.<br/>
+预编译好的库，当使用including&nbsp;$(BUILD_PREBUILT)&nbsp;or&nbsp;$(BUILD_HOST_PREBUILT)<br/>
+会将LOCAL_PREBUILT_LIBS所指的库拷贝到安装目录<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_UNSTRIPPED_PATH">LOCAL_UNSTRIPPED_PATH</a></h3>
 <p>
-Instructs&nbsp;the&nbsp;build&nbsp;system&nbsp;to&nbsp;put&nbsp;the&nbsp;unstripped&nbsp;version&nbsp;of&nbsp;the&nbsp;module&nbsp;somewhere&nbsp;other&nbsp;than&nbsp;what's&nbsp;normal&nbsp;for&nbsp;its&nbsp;type.&nbsp;Usually,&nbsp;you&nbsp;override&nbsp;this&nbsp;because&nbsp;you&nbsp;overrode&nbsp;LOCAL_MODULE_PATH&nbsp;for&nbsp;an&nbsp;executable&nbsp;or&nbsp;a&nbsp;shared&nbsp;library.&nbsp;If&nbsp;you&nbsp;overrode&nbsp;LOCAL_MODULE_PATH,&nbsp;but&nbsp;not&nbsp;LOCAL_UNSTRIPPED_PATH,&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.<br/>
+没有strip的程序存放路径，通常放在symbols目录<br/>
+Instructs&nbsp;the&nbsp;build&nbsp;system&nbsp;to&nbsp;put&nbsp;the&nbsp;unstripped&nbsp;version&nbsp;of&nbsp;the&nbsp;module&nbsp;somewhere&nbsp;<br/>
+other&nbsp;than&nbsp;what's&nbsp;normal&nbsp;for&nbsp;its&nbsp;type.&nbsp;<br/>
+Usually,&nbsp;you&nbsp;override&nbsp;this&nbsp;because&nbsp;you&nbsp;overrode&nbsp;LOCAL_MODULE_PATH&nbsp;for&nbsp;an&nbsp;executable&nbsp;or&nbsp;a&nbsp;shared&nbsp;library.<br/>
+If&nbsp;you&nbsp;overrode&nbsp;LOCAL_MODULE_PATH,&nbsp;but&nbsp;not&nbsp;LOCAL_UNSTRIPPED_PATH,&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_MODULE_PATH">LOCAL_MODULE_PATH</a></h3>
 <p>
-Instructs&nbsp;the&nbsp;build&nbsp;system&nbsp;to&nbsp;put&nbsp;the&nbsp;module&nbsp;somewhere&nbsp;other&nbsp;than&nbsp;what's&nbsp;normal&nbsp;for&nbsp;its&nbsp;type.&nbsp;If&nbsp;you&nbsp;override&nbsp;this,&nbsp;make&nbsp;sure&nbsp;you&nbsp;also&nbsp;set&nbsp;LOCAL_UNSTRIPPED_PATH&nbsp;if&nbsp;it's&nbsp;an&nbsp;executable&nbsp;or&nbsp;a&nbsp;shared&nbsp;library&nbsp;so&nbsp;the&nbsp;unstripped&nbsp;binary&nbsp;has&nbsp;somewhere&nbsp;to&nbsp;go.&nbsp;An&nbsp;error&nbsp;will&nbsp;occur&nbsp;if&nbsp;you&nbsp;forget&nbsp;to.<br/>
+表示模块生成后的程序安装路径，设置该变量后，必须设置LOCAL_UNSTRIPPED_PATH，如果是预编译的类型，则不用设置&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;Instructs&nbsp;the&nbsp;build&nbsp;system&nbsp;to&nbsp;put&nbsp;the&nbsp;module&nbsp;somewhere&nbsp;other&nbsp;than&nbsp;what's&nbsp;normal&nbsp;for&nbsp;its&nbsp;type.&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;If&nbsp;you&nbsp;override&nbsp;this,&nbsp;make&nbsp;sure&nbsp;you&nbsp;also&nbsp;set&nbsp;LOCAL_UNSTRIPPED_PATH&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;if&nbsp;it's&nbsp;an&nbsp;executable&nbsp;or&nbsp;a&nbsp;shared&nbsp;library&nbsp;so&nbsp;the&nbsp;unstripped&nbsp;binary&nbsp;has&nbsp;somewhere&nbsp;to&nbsp;go.<br/>
+An&nbsp;error&nbsp;will&nbsp;occur&nbsp;if&nbsp;you&nbsp;forget&nbsp;to.<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_YACCFLAGS">LOCAL_YACCFLAGS</a></h3>
 <p>
-Any&nbsp;flags&nbsp;to&nbsp;pass&nbsp;to&nbsp;invocations&nbsp;of&nbsp;yacc&nbsp;for&nbsp;your&nbsp;module.&nbsp;A&nbsp;known&nbsp;limitation&nbsp;here&nbsp;is&nbsp;that&nbsp;the&nbsp;flags&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;for&nbsp;all&nbsp;invocations&nbsp;of&nbsp;YACC&nbsp;for&nbsp;your&nbsp;module.&nbsp;This&nbsp;can&nbsp;be&nbsp;fixed.&nbsp;If&nbsp;you&nbsp;ever&nbsp;need&nbsp;it&nbsp;to&nbsp;be,&nbsp;just&nbsp;ask.<br/>
+额外的yacc编译器flag<br/>
+Any&nbsp;flags&nbsp;to&nbsp;pass&nbsp;to&nbsp;invocations&nbsp;of&nbsp;yacc&nbsp;for&nbsp;your&nbsp;module.&nbsp;<br/>
+A&nbsp;known&nbsp;limitation&nbsp;here&nbsp;is&nbsp;that&nbsp;the&nbsp;flags&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;for&nbsp;all&nbsp;invocations&nbsp;of&nbsp;YACC&nbsp;for&nbsp;your&nbsp;module.&nbsp;<br/>
+This&nbsp;can&nbsp;be&nbsp;fixed.&nbsp;If&nbsp;you&nbsp;ever&nbsp;need&nbsp;it&nbsp;to&nbsp;be,&nbsp;just&nbsp;ask.<br/>
 LOCAL_YACCFLAGS&nbsp;:=&nbsp;-p&nbsp;kjsyy<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_ADDITIONAL_DEPENDENCIES">LOCAL_ADDITIONAL_DEPENDENCIES</a></h3>
 <p>
-If&nbsp;your&nbsp;module&nbsp;needs&nbsp;to&nbsp;depend&nbsp;on&nbsp;anything&nbsp;else&nbsp;that&nbsp;isn't&nbsp;actually&nbsp;built&nbsp;in&nbsp;to&nbsp;it,&nbsp;you&nbsp;can&nbsp;add&nbsp;those&nbsp;make&nbsp;targets&nbsp;to&nbsp;LOCAL_ADDITIONAL_DEPENDENCIES.&nbsp;Usually&nbsp;this&nbsp;is&nbsp;a&nbsp;workaround&nbsp;for&nbsp;some&nbsp;other&nbsp;dependency&nbsp;that&nbsp;isn't&nbsp;created&nbsp;automatically.<br/>
+额外的依赖<br/>
+If&nbsp;your&nbsp;module&nbsp;needs&nbsp;to&nbsp;depend&nbsp;on&nbsp;anything&nbsp;else&nbsp;that&nbsp;isn't&nbsp;actually&nbsp;built&nbsp;in&nbsp;to&nbsp;it,<br/>
+you&nbsp;can&nbsp;add&nbsp;those&nbsp;make&nbsp;targets&nbsp;to&nbsp;LOCAL_ADDITIONAL_DEPENDENCIES.&nbsp;<br/>
+Usually&nbsp;this&nbsp;is&nbsp;a&nbsp;workaround&nbsp;for&nbsp;some&nbsp;other&nbsp;dependency&nbsp;that&nbsp;isn't&nbsp;created&nbsp;automatically.<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_BUILT_MODULE">LOCAL_BUILT_MODULE</a></h3>
 <p>
-When&nbsp;a&nbsp;module&nbsp;is&nbsp;built,&nbsp;the&nbsp;module&nbsp;is&nbsp;created&nbsp;in&nbsp;an&nbsp;intermediate&nbsp;directory&nbsp;then&nbsp;copied&nbsp;to&nbsp;its&nbsp;final&nbsp;location.&nbsp;LOCAL_BUILT_MODULE&nbsp;is&nbsp;the&nbsp;full&nbsp;path&nbsp;to&nbsp;the&nbsp;intermediate&nbsp;file.&nbsp;See&nbsp;LOCAL_INSTALLED_MODULE&nbsp;for&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;final&nbsp;installed&nbsp;location&nbsp;of&nbsp;the&nbsp;module.<br/>
+表示编译链接后的目标文件(文件路径+文件名),存放在临时目录<br/>
+When&nbsp;a&nbsp;module&nbsp;is&nbsp;built,&nbsp;the&nbsp;module&nbsp;is&nbsp;created&nbsp;in&nbsp;an&nbsp;intermediate&nbsp;directory&nbsp;then&nbsp;copied&nbsp;to&nbsp;its&nbsp;final&nbsp;location.<br/>
+&nbsp;LOCAL_BUILT_MODULE&nbsp;is&nbsp;the&nbsp;full&nbsp;path&nbsp;to&nbsp;the&nbsp;intermediate&nbsp;file.&nbsp;<br/>
+&nbsp;See&nbsp;LOCAL_INSTALLED_MODULE&nbsp;for&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;final&nbsp;installed&nbsp;location&nbsp;of&nbsp;the&nbsp;module.<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_HOST">LOCAL_HOST</a></h3>
 <p>
-Set&nbsp;by&nbsp;the&nbsp;host_xxx.make&nbsp;includes&nbsp;to&nbsp;tell&nbsp;base_rules.make&nbsp;and&nbsp;the&nbsp;other&nbsp;includes&nbsp;that&nbsp;we're&nbsp;building&nbsp;for&nbsp;the&nbsp;host.&nbsp;Kenneth&nbsp;did&nbsp;this&nbsp;as&nbsp;part&nbsp;of&nbsp;openbinder,&nbsp;and&nbsp;I&nbsp;would&nbsp;like&nbsp;to&nbsp;clean&nbsp;it&nbsp;up&nbsp;so&nbsp;the&nbsp;rules,&nbsp;includes&nbsp;and&nbsp;definitions&nbsp;aren't&nbsp;duplicated&nbsp;for&nbsp;host&nbsp;and&nbsp;target.<br/>
+表示是在模块生成的文件是在主机上的程序<br/>
+Set&nbsp;by&nbsp;the&nbsp;host_xxx.make&nbsp;includes&nbsp;to&nbsp;tell&nbsp;base_rules.make&nbsp;<br/>
+and&nbsp;the&nbsp;other&nbsp;includes&nbsp;that&nbsp;we're&nbsp;building&nbsp;for&nbsp;the&nbsp;host.<br/>
+Kenneth&nbsp;did&nbsp;this&nbsp;as&nbsp;part&nbsp;of&nbsp;openbinder,&nbsp;and&nbsp;I&nbsp;would&nbsp;like&nbsp;to&nbsp;clean&nbsp;it&nbsp;up&nbsp;so&nbsp;the&nbsp;rules,<br/>
+&nbsp;includes&nbsp;and&nbsp;definitions&nbsp;aren't&nbsp;duplicated&nbsp;for&nbsp;host&nbsp;and&nbsp;target.<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_INSTALLED_MODULE">LOCAL_INSTALLED_MODULE</a></h3>
 <p>
-The&nbsp;fully&nbsp;qualified&nbsp;path&nbsp;name&nbsp;of&nbsp;the&nbsp;final&nbsp;location&nbsp;of&nbsp;the&nbsp;module.&nbsp;See&nbsp;LOCAL_BUILT_MODULE&nbsp;for&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;intermediate&nbsp;file&nbsp;that&nbsp;the&nbsp;make&nbsp;rules&nbsp;should&nbsp;actually&nbsp;be&nbsp;constructing.<br/>
+表示模块的安装路径+文件名，存放在安装目录<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;fully&nbsp;qualified&nbsp;path&nbsp;name&nbsp;of&nbsp;the&nbsp;final&nbsp;location&nbsp;of&nbsp;the&nbsp;module.&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;LOCAL_BUILT_MODULE&nbsp;for&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;intermediate&nbsp;file&nbsp;that&nbsp;the&nbsp;make&nbsp;rules&nbsp;should&nbsp;actually&nbsp;be&nbsp;constructing.<br/>
 </p>
 </div>
 <div class="variable">
@@ -514,33 +578,20 @@ Used&nbsp;in&nbsp;some&nbsp;stuff&nbsp;remaining&nbsp;from&nbsp;the&nbsp;openbin
 </p>
 </div>
 <div class="variable">
-<h3><a id="LOCAL_MODULE_CLASS">LOCAL_MODULE_CLASS</a></h3>
-<p>
-Which&nbsp;kind&nbsp;of&nbsp;module&nbsp;this&nbsp;is.&nbsp;This&nbsp;variable&nbsp;is&nbsp;used&nbsp;to&nbsp;construct&nbsp;other&nbsp;variable&nbsp;names&nbsp;used&nbsp;to&nbsp;locate&nbsp;the&nbsp;modules.&nbsp;See&nbsp;base_rules.make&nbsp;and&nbsp;envsetup.make.<br/>
-</p>
-</div>
-<div class="variable">
-<h3><a id="LOCAL_MODULE_NAME">LOCAL_MODULE_NAME</a></h3>
-<p>
-Set&nbsp;to&nbsp;the&nbsp;leaf&nbsp;name&nbsp;of&nbsp;the&nbsp;LOCAL_BUILT_MODULE.&nbsp;I'm&nbsp;not&nbsp;sure,&nbsp;but&nbsp;it&nbsp;looks&nbsp;like&nbsp;it's&nbsp;just&nbsp;used&nbsp;in&nbsp;the&nbsp;WHO_AM_I&nbsp;variable&nbsp;to&nbsp;identify&nbsp;in&nbsp;the&nbsp;pretty&nbsp;printing&nbsp;what's&nbsp;being&nbsp;built.<br/>
-</p>
-</div>
-<div class="variable">
-<h3><a id="LOCAL_MODULE_SUFFIX">LOCAL_MODULE_SUFFIX</a></h3>
-<p>
-The&nbsp;suffix&nbsp;that&nbsp;will&nbsp;be&nbsp;appended&nbsp;to&nbsp;LOCAL_MODULE&nbsp;to&nbsp;form&nbsp;LOCAL_MODULE_NAME.&nbsp;For&nbsp;example,&nbsp;.so,&nbsp;.a,&nbsp;.dylib.<br/>
-</p>
-</div>
-<div class="variable">
 <h3><a id="LOCAL_STRIP_MODULE">LOCAL_STRIP_MODULE</a></h3>
 <p>
-Calculated&nbsp;in&nbsp;base_rules.make&nbsp;to&nbsp;determine&nbsp;if&nbsp;this&nbsp;module&nbsp;should&nbsp;actually&nbsp;be&nbsp;stripped&nbsp;or&nbsp;not,&nbsp;based&nbsp;on&nbsp;whether&nbsp;LOCAL_STRIPPABLE_MODULE&nbsp;is&nbsp;set,&nbsp;and&nbsp;whether&nbsp;the&nbsp;combo&nbsp;is&nbsp;configured&nbsp;to&nbsp;ever&nbsp;strip&nbsp;modules.&nbsp;With&nbsp;Iliyan's&nbsp;stripping&nbsp;tool,&nbsp;this&nbsp;might&nbsp;change.<br/>
+表示该模块生成的目标是否需要被strip<br/>
+&nbsp;&nbsp;&nbsp;Calculated&nbsp;in&nbsp;base_rules.make&nbsp;to&nbsp;determine&nbsp;if&nbsp;this&nbsp;module&nbsp;should&nbsp;actually&nbsp;be&nbsp;stripped&nbsp;or&nbsp;not,<br/>
+&nbsp;&nbsp;&nbsp;based&nbsp;on&nbsp;whether&nbsp;LOCAL_STRIPPABLE_MODULE&nbsp;is&nbsp;set,&nbsp;and&nbsp;whether&nbsp;the&nbsp;combo&nbsp;is&nbsp;configured&nbsp;to&nbsp;ever&nbsp;strip&nbsp;modules.&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;With&nbsp;Iliyan's&nbsp;stripping&nbsp;tool,&nbsp;this&nbsp;might&nbsp;change.<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_STRIPPABLE_MODULE">LOCAL_STRIPPABLE_MODULE</a></h3>
 <p>
-Set&nbsp;by&nbsp;the&nbsp;include&nbsp;makefiles&nbsp;if&nbsp;that&nbsp;type&nbsp;of&nbsp;module&nbsp;is&nbsp;strippable.&nbsp;Executables&nbsp;and&nbsp;shared&nbsp;libraries&nbsp;are.<br/>
+表示模块生成的文件是否能被Strip，只有可执行程序和动态链接库可以被strip<br/>
+Set&nbsp;by&nbsp;the&nbsp;include&nbsp;makefiles&nbsp;if&nbsp;that&nbsp;type&nbsp;of&nbsp;module&nbsp;is&nbsp;strippable.&nbsp;<br/>
+Executables&nbsp;and&nbsp;shared&nbsp;libraries&nbsp;are.<br/>
 </p>
 </div>
 <div class="variable">

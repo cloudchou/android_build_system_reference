@@ -14,7 +14,7 @@
 <div class="file">
 <h3>build/core/find-jdk-tools-jar.mk</h3>
 <p>
-find-jdk-tools-jar.sh用于查找java的tools.jar所在目录<br/>
+find-jdk-tools-jar.sh用于查找jdk的tools.jar所在目录<br/>
 </p>
 </div>
 </div>

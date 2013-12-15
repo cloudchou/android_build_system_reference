@@ -14,7 +14,9 @@
 <div class="file">
 <h3>build/core/dumpvar.mk</h3>
 <p>
+在envsetup.sh里的setpath终端函数利用这个文件指出添加什么到系统PATH目录<br/>
 the&nbsp;setpath&nbsp;shell&nbsp;function&nbsp;in&nbsp;envsetup.sh&nbsp;uses&nbsp;this&nbsp;to&nbsp;figure&nbsp;out<br/>
+&nbsp;what&nbsp;to&nbsp;add&nbsp;to&nbsp;the&nbsp;path&nbsp;given&nbsp;the&nbsp;config&nbsp;we&nbsp;have&nbsp;chosen<br/>
 </p>
 </div>
 <div class="variable">

@@ -14,7 +14,7 @@
 <div class="file">
 <h3>build/core/droiddoc.mk</h3>
 <p>
-生成文档的makefile，对应变量BUILD_DROIDDOC<br/>
+生成文档用的makefile，对应变量BUILD_DROIDDOC<br/>
 </p>
 </div>
 <div class="variable">
@@ -51,7 +51,7 @@ endif<br/>
 ifeq&nbsp;($(LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR),)<br/>
 LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR&nbsp;:=&nbsp;$(SRC_DROIDDOC_DIR)/$(LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR)<br/>
 endif<br/>
-示例：./frameworks/base/Android.mk:591:LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR:=build/tools/droiddoc/templates-sdk<br/>
+示例：frameworks/base/Android.mk:591:LOCAL_DROIDDOC_CUSTOM_TEMPLATE_DIR:=build/tools/droiddoc/templates-sdk<br/>
 </p>
 </div>
 <div class="variable">

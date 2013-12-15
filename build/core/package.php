@@ -87,14 +87,14 @@ endif<br/>
 <h3><a id="PRODUCT_PACKAGE_OVERLAYS">PRODUCT_PACKAGE_OVERLAYS</a></h3>
 <p>
 产品配置里用于覆盖源生代码的资源文件<br/>
-&nbsp;&nbsp;&nbsp;./vendor/cm/config/common.mk:203:PRODUCT_PACKAGE_OVERLAYS&nbsp;+=&nbsp;vendor/cm/overlay/dictionaries<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vendor/cm/config/common.mk:203:PRODUCT_PACKAGE_OVERLAYS&nbsp;+=&nbsp;vendor/cm/overlay/dictionaries<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="DEVICE_PACKAGE_OVERLAYS">DEVICE_PACKAGE_OVERLAYS</a></h3>
 <p>
 设备配置里用于覆盖源生代码的资源文件<br/>
-./device/oppo/find5/device.mk:22:DEVICE_PACKAGE_OVERLAYS&nbsp;:=&nbsp;device/oppo/find5/overlay<br/>
+device/oppo/find5/device.mk:22:DEVICE_PACKAGE_OVERLAYS&nbsp;:=&nbsp;device/oppo/find5/overlay<br/>
 </p>
 </div>
 <div class="variable">
@@ -119,7 +119,19 @@ endif<br/>
 <h3><a id="LOCAL_CERTIFICATE">LOCAL_CERTIFICATE</a></h3>
 <p>
 证书名称<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;./packages/apps/CMFileManager/Android.mk:29:LOCAL_CERTIFICATE&nbsp;:=&nbsp;platform<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;packages/apps/CMFileManager/Android.mk:29:LOCAL_CERTIFICATE&nbsp;:=&nbsp;platform<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="lint-$(LOCAL_PACKAGE_NAME)">Target:&nbsp;&nbsp;lint-$(LOCAL_PACKAGE_NAME)</a></h3>
+<p>
+用lint对模块进行代码校验<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="lintall">Target:&nbsp;&nbsp;lintall</a></h3>
+<p>
+用lint对所有模块进行代码校验&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 </div>

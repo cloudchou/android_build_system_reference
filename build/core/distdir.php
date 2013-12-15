@@ -14,8 +14,22 @@
 <div class="file">
 <h3>build/core/distdir.mk</h3>
 <p>
-When&nbsp;specifying&nbsp;"dist",&nbsp;the&nbsp;user&nbsp;has&nbsp;asked&nbsp;that&nbsp;we&nbsp;copy&nbsp;the&nbsp;important<br/>
-files&nbsp;from&nbsp;this&nbsp;build&nbsp;into&nbsp;DIST_DIR.<br/>
+如果用户指定了dist目标，那么用户要求将重要文件拷贝到DIST_DIR目录下&nbsp;<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="dist">Target:&nbsp;&nbsp;dist</a></h3>
+<p>
+先按默认目标编译，然后将重要文件会拷贝到DIST_DIR下，<br/>
+在Makefile和main.mk里经常调用dist-for-goals，<br/>
+在这种情况下的文件便会被拷贝至$(DIST_DIR)下<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="DIST_DIR">DIST_DIR</a></h3>
+<p>
+示例：<br/>
+&nbsp;&nbsp;　out/dist<br/>
 </p>
 </div>
 <div class="function">

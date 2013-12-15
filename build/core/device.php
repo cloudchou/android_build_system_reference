@@ -36,6 +36,7 @@ _device_var_list&nbsp;:=&nbsp;\<br/>
 <h3><a id="dump-device">Function:&nbsp;&nbsp;dump-device</a></h3>
 <p>
 打印设备变量<br/>
+$1&nbsp;设备名字<br/>
 </p>
 </div>
 <div class="function">

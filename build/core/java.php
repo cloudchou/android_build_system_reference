@@ -30,15 +30,15 @@ LOCAL_SDK_VERSION&nbsp;:=&nbsp;9<br/>
 <div class="variable">
 <h3><a id="PDK_BUILD_SDK_VERSION">PDK_BUILD_SDK_VERSION</a></h3>
 <p>
-./build/core/pdk_config.mk:148:PDK_BUILD_SDK_VERSION&nbsp;:=&nbsp;$(lastword&nbsp;$(TARGET_AVAILABLE_SDK_VERSIONS))<br/>
+build/core/pdk_config.mk:148:PDK_BUILD_SDK_VERSION&nbsp;:=&nbsp;$(lastword&nbsp;$(TARGET_AVAILABLE_SDK_VERSIONS))&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_NO_STANDARD_LIBRARIES">LOCAL_NO_STANDARD_LIBRARIES</a></h3>
 <p>
 表示不使用标准库<br/>
-./frameworks/base/Android.mk:254:LOCAL_NO_STANDARD_LIBRARIES&nbsp;:=&nbsp;true<br/>
-./libcore/JavaLibrary.mk:79:LOCAL_NO_STANDARD_LIBRARIES&nbsp;:=&nbsp;true<br/>
+frameworks/base/Android.mk:254:LOCAL_NO_STANDARD_LIBRARIES&nbsp;:=&nbsp;true<br/>
+libcore/JavaLibrary.mk:79:LOCAL_NO_STANDARD_LIBRARIES&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">

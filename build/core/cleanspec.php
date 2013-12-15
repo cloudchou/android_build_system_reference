@@ -21,8 +21,7 @@ WHEN&nbsp;DOING&nbsp;SO<br/>
 2.&nbsp;REMOVE&nbsp;ALL&nbsp;FILES&nbsp;NAMED&nbsp;CleanSpec.mk.<br/>
 3.&nbsp;BUMP&nbsp;THE&nbsp;VERSION.<br/>
 IDEALLY,&nbsp;THOSE&nbsp;STEPS&nbsp;SHOULD&nbsp;BE&nbsp;DONE&nbsp;ATOMICALLY.<br/>
-**********************************************************************<br/>
-&nbsp;&nbsp;&nbsp;NTERNAL_CLEAN_BUILD_VERSION&nbsp;:=&nbsp;6<br/>
+**********************************************************************&nbsp;<br/>
 ***********************************************************************<br/>
 Do&nbsp;not&nbsp;touch&nbsp;INTERNAL_CLEAN_BUILD_VERSION&nbsp;if&nbsp;you've&nbsp;added&nbsp;a&nbsp;clean&nbsp;step!<br/>
 ***********************************************************************<br/>
@@ -50,6 +49,12 @@ For&nbsp;example:<br/>
 &nbsp;&nbsp;&nbsp;$(call&nbsp;add-clean-step,&nbsp;rm&nbsp;-rf&nbsp;$(OUT_DIR)/target/common/obj/JAVA_LIBRARIES/core_intermediates)<br/>
 &nbsp;&nbsp;&nbsp;$(call&nbsp;add-clean-step,&nbsp;find&nbsp;$(OUT_DIR)&nbsp;-type&nbsp;f&nbsp;-name&nbsp;"IGTalkSession*"&nbsp;-print0&nbsp;|&nbsp;xargs&nbsp;-0&nbsp;rm&nbsp;-f)<br/>
 &nbsp;&nbsp;&nbsp;$(call&nbsp;add-clean-step,&nbsp;rm&nbsp;-rf&nbsp;$(PRODUCT_OUT)/data/*)<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="INTERNAL_CLEAN_BUILD_VERSION">INTERNAL_CLEAN_BUILD_VERSION</a></h3>
+<p>
+INTERNAL_CLEAN_BUILD_VERSION&nbsp;:=&nbsp;6<br/>
 </p>
 </div>
 <div class="function">

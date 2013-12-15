@@ -14,8 +14,8 @@
 <div class="file">
 <h3>build/core/filter_symbols.mk</h3>
 <p>
-先前，build/core&nbsp;有用到filter_symbols.sh进行过滤<br/>
-#$(BUILD_SYSTEM)/filter_symbols.sh&nbsp;$(TARGET_NM)&nbsp;"&nbsp;&nbsp;"&nbsp;";"&nbsp;$(filter&nbsp;%.o,$^)&nbsp;|&nbsp;sort&nbsp;-u&nbsp;>>$@.vers;&nbsp;\<br/>
+先前，build/core&nbsp;有用到filter_symbols.sh进行过滤，但是现在没再用到<br/>
+$(BUILD_SYSTEM)/filter_symbols.sh&nbsp;$(TARGET_NM)&nbsp;"&nbsp;&nbsp;"&nbsp;";"&nbsp;$(filter&nbsp;%.o,$^)&nbsp;|&nbsp;sort&nbsp;-u&nbsp;>>$@.vers;&nbsp;\<br/>
 </p>
 </div>
 </div>

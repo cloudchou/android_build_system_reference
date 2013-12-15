@@ -42,14 +42,6 @@ yielding&nbsp;clues&nbsp;to&nbsp;its&nbsp;growth&nbsp;rate&nbsp;and&nbsp;to&nbsp
 如果定义LOCAL_ENABLE_APROF为true，那么将引入prof相关的库&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
-<div class="build_target">
-<h3><a id="linked_module">Target:&nbsp;&nbsp;linked_module</a></h3>
-<p>
-linked_module&nbsp;:=&nbsp;$(guessed_intermediates)/LINKED/$(LOCAL_BUILT_MODULE_STEM)<br/>
-编译链接后可执行文件存放目录<br/>
-和LOCAL_BUILT_MODULE等价<br/>
-</p>
-</div>
 </div>
 <?php require_once '../../sidebar.php';?>
 <?php require_once '../../footer.php';?>

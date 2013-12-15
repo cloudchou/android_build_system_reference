@@ -19,6 +19,7 @@
 <div class="function">
 <h3><a id="__this_file">Function:&nbsp;&nbsp;__this_file</a></h3>
 <p>
+针对boot的jar对dex代码进行前置优化<br/>
 Dexpreopt&nbsp;on&nbsp;the&nbsp;boot&nbsp;jars<br/>
 </p>
 </div>
@@ -32,6 +33,7 @@ DEXPREOPT_BOOT_JARS&nbsp;:=&nbsp;core:core-junit:bouncycastle:ext:framework:tele
 <h3><a id="DEXPREOPT_BOOT_JARS_MODULES">DEXPREOPT_BOOT_JARS_MODULES</a></h3>
 <p>
 DEXPREOPT_BOOT_JARS_MODULES&nbsp;:=&nbsp;$(subst&nbsp;:,&nbsp;,$(DEXPREOPT_BOOT_JARS))<br/>
+dex代码前置优化模块名<br/>
 </p>
 </div>
 <div class="variable">

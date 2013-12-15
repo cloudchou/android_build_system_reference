@@ -14,7 +14,8 @@
 <div class="file">
 <h3>build/core/copy_headers.mk</h3>
 <p>
-用于拷贝头文件，如果某个模块需要拷贝头文件，只需要包含该makefile即可，该文件对应的变量是BUILD_COPY_HEADERS，因此只需要include&nbsp;$(BUILD_COPY_HEADERS)<br/>
+该makefile对应的变量是BUILD_COPY_HEADERS，如果想拷贝头文件<br/>
+只需include&nbsp;$(BUILD_COPY_HEADERS)&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 </div>

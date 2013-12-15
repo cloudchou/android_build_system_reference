@@ -40,7 +40,7 @@
 <div class="build_target">
 <h3><a id="$(LOCAL_BUILT_MODULE)">Target:&nbsp;&nbsp;$(LOCAL_BUILT_MODULE)</a></h3>
 <p>
-编译链接后执行文件存放目录<br/>
+示编译链接后的目标文件(文件路径+文件名),存放在临时目录<br/>
 </p>
 </div>
 </div>

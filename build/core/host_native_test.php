@@ -18,7 +18,7 @@ A&nbsp;thin&nbsp;wrapper&nbsp;around&nbsp;BUILD_HOST_EXECUTABLE&nbsp;Common&nbsp
 本机可执行文件测试程序&nbsp;<br/>
 为LOCAL_CFLAGS添加了一些Flag<br/>
 也为LOCAL_C_INCLUDES添加了一些头文件目录<br/>
-也为LOCAL_STATIC_LIBRARIES添加链接的静态哭<br/>
+也为LOCAL_STATIC_LIBRARIES添加链接的静态库<br/>
 </p>
 </div>
 </div>

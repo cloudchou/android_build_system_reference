@@ -14,12 +14,18 @@
 <div class="file">
 <h3>build/core/base_rules.mk</h3>
 <p>
-base_rules.mk里定义了编译编译为某个类型目标的方法<br/>
-编译系统的模块能编译成各种类型的目标，可能是主机上的可执行文件，也可能是手机上的可执行文件，<br/>
-还可能是jar，动态链接库，在Android编译系统里每一种类型目标的编译方式对应一个makefile，<br/>
-如果某个模块需要编译成手机上的可执行程序，它需要include&nbsp;$(BUILD_EXECUTABLE)&nbsp;<br/>
+base_rules.mk里定义了生成某种目标的方式<br/>
+目标类型：主机上的可执行程序，设备上的可执行程序，apk程序，Java运行库，动态链接库等等<br/>
+Android编译系统里每一种目标的生成方式对应一个makefile，<br/>
+示例：如果某个模块需要编译成手机上的二进制程序，它需要include&nbsp;$(BUILD_EXECUTABLE)&nbsp;<br/>
 而BUILD_EXECUTABLE指向的是$(BUILD_SYSTEM)/executable.mk<br/>
-所有这些编译方式对应的makefile都将包含base_rules.mk<br/>
+所有生成方式对应的makefile都将包含base_rules.mk<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_PATH">LOCAL_PATH</a></h3>
+<p>
+每个模块都在Android.mk里定义，表示模块所在目录<br/>
 </p>
 </div>
 <div class="variable">
@@ -32,7 +38,7 @@ LOCAL_MODULE将在每个模块的makefile里定义，如果未定义，编译系
 <div class="variable">
 <h3><a id="LOCAL_IS_HOST_MODULE">LOCAL_IS_HOST_MODULE</a></h3>
 <p>
-表示该模块是否是将在主机上运行的模块<br/>
+表示该模块生成的目标是否在主机上运行，<br/>
 </p>
 </div>
 <div class="variable">
@@ -57,19 +63,19 @@ LOCAL_MODULE将在每个模块的makefile里定义，如果未定义，编译系
 <h3><a id="LOCAL_MODULE_TAGS">LOCAL_MODULE_TAGS</a></h3>
 <p>
 模块的tag，为debug&nbsp;eng&nbsp;tests&nbsp;optional&nbsp;samples&nbsp;shell_ash&nbsp;shell_mksh等tag的组合，一个模块可有多个Tag,<br/>
-注意现在模块现在不能使用user&nbsp;tag作为模块的Tag,<br/>
-如果使用user做为tag,那么这个模块将被自动安装，<br/>
-如果想定义自动安装的模块，需要在PRODUCT_PACKAGES变量里添加该模块<br/>
-该变量在build/target/product/base.mk里有赋值，<br/>
-在每个设备的配置文件device.mk里也可以为PRODUCT_PACKAGES添加产品模块<br/>
-如果当前目录或者父目录有*_GPL*的文件，那么将gnu的tag<br/>
+注意现在模块现在不能使用user作为模块的Tag,<br/>
+&nbsp;&nbsp;以前如果使用user做为tag,那么这个模块将被自动安装，<br/>
+&nbsp;&nbsp;如果想定义自动安装的模块，需要在PRODUCT_PACKAGES变量里添加该模块，<br/>
+&nbsp;&nbsp;该变量在build/target/product/base.mk和build/target/product/core.mk里有赋值，这是所有产品都将继承的基础配置<br/>
+&nbsp;&nbsp;另外每个设备可在自己的产品配置文件device_*.mk里设置该变量，添加更多的模块&nbsp;<br/>
+如果当前目录或者父目录有*_GPL*的文件，那么将自动添加gnu的tag<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="LOCAL_MODULE_CLASS">LOCAL_MODULE_CLASS</a></h3>
 <p>
-将用于决定编译的中间文件存放的位置<br/>
-LOCAL_MODULE_CLASS在决定编译目标类型的文件里定义，<br/>
+将用于决定编译时的中间文件存放的位置<br/>
+LOCAL_MODULE_CLASS在定义目标生成方式的makefile文件里定义，<br/>
 &nbsp;&nbsp;比如executable.mk里定义LOCAL_MODULE_CLASS&nbsp;:=&nbsp;EXECUTABLES<br/>
 在recovery模块的Android.mk里定义的LOCAL_MODULE_CLASS有：<br/>
 &nbsp;&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;RECOVERY_EXECUTABLES<br/>
@@ -78,6 +84,10 @@ LOCAL_MODULE_CLASS在决定编译目标类型的文件里定义，<br/>
 &nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;ETC<br/>
 &nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;STATIC_LIBRARIES<br/>
 &nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;EXECUTABLES<br/>
+&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;FAKE<br/>
+&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;JAVA_LIBRARIES<br/>
+&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;SHARED_LIBRARIES<br/>
+&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;APPS<br/>
 对应&nbsp;Cyanogenmod/target/product/m7ul/obj&nbsp;的目录&nbsp;<br/>
 &nbsp;&nbsp;比如说若&nbsp;LOCAL_MODULE_CLASS&nbsp;:=&nbsp;ETC&nbsp;<br/>
 &nbsp;&nbsp;那么该模块编译的中间文件将存放于<br/>
@@ -88,9 +98,8 @@ LOCAL_MODULE_CLASS在决定编译目标类型的文件里定义，<br/>
 <h3><a id="partition_tag">partition_tag</a></h3>
 <p>
 如果是主机模块，partition_tag将为空，否则如果是设备专有模块，partition_tag:=_VENDOR<br/>
-否则如果是安装到系统的模块，那么partition_tag将为空(只有test模块不安装到目录，而安装至data目录)<br/>
-否则partition_tag:=_DATA<br/>
-在编译系统里没发现LOCAL_PROPRIETARY_MODULE的赋值<br/>
+否则如果是安装到系统的模块，那么partition_tag将为空(test模块生成的目标只安装至data目录)<br/>
+否则partition_tag:=_DATA&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
@@ -102,7 +111,7 @@ LOCAL_MODULE_CLASS在决定编译目标类型的文件里定义，<br/>
 <div class="variable">
 <h3><a id="LOCAL_MODULE_PATH">LOCAL_MODULE_PATH</a></h3>
 <p>
-表示模块编译结果将要存放的目录<br/>
+表示模块生成的目标将最终存放的目录<br/>
 recovery模块的Android.mk里有<br/>
 LOCAL_MODULE&nbsp;:=&nbsp;nandroid-md5.sh&nbsp;<br/>
 LOCAL_MODULE_PATH&nbsp;:=&nbsp;$(TARGET_RECOVERY_ROOT_OUT)/sbin&nbsp;<br/>
@@ -190,16 +199,16 @@ LOCAL_INSTALLED_MODULE_STEM:=recovery<br/>
 <div class="variable">
 <h3><a id="OVERRIDE_BUILT_MODULE_PATH">OVERRIDE_BUILT_MODULE_PATH</a></h3>
 <p>
-OVERRIDE_BUILT_MODULE_PATH&nbsp;is&nbsp;only&nbsp;allowed&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;the&nbsp;internal&nbsp;SHARED_LIBRARIES&nbsp;build&nbsp;files.<br/>
-OVERRIDE_BUILT_MODULE_PATH&nbsp;:=&nbsp;$(strip&nbsp;$(OVERRIDE_BUILT_MODULE_PATH))<br/>
-&nbsp;&nbsp;ifdef&nbsp;OVERRIDE_BUILT_MODULE_PATH<br/>
-ifneq&nbsp;($(LOCAL_MODULE_CLASS),SHARED_LIBRARIES)<br/>
-&nbsp;&nbsp;$(error&nbsp;$(LOCAL_PATH):&nbsp;Illegal&nbsp;use&nbsp;of&nbsp;OVERRIDE_BUILT_MODULE_PATH)<br/>
-endif<br/>
-built_module_path&nbsp;:=&nbsp;$(OVERRIDE_BUILT_MODULE_PATH)<br/>
-&nbsp;&nbsp;else<br/>
-built_module_path&nbsp;:=&nbsp;$(intermediates)<br/>
+只有内部动态链接库模块可以使用OVERRIDE_BUILT_MODULE_PATH&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;OVERRIDE_BUILT_MODULE_PATH&nbsp;:=&nbsp;$(strip&nbsp;$(OVERRIDE_BUILT_MODULE_PATH))<br/>
+ifdef&nbsp;OVERRIDE_BUILT_MODULE_PATH<br/>
+&nbsp;&nbsp;ifneq&nbsp;($(LOCAL_MODULE_CLASS),SHARED_LIBRARIES)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(error&nbsp;$(LOCAL_PATH):&nbsp;Illegal&nbsp;use&nbsp;of&nbsp;OVERRIDE_BUILT_MODULE_PATH)<br/>
 &nbsp;&nbsp;endif<br/>
+&nbsp;&nbsp;built_module_path&nbsp;:=&nbsp;$(OVERRIDE_BUILT_MODULE_PATH)<br/>
+else<br/>
+&nbsp;&nbsp;built_module_path&nbsp;:=&nbsp;$(intermediates)<br/>
+endif<br/>
 </p>
 </div>
 <div class="variable">
@@ -237,6 +246,14 @@ LOCAL_INTERMEDIATE_TARGETS&nbsp;+=&nbsp;$(LOCAL_BUILT_MODULE)<br/>
 </p>
 </div>
 <div class="variable">
+<h3><a id="LOCAL_INTERMEDIATE_TARGETS">LOCAL_INTERMEDIATE_TARGETS</a></h3>
+<p>
+将所有目标添加到变量LOCAL_INTERMEDIATE_TARGETS里<br/>
+LOCAL_INTERMEDIATE_TARGETS&nbsp;+=&nbsp;$(LOCAL_BUILT_MODULE)<br/>
+LOCAL_INTERMEDIATE_TARGETS&nbsp;+=&nbsp;$(proto_java_sources_file_stamp)<br/>
+</p>
+</div>
+<div class="variable">
 <h3><a id="aidl_sources">aidl_sources</a></h3>
 <p>
 表示所有源代码中的aidl文件<br/>
@@ -264,6 +281,7 @@ LOCAL_SRC_FILES&nbsp;+=&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;core/java/android/speech/tts/EventLogTags.logtags&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;core/java/android/webkit/EventLogTags.logtags&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;在base_rules里定义了如何将logtag文件编译成java文件的方式，包括文件依赖<br/>
+&nbsp;&nbsp;&nbsp;logtags文件最终会被logcat程序使用到<br/>
 </p>
 </div>
 <div class="variable">
@@ -284,10 +302,25 @@ LOCAL_INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;$(intermediates.COMMON)/src<br/>
 </p>
 </div>
 <div class="variable">
+<h3><a id="LOCAL_JAVA_RESOURCE_DIRS">LOCAL_JAVA_RESOURCE_DIRS</a></h3>
+<p>
+java资源文件所在目录<br/>
+</p>
+</div>
+<div class="variable">
 <h3><a id="all_java_sources">all_java_sources</a></h3>
 <p>
 所有Java源代码<br/>
 Compile&nbsp;.java&nbsp;files&nbsp;to&nbsp;.class<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_JAR_MANIFEST">LOCAL_JAR_MANIFEST</a></h3>
+<p>
+java库用的manifest<br/>
+示例：<br/>
+inputmethods/LatinIME/tools/maketext/Android.mk:20:LOCAL_JAR_MANIFEST&nbsp;:=&nbsp;etc/manifest.txt<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;inputmethods/LatinIME/tools/dicttool/Android.mk:29:LOCAL_JAR_MANIFEST&nbsp;:=&nbsp;etc/manifest.txt<br/>
 </p>
 </div>
 <div class="variable">
@@ -296,8 +329,8 @@ Compile&nbsp;.java&nbsp;files&nbsp;to&nbsp;.class<br/>
 编译为java静态库<br/>
 </p>
 </div>
-<div class="variable">
-<h3><a id="cleantarget">cleantarget</a></h3>
+<div class="build_target">
+<h3><a id="clean-$(LOCAL_MODULE)">Target:&nbsp;&nbsp;clean-$(LOCAL_MODULE)</a></h3>
 <p>
 定义一个模块的清除目标，如：recovery模块，有对应的clean-recovery<br/>
 如果在编译时用mka&nbsp;clean-recovery，将清除编译recovery时产生的文件，<br/>
@@ -305,16 +338,39 @@ Compile&nbsp;.java&nbsp;files&nbsp;to&nbsp;.class<br/>
 </p>
 </div>
 <div class="variable">
+<h3><a id="LOCAL_CHECKED_MODULE">LOCAL_CHECKED_MODULE</a></h3>
+<p>
+需要检查的模块<br/>
+ifndef&nbsp;LOCAL_CHECKED_MODULE<br/>
+&nbsp;&nbsp;ifndef&nbsp;LOCAL_SDK_VERSION<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_CHECKED_MODULE&nbsp;:=&nbsp;$(LOCAL_BUILT_MODULE)<br/>
+&nbsp;&nbsp;endif<br/>
+endif<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="LOCAL_DONT_CHECK_MODULE">LOCAL_DONT_CHECK_MODULE</a></h3>
+<p>
+如果定义了该变量，那么模块将不被检查<br/>
+ifdef&nbsp;LOCAL_DONT_CHECK_MODULE<br/>
+&nbsp;&nbsp;LOCAL_CHECKED_MODULE&nbsp;:=<br/>
+endif<br/>
+</p>
+</div>
+<div class="variable">
 <h3><a id="ALL_MODULES">ALL_MODULES</a></h3>
 <p>
-将一些本地变量加入到ALL_MODULES变量里<br/>
+所有的(LOCAL_MODULE)都会被加入ALL_MODULES变量<br/>
 ALL_MODULES&nbsp;+=&nbsp;$(LOCAL_MODULE)<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).CLASS">ALL_MODULES.$(LOCAL_MODULE).CLASS</a></h3>
 <p>
-$(ALL_MODULES.$(LOCAL_MODULE).CLASS)&nbsp;$(LOCAL_MODULE_CLASS)<br/>
+将LOCAL_MODULE_CLASS加入到ALL_MODULES.$(LOCAL_MODULE).CLASS管理，<br/>
+这样可以得到所有模块的所有CLASS<br/>
+&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).CLASS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).CLASS)&nbsp;$(LOCAL_MODULE_CLASS)<br/>
 示例：<br/>
 ALL_MODULES.recovery.CLASS&nbsp;=&nbsp;EXECECUTABLE&nbsp;<br/>
 一个模块可能既编译为手机上的可执行程序，又编译为电脑上的可执行程序<br/>
@@ -324,43 +380,48 @@ ALL_MODULES.recovery.CLASS&nbsp;=&nbsp;EXECECUTABLE&nbsp;<br/>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).PATH">ALL_MODULES.$(LOCAL_MODULE).PATH</a></h3>
 <p>
-ALL_MODULES.$(LOCAL_MODULE).PATH&nbsp;:=&nbsp;\<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).PATH)&nbsp;$(LOCAL_PATH)<br/>
-&nbsp;&nbsp;示例：<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.recovery.PATH&nbsp;bootable/recovery<br/>
+所有模块路径<br/>
+&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).PATH&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).PATH)&nbsp;$(LOCAL_PATH)<br/>
+&nbsp;示例：<br/>
+&nbsp;ALL_MODULES.recovery.PATH&nbsp;bootable/recovery<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).TAGS">ALL_MODULES.$(LOCAL_MODULE).TAGS</a></h3>
 <p>
-ALL_MODULES.$(LOCAL_MODULE).TAGS&nbsp;:=&nbsp;\<br/>
-$(ALL_MODULES.$(LOCAL_MODULE).TAGS)&nbsp;$(LOCAL_MODULE_TAGS)<br/>
-示例：<br/>
-&nbsp;ALL_MODULES.recovery.TAGS&nbsp;eng<br/>
+所有模块的所有TAGS<br/>
+&nbsp;ALL_MODULES.$(LOCAL_MODULE).TAGS&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).TAGS)&nbsp;$(LOCAL_MODULE_TAGS)<br/>
+&nbsp;示例：<br/>
+ALL_MODULES.recovery.TAGS&nbsp;eng<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).CHECKED">ALL_MODULES.$(LOCAL_MODULE).CHECKED</a></h3>
 <p>
-ALL_MODULES.$(LOCAL_MODULE).CHECKED&nbsp;:=&nbsp;\<br/>
-&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).CHECKED)&nbsp;$(LOCAL_CHECKED_MODULE)<br/>
-示例：<br/>
-&nbsp;ALL_MODULES.recovery.CHECKED&nbsp;&nbsp;<br/>
-out/Cyanogenmod/target/product/m7ul/obj/EXECUTABLES/recovery_intermediates/recovery<br/>
+所有模块的所有是否被检查属性<br/>
+&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).CHECKED&nbsp;:=&nbsp;\<br/>
+$(ALL_MODULES.$(LOCAL_MODULE).CHECKED)&nbsp;$(LOCAL_CHECKED_MODULE)<br/>
+&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;ALL_MODULES.recovery.CHECKED&nbsp;&nbsp;<br/>
+&nbsp;out/Cyanogenmod/target/product/m7ul/obj/EXECUTABLES/recovery_intermediates/recovery<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).BUILT">ALL_MODULES.$(LOCAL_MODULE).BUILT</a></h3>
 <p>
-ALL_MODULES.$(LOCAL_MODULE).BUILT&nbsp;:=&nbsp;\<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).BUILT)&nbsp;$(LOCAL_BUILT_MODULE)<br/>
-示例：<br/>
-&nbsp;out/Cyanogenmod/target/product/m7ul/obj/EXECUTABLES/recovery_intermediates/recovery<br/>
+所有模块的所有生成路径&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).BUILT&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).BUILT)&nbsp;$(LOCAL_BUILT_MODULE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out/Cyanogenmod/target/product/m7ul/obj/EXECUTABLES/recovery_intermediates/recovery<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).INSTALLED">ALL_MODULES.$(LOCAL_MODULE).INSTALLED</a></h3>
 <p>
+所有模块的各自安装路径<br/>
 ALL_MODULES.$(LOCAL_MODULE).INSTALLED&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;$(strip&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).INSTALLED)&nbsp;$(LOCAL_INSTALLED_MODULE))<br/>
 示例：<br/>
@@ -370,15 +431,17 @@ out/Cyanogenmod/target/product/m7ul/system/bin/recovery<br/>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).REQUIRED">ALL_MODULES.$(LOCAL_MODULE).REQUIRED</a></h3>
 <p>
-ALL_MODULES.$(LOCAL_MODULE).REQUIRED&nbsp;:=&nbsp;\<br/>
-&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).REQUIRED)&nbsp;$(LOCAL_REQUIRED_MODULES)<br/>
+所有模块的各自依赖模块&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).REQUIRED&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).REQUIRED)&nbsp;$(LOCAL_REQUIRED_MODULES)<br/>
 &nbsp;&nbsp;binary.mk:<br/>
-&nbsp;&nbsp;LOCAL_REQUIRED_MODULES&nbsp;+=&nbsp;$(installed_shared_library_module_names)&nbsp;&nbsp;<br/>
+LOCAL_REQUIRED_MODULES&nbsp;+=&nbsp;$(installed_shared_library_module_names)&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS">ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS</a></h3>
 <p>
+所有模块的EVENT_LOG_TAGS<br/>
 ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS&nbsp;:=&nbsp;\<br/>
 &nbsp;&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS)&nbsp;$(event_log_tags)<br/>
 &nbsp;&nbsp;event_log_tags&nbsp;:=&nbsp;$(addprefix&nbsp;$(LOCAL_PATH)/,$(logtags_sources))<br/>
@@ -387,27 +450,30 @@ ALL_MODULES.$(LOCAL_MODULE).EVENT_LOG_TAGS&nbsp;:=&nbsp;\<br/>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR">ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR</a></h3>
 <p>
-ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;\<br/>
-$(ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR)&nbsp;$(LOCAL_INTERMEDIATE_SOURCE_DIR)<br/>
-LOCAL_INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;$(intermediates.COMMON)/src<br/>
+所有模块的生成代码的目录集合<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;\<br/>
+&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).INTERMEDIATE_SOURCE_DIR)&nbsp;$(LOCAL_INTERMEDIATE_SOURCE_DIR)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_INTERMEDIATE_SOURCE_DIR&nbsp;:=&nbsp;$(intermediates.COMMON)/src<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).MAKEFILE">ALL_MODULES.$(LOCAL_MODULE).MAKEFILE</a></h3>
 <p>
-ALL_MODULES.$(LOCAL_MODULE).MAKEFILE&nbsp;:=&nbsp;\<br/>
-&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).MAKEFILE)&nbsp;$(LOCAL_MODULE_MAKEFILE)<br/>
-举例：<br/>
-bootable/recovery/Android.mk&nbsp;<br/>
+所有模块各自的makefile集合<br/>
+&nbsp;&nbsp;&nbsp;ALL_MODULES.$(LOCAL_MODULE).MAKEFILE&nbsp;:=&nbsp;\<br/>
+$(ALL_MODULES.$(LOCAL_MODULE).MAKEFILE)&nbsp;$(LOCAL_MODULE_MAKEFILE)<br/>
+&nbsp;&nbsp;&nbsp;举例：<br/>
+&nbsp;&nbsp;bootable/recovery/Android.mk&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULES.$(LOCAL_MODULE).OWNER">ALL_MODULES.$(LOCAL_MODULE).OWNER</a></h3>
 <p>
+所有模块各自的OWNER<br/>
 ifdef&nbsp;LOCAL_MODULE_OWNER<br/>
 &nbsp;ALL_MODULES.$(LOCAL_MODULE).OWNER&nbsp;:=&nbsp;\<br/>
-&nbsp;$(sort&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).OWNER)&nbsp;$(LOCAL_MODULE_OWNER))<br/>
-&nbsp;endif<br/>
+$(sort&nbsp;$(ALL_MODULES.$(LOCAL_MODULE).OWNER)&nbsp;$(LOCAL_MODULE_OWNER))<br/>
+&nbsp;endif&nbsp;&nbsp;<br/>
 &nbsp;三星glaxsy2有定义LOCAL_MODULE_OWNER变量<br/>
 &nbsp;./vendor/samsung/galaxys2-common/proprietary/Android.mk:21:LOCAL_MODULE_OWNER&nbsp;:=&nbsp;samsung<br/>
 </p>
@@ -415,17 +481,37 @@ ifdef&nbsp;LOCAL_MODULE_OWNER<br/>
 <div class="variable">
 <h3><a id="INSTALLABLE_FILES.$(LOCAL_INSTALLED_MODULE).MODULE">INSTALLABLE_FILES.$(LOCAL_INSTALLED_MODULE).MODULE</a></h3>
 <p>
-INSTALLABLE_FILES.$(LOCAL_INSTALLED_MODULE).MODULE&nbsp;:=&nbsp;$(LOCAL_MODULE)<br/>
-例子：<br/>
-&nbsp;&nbsp;INSTALLABLE_FILES.out/Cyanogenmod/target/product/m7ul/system/bin/recovery.MODULE:=recovery<br/>
+所有模块各自安装的名字<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;INSTALLABLE_FILES.$(LOCAL_INSTALLED_MODULE).MODULE&nbsp;:=&nbsp;$(LOCAL_MODULE)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;例子：<br/>
+INSTALLABLE_FILES.out/Cyanogenmod/target/product/m7ul/system/bin/recovery.MODULE:=recovery<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ALL_MODULE_TAGS">ALL_MODULE_TAGS</a></h3>
 <p>
-ALL_MODULE_TAGS&nbsp;:=&nbsp;$(sort&nbsp;$(ALL_MODULE_TAGS)&nbsp;$(LOCAL_MODULE_TAGS))<br/>
-例：<br/>
-&nbsp;&nbsp;ALL_MODULE_TAGS&nbsp;debug&nbsp;eng&nbsp;tests&nbsp;optional&nbsp;samples&nbsp;shell_ash&nbsp;shell_mksh<br/>
+所有模块的所有TAGS&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;ALL_MODULE_TAGS&nbsp;:=&nbsp;$(sort&nbsp;$(ALL_MODULE_TAGS)&nbsp;$(LOCAL_MODULE_TAGS))<br/>
+&nbsp;&nbsp;&nbsp;例：<br/>
+&nbsp;ALL_MODULE_TAGS&nbsp;debug&nbsp;eng&nbsp;tests&nbsp;optional&nbsp;samples&nbsp;shell_ash&nbsp;shell_mksh<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULE_TAGS.$(tag)">ALL_MODULE_TAGS.$(tag)</a></h3>
+<p>
+每个Tag对应的模块安装路径集合&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;$(foreach&nbsp;tag,$(LOCAL_MODULE_TAGS),\<br/>
+$(eval&nbsp;ALL_MODULE_TAGS.$(tag)&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(ALL_MODULE_TAGS.$(tag))&nbsp;\<br/>
+&nbsp;&nbsp;&nbsp;$(LOCAL_INSTALLED_MODULE)))<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="ALL_MODULE_NAME_TAGS.$(tag)">ALL_MODULE_NAME_TAGS.$(tag)</a></h3>
+<p>
+每个TAG对应的模块集合<br/>
+&nbsp;&nbsp;$(foreach&nbsp;tag,$(LOCAL_MODULE_TAGS),\<br/>
+&nbsp;&nbsp;$(eval&nbsp;ALL_MODULE_NAME_TAGS.$(tag)&nbsp;+=&nbsp;$(LOCAL_MODULE)))&nbsp;&nbsp;<br/>
 </p>
 </div>
 </div>

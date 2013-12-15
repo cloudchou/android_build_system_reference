@@ -48,15 +48,55 @@ then&nbsp;we&nbsp;won't&nbsp;do&nbsp;anything.<br/>
 </p>
 </div>
 <div class="variable">
+<h3><a id="previous_build_config_file">previous_build_config_file</a></h3>
+<p>
+previous_build_config_file&nbsp;:=&nbsp;$(PRODUCT_OUT)/previous_build_config.mk<br/>
+示例：<br/>
+&nbsp;&nbsp;out/target/product/find5/previous_build_config.mk<br/>
+</p>
+</div>
+<div class="variable">
+<h3><a id="PREVIOUS_BUILD_CONFIG">PREVIOUS_BUILD_CONFIG</a></h3>
+<p>
+编译配置<br/>
+示例：<br/>
+&nbsp;&nbsp;PREVIOUS_BUILD_CONFIG&nbsp;:=&nbsp;cm_find5-userdebug-{en_US,语言和地域列表...}<br/>
+如果编译时PREVIOUS_BUILD_CONFIG发生变化<br/>
+&nbsp;&nbsp;&nbsp;那么会强制进行dataclean和installclean&nbsp;<br/>
+</p>
+</div>
+<div class="variable">
 <h3><a id="installclean_files">installclean_files</a></h3>
 <p>
 需要清除的安装目录文件<br/>
+installclean_files&nbsp;:=&nbsp;\<br/>
+&nbsp;&nbsp;$(HOST_OUT)/obj/NOTICE_FILES&nbsp;\<br/>
+$(HOST_OUT)/sdk&nbsp;\<br/>
+$(PRODUCT_OUT)/*.img&nbsp;\<br/>
+$(PRODUCT_OUT)/*.txt&nbsp;\<br/>
+$(PRODUCT_OUT)/*.xlb&nbsp;\<br/>
+$(PRODUCT_OUT)/*.zip&nbsp;\<br/>
+$(PRODUCT_OUT)/*.zip.md5sum&nbsp;\<br/>
+$(PRODUCT_OUT)/data&nbsp;\<br/>
+$(PRODUCT_OUT)/obj/APPS&nbsp;\<br/>
+$(PRODUCT_OUT)/obj/NOTICE_FILES&nbsp;\<br/>
+$(PRODUCT_OUT)/obj/PACKAGING&nbsp;\<br/>
+$(PRODUCT_OUT)/recovery&nbsp;\<br/>
+$(PRODUCT_OUT)/root&nbsp;\<br/>
+$(PRODUCT_OUT)/system&nbsp;\<br/>
+$(PRODUCT_OUT)/dex_bootjars&nbsp;\<br/>
+$(PRODUCT_OUT)/obj/JAVA_LIBRARIES&nbsp;\<br/>
+$(PRODUCT_OUT)/obj/FAKE<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="dataclean_files">dataclean_files</a></h3>
 <p>
 需要清除的data文件<br/>
+dataclean_files&nbsp;:=&nbsp;\<br/>
+$(PRODUCT_OUT)/data/*&nbsp;\<br/>
+$(PRODUCT_OUT)/data-qemu/*&nbsp;\<br/>
+$(PRODUCT_OUT)/userdata-qemu.img<br/>
 </p>
 </div>
 <div class="build_target">
