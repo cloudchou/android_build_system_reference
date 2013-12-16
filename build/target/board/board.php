@@ -11,60 +11,63 @@
 <?php require_once '../../../header.php';?> 
 <div id="content">
 
-<div class="file">
-<h3>build/target/board/board.mk</h3>
+<div class="">
+<h3><a id="">Target:&nbsp;&nbsp;</a></h3>
 <p>
-Set&nbsp;up&nbsp;product-global&nbsp;definitions&nbsp;and&nbsp;include&nbsp;product-specific&nbsp;rules<br/>
-定义了INSTALLED_BOOTLOADER_MODULE,INSTALLED_2NDBOOTLOADER_TARGET等变量<br/>
+﻿[[__thisfile]]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定义了INSTALLED_BOOTLOADER_MODULE,INSTALLED_2NDBOOTLOADER_TARGET等变量<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定义了全局的product变量&nbsp;并且&nbsp;包含了&nbsp;product-specific的变量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="INSTALLED_BOOTLOADER_MODULE">INSTALLED_BOOTLOADER_MODULE</a></h3>
 <p>
-ifneq&nbsp;($(strip&nbsp;$(TARGET_NO_BOOTLOADER)),true)<br/>
-&nbsp;&nbsp;INSTALLED_BOOTLOADER_MODULE&nbsp;:=&nbsp;$(PRODUCT_OUT)/bootloader<br/>
-&nbsp;&nbsp;ifeq&nbsp;($(strip&nbsp;$(TARGET_BOOTLOADER_IS_2ND)),true)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_2NDBOOTLOADER_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/2ndbootloader<br/>
-&nbsp;&nbsp;else<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;INSTALLED_2NDBOOTLOADER_TARGET&nbsp;:=<br/>
-&nbsp;&nbsp;endif<br/>
-else<br/>
-&nbsp;&nbsp;INSTALLED_BOOTLOADER_MODULE&nbsp;:=<br/>
-&nbsp;&nbsp;INSTALLED_2NDBOOTLOADER_TARGET&nbsp;:=<br/>
-endif&nbsp;&nbsp;&nbsp;#&nbsp;TARGET_NO_BOOTLOADER<br/>
+如果设备没有bootloader，则初始化INSTALLED_BOOTLOADER_MODULE为空<br/>
+否则设置为$(PRODUCT_OUT)/bootloader<br/>
+示例：out/target/product/i9100/bootloader<br/>
+如果设备没有第二阶段的bootloader，则初始化TARGET_BOOTLOADER_IS_2ND为空<br/>
+否则设置为&nbsp;$(PRODUCT_OUT)/2ndbootloader<br/>
+示例：out/target/product/i9100/2ndbootloader&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="INSTALLED_KERNEL_TARGET">INSTALLED_KERNEL_TARGET</a></h3>
 <p>
-ifneq&nbsp;($(strip&nbsp;$(TARGET_NO_KERNEL)),true)<br/>
-&nbsp;&nbsp;INSTALLED_KERNEL_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/kernel<br/>
-else<br/>
-&nbsp;&nbsp;INSTALLED_KERNEL_TARGET&nbsp;:=<br/>
-endif<br/>
+如果设备没有kernel，则初始化INSTALLED_KERNEL_TARGET为&nbsp;$(PRODUCT_OUT)/kernel<br/>
+否则设置INSTALLED_KERNEL_TARGET为空&nbsp;<br/>
+示例：<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="INSTALLED_ANDROID_INFO_TXT_TARGET">INSTALLED_ANDROID_INFO_TXT_TARGET</a></h3>
 <p>
 INSTALLED_ANDROID_INFO_TXT_TARGET&nbsp;:=&nbsp;$(PRODUCT_OUT)/android-info.txt<br/>
+示例：out/target/product/i9100/android-info.txt<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="board_info_txt">board_info_txt</a></h3>
 <p>
 board_info_txt&nbsp;:=&nbsp;$(TARGET_BOARD_INFO_FILE)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifndef&nbsp;board_info_txt<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;board_info_txt&nbsp;:=&nbsp;$(wildcard&nbsp;$(TARGET_DEVICE_DIR)/board-info.txt)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(INSTALLED_ANDROID_INFO_TXT_TARGET):&nbsp;$(board_info_txt)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;build/tools/check_radio_versions.py&nbsp;$<&nbsp;$(BOARD_INFO_CHECK)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;pretty,"Generated:&nbsp;($@)")<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifdef&nbsp;board_info_txt<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;grep&nbsp;-v&nbsp;'#'&nbsp;$<&nbsp;>&nbsp;$@<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;echo&nbsp;"board=$(TARGET_BOOTLOADER_BOARD_NAME)"&nbsp;>&nbsp;$@<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br/>
+ifndef&nbsp;board_info_txt<br/>
+board_info_txt&nbsp;:=&nbsp;$(wildcard&nbsp;$(TARGET_DEVICE_DIR)/board-info.txt)<br/>
+endif<br/>
+示例：<br/>
+&nbsp;&nbsp;&nbsp;device/samsung/i9100/board-info.txt<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="$(INSTALLED_ANDROID_INFO_TXT_TARGET)">Target:&nbsp;&nbsp;$(INSTALLED_ANDROID_INFO_TXT_TARGET)</a></h3>
+<p>
+用check_radio_versions.py脚本处理&nbsp;$(board_info_txt)得到android-info.txt<br/>
+&nbsp;$(INSTALLED_ANDROID_INFO_TXT_TARGET):&nbsp;$(board_info_txt)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;build/tools/check_radio_versions.py&nbsp;$<&nbsp;$(BOARD_INFO_CHECK)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;pretty,"Generated:&nbsp;($@)")<br/>
+&nbsp;ifdef&nbsp;board_info_txt<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;grep&nbsp;-v&nbsp;'#'&nbsp;$<&nbsp;>&nbsp;$@<br/>
+&nbsp;else<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(hide)&nbsp;echo&nbsp;"board=$(TARGET_BOOTLOADER_BOARD_NAME)"&nbsp;>&nbsp;$@<br/>
+&nbsp;endif<br/>
 </p>
 </div>
 </div>

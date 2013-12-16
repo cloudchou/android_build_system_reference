@@ -14,8 +14,8 @@
 <div class="file">
 <h3>build/core/combo/TARGET_linux-x86.mk</h3>
 <p>
-Configuration&nbsp;for&nbsp;Linux&nbsp;on&nbsp;x86&nbsp;as&nbsp;a&nbsp;target.<br/>
-Included&nbsp;by&nbsp;combo/select.mk<br/>
+在windows&nbsp;x86上的编译配置<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被&nbsp;combo/select.mk里包含<br/>
 </p>
 </div>
 <div class="variable">

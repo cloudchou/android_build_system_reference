@@ -14,10 +14,12 @@
 <div class="file">
 <h3>build/target/product/languages_full.mk</h3>
 <p>
-This&nbsp;is&nbsp;a&nbsp;build&nbsp;configuration&nbsp;that&nbsp;just&nbsp;contains&nbsp;a&nbsp;list&nbsp;of&nbsp;languages.<br/>
-It&nbsp;helps&nbsp;in&nbsp;situations&nbsp;where&nbsp;languages&nbsp;must&nbsp;come&nbsp;first&nbsp;in&nbsp;the&nbsp;list,<br/>
-mostly&nbsp;because&nbsp;screen&nbsp;densities&nbsp;interfere&nbsp;with&nbsp;the&nbsp;list&nbsp;of&nbsp;locales&nbsp;and<br/>
-the&nbsp;system&nbsp;misbehaves&nbsp;when&nbsp;a&nbsp;density&nbsp;is&nbsp;the&nbsp;first&nbsp;locale.<br/>
+这是一份仅仅含有一系列语言的编译配置.<br/>
+下述场景很有有用：<br/>
+语言在列表里必须出现在第一个位置，<br/>
+主要是因为screen&nbsp;densities继承自locale了表，<br/>
+并且系统的density由第一个locale决定<br/>
+这里支持所有语言和地区&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">

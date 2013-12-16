@@ -14,8 +14,13 @@
 <div class="file">
 <h3>build/target/product/mini.mk</h3>
 <p>
-Common&nbsp;configurations&nbsp;for&nbsp;mini_XXX&nbsp;lunch&nbsp;targets<br/>
-This&nbsp;is&nbsp;mainly&nbsp;for&nbsp;creating&nbsp;small&nbsp;system&nbsp;image&nbsp;during&nbsp;early&nbsp;development&nbsp;stage.<br/>
+为lunch的目标中mini_XXX设置的通用配置<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;主要用于在开发的早期阶段创建小的system&nbsp;image&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;继承自：<br/>
+build/target/product/base.mk<br/>
+frameworks/base/data/keyboards/keyboards.mk<br/>
+frameworks/base/data/fonts/fonts.mk<br/>
+frameworks/base/data/sounds/AudioPackage5.mk&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">

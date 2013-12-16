@@ -14,13 +14,10 @@
 <div class="file">
 <h3>build/target/board/generic_mips.mk</h3>
 <p>
-The&nbsp;"generic_mips"&nbsp;product&nbsp;defines&nbsp;a&nbsp;MIPS&nbsp;based&nbsp;non-hardware-specific<br/>
-target&nbsp;without&nbsp;a&nbsp;kernel&nbsp;or&nbsp;bootloader.<br/>
-It&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;build&nbsp;the&nbsp;entire&nbsp;user-level&nbsp;system,&nbsp;and<br/>
-will&nbsp;work&nbsp;with&nbsp;the&nbsp;emulator,&nbsp;though&nbsp;sound&nbsp;will&nbsp;not&nbsp;work<br/>
-(see&nbsp;the&nbsp;"emulator"&nbsp;product&nbsp;for&nbsp;that).<br/>
-It&nbsp;is&nbsp;not&nbsp;a&nbsp;product&nbsp;"base&nbsp;class";&nbsp;no&nbsp;other&nbsp;products&nbsp;inherit<br/>
-from&nbsp;it&nbsp;or&nbsp;use&nbsp;it&nbsp;in&nbsp;any&nbsp;way.<br/>
+generic&nbsp;product定义了与设备无关的目标，没有kernel也没有bootloader,基于mips架构<br/>
+它可以被用来生成整个用户层的系统，并且可以和模拟器的product一起工作，&nbsp;<br/>
+虽然听起来不可能，可以看emulator.mk<br/>
+它不是一个产品的基类，没有其它product从它继承<br/>
 </p>
 </div>
 </div>

@@ -14,9 +14,9 @@
 <div class="file">
 <h3>build/core/product.mk</h3>
 <p>
-Functions&nbsp;for&nbsp;including&nbsp;AndroidProducts.mk&nbsp;files<br/>
-PRODUCT_MAKEFILES&nbsp;is&nbsp;set&nbsp;up&nbsp;in&nbsp;AndroidProducts.mks.<br/>
-Format&nbsp;of&nbsp;PRODUCT_MAKEFILES:<br/>
+定义了include&nbsp;AndroidProducts.mk&nbsp;文件的一些函数<br/>
+在AndroidProducts.mk定义了变量PRODUCT_MAKEFILES&nbsp;.<br/>
+PRODUCT_MAKEFILES格式:<br/>
 <product_name>:<path_to_the_product_makefile><br/>
 If&nbsp;the&nbsp;<product_name>&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;base&nbsp;file&nbsp;name&nbsp;(without&nbsp;dir<br/>
 and&nbsp;the&nbsp;.mk&nbsp;suffix)&nbsp;of&nbsp;the&nbsp;product&nbsp;makefile,&nbsp;"<product_name>:"&nbsp;can&nbsp;be<br/>
@@ -29,17 +29,17 @@ PRODUCT_MAKEFILES&nbsp;:=&nbsp;\<br/>
 <div class="function">
 <h3><a id="get-product-makefiles">Function:&nbsp;&nbsp;get-product-makefiles</a></h3>
 <p>
-Returns&nbsp;the&nbsp;sorted&nbsp;concatenation&nbsp;of&nbsp;PRODUCT_MAKEFILES<br/>
-variables&nbsp;set&nbsp;in&nbsp;the&nbsp;given&nbsp;AndroidProducts.mk&nbsp;files.<br/>
-$(1):&nbsp;the&nbsp;list&nbsp;of&nbsp;AndroidProducts.mk&nbsp;files.&nbsp;<br/>
+将在AndroidProducts.mk里定义好的PRODUCT_MAKEFILES排好序并连接之后返回&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(1):&nbsp;the&nbsp;list&nbsp;of&nbsp;AndroidProducts.mk&nbsp;files.<br/>
 </p>
 </div>
 <div class="function">
 <h3><a id="get-all-product-makefiles">Function:&nbsp;&nbsp;get-all-product-makefiles</a></h3>
 <p>
-Returns&nbsp;the&nbsp;sorted&nbsp;concatenation&nbsp;of&nbsp;all&nbsp;PRODUCT_MAKEFILES<br/>
-variables&nbsp;set&nbsp;in&nbsp;all&nbsp;AndroidProducts.mk&nbsp;files.<br/>
-$(call&nbsp;)&nbsp;isn't&nbsp;necessary.<br/>
+将所有AndroidProducts.mk里定义的PRODUCT_MAKEFILES连接并排序后返回<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;the&nbsp;sorted&nbsp;concatenation&nbsp;of&nbsp;all&nbsp;PRODUCT_MAKEFILES<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variables&nbsp;set&nbsp;in&nbsp;all&nbsp;AndroidProducts.mk&nbsp;files.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(call&nbsp;)&nbsp;isn't&nbsp;necessary.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">

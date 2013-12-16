@@ -18,7 +18,7 @@ Standard&nbsp;rules&nbsp;for&nbsp;copying&nbsp;files&nbsp;that&nbsp;are&nbsp;pre
 对应编译变量BUILD_PREBUILT<br/>
 主要用来拷贝已经编译好的文件<br/>
 示例：<br/>
-&nbsp;&nbsp;&nbsp;./bootable/recovery/Android.mk:149:include&nbsp;$(BUILD_PREBUILT)<br/>
+&nbsp;&nbsp;&nbsp;bootable/recovery/Android.mk:149:include&nbsp;$(BUILD_PREBUILT)<br/>
 </p>
 </div>
 <div class="variable">

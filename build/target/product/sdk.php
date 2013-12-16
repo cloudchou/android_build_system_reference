@@ -15,6 +15,13 @@
 <h3>build/target/product/sdk.mk</h3>
 <p>
 sdk&nbsp;product<br/>
+继承自：<br/>
+&nbsp;&nbsp;external/svox/pico/lang/PicoLangDeDeInSystem.mk<br/>
+&nbsp;&nbsp;external/svox/pico/lang/PicoLangEnGBInSystem.mk<br/>
+&nbsp;&nbsp;external/svox/pico/lang/PicoLangEnUsInSystem.mk<br/>
+&nbsp;&nbsp;external/svox/pico/lang/PicoLangEsEsInSystem.mk<br/>
+&nbsp;&nbsp;external/svox/pico/lang/PicoLangFrFrInSystem.mk<br/>
+&nbsp;&nbsp;external/svox/pico/lang/PicoLangItItInSystem.mk<br/>
 </p>
 </div>
 <div class="variable">

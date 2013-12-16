@@ -14,13 +14,10 @@
 <div class="file">
 <h3>build/target/board/vbox_x86.mk</h3>
 <p>
-The&nbsp;"vbox_x86"&nbsp;product&nbsp;defines&nbsp;a&nbsp;non-hardware-specific&nbsp;target&nbsp;intended<br/>
-to&nbsp;run&nbsp;on&nbsp;the&nbsp;VirtualBox&nbsp;emulator.<br/>
-Most&nbsp;of&nbsp;the&nbsp;Android&nbsp;devices&nbsp;(networking,&nbsp;phones,&nbsp;sound,&nbsp;etc)&nbsp;do&nbsp;not&nbsp;work.<br/>
-ADB&nbsp;via&nbsp;ethernet&nbsp;works&nbsp;with&nbsp;this&nbsp;target.&nbsp;You&nbsp;can&nbsp;use&nbsp;'adb&nbsp;install'&nbsp;to<br/>
-test&nbsp;applications&nbsp;that&nbsp;do&nbsp;not&nbsp;require&nbsp;network,&nbsp;phone&nbsp;or&nbsp;sound&nbsp;support.<br/>
-This&nbsp;emulation&nbsp;is&nbsp;useful&nbsp;because&nbsp;VirtualBox&nbsp;runs&nbsp;much&nbsp;faster&nbsp;then&nbsp;does&nbsp;the<br/>
-QEMU&nbsp;emulators&nbsp;(at&nbsp;least&nbsp;until&nbsp;a&nbsp;KVM&nbsp;enabled&nbsp;QEMU&nbsp;emulator&nbsp;is&nbsp;available).<br/>
+"vbox_x86"&nbsp;product&nbsp;定义了一个设备无关的目标&nbsp;用于在VirtualBox模拟器上运行<br/>
+大多数Android设备都不可以用&nbsp;<br/>
+用adb连接设个设备需要通过以太网。你可以用adb&nbsp;install&nbsp;来测试不需要网络，手机，声音的应用程序<br/>
+这种模拟非常有用，因为virtualbox模拟器运行比qemu&nbsp;的模拟器(至少相对开启了kvm的qemu)&nbsp;快很多.<br/>
 </p>
 </div>
 </div>

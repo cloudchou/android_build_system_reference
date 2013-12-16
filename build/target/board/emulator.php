@@ -14,14 +14,11 @@
 <div class="file">
 <h3>build/target/board/emulator.mk</h3>
 <p>
-The&nbsp;"emulator"&nbsp;product&nbsp;defines&nbsp;an&nbsp;almost&nbsp;non-hardware-specific&nbsp;target<br/>
-without&nbsp;a&nbsp;kernel&nbsp;or&nbsp;bootloader,&nbsp;except&nbsp;that&nbsp;it&nbsp;defines&nbsp;the<br/>
-HAVE_HTC_AUDIO_DRIVER&nbsp;constant,&nbsp;since&nbsp;that&nbsp;is&nbsp;what&nbsp;the&nbsp;emulator<br/>
-emulates&nbsp;currently.<br/>
-It&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;build&nbsp;the&nbsp;entire&nbsp;user-level&nbsp;system,&nbsp;and<br/>
-will&nbsp;work&nbsp;with&nbsp;the&nbsp;emulator.<br/>
-It&nbsp;is&nbsp;not&nbsp;a&nbsp;product&nbsp;"base&nbsp;class";&nbsp;no&nbsp;other&nbsp;products&nbsp;inherit<br/>
-from&nbsp;it&nbsp;or&nbsp;use&nbsp;it&nbsp;in&nbsp;any&nbsp;way.<br/>
+emulator&nbsp;product定义了与设备无关的目标，没有kernel也没有bootloader<br/>
+它比较特殊的是：<br/>
+&nbsp;&nbsp;它定义了HAVE_HTC_AUDIO_DRIVER宏，因为它是现在模拟器模拟的声音<br/>
+&nbsp;它可以被用来生成整个用户层的系统，并且可以和模拟器的product一起工作，&nbsp;&nbsp;<br/>
+它不是一个产品的基类，没有其它product从它继承<br/>
 </p>
 </div>
 </div>

@@ -14,10 +14,14 @@
 <div class="file">
 <h3>build/target/product/full_base.mk</h3>
 <p>
-This&nbsp;is&nbsp;a&nbsp;build&nbsp;configuration&nbsp;for&nbsp;a&nbsp;full-featured&nbsp;build&nbsp;of&nbsp;the<br/>
-Open-Source&nbsp;part&nbsp;of&nbsp;the&nbsp;tree.&nbsp;It's&nbsp;geared&nbsp;toward&nbsp;a&nbsp;US-centric<br/>
-build&nbsp;of&nbsp;the&nbsp;emulator,&nbsp;but&nbsp;all&nbsp;those&nbsp;aspects&nbsp;can&nbsp;be&nbsp;overridden<br/>
-in&nbsp;inherited&nbsp;configurations.<br/>
+这是一份为源代码开源部分的所有功能的编译配置<br/>
+它是专为模拟器设置的一份编译配置，对与设备来说不怎么适合继承<br/>
+但是所有的设置都可以被继承产品给覆盖<br/>
+它继承了<br/>
+&nbsp;&nbsp;&nbsp;frameworks/base/data/sounds/AllAudio.mk<br/>
+&nbsp;&nbsp;&nbsp;external/svox/pico/lang/all_pico_languages.mk<br/>
+&nbsp;&nbsp;&nbsp;build/target/product/locales_full.mk<br/>
+&nbsp;&nbsp;&nbsp;build/target/product/generic_no_telephony.mk<br/>
 </p>
 </div>
 <div class="variable">

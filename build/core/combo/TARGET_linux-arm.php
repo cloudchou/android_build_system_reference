@@ -14,14 +14,11 @@
 <div class="file">
 <h3>build/core/combo/TARGET_linux-arm.mk</h3>
 <p>
-Configuration&nbsp;for&nbsp;Linux&nbsp;on&nbsp;ARM.<br/>
-Included&nbsp;by&nbsp;combo/select.mk<br/>
-You&nbsp;can&nbsp;set&nbsp;TARGET_ARCH_VARIANT&nbsp;to&nbsp;use&nbsp;an&nbsp;arch&nbsp;version&nbsp;other<br/>
-than&nbsp;ARMv5TE.&nbsp;Each&nbsp;value&nbsp;should&nbsp;correspond&nbsp;to&nbsp;a&nbsp;file&nbsp;named<br/>
-$(BUILD_COMBOS)/arch/<name>.mk&nbsp;which&nbsp;must&nbsp;contain<br/>
-makefile&nbsp;variable&nbsp;definitions&nbsp;similar&nbsp;to&nbsp;the&nbsp;preprocessor<br/>
-defines&nbsp;in&nbsp;build/core/combo/include/arch/<combo>/AndroidConfig.h.&nbsp;Their<br/>
-purpose&nbsp;is&nbsp;to&nbsp;allow&nbsp;module&nbsp;Android.mk&nbsp;files&nbsp;to&nbsp;selectively&nbsp;compile<br/>
+针对linux&nbsp;mips的一个配置<br/>
+&nbsp;&nbsp;被&nbsp;combo/select.mk包含<br/>
+你可以设置TARGET_ARCH_VARIANT变量来覆盖，而不是使用默认的mips32r2-fp<br/>
+每个值都对应一个$(BUILD_COMBOS)/arch/<name>.mk,这个文件必须包含一个makefile的变量，&nbsp;&nbsp;&nbsp;<br/>
+Their&nbsp;&nbsp;purpose&nbsp;is&nbsp;to&nbsp;allow&nbsp;module&nbsp;Android.mk&nbsp;files&nbsp;to&nbsp;selectively&nbsp;compile<br/>
 different&nbsp;versions&nbsp;of&nbsp;code&nbsp;based&nbsp;upon&nbsp;the&nbsp;funtionality&nbsp;and<br/>
 instructions&nbsp;available&nbsp;in&nbsp;a&nbsp;given&nbsp;architecture&nbsp;version.<br/>
 The&nbsp;blocks&nbsp;also&nbsp;define&nbsp;specific&nbsp;arch_variant_cflags,&nbsp;which<br/>

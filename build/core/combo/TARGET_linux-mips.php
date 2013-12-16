@@ -14,19 +14,16 @@
 <div class="file">
 <h3>build/core/combo/TARGET_linux-mips.mk</h3>
 <p>
-Configuration&nbsp;for&nbsp;Linux&nbsp;on&nbsp;MIPS.<br/>
-Included&nbsp;by&nbsp;combo/select.mk<br/>
-You&nbsp;can&nbsp;set&nbsp;TARGET_ARCH_VARIANT&nbsp;to&nbsp;use&nbsp;an&nbsp;arch&nbsp;version&nbsp;other<br/>
-than&nbsp;mips32r2-fp.&nbsp;Each&nbsp;value&nbsp;should&nbsp;correspond&nbsp;to&nbsp;a&nbsp;file&nbsp;named<br/>
-$(BUILD_COMBOS)/arch/<name>.mk&nbsp;which&nbsp;must&nbsp;contain<br/>
-makefile&nbsp;variable&nbsp;definitions&nbsp;similar&nbsp;to&nbsp;the&nbsp;preprocessor<br/>
-defines&nbsp;in&nbsp;build/core/combo/include/arch/<combo>/AndroidConfig.h.&nbsp;Their<br/>
-purpose&nbsp;is&nbsp;to&nbsp;allow&nbsp;module&nbsp;Android.mk&nbsp;files&nbsp;to&nbsp;selectively&nbsp;compile<br/>
-different&nbsp;versions&nbsp;of&nbsp;code&nbsp;based&nbsp;upon&nbsp;the&nbsp;funtionality&nbsp;and<br/>
-instructions&nbsp;available&nbsp;in&nbsp;a&nbsp;given&nbsp;architecture&nbsp;version.<br/>
-The&nbsp;blocks&nbsp;also&nbsp;define&nbsp;specific&nbsp;arch_variant_cflags,&nbsp;which<br/>
-include&nbsp;defines,&nbsp;and&nbsp;compiler&nbsp;settings&nbsp;for&nbsp;the&nbsp;given&nbsp;architecture<br/>
-version.<br/>
+针对linux&nbsp;mips的一个配置<br/>
+被&nbsp;combo/select.mk包含<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;你可以设置TARGET_ARCH_VARIANT变量来覆盖，而不是使用默认的mips32r2-fp<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;每个值都对应一个$(BUILD_COMBOS)/arch/<name>.mk,这个文件必须包含一个makefile的变量，&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Theirpurpose&nbsp;is&nbsp;to&nbsp;allow&nbsp;module&nbsp;Android.mk&nbsp;files&nbsp;to&nbsp;selectively&nbsp;compile<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;versions&nbsp;of&nbsp;code&nbsp;based&nbsp;upon&nbsp;the&nbsp;funtionality&nbsp;and<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;instructions&nbsp;available&nbsp;in&nbsp;a&nbsp;given&nbsp;architecture&nbsp;version.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;blocks&nbsp;also&nbsp;define&nbsp;specific&nbsp;arch_variant_cflags,&nbsp;which<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;include&nbsp;defines,&nbsp;and&nbsp;compiler&nbsp;settings&nbsp;for&nbsp;the&nbsp;given&nbsp;architecture<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;version.<br/>
 </p>
 </div>
 <div class="variable">

@@ -14,10 +14,9 @@
 <div class="file">
 <h3>build/target/product/full_base_telephony.mk</h3>
 <p>
-This&nbsp;is&nbsp;a&nbsp;build&nbsp;configuration&nbsp;for&nbsp;a&nbsp;full-featured&nbsp;build&nbsp;of&nbsp;the<br/>
-Open-Source&nbsp;part&nbsp;of&nbsp;the&nbsp;tree.&nbsp;It's&nbsp;geared&nbsp;toward&nbsp;a&nbsp;US-centric<br/>
-build&nbsp;quite&nbsp;specifically&nbsp;for&nbsp;the&nbsp;emulator,&nbsp;and&nbsp;might&nbsp;not&nbsp;be<br/>
-entirely&nbsp;appropriate&nbsp;to&nbsp;inherit&nbsp;from&nbsp;for&nbsp;on-device&nbsp;configurations.<br/>
+这是一份为源代码开源部分的所有功能的编译配置&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;它是专为模拟器设置的一份编译配置，对与设备来说不怎么适合继承<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;它继承了&nbsp;target/procut/full_base.mk&nbsp;&nbsp;和&nbsp;target/product/telephony.mk<br/>
 </p>
 </div>
 <div class="variable">

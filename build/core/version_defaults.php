@@ -117,7 +117,7 @@ ifeq&nbsp;""&nbsp;"$(BUILD_NUMBER)"<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;this&nbsp;date/time"&nbsp;value.&nbsp;&nbsp;Make&nbsp;it&nbsp;start&nbsp;with&nbsp;a&nbsp;non-digit&nbsp;so&nbsp;that<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;anyone&nbsp;trying&nbsp;to&nbsp;parse&nbsp;it&nbsp;as&nbsp;an&nbsp;integer&nbsp;will&nbsp;probably&nbsp;get&nbsp;"0".<br/>
 &nbsp;&nbsp;BUILD_NUMBER&nbsp;:=&nbsp;eng.$(USER).$(shell&nbsp;date&nbsp;+%Y%m%d.%H%M%S)<br/>
-endif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+endif<br/>
 </p>
 </div>
 </div>

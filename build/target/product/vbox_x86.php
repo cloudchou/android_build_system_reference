@@ -14,10 +14,8 @@
 <div class="file">
 <h3>build/target/product/vbox_x86.mk</h3>
 <p>
-This&nbsp;is&nbsp;a&nbsp;build&nbsp;configuration&nbsp;for&nbsp;a&nbsp;full-featured&nbsp;build&nbsp;of&nbsp;the<br/>
-Open-Source&nbsp;part&nbsp;of&nbsp;the&nbsp;tree.&nbsp;It's&nbsp;geared&nbsp;toward&nbsp;a&nbsp;US-centric<br/>
-build&nbsp;quite&nbsp;specifically&nbsp;for&nbsp;the&nbsp;emulator,&nbsp;and&nbsp;might&nbsp;not&nbsp;be<br/>
-entirely&nbsp;appropriate&nbsp;to&nbsp;inherit&nbsp;from&nbsp;for&nbsp;on-device&nbsp;configurations.<br/>
+这是为源代码的开源部分所有功能建立的一份配置.<br/>
+&nbsp;&nbsp;主要用于模拟器，不适合设备配置<br/>
 </p>
 </div>
 <div class="variable">

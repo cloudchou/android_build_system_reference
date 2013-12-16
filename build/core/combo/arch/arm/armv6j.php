@@ -22,7 +22,7 @@ Generating&nbsp;binaries&nbsp;for&nbsp;the&nbsp;ARMv6J&nbsp;architecture&nbsp;an
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_THUMB_SUPPORT">ARCH_ARM_HAVE_THUMB_SUPPORT</a></h3>
 <p>
-ARCH_ARM_HAVE_THUMB_SUPPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_THUMB_SUPPORT&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
@@ -34,7 +34,7 @@ ARCH_ARM_HAVE_FAST_INTERWORKING&nbsp;:=&nbsp;true<br/>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_64BIT_DATA">ARCH_ARM_HAVE_64BIT_DATA</a></h3>
 <p>
-ARCH_ARM_HAVE_64BIT_DATA:=&nbsp;true<br/>
+ARCH_ARM_HAVE_64BIT_DATA&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
@@ -46,13 +46,13 @@ ARCH_ARM_HAVE_HALFWORD_MULTIPLY&nbsp;:=&nbsp;true<br/>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_CLZ">ARCH_ARM_HAVE_CLZ</a></h3>
 <p>
-ARCH_ARM_HAVE_CLZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_CLZ&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_FFS">ARCH_ARM_HAVE_FFS</a></h3>
 <p>
-ARCH_ARM_HAVE_FFS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_FFS&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">

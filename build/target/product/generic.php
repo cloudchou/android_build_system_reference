@@ -14,8 +14,11 @@
 <div class="file">
 <h3>build/target/product/generic.mk</h3>
 <p>
-This&nbsp;is&nbsp;a&nbsp;generic&nbsp;phone&nbsp;product&nbsp;that&nbsp;isn't&nbsp;specialized&nbsp;for&nbsp;a&nbsp;specific&nbsp;device.<br/>
-It&nbsp;includes&nbsp;the&nbsp;base&nbsp;Android&nbsp;platform.<br/>
+它是一个通用的产品配置，并没有针对某个设备<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它包含了基础的Android平台<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;继承自：&nbsp;<br/>
+build/target/product/generic_no_telephony.mk&nbsp;<br/>
+build/target/product/telephony.mk<br/>
 </p>
 </div>
 <div class="variable">

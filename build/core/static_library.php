@@ -14,13 +14,13 @@
 <div class="file">
 <h3>build/core/static_library.mk</h3>
 <p>
-Standard&nbsp;rules&nbsp;for&nbsp;building&nbsp;a&nbsp;static&nbsp;library.<br/>
-Additional&nbsp;inputs&nbsp;from&nbsp;base_rules.make:<br/>
-None.<br/>
-LOCAL_MODULE_SUFFIX&nbsp;will&nbsp;be&nbsp;set&nbsp;for&nbsp;you.<br/>
-&nbsp;&nbsp;对应编译变量BUILD_STATIC_LIBRARY<br/>
-&nbsp;&nbsp;编译为手机上二进制程序链接需要的静态库<br/>
-&nbsp;&nbsp;bootalbe/recovery/applypatch/Android.mk:24:include&nbsp;$(BUILD_STATIC_LIBRARY)<br/>
+编译为手机上二进制程序链接需要的静态库<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对应编译变量&nbsp;&nbsp;&nbsp;&nbsp;BUILD_STATIC_LIBRARY<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Standard&nbsp;rules&nbsp;for&nbsp;building&nbsp;a&nbsp;static&nbsp;library.&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Additional&nbsp;inputs&nbsp;from&nbsp;base_rules.make:&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;None.&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;LOCAL_MODULE_SUFFIX&nbsp;will&nbsp;be&nbsp;set&nbsp;for&nbsp;you.&nbsp;<br/>
+bootalbe/recovery/applypatch/Android.mk:24:include&nbsp;$(BUILD_STATIC_LIBRARY)<br/>
 </p>
 </div>
 <div class="variable">

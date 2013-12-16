@@ -14,7 +14,9 @@
 <div class="file">
 <h3>build/target/product/locales_full.mk</h3>
 <p>
-contains&nbsp;all&nbsp;loacale<br/>
+包含所有的locale<br/>
+继承自：<br/>
+&nbsp;&nbsp;build/target/product/core.mk<br/>
 </p>
 </div>
 <div class="variable">

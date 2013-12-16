@@ -14,8 +14,9 @@
 <div class="file">
 <h3>build/target/product/telephony.mk</h3>
 <p>
-This&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;product-level&nbsp;settings&nbsp;that&nbsp;are&nbsp;specific<br/>
-to&nbsp;products&nbsp;that&nbsp;have&nbsp;telephony&nbsp;hardware.<br/>
+这是针对product级别的设置&nbsp;针对那些有&nbsp;通话硬件的&nbsp;产品<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;product-level&nbsp;settings&nbsp;that&nbsp;are&nbsp;specific<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;products&nbsp;that&nbsp;have&nbsp;telephony&nbsp;hardware.<br/>
 </p>
 </div>
 <div class="variable">

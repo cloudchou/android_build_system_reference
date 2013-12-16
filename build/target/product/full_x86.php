@@ -14,13 +14,13 @@
 <div class="file">
 <h3>build/target/product/full_x86.mk</h3>
 <p>
-This&nbsp;is&nbsp;a&nbsp;build&nbsp;configuration&nbsp;for&nbsp;a&nbsp;full-featured&nbsp;build&nbsp;of&nbsp;the<br/>
-Open-Source&nbsp;part&nbsp;of&nbsp;the&nbsp;tree.&nbsp;It's&nbsp;geared&nbsp;toward&nbsp;a&nbsp;US-centric<br/>
-build&nbsp;quite&nbsp;specifically&nbsp;for&nbsp;the&nbsp;emulator,&nbsp;and&nbsp;might&nbsp;not&nbsp;be<br/>
-entirely&nbsp;appropriate&nbsp;to&nbsp;inherit&nbsp;from&nbsp;for&nbsp;on-device&nbsp;configurations.<br/>
-If&nbsp;running&nbsp;on&nbsp;an&nbsp;emulator&nbsp;or&nbsp;some&nbsp;other&nbsp;device&nbsp;that&nbsp;has&nbsp;a&nbsp;LAN&nbsp;connection<br/>
-that&nbsp;isn't&nbsp;a&nbsp;wifi&nbsp;connection.&nbsp;This&nbsp;will&nbsp;instruct&nbsp;init.rc&nbsp;to&nbsp;enable&nbsp;the<br/>
-network&nbsp;connection&nbsp;so&nbsp;that&nbsp;you&nbsp;can&nbsp;use&nbsp;it&nbsp;with&nbsp;ADB<br/>
+这是一份为源代码开源部分的所有功能的编译配置&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;它是专为模拟器设置的一份编译配置，对与设备来说不怎么适合继承.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;它运行于模拟器上或者其它有LAN连接的设备上.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;这将指引init.rc开启network连接，所以你可以使用adb连接<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;继承自：<br/>
+build/target/product/full_base_telephony.mk<br/>
+build/board/generic_x86/device.mk<br/>
 </p>
 </div>
 <div class="variable">

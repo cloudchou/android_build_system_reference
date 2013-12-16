@@ -14,12 +14,13 @@
 <div class="file">
 <h3>build/core/static_java_library.mk</h3>
 <p>
-Standard&nbsp;rules&nbsp;for&nbsp;building&nbsp;a&nbsp;"static"&nbsp;java&nbsp;library.<br/>
-Static&nbsp;java&nbsp;libraries&nbsp;are&nbsp;not&nbsp;installed,&nbsp;nor&nbsp;listed&nbsp;on&nbsp;any<br/>
-classpaths.&nbsp;&nbsp;They&nbsp;can,&nbsp;however,&nbsp;be&nbsp;included&nbsp;wholesale&nbsp;in<br/>
-other&nbsp;java&nbsp;modules.<br/>
+编译生成java库的规则<br/>
 对应编译变量：:BUILD_STATIC_JAVA_LIBRARY&nbsp;&nbsp;&nbsp;<br/>
-./packages/inputmethods/PinyinIME/lib/Android.mk:10:include&nbsp;$(BUILD_STATIC_JAVA_LIBRARY)<br/>
+&nbsp;Standard&nbsp;rules&nbsp;for&nbsp;building&nbsp;a&nbsp;"static"&nbsp;java&nbsp;library.<br/>
+&nbsp;Static&nbsp;java&nbsp;libraries&nbsp;are&nbsp;not&nbsp;installed,&nbsp;nor&nbsp;listed&nbsp;on&nbsp;any<br/>
+&nbsp;classpaths.&nbsp;&nbsp;They&nbsp;can,&nbsp;however,&nbsp;be&nbsp;included&nbsp;wholesale&nbsp;in<br/>
+&nbsp;other&nbsp;java&nbsp;modules.&nbsp;<br/>
+&nbsp;packages/inputmethods/PinyinIME/lib/Android.mk:10:include&nbsp;$(BUILD_STATIC_JAVA_LIBRARY)<br/>
 </p>
 </div>
 <div class="variable">

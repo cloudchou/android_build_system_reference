@@ -18,7 +18,7 @@ armv5te-vfp&nbsp;相关配置<br/>
 &nbsp;&nbsp;&nbsp;At&nbsp;the&nbsp;moment,&nbsp;use&nbsp;the&nbsp;same&nbsp;settings&nbsp;than&nbsp;the&nbsp;one<br/>
 &nbsp;&nbsp;&nbsp;for&nbsp;armv5te,&nbsp;since&nbsp;TARGET_ARCH_VARIANT&nbsp;:=&nbsp;armv5te-vfp<br/>
 &nbsp;&nbsp;&nbsp;will&nbsp;only&nbsp;be&nbsp;used&nbsp;to&nbsp;select&nbsp;an&nbsp;optimized&nbsp;VFP-capable&nbsp;assembly<br/>
-&nbsp;&nbsp;&nbsp;interpreter&nbsp;loop&nbsp;for&nbsp;Dalvik.&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;interpreter&nbsp;loop&nbsp;for&nbsp;Dalvik.&nbsp;<br/>
 </p>
 </div>
 </div>

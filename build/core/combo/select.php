@@ -15,14 +15,14 @@
 <h3>build/core/combo/select.mk</h3>
 <p>
 Select&nbsp;a&nbsp;combo&nbsp;based&nbsp;on&nbsp;the&nbsp;compiler&nbsp;being&nbsp;used.<br/>
-Inputs:<br/>
-combo_target&nbsp;--&nbsp;prefix&nbsp;for&nbsp;final&nbsp;variables&nbsp;(HOST_&nbsp;or&nbsp;TARGET_)<br/>
+&nbsp;Inputs:<br/>
+&nbsp;combo_target&nbsp;--&nbsp;prefix&nbsp;for&nbsp;final&nbsp;variables&nbsp;(HOST_&nbsp;or&nbsp;TARGET_)&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="combo_os_arch">combo_os_arch</a></h3>
 <p>
-Build&nbsp;a&nbsp;target&nbsp;string&nbsp;like&nbsp;"linux-arm"&nbsp;or&nbsp;"darwin-x86".&nbsp;<br/>
+Build&nbsp;a&nbsp;target&nbsp;string&nbsp;like&nbsp;"linux-arm"&nbsp;or&nbsp;"darwin-x86".&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">

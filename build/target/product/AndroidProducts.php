@@ -14,19 +14,14 @@
 <div class="file">
 <h3>build/target/product/AndroidProducts.mk</h3>
 <p>
-This&nbsp;file&nbsp;should&nbsp;set&nbsp;PRODUCT_MAKEFILES&nbsp;to&nbsp;a&nbsp;list&nbsp;of&nbsp;product&nbsp;makefiles<br/>
-to&nbsp;expose&nbsp;to&nbsp;the&nbsp;build&nbsp;system.&nbsp;&nbsp;LOCAL_DIR&nbsp;will&nbsp;already&nbsp;be&nbsp;set&nbsp;to<br/>
-the&nbsp;directory&nbsp;containing&nbsp;this&nbsp;file.<br/>
-PRODUCT_MAKEFILES&nbsp;is&nbsp;set&nbsp;up&nbsp;in&nbsp;AndroidProducts.mks.<br/>
-Format&nbsp;of&nbsp;PRODUCT_MAKEFILES:<br/>
-<product_name>:<path_to_the_product_makefile><br/>
-If&nbsp;the&nbsp;<product_name>&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;base&nbsp;file&nbsp;name&nbsp;(without&nbsp;dir<br/>
-and&nbsp;the&nbsp;.mk&nbsp;suffix)&nbsp;of&nbsp;the&nbsp;product&nbsp;makefile,&nbsp;"<product_name>:"&nbsp;can&nbsp;be<br/>
-omitted.<br/>
-#&nbsp;This&nbsp;file&nbsp;may&nbsp;not&nbsp;rely&nbsp;on&nbsp;the&nbsp;value&nbsp;of&nbsp;any&nbsp;variable&nbsp;other&nbsp;than<br/>
-LOCAL_DIR;&nbsp;do&nbsp;not&nbsp;use&nbsp;any&nbsp;conditionals,&nbsp;and&nbsp;do&nbsp;not&nbsp;look&nbsp;up&nbsp;the<br/>
-value&nbsp;of&nbsp;any&nbsp;variable&nbsp;that&nbsp;isn't&nbsp;set&nbsp;in&nbsp;this&nbsp;file&nbsp;or&nbsp;in&nbsp;a&nbsp;file&nbsp;that<br/>
-it&nbsp;includes.<br/>
+本文件将设置PRODUCT_MAKEFILES变量为给编译系统用的makefiles文件列表，<br/>
+LOCAL_DIR已经在包含本文件的makefile里设置好了<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT_MAKEFILES&nbsp;is&nbsp;set&nbsp;up&nbsp;in&nbsp;AndroidProducts.mks.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT_MAKEFILES的规则:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<product_name>:<path_to_the_product_makefile><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;如果<product_name>和product&nbsp;makefile文件的名字一样(除去目录和后缀)，那么<product_name>可以被省略<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;本文件最好不要依赖出去LOCAL_DIR的任何其它变量，不要使用条件语句，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;不要去查其它没在本文件或者包含本文件的文件设置的变量的值，<br/>
 </p>
 </div>
 <div class="variable">

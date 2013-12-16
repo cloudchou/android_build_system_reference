@@ -14,8 +14,7 @@
 <div class="file">
 <h3>build/target/product/emulator.mk</h3>
 <p>
-This&nbsp;file&nbsp;is&nbsp;included&nbsp;by&nbsp;other&nbsp;product&nbsp;makefiles&nbsp;to&nbsp;add&nbsp;all&nbsp;the<br/>
-emulator-related&nbsp;host&nbsp;modules&nbsp;to&nbsp;PRODUCT_PACKAGES.&nbsp;&nbsp;<br/>
+这个文件将被其它product的makefiles包含，这样便会添加所有模拟器相关的host模块至PRODUCT_PACKAGES<br/>
 </p>
 </div>
 <div class="variable">

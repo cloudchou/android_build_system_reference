@@ -14,7 +14,7 @@
 <div class="file">
 <h3>build/target/product/base.mk</h3>
 <p>
-Base&nbsp;modules&nbsp;(will&nbsp;move&nbsp;elsewhere,&nbsp;previously&nbsp;user&nbsp;tagged)<br/>
+基础模块(将移至别的地方，先前使用user&nbsp;tag标记)<br/>
 </p>
 </div>
 <div class="variable">

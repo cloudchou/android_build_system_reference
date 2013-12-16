@@ -22,7 +22,7 @@ Generating&nbsp;binaries&nbsp;for&nbsp;the&nbsp;ARMv7-a&nbsp;architecture&nbsp;a
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_THUMB_SUPPORT">ARCH_ARM_HAVE_THUMB_SUPPORT</a></h3>
 <p>
-ARCH_ARM_HAVE_THUMB_SUPPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_THUMB_SUPPORT&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
@@ -34,7 +34,7 @@ ARCH_ARM_HAVE_FAST_INTERWORKING&nbsp;:=&nbsp;true<br/>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_64BIT_DATA">ARCH_ARM_HAVE_64BIT_DATA</a></h3>
 <p>
-ARCH_ARM_HAVE_64BIT_DATA:=&nbsp;true<br/>
+ARCH_ARM_HAVE_64BIT_DATA&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
@@ -46,34 +46,34 @@ ARCH_ARM_HAVE_HALFWORD_MULTIPLY&nbsp;:=&nbsp;true<br/>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_CLZ">ARCH_ARM_HAVE_CLZ</a></h3>
 <p>
-ARCH_ARM_HAVE_CLZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_CLZ&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_FFS">ARCH_ARM_HAVE_FFS</a></h3>
 <p>
-ARCH_ARM_HAVE_FFS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_FFS&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_ARMV7A">ARCH_ARM_HAVE_ARMV7A</a></h3>
 <p>
-ARCH_ARM_HAVE_ARMV7A&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_ARMV7A&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_TLS_REGISTER">ARCH_ARM_HAVE_TLS_REGISTER</a></h3>
 <p>
-ARCH_ARM_HAVE_TLS_REGISTER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_TLS_REGISTER&nbsp;:=&nbsp;true<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="ARCH_ARM_HAVE_VFP">ARCH_ARM_HAVE_VFP</a></h3>
 <p>
 ifneq&nbsp;($(strip&nbsp;$(TARGET_ARCH_VARIANT_FPU)),)<br/>
-ARCH_ARM_HAVE_VFP&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_VFP&nbsp;&nbsp;:=&nbsp;true<br/>
 else<br/>
-ARCH_ARM_HAVE_VFP&nbsp;&nbsp;&nbsp;:=&nbsp;false<br/>
+ARCH_ARM_HAVE_VFP&nbsp;&nbsp;:=&nbsp;false<br/>
 endif&nbsp;&nbsp;&nbsp;<br/>
 </p>
 </div>
@@ -81,8 +81,8 @@ endif&nbsp;&nbsp;&nbsp;<br/>
 <h3><a id="ARCH_ARM_HAVE_VFP_D32">ARCH_ARM_HAVE_VFP_D32</a></h3>
 <p>
 ifeq&nbsp;($(TARGET_ARCH_VARIANT_FPU),&nbsp;neon)<br/>
-ARCH_ARM_HAVE_VFP_D32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
-ARCH_ARM_HAVE_NEON&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_VFP_D32&nbsp;&nbsp;:=&nbsp;true<br/>
+ARCH_ARM_HAVE_NEON&nbsp;:=&nbsp;true<br/>
 endif<br/>
 </p>
 </div>
@@ -90,8 +90,8 @@ endif<br/>
 <h3><a id="ARCH_ARM_HAVE_NEON">ARCH_ARM_HAVE_NEON</a></h3>
 <p>
 ifeq&nbsp;($(TARGET_ARCH_VARIANT_FPU),&nbsp;neon)<br/>
-&nbsp;&nbsp;ARCH_ARM_HAVE_VFP_D32&nbsp;&nbsp;&nbsp;:=&nbsp;true<br/>
-&nbsp;&nbsp;ARCH_ARM_HAVE_NEON&nbsp;&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;ARCH_ARM_HAVE_VFP_D32&nbsp;:=&nbsp;true<br/>
+&nbsp;&nbsp;ARCH_ARM_HAVE_NEON&nbsp;:=&nbsp;true<br/>
 &nbsp;&nbsp;endif<br/>
 </p>
 </div>

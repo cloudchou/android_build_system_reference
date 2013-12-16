@@ -1366,6 +1366,7 @@
 <li><a href="/build/core/pathmap.php#FRAMEWORKS_BASE_JAVA_SRC_DIRS" ><span class="v"> FRAMEWORKS_BASE_JAVA_SRC_DIRS </span>  <span class="f"> build/core/pathmap </span></a></li>
 <li><a href="/build/core/pathmap.php#FRAMEWORKS_SUPPORT_SUBDIRS" ><span class="v"> FRAMEWORKS_SUPPORT_SUBDIRS </span>  <span class="f"> build/core/pathmap </span></a></li>
 <li><a href="/build/core/pathmap.php#FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS" ><span class="v"> FRAMEWORKS_SUPPORT_JAVA_SRC_DIRS </span>  <span class="f"> build/core/pathmap </span></a></li>
+<li><a href="/build/core/pdk_config.php#pdk_fusion" ><span class="v"> pdk_fusion </span>  <span class="f"> build/core/pdk_config </span></a></li>
 <li><a href="/build/core/pdk_config.php#PDK_FUSION_PLATFORM_ZIP" ><span class="v"> PDK_FUSION_PLATFORM_ZIP </span>  <span class="f"> build/core/pdk_config </span></a></li>
 <li><a href="/build/core/pdk_config.php#PDK_PLATFORM_JAVA_ZIP_JAVA_LIB_DIR" ><span class="v"> PDK_PLATFORM_JAVA_ZIP_JAVA_LIB_DIR </span>  <span class="f"> build/core/pdk_config </span></a></li>
 <li><a href="/build/core/pdk_config.php#PDK_PLATFORM_JAVA_ZIP_CONTENTS" ><span class="v"> PDK_PLATFORM_JAVA_ZIP_CONTENTS </span>  <span class="f"> build/core/pdk_config </span></a></li>
@@ -1458,6 +1459,7 @@
 <li><a href="/build/target/board/board.php#INSTALLED_KERNEL_TARGET" ><span class="v"> INSTALLED_KERNEL_TARGET </span>  <span class="f"> build/target/board/board </span></a></li>
 <li><a href="/build/target/board/board.php#INSTALLED_ANDROID_INFO_TXT_TARGET" ><span class="v"> INSTALLED_ANDROID_INFO_TXT_TARGET </span>  <span class="f"> build/target/board/board </span></a></li>
 <li><a href="/build/target/board/board.php#board_info_txt" ><span class="v"> board_info_txt </span>  <span class="f"> build/target/board/board </span></a></li>
+<li><a href="/build/target/board/board.php#$(INSTALLED_ANDROID_INFO_TXT_TARGET)" ><span class="v"> $(INSTALLED_ANDROID_INFO_TXT_TARGET) </span>  <span class="f"> build/target/board/board </span></a></li>
 <li><a href="/build/target/product/AndroidProducts.php#PRODUCT_MAKEFILES" ><span class="v"> PRODUCT_MAKEFILES </span>  <span class="f"> build/target/product/AndroidProducts </span></a></li>
 <li><a href="/build/target/product/base.php#PRODUCT_PACKAGES" ><span class="v"> PRODUCT_PACKAGES </span>  <span class="f"> build/target/product/base </span></a></li>
 <li><a href="/build/target/product/core.php#PRODUCT_BRAND" ><span class="v"> PRODUCT_BRAND </span>  <span class="f"> build/target/product/core </span></a></li>
@@ -1466,6 +1468,7 @@
 <li><a href="/build/target/product/core.php#PRODUCT_PACKAGES" ><span class="v"> PRODUCT_PACKAGES </span>  <span class="f"> build/target/product/core </span></a></li>
 <li><a href="/build/target/product/core.php#PRODUCT_COPY_FILES" ><span class="v"> PRODUCT_COPY_FILES </span>  <span class="f"> build/target/product/core </span></a></li>
 <li><a href="/build/target/product/core.php#WITH_HOST_DALVIK" ><span class="v"> WITH_HOST_DALVIK </span>  <span class="f"> build/target/product/core </span></a></li>
+<li><a href="/build/target/product/core.php#HAVE_SELINUX" ><span class="v"> HAVE_SELINUX </span>  <span class="f"> build/target/product/core </span></a></li>
 <li><a href="/build/target/product/emulator.php#PRODUCT_PACKAGES" ><span class="v"> PRODUCT_PACKAGES </span>  <span class="f"> build/target/product/emulator </span></a></li>
 <li><a href="/build/target/product/full.php#PRODUCT_NAME" ><span class="v"> PRODUCT_NAME </span>  <span class="f"> build/target/product/full </span></a></li>
 <li><a href="/build/target/product/full.php#PRODUCT_DEVICE" ><span class="v"> PRODUCT_DEVICE </span>  <span class="f"> build/target/product/full </span></a></li>

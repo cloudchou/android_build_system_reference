@@ -14,19 +14,26 @@
 <div class="file">
 <h3>build/core/pdk_config.mk</h3>
 <p>
-This&nbsp;file&nbsp;defines&nbsp;the&nbsp;rule&nbsp;to&nbsp;fuse&nbsp;the&nbsp;platform.zip&nbsp;into&nbsp;the&nbsp;current&nbsp;PDK&nbsp;build<br/>
-&nbsp;&nbsp;What&nbsp;to&nbsp;build:<br/>
-&nbsp;&nbsp;pdk&nbsp;fusion&nbsp;if:<br/>
-&nbsp;&nbsp;1)&nbsp;PDK_FUSION_PLATFORM_ZIP&nbsp;is&nbsp;passed&nbsp;in&nbsp;from&nbsp;the&nbsp;environment<br/>
-&nbsp;&nbsp;or<br/>
-&nbsp;&nbsp;2)&nbsp;the&nbsp;platform.zip&nbsp;exists&nbsp;in&nbsp;the&nbsp;default&nbsp;location<br/>
-&nbsp;&nbsp;or<br/>
-&nbsp;&nbsp;3)&nbsp;fusion&nbsp;is&nbsp;a&nbsp;command&nbsp;line&nbsp;build&nbsp;goal,<br/>
-&nbsp;&nbsp;PDK_FUSION_PLATFORM_ZIP&nbsp;is&nbsp;needed&nbsp;anyway,&nbsp;then&nbsp;do&nbsp;we&nbsp;need&nbsp;the&nbsp;'fusion'&nbsp;goal?<br/>
-&nbsp;&nbsp;otherwise&nbsp;pdk&nbsp;only&nbsp;if:<br/>
-&nbsp;&nbsp;1)&nbsp;pdk&nbsp;is&nbsp;a&nbsp;command&nbsp;line&nbsp;build&nbsp;goal<br/>
-&nbsp;&nbsp;or<br/>
-&nbsp;&nbsp;2)&nbsp;TARGET_BUILD_PDK&nbsp;is&nbsp;passed&nbsp;in&nbsp;from&nbsp;the&nbsp;environment<br/>
+定义了生成platform.zip的规则&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;This&nbsp;file&nbsp;defines&nbsp;the&nbsp;rule&nbsp;to&nbsp;fuse&nbsp;the&nbsp;platform.zip&nbsp;into&nbsp;the&nbsp;current&nbsp;PDK&nbsp;build<br/>
+&nbsp;What&nbsp;to&nbsp;build:<br/>
+&nbsp;pdk&nbsp;fusion&nbsp;if:<br/>
+&nbsp;1)&nbsp;PDK_FUSION_PLATFORM_ZIP&nbsp;is&nbsp;passed&nbsp;in&nbsp;from&nbsp;the&nbsp;environment<br/>
+&nbsp;or<br/>
+&nbsp;2)&nbsp;the&nbsp;platform.zip&nbsp;exists&nbsp;in&nbsp;the&nbsp;default&nbsp;location<br/>
+&nbsp;or<br/>
+&nbsp;3)&nbsp;fusion&nbsp;is&nbsp;a&nbsp;command&nbsp;line&nbsp;build&nbsp;goal,<br/>
+PDK_FUSION_PLATFORM_ZIP&nbsp;is&nbsp;needed&nbsp;anyway,&nbsp;then&nbsp;do&nbsp;we&nbsp;need&nbsp;the&nbsp;'fusion'&nbsp;goal?<br/>
+&nbsp;otherwise&nbsp;pdk&nbsp;only&nbsp;if:<br/>
+&nbsp;1)&nbsp;pdk&nbsp;is&nbsp;a&nbsp;command&nbsp;line&nbsp;build&nbsp;goal<br/>
+&nbsp;or<br/>
+&nbsp;2)&nbsp;TARGET_BUILD_PDK&nbsp;is&nbsp;passed&nbsp;in&nbsp;from&nbsp;the&nbsp;environment&nbsp;&nbsp;&nbsp;<br/>
+</p>
+</div>
+<div class="build_target">
+<h3><a id="pdk_fusion">Target:&nbsp;&nbsp;pdk_fusion</a></h3>
+<p>
+生成platform.zip&nbsp;&nbsp;<br/>
 </p>
 </div>
 <div class="variable">

@@ -14,9 +14,8 @@
 <div class="file">
 <h3>build/core/combo/HOST_darwin-x86.mk</h3>
 <p>
-Configuration&nbsp;for&nbsp;Darwin&nbsp;(Mac&nbsp;OS&nbsp;X)&nbsp;on&nbsp;x86.<br/>
-Included&nbsp;by&nbsp;combo/select.mk<br/>
-在苹果机上的编译配置<br/>
+在x86&nbsp;苹果系统上的编译配置<br/>
+被combo/select.mk包含<br/>
 </p>
 </div>
 <div class="variable">

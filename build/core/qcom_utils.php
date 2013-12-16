@@ -21,18 +21,29 @@ Board&nbsp;platforms&nbsp;lists&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;TARGET_B
 <h3><a id="QCOM_BOARD_PLATFORMS">QCOM_BOARD_PLATFORMS</a></h3>
 <p>
 高通的板子<br/>
+QCOM_BOARD_PLATFORMS&nbsp;:=&nbsp;msm7x27<br/>
+&nbsp;&nbsp;QCOM_BOARD_PLATFORMS&nbsp;+=&nbsp;msm7x27a<br/>
+&nbsp;&nbsp;QCOM_BOARD_PLATFORMS&nbsp;+=&nbsp;msm7x30<br/>
+&nbsp;&nbsp;QCOM_BOARD_PLATFORMS&nbsp;+=&nbsp;msm8660<br/>
+&nbsp;&nbsp;QCOM_BOARD_PLATFORMS&nbsp;+=&nbsp;msm8960<br/>
+&nbsp;&nbsp;QCOM_BOARD_PLATFORMS&nbsp;+=&nbsp;msm8974<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="MSM7K_BOARD_PLATFORMS">MSM7K_BOARD_PLATFORMS</a></h3>
 <p>
 mtk的板子<br/>
+MSM7K_BOARD_PLATFORMS&nbsp;:=&nbsp;msm7x30<br/>
+&nbsp;&nbsp;MSM7K_BOARD_PLATFORMS&nbsp;+=&nbsp;msm7x27<br/>
+&nbsp;&nbsp;MSM7K_BOARD_PLATFORMS&nbsp;+=&nbsp;msm7x27a<br/>
+&nbsp;&nbsp;MSM7K_BOARD_PLATFORMS&nbsp;+=&nbsp;msm7k<br/>
 </p>
 </div>
 <div class="variable">
 <h3><a id="QSD8K_BOARD_PLATFORMS">QSD8K_BOARD_PLATFORMS</a></h3>
 <p>
 qsd的板子<br/>
+QSD8K_BOARD_PLATFORMS&nbsp;:=&nbsp;qsd8k<br/>
 </p>
 </div>
 <div class="function">
@@ -41,7 +52,7 @@ qsd的板子<br/>
 $(call&nbsp;match-word,w1,w2)<br/>
 checks&nbsp;if&nbsp;w1&nbsp;==&nbsp;w2<br/>
 How&nbsp;it&nbsp;works<br/>
-&nbsp;&nbsp;if&nbsp;(w1-w2&nbsp;not&nbsp;empty&nbsp;or&nbsp;w2-w1&nbsp;not&nbsp;empty)&nbsp;then&nbsp;not_match&nbsp;else&nbsp;match<br/>
+&nbsp;&nbsp;if&nbsp;(w1-w2&nbsp;not&nbsp;empty&nbsp;or&nbsp;w2-w1&nbsp;not&nbsp;empty)&nbsp;then&nbsp;not_match&nbsp;else&nbsp;match&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 returns&nbsp;true&nbsp;or&nbsp;empty<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(warning&nbsp;:$(1):&nbsp;:$(2):&nbsp;:$(subst&nbsp;$(1),,$(2)):)&nbsp;\<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(warning&nbsp;:$(2):&nbsp;:$(1):&nbsp;:$(subst&nbsp;$(2),,$(1)):)&nbsp;\<br/>
@@ -51,7 +62,7 @@ returns&nbsp;true&nbsp;or&nbsp;empty<br/>
 <h3><a id="find-word-in-list">Function:&nbsp;&nbsp;find-word-in-list</a></h3>
 <p>
 $(call&nbsp;find-word-in-list,w,wlist)<br/>
-finds&nbsp;an&nbsp;exact&nbsp;match&nbsp;of&nbsp;word&nbsp;w&nbsp;in&nbsp;word&nbsp;list&nbsp;wlist<br/>
+finds&nbsp;an&nbsp;exact&nbsp;match&nbsp;of&nbsp;word&nbsp;w&nbsp;in&nbsp;word&nbsp;list&nbsp;wlist&nbsp;<br/>
 How&nbsp;it&nbsp;works<br/>
 &nbsp;&nbsp;fill&nbsp;wlist&nbsp;spaces&nbsp;with&nbsp;colon<br/>
 &nbsp;&nbsp;wrap&nbsp;w&nbsp;with&nbsp;colon<br/>

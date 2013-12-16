@@ -14,8 +14,10 @@
 <div class="file">
 <h3>build/target/product/large_emu_hw.mk</h3>
 <p>
-This&nbsp;is&nbsp;a&nbsp;generic&nbsp;product&nbsp;for&nbsp;devices&nbsp;with&nbsp;large&nbsp;display&nbsp;but&nbsp;not&nbsp;specialized<br/>
-for&nbsp;a&nbsp;specific&nbsp;device.&nbsp;It&nbsp;includes&nbsp;the&nbsp;base&nbsp;Android&nbsp;platform.<br/>
+这是一个为设备设置的通用配置，并且有大屏幕，但是并没有针对某个设备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;它包含了Android&nbsp;platform.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;继承自：<br/>
+&nbsp;build/target/prodcut/core.mk<br/>
 </p>
 </div>
 <div class="variable">

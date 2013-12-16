@@ -16,7 +16,7 @@
 <p>
 仅仅include&nbsp;build/core/main.mk<br/>
 示例：<br/>
-&nbsp;&nbsp;&nbsp;./external/icu4c/stubdata/Android.mk:31:include&nbsp;$(LOCAL_PATH)/root.mk<br/>
+&nbsp;&nbsp;&nbsp;external/icu4c/stubdata/Android.mk:31:include&nbsp;$(LOCAL_PATH)/root.mk<br/>
 </p>
 </div>
 </div>

@@ -16,7 +16,7 @@
 <p>
 对应编译变量BUILD_RAW_EXECUTABLE<br/>
 编译为可执行文件，不经任何优化，使用objcopy生成<br/>
-示例：./external/grub/Android.mk:44:include&nbsp;$(BUILD_RAW_EXECUTABLE)<br/>
+示例：external/grub/Android.mk:44:include&nbsp;$(BUILD_RAW_EXECUTABLE)<br/>
 </p>
 </div>
 <div class="variable">

@@ -14,9 +14,8 @@
 <div class="file">
 <h3>build/core/combo/HOST_linux-x86.mk</h3>
 <p>
-Configuration&nbsp;for&nbsp;builds&nbsp;hosted&nbsp;on&nbsp;linux-x86.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Included&nbsp;by&nbsp;combo/select.mk<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在linux上的编译配置<br/>
+在linux&nbsp;x86上的编译配置<br/>
+被&nbsp;combo/select.mk里包含<br/>
 </p>
 </div>
 <div class="function">
