@@ -1518,7 +1518,6 @@
 <li><a href="/build/core/tasks/ide.php#source_paths" ><span class="v"> source_paths </span>  <span class="f"> build/core/tasks/ide </span></a></li>
 <li><a href="/build/core/tasks/ide.php#.classpath" ><span class="v"> .classpath </span>  <span class="f"> build/core/tasks/ide </span></a></li>
 <li><a href="/build/core/tasks/ide.php#ECLIPSE-lunch" ><span class="v"> ECLIPSE-lunch </span>  <span class="f"> build/core/tasks/ide </span></a></li>
-<li><a href="/build/core/tasks/kernel.php#__thisfile" ><span class="v"> __thisfile </span>  <span class="f"> build/core/tasks/kernel </span></a></li>
 <li><a href="/build/core/tasks/kernel.php#TARGET_AUTO_KDIR" ><span class="v"> TARGET_AUTO_KDIR </span>  <span class="f"> build/core/tasks/kernel </span></a></li>
 <li><a href="/build/core/tasks/kernel.php#TARGET_KERNEL_SOURCE" ><span class="v"> TARGET_KERNEL_SOURCE </span>  <span class="f"> build/core/tasks/kernel </span></a></li>
 <li><a href="/build/core/tasks/kernel.php#KERNEL_SRC" ><span class="v"> KERNEL_SRC </span>  <span class="f"> build/core/tasks/kernel </span></a></li>

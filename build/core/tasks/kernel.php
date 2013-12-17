@@ -11,13 +11,8 @@
 <?php require_once '../../../header.php';?> 
 <div id="content">
 
-<div class="">
-<h3><a id="">Target:&nbsp;&nbsp;</a></h3>
-<p>
-</p>
-</div>
-<div class="variable">
-<h3><a id="__thisfile">__thisfile</a></h3>
+<div class="file">
+<h3>build/core/tasks/kernel.mk</h3>
 <p>
 定义生成内核的规则<br/>
 </p>
