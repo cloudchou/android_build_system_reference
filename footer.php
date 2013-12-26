@@ -4,7 +4,7 @@
 </p>
 
 <div id="footer"> 
-	<a href="http://www.cloudchou.com">Copyright©软件架构师成长之路</a> | <span id="daycount"></span> 
+	<a href="http://www.cloudchou.com">Copyright©Cloud Chou</a> | <span id="daycount"></span> 
 	
 	<div style="display: none">
 		<script type="text/javascript">
