@@ -11,13 +11,8 @@
 <?php require_once '../../header.php';?> 
 <div id="content">
 
-<div class="">
-<h3><a id="">Target:&nbsp;&nbsp;</a></h3>
-<p>
-</p>
-</div>
-<div class="function">
-<h3><a id="__this_file">Function:&nbsp;&nbsp;__this_file</a></h3>
+<div class="file">
+<h3>build/core/dex_preopt.mk</h3>
 <p>
 针对boot的jar对dex代码进行前置优化<br/>
 Dexpreopt&nbsp;on&nbsp;the&nbsp;boot&nbsp;jars<br/>
