@@ -789,7 +789,6 @@
 <li><a href="/build/core/device.php#inherit-device" ><span class="v"> inherit-device </span>  <span class="f"> build/core/device </span></a></li>
 <li><a href="/build/core/device.php#import-devices" ><span class="v"> import-devices </span>  <span class="f"> build/core/device </span></a></li>
 <li><a href="/build/core/device.php#resolve-short-device-name" ><span class="v"> resolve-short-device-name </span>  <span class="f"> build/core/device </span></a></li>
-<li><a href="/build/core/dex_preopt.php#__this_file" ><span class="v"> __this_file </span>  <span class="f"> build/core/dex_preopt </span></a></li>
 <li><a href="/build/core/dex_preopt.php#DEXPREOPT_BOOT_JARS" ><span class="v"> DEXPREOPT_BOOT_JARS </span>  <span class="f"> build/core/dex_preopt </span></a></li>
 <li><a href="/build/core/dex_preopt.php#DEXPREOPT_BOOT_JARS_MODULES" ><span class="v"> DEXPREOPT_BOOT_JARS_MODULES </span>  <span class="f"> build/core/dex_preopt </span></a></li>
 <li><a href="/build/core/dex_preopt.php#DEXPREOPT_BUILD_DIR" ><span class="v"> DEXPREOPT_BUILD_DIR </span>  <span class="f"> build/core/dex_preopt </span></a></li>
