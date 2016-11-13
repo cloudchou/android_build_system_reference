@@ -295,6 +295,9 @@ function load(settings, root, child, container) {
 			$.each(response, createNode, [child]);
 			settings=$.extend({},settings,{add:child});
 	        $(container).treeview(settings);
+	    },
+	    error: function(jqXHR, textStatus, errorThrown ){
+	      console.log("status:"+textStatus+" error:"+errorThrown);
 	    }
 	}, settings.ajax));
 	/*
